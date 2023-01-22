@@ -1,4 +1,6 @@
 # This is sample.
 
-[test.md]
-[test]
+[test.md](test.md)
+
+[test](test)
+
