@@ -10,6 +10,7 @@
   * [Oracle](db/oracle/oracle.md)
 * Editor
   * [Atom](editor/atom.md)
+  * [Sublime Text 3](editor/sublime_text_3.md)
 * Browser
   * [Chrome](browser/chrome.md)
 * Android
