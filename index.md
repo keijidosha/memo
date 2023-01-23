@@ -8,6 +8,7 @@
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
   * [Oracle](db/oracle/oracle.md)
+* [HTML](html/html.md)
 * Editor
   * [Atom](editor/atom.md)
   * [Sublime Text 3](editor/sublime_text_3.md)
