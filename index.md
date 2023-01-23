@@ -6,4 +6,4 @@
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
   * [MySQL](mysql/mysql.md)
-
+    * [Mac に MariaDB をインストール](mysql/install_mariadb_on_mac.md)
