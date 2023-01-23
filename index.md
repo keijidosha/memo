@@ -29,6 +29,7 @@
   * [Xcode](ios/xcode.md)
     * [Xcode 5](ios/xcode5.md)
   * [デバッグ](ios/ios_debug.md)
+  * [証明書](ios/ios_cert.md)
 * Android
   * [Android 開発コマンド](android/android_dev_command.md)
   * [Android 連絡先(Contacts)](android/android_contacts.md)
