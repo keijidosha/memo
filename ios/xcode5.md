@@ -11,7 +11,7 @@
 * 実機を使って実行  
   実行する端末名が 2行表示される  
   上が iOS6.1、下が iOS7.0 の SDK を使ってビルドされるらしい。  
-  ![xcode menu](ios/images/xcode5_screenshot.png)
+  ![xcode menu](images/xcode5_screenshot.png)
 
 2013.10.30追記)
 この方法で試したところ、次の問題が発生。
