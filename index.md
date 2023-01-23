@@ -20,6 +20,8 @@
   * [VIM](editor/vim.md)
 * Browser
   * [Chrome](browser/chrome.md)
+* iOS
+  * [ユニバーサルスタティックライブラリ](ios/universal_library.md)
 * Android
   * [Android 開発コマンド](android/android_dev_command.md)
   * [Android 連絡先(Contacts)](android/android_contacts.md)
