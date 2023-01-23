@@ -11,6 +11,7 @@
 * Editor
   * [Atom](editor/atom.md)
   * [Sublime Text 3](editor/sublime_text_3.md)
+  * [VIM](editor/vim.md)
 * Browser
   * [Chrome](browser/chrome.md)
 * Android
