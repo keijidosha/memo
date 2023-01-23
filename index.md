@@ -10,6 +10,7 @@
   * [Oracle](db/oracle/oracle.md)
 * [HTML](html/html.md)
   * [CSS](html/css.md)
+  * [HTML5](html/html5.md)
 * Editor
   * [Atom](editor/atom.md)
   * [Sublime Text 3](editor/sublime_text_3.md)
