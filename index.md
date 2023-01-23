@@ -8,6 +8,8 @@
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
   * [Oracle](db/oracle/oracle.md)
+* Editor
+  * [Atom](editor/atom.md)
 * Browser
   * [Chrome](browser/chrome.md)
 * Android
