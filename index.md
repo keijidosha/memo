@@ -70,3 +70,4 @@
     * [nkf](linux/nkf.md)
     * [openssl](linux/openssl.md)
     * [Samba](linux/samba.md)
+    * [SSH, SCP](linux/ssh_scp.md)
