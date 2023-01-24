@@ -24,6 +24,7 @@
   * [数値](kotlin/kotlin_numeric.md)
   * [文字列](kotlin/kotlin_string.md)
   * [末尾再帰](kotlin/kotlin_tail_recursive.md)
+  * [演算子](kotlin/kotlin_operator.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
