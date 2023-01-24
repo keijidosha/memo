@@ -22,6 +22,7 @@
   * [制御構造](kotlin/kotlin_control_structure.md)
   * [型、変数](kotlin/kotlin_type_variable.md)
   * [数値](kotlin/kotlin_numeric.md)
+  * [文字列](kotlin/kotlin_string.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
