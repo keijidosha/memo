@@ -36,6 +36,7 @@
   * [HTTP](ruby/ruby_http.md)
   * [SFTP](ruby/ruby_sftp.md)
   * [SMTP](ruby/ruby_smtp.md)
+  * [pry](ruby/ruby_pry.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
