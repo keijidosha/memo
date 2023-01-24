@@ -20,6 +20,7 @@
   * [スコープ関数](kotlin/kotlin_scope_fucntion.md)
   * [並列処理](kotlin/kolin_parallel.md)
   * [制御構造](kotlin/kotlin_control_structure.md)
+  * [型、変数](kotlin/kotlin_type_variable.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
