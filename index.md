@@ -13,6 +13,7 @@
     * [設定](java/tomcat_config.md)
 * [Kotlin](kotlin/kotlin.md)
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
+  * [Java連携](kotlin/kotlin_java_link.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
