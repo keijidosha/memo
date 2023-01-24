@@ -15,6 +15,7 @@
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
   * [Kotlin Junit](kotlin/kotlin_junit.md)
+  * [クラス](kotlin/kotlin_class.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
