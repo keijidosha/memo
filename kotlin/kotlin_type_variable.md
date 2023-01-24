@@ -1,3 +1,5 @@
+# Kotlin: 型、変数
+
 ## 定数
 ```
 class Hoge {
