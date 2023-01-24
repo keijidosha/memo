@@ -23,6 +23,7 @@
   * [型、変数](kotlin/kotlin_type_variable.md)
   * [数値](kotlin/kotlin_numeric.md)
   * [文字列](kotlin/kotlin_string.md)
+  * [末尾再帰](kotlin/kotlin_tail_recursive.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
