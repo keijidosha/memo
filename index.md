@@ -66,3 +66,4 @@
     * [firewalld](linux/firewalld.md)
     * [grep](linux/grep.md)
     * [iptables](linux/iptables.md)
+    * [lsコマンド](linux/ls.md)
