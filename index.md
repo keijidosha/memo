@@ -67,3 +67,4 @@
     * [grep](linux/grep.md)
     * [iptables](linux/iptables.md)
     * [lsコマンド](linux/ls.md)
+    * [nkf](linux/nkf.md)
