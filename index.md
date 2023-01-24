@@ -31,6 +31,7 @@
 * [Ruby](ruby/ruby.md)
   * [%記法](ruby/ruby_percent_notation.md)
   * [MariaDB](ruby/ruby_mariadb.md)
+  * [SQLite3](ruby/ruby_sqlite3.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
