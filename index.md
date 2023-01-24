@@ -18,6 +18,7 @@
   * [クラス](kotlin/kotlin_class.md)
   * [コレクション](kotlin/kotlin_collection.md)
   * [スコープ関数](kotlin/kotlin_scope_fucntion.md)
+  * [並列処理](kotlin/kolin_parallel.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
