@@ -9,11 +9,12 @@
   * [NIO](java/java_nio.md)
   * [OS](java/java_os.md)
   * [Tomcat](java/tomcat.md)
-    * [Security](java/tomcat_security.md)
-    * [設定](java/tomcat_config.md)
+    * [Tomcat Security](java/tomcat_security.md)
+    * [Tomcat 設定](java/tomcat_config.md)
 * [Kotlin](kotlin/kotlin.md)
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
+  * [Kotlin Junit](kotlin/kotlin_junit.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
