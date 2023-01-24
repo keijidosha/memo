@@ -11,6 +11,7 @@
   * [Tomcat](java/tomcat.md)
     * [Security](java/tomcat_security.md)
     * [設定](java/tomcat_config.md)
+* [Kotlin](kotlin/kotlin.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * DB
