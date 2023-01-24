@@ -40,6 +40,7 @@
   * [rubyenv](ruby/rubyenv.md)
   * [rmv](ruby/ruby_rvm.md)
   * [クラス、メソッド、変数](ruby/ruby_class_method_variable.md)
+  * [制御構造・演算子](ruby/ruby_control_structure.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
