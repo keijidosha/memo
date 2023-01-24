@@ -23,6 +23,7 @@
 * [HTML](html/html.md)
   * [CSS](html/css.md)
   * [HTML5](html/html5.md)
+  * [JavaScript](html/javascript.md)
 * Editor
   * [Atom](editor/atom.md)
   * [Sublime Text 3](editor/sublime_text_3.md)
