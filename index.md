@@ -74,3 +74,4 @@
     * [sudo](linux/sudo.md)
     * [tcpdump](linux/tcpdump.md)
     * [touch](linux/touch.md)
+    * [ファイル操作](linux/operate_file.md)
