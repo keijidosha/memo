@@ -30,6 +30,7 @@
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * [Ruby](ruby/ruby.md)
   * [%記法](ruby/ruby_percent_notation.md)
+  * [MariaDB](ruby/ruby_mariadb.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
