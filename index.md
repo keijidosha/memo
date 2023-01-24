@@ -33,6 +33,7 @@
   * [MariaDB](ruby/ruby_mariadb.md)
   * [SQLite3](ruby/ruby_sqlite3.md)
   * [ファイル](ruby/ruby_file.md)
+  * [HTTP](ruby/ruby_http.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
