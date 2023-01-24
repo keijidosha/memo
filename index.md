@@ -28,6 +28,7 @@
   * [高階関数](kotlin/kotlin_higher_order_function.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
+* [Ruby](ruby/ruby.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
