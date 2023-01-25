@@ -45,6 +45,7 @@
   * [日付・時刻](ruby/ruby_datetime.md)
   * [正規表現](ruby/ruby_regex.md)
   * [Rails](ruby/rails/rails.md)
+    * [Controller](ruby/rails/rails_controller.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
