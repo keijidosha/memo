@@ -100,5 +100,6 @@
     * [tar](linux/tar.md)
   * [Mac](os/mac/mac.md)
     * [EL Capitan](os/mac/mac_elcapitan.md)
+    * [Maverick](os/mac/mac_maverick.md)
 * mail
   * [smtp-auth](mail/smtp-auth.md)
