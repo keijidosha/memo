@@ -103,5 +103,6 @@
     * [Maverick](os/mac/mac_maverick.md)
     * [Mountain Lion](os/mac/mac_mountain_lion.md)
     * [Sierra](os/mac/mac_sierra.md)
+  * [Windows](os/windows/windows.md)
 * mail
   * [smtp-auth](mail/smtp-auth.md)
