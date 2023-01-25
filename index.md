@@ -85,6 +85,7 @@
   * [Android UI](android/android_ui.md)
 * OS
   * [Linux](linux/linux.md)
+    * [bash](linux/bash.md)
     * [conntrack](linux/conntrack.md)
     * [curl](linux/curl.md)
     * [firewalld](linux/firewalld.md)
