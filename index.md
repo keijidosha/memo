@@ -98,5 +98,6 @@
     * [touch](linux/touch.md)
     * [ファイル操作](linux/operate_file.md)
     * [tar](linux/tar.md)
+  * [Mac](os/mac/mac.md)
 * mail
   * [smtp-auth](mail/smtp-auth.md)
