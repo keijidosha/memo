@@ -95,6 +95,7 @@
     * [nkf](linux/nkf.md)
     * [openssl](linux/openssl.md)
     * [Samba](linux/samba.md)
+    * [SoX](linux/sox.md)
     * [SSH, SCP](linux/ssh_scp.md)
     * [sudo](linux/sudo.md)
     * [tcpdump](linux/tcpdump.md)
