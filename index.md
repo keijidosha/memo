@@ -104,5 +104,7 @@
     * [Mountain Lion](os/mac/mac_mountain_lion.md)
     * [Sierra](os/mac/mac_sierra.md)
   * [Windows](os/windows/windows.md)
+    * Microsoft Office
+      * [Word](os/windows/ms_word.md)
 * mail
   * [smtp-auth](mail/smtp-auth.md)
