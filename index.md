@@ -101,5 +101,6 @@
   * [Mac](os/mac/mac.md)
     * [EL Capitan](os/mac/mac_elcapitan.md)
     * [Maverick](os/mac/mac_maverick.md)
+    * [Mountain Lion](os/mac/mac_mountain_lion.md)
 * mail
   * [smtp-auth](mail/smtp-auth.md)
