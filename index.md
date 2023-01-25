@@ -50,6 +50,7 @@
     * [tutorial](ruby/rails/rails_tutorial.md)
     * [view](ruby/rails/rails_view.md)
     * [設定](ruby/rails/rails_settings.md)
+* [PHP](php/php.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
