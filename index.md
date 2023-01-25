@@ -52,6 +52,7 @@
     * [設定](ruby/rails/rails_settings.md)
 * [PHP](php/php.md)
 * プログラミング
+  * [文字列](programming/string.md)
   * [プロセス、スレッド](programming/process_thread.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
