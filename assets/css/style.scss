@@ -1,9 +1,8 @@
 ---
 ---
+@import "{{ site.theme }}";
 section {
   width:1200px;
   float:right;
   padding-bottom:50px;
 }
-
-@import "{{ site.theme }}";
