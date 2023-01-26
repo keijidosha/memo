@@ -1,3 +1,4 @@
-theme: modernist
+remote_theme: pages-themes/leap-day@v0.2.0
 plugins:
-  - jekyll-sitemap
+  - jekyll-remote-theme
+
