@@ -94,6 +94,7 @@
     * [CentOS 7](linux/centos7.md)
     * [bash](linux/bash.md)
     * [conntrack](linux/conntrack.md)
+    * [cron](linux/cron.md)
     * [curl](linux/curl.md)
     * [firewalld](linux/firewalld.md)
     * [grep](linux/grep.md)
