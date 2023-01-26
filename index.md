@@ -78,7 +78,8 @@
   * [Chrome](browser/chrome.md)
 * VM
   * [VirtualBox](vm/virtualbox.md)
-* iOS
+* <details><summary>iOS</summary>
+
   * [ユニバーサルスタティックライブラリ](ios/universal_library.md)
   * [crash log](ios/crash_log.md)
   * [iOS7対応](ios/ios7.md)
@@ -87,7 +88,7 @@
   * [Xcode](ios/xcode.md)
     * [Xcode 5](ios/xcode5.md)
   * [デバッグ](ios/ios_debug.md)
-  * [証明書](ios/ios_cert.md)
+  * [証明書](ios/ios_cert.md)</details>
 * Android
   * [Android 開発コマンド](android/android_dev_command.md)
   * [Android 連絡先(Contacts)](android/android_contacts.md)
@@ -111,11 +112,12 @@
     * [touch](linux/touch.md)
     * [ファイル操作](linux/operate_file.md)
     * [tar](linux/tar.md)
-  * [Mac](os/mac/mac.md)
+  * <details><summary><a href="os/mac/mac.md">Mac</a></summary>
+
     * [EL Capitan](os/mac/mac_elcapitan.md)
     * [Maverick](os/mac/mac_maverick.md)
     * [Mountain Lion](os/mac/mac_mountain_lion.md)
-    * [Sierra](os/mac/mac_sierra.md)
+    * [Sierra](os/mac/mac_sierra.md)</details>
   * [Windows](os/windows/windows.md)
     * Microsoft Office
       * [Word](os/windows/ms_word.md)
