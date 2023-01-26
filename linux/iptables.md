@@ -60,3 +60,4 @@ iptables -A INPUT -p tcp -m state –syn –state NEW –dport 22 -i eth0 -s 1.2
 sudo vi /etc/modprobe.d/iptables.conf  
 (/etc/modprobe.d ディレクトリに作成するファイル名は何でも良い)  
 `options ipt_recent ip_pkt_list_tot=100`
+
