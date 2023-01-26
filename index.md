@@ -108,6 +108,7 @@
     * [ファイル操作](linux/operate_file.md)
     * [tar](linux/tar.md)
   * [Mac](os/mac/mac.md)
+    * [brew](os/mac/brew.md)
     * [EL Capitan](os/mac/mac_elcapitan.md)
     * [Maverick](os/mac/mac_maverick.md)
     * [Mountain Lion](os/mac/mac_mountain_lion.md)
