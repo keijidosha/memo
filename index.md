@@ -30,7 +30,8 @@
   * [高階関数](kotlin/kotlin_higher_order_function.md)</details>
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
-* [Ruby](ruby/ruby.md)
+* <details><summary><a href="ruby/ruby.md">Ruby</a></summary>
+
   * [%記法](ruby/ruby_percent_notation.md)
   * [MariaDB](ruby/ruby_mariadb.md)
   * [SQLite3](ruby/ruby_sqlite3.md)
@@ -46,12 +47,13 @@
   * [文字列](ruby/ruby_string.md)
   * [日付・時刻](ruby/ruby_datetime.md)
   * [正規表現](ruby/ruby_regex.md)
-  * [Rails](ruby/rails/rails.md)
+  * <details><summary><a href="ruby/rails/rails.md">Rails</a></summary>
+
     * [Controller](ruby/rails/rails_controller.md)
     * [model/ActiveRecord](ruby/rails/rails_model_activarecord.md)
     * [tutorial](ruby/rails/rails_tutorial.md)
     * [view](ruby/rails/rails_view.md)
-    * [設定](ruby/rails/rails_settings.md)
+    * [設定](ruby/rails/rails_settings.md)</details></details>
 * [PHP](php/php.md)
 * プログラミング
   * [文字列](programming/string.md)
