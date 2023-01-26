@@ -8,9 +8,10 @@
   * [Mac](java/java_mac.md)
   * [NIO](java/java_nio.md)
   * [OS](java/java_os.md)
-  * [Tomcat](java/tomcat.md)
+  * <details><summary><a href="java/tomcat.md">Tomcat</a></summary>
+
     * [Tomcat Security](java/tomcat_security.md)
-    * [Tomcat 設定](java/tomcat_config.md)
+    * [Tomcat 設定](java/tomcat_config.md)</details>
 * [Kotlin](kotlin/kotlin.md)
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
