@@ -8,12 +8,10 @@
   * [Mac](java/java_mac.md)
   * [NIO](java/java_nio.md)
   * [OS](java/java_os.md)
-  * <details><summary><a href="java/tomcat.md">Tomcat</a></summary>
-
+  * [Tomcat](java/tomcat.md)
     * [Tomcat Security](java/tomcat_security.md)
-    * [Tomcat 設定](java/tomcat_config.md)</details>
-* <details><summary><a href="kotlin/kotlin.md">Kotlin</a></summary>
-
+    * [Tomcat 設定](java/tomcat_config.md)
+* [Kotlin](kotlin/kotlin.md)
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
   * [Kotlin Junit](kotlin/kotlin_junit.md)
@@ -27,11 +25,10 @@
   * [文字列](kotlin/kotlin_string.md)
   * [末尾再帰](kotlin/kotlin_tail_recursive.md)
   * [演算子](kotlin/kotlin_operator.md)
-  * [高階関数](kotlin/kotlin_higher_order_function.md)</details>
+  * [高階関数](kotlin/kotlin_higher_order_function.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
-* <details><summary><a href="ruby/ruby.md">Ruby</a></summary>
-
+* [Ruby](ruby/ruby.md)
   * [%記法](ruby/ruby_percent_notation.md)
   * [MariaDB](ruby/ruby_mariadb.md)
   * [SQLite3](ruby/ruby_sqlite3.md)
@@ -47,13 +44,12 @@
   * [文字列](ruby/ruby_string.md)
   * [日付・時刻](ruby/ruby_datetime.md)
   * [正規表現](ruby/ruby_regex.md)
-  * <details><summary><a href="ruby/rails/rails.md">Rails</a></summary>
-
+  * [Rails](ruby/rails/rails.md)
     * [Controller](ruby/rails/rails_controller.md)
     * [model/ActiveRecord](ruby/rails/rails_model_activarecord.md)
     * [tutorial](ruby/rails/rails_tutorial.md)
     * [view](ruby/rails/rails_view.md)
-    * [設定](ruby/rails/rails_settings.md)</details></details>
+    * [設定](ruby/rails/rails_settings.md)
 * [PHP](php/php.md)
 * プログラミング
   * [文字列](programming/string.md)
@@ -78,8 +74,7 @@
   * [Chrome](browser/chrome.md)
 * VM
   * [VirtualBox](vm/virtualbox.md)
-* <details><summary>iOS</summary>
-
+* iOS
   * [ユニバーサルスタティックライブラリ](ios/universal_library.md)
   * [crash log](ios/crash_log.md)
   * [iOS7対応](ios/ios7.md)
@@ -88,7 +83,7 @@
   * [Xcode](ios/xcode.md)
     * [Xcode 5](ios/xcode5.md)
   * [デバッグ](ios/ios_debug.md)
-  * [証明書](ios/ios_cert.md)</details>
+  * [証明書](ios/ios_cert.md)
 * Android
   * [Android 開発コマンド](android/android_dev_command.md)
   * [Android 連絡先(Contacts)](android/android_contacts.md)
@@ -112,12 +107,11 @@
     * [touch](linux/touch.md)
     * [ファイル操作](linux/operate_file.md)
     * [tar](linux/tar.md)
-  * <details><summary><a href="os/mac/mac.md">Mac</a></summary>
-
+  * [Mac](os/mac/mac.md)
     * [EL Capitan](os/mac/mac_elcapitan.md)
     * [Maverick](os/mac/mac_maverick.md)
     * [Mountain Lion](os/mac/mac_mountain_lion.md)
-    * [Sierra](os/mac/mac_sierra.md)</details>
+    * [Sierra](os/mac/mac_sierra.md)
   * [Windows](os/windows/windows.md)
     * Microsoft Office
       * [Word](os/windows/ms_word.md)
