@@ -12,7 +12,8 @@
 
     * [Tomcat Security](java/tomcat_security.md)
     * [Tomcat 設定](java/tomcat_config.md)</details>
-* [Kotlin](kotlin/kotlin.md)
+* <details open><summary><a href="kotlin/kotlin.md">Kotlin</a></summary>
+
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
   * [Kotlin Junit](kotlin/kotlin_junit.md)
@@ -26,7 +27,7 @@
   * [文字列](kotlin/kotlin_string.md)
   * [末尾再帰](kotlin/kotlin_tail_recursive.md)
   * [演算子](kotlin/kotlin_operator.md)
-  * [高階関数](kotlin/kotlin_higher_order_function.md)
+  * [高階関数](kotlin/kotlin_higher_order_function.md)</details>
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
 * [Ruby](ruby/ruby.md)
