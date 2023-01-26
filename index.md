@@ -11,11 +11,6 @@
   * [Tomcat](java/tomcat.md)
     * [Tomcat Security](java/tomcat_security.md)
     * [Tomcat 設定](java/tomcat_config.md)
-  * <details><summary><a href="java/tomcat.md">Tomcat</a></summary>
-
-    * [Tomcat Security](java/tomcat_security.md)
-    * [Tomcat 設定](java/tomcat_config.md)
-    </details>
 * [Kotlin](kotlin/kotlin.md)
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
@@ -126,3 +121,10 @@
   * [PJSIP](sip/pjsip.md)
 * ツール
   * [Wireshark](tools/wireshark.md)
+
+* <details><summary><a href="java/tomcat.md">Tomcat</a>(おりたたみ確認用)</summary>
+
+  * [Tomcat Security](java/tomcat_security.md)
+  * [Tomcat 設定](java/tomcat_config.md)
+    </details>
+
