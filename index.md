@@ -96,6 +96,7 @@
     * [conntrack](linux/conntrack.md)
     * [cron](linux/cron.md)
     * [curl](linux/curl.md)
+    * [diff](linux/diff.md)
     * [firewalld](linux/firewalld.md)
     * [grep](linux/grep.md)
     * [iptables](linux/iptables.md)
