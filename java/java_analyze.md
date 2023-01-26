@@ -74,7 +74,7 @@ jcmd <プロセスID|メインクラス名> help
 
 #### ヒープダンプに残っている文字列をカウントして多い順にソート
 
-* strings -a java_pidxxx.hprof | sort | uniq -c | sort -nr | less
+* strings -a java_pidxxx.hprof \| sort \| uniq -c \| sort -nr \| less
 
 (参考) http://blog.cybozu.io/entry/2015/12/01/110000
 
