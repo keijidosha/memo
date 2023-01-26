@@ -85,7 +85,7 @@ jcmd <プロセスID|メインクラス名> help
 <tr><td>(2)</td><td colspan=4 align="center">64MB</td></tr>
 <tr><td>(3)</td><td colspan=3 align="center">1</td><td>2</td></tr>
 <tr><td>(4)</td><td colspan=3 align="center">20MB</td></tr>
-<tr><td>(5)</td><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr>
+<tr><td>(5)</td><td align="center">8</td><td align="center">1</td><td align="center">1</td></tr>
 </table>
 
 (1) 新しいオブジェクトは Eden に割り当てられる。その後 S0 と S1 を行ったり来たりして参照が残っている(解放されなかった)場合は Old に移動される。
