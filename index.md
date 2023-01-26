@@ -12,7 +12,7 @@
 
     * [Tomcat Security](java/tomcat_security.md)
     * [Tomcat 設定](java/tomcat_config.md)</details>
-* <details open><summary><a href="kotlin/kotlin.md">Kotlin</a></summary>
+* <details><summary><a href="kotlin/kotlin.md">Kotlin</a></summary>
 
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
