@@ -61,3 +61,6 @@ sudo vi /etc/modprobe.d/iptables.conf
 (/etc/modprobe.d ディレクトリに作成するファイル名は何でも良い)  
 `options ipt_recent ip_pkt_list_tot=100`
 
+### その他
+
+  # その他の定義
