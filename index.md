@@ -74,24 +74,12 @@
   * [Chrome](browser/chrome.md)
 * VM
   * [VirtualBox](vm/virtualbox.md)
-* iOS
-  * [ユニバーサルスタティックライブラリ](ios/universal_library.md)
-  * [crash log](ios/crash_log.md)
-  * [iOS7対応](ios/ios7.md)
-  * [スニペット](ios/snippets.md)
-  * [UI](ios/ui.md)
-  * [Xcode](ios/xcode.md)
-    * [Xcode 5](ios/xcode5.md)
-  * [デバッグ](ios/ios_debug.md)
-  * [証明書](ios/ios_cert.md)
-* Android
-  * [Android 開発コマンド](android/android_dev_command.md)
-  * [Android 連絡先(Contacts)](android/android_contacts.md)
-  * [Android UI](android/android_ui.md)
 * OS
   * [Linux](linux/linux.md)
-    * [CentOS 6](linux/centos6.md)
-    * [CentOS 7](linux/centos7.md)
+    * CentOS
+      * [CentOS 6](linux/centos6.md)
+      * [CentOS 7](linux/centos7.md)
+      * [dnf](linux/dnf.md)
     * [bash](linux/bash.md)
     * [conntrack](linux/conntrack.md)
     * [cron](linux/cron.md)
@@ -120,6 +108,20 @@
   * [Windows](os/windows/windows.md)
     * Microsoft Office
       * [Word](os/windows/ms_word.md)
+* iOS
+  * [ユニバーサルスタティックライブラリ](ios/universal_library.md)
+  * [crash log](ios/crash_log.md)
+  * [iOS7対応](ios/ios7.md)
+  * [スニペット](ios/snippets.md)
+  * [UI](ios/ui.md)
+  * [Xcode](ios/xcode.md)
+    * [Xcode 5](ios/xcode5.md)
+  * [デバッグ](ios/ios_debug.md)
+  * [証明書](ios/ios_cert.md)
+* Android
+  * [Android 開発コマンド](android/android_dev_command.md)
+  * [Android 連絡先(Contacts)](android/android_contacts.md)
+  * [Android UI](android/android_ui.md)
 * mail
   * [smtp-auth](mail/smtp-auth.md)
 * SIP
