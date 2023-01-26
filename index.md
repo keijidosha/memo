@@ -119,6 +119,8 @@
   * [smtp-auth](mail/smtp-auth.md)
 * SIP
   * [PJSIP](sip/pjsip.md)
+* Cloud
+  * [AWS](cloud/aws.md)
 * ツール
   * [Wireshark](tools/wireshark.md)
 * その他
