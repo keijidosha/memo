@@ -90,6 +90,7 @@
   * [Android UI](android/android_ui.md)
 * OS
   * [Linux](linux/linux.md)
+    * [CentOS 6](linux/centos6.md)
     * [bash](linux/bash.md)
     * [conntrack](linux/conntrack.md)
     * [curl](linux/curl.md)
