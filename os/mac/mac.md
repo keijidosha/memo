@@ -1,7 +1,5 @@
 # Mac
 
-
-
 ## Spotlight
 * 拡張子での絞り込みは「ファイル名:*.txt」
 * FreeMind ファイル検索時は「種類:ディベロッパ」
@@ -213,6 +211,12 @@ Lepard 以前では使えない可能性あり
 `smbutil view //[domain;][userid[:password]@:host_or_ip`  
 (例)  
 `smbutil view //user:pass@192.168.1.1`
+
+### SSH
+
+* 秘密鍵のパスフレーズがキーチェーンに保存されない  
+次のコマンドを実行して、パスフレーズを入力する。  
+`ssh-add --apple-use-keychain <秘密鍵のパス>`
 
 ## Timemachine
 
