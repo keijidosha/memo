@@ -1,0 +1,112 @@
+# git
+
+## 使い方
+* コミット間での差分比較  
+`git diff <比較元ハッシュ値>..<比較先ハッシュ値> [比較ファイル]`
+
+## サーバでGitリポジトリ作成
+### サーバ側
+* リポジトリ用ディレクトリを作成  
+`mkdir -p ~/git/repos/hogeproject`  
+`cd ~/git/repos/hogeproject`
+* リポジトリ用に初期化  
+`git --bare init --shared`
+* Mac の共有設定で、リモートログインを有効にする  
+
+### クライアント側
+* SourceTree の "新規リポジトリ" で "URLからクローン" を選択する。  
+SourceTree から接続する時に指定するURL  
+`ssh://user@127.0.0.1/Users/hoge/git/repos/hogeproject`
+
+あとは接続時に指定したローカルディレクトリにファイルを置いていって、コミット、プッシュする
+
+#### ブランチ
+
+* ブランチの一覧を表示  
+  * ローカルブランチの一覧  
+    `git branch`
+  * リモートも含めたブランチの一覧  
+    `git branch -a`
+* ブランチを切り替え  
+`git checkout <ブランチ名>`
+* ブランチ名を変更  
+`git branch -m <旧ブランチ名> <新ブランチ名>`
+
+
+## 環境設定
+### Mac に git リポジトリを作成し、SourceTree から接続する
+
+```
+# リポジトリ用ディレクトリを作成
+mkdir -p ~/git/repos/hogeproject
+cd ~/git/repos/hogeproject
+# リポジトリ用に初期化
+git --bare init --shared
+# Mac の共有設定で、リモートログインを有効にする
+SourceTree の "新規リポジトリ" で "URLからクローン" を選択する。
+# SourceTree から接続する時に指定するURL
+ssh://user@127.0.0.1/Users/hoge/git/repos/hogeproject
+あとは接続時に指定したローカルディレクトリにファイルを置いていって、コミット、プッシュする
+```
+Mac で SSH 接続を許可するため、[システム環境設定] - [共有] - [リモートログイン] を許可しておく。
+
+### Mac で秘密鍵を使って SSH で github に接続する
+
+1. ~/.ssh/config に次の設定を追記
+   ```
+   AddKeysToAgent yes
+   UseKeychain yes
+   
+   Host github.com
+       user <githubアカウント>
+       IdentityFile <秘密鍵のパス>
+   ```
+1. SSH秘密鍵のパスフレーズをキーチェーンに登録  
+   `ssh-add --apple-use-keychain <秘密鍵のパス>`  
+   => パスフレーズをきかれるので入力
+
+## トラブルシューティング
+### 削除
+* ファイル削除  
+  ```
+  git rm hoge.txt
+  ```
+* ローカルにファイルを残したまま管理対象から除外  
+  ```
+  git rm --cached hoge.txt
+  ```
+* ディレクトリ削除  
+  ```
+  git rm -r examples
+  ```
+
+### ブランチ
+* ブランチをし忘れてソースを編集してしまった  
+コミット前であれば、-b で編集中のソースを残したまま、ブランチを作成してチェックアウトできる  
+  ```
+  git checkout -b <新規ブランチ名>
+  ```
+  (参考) [ブランチを作り忘れた時](https://qiita.com/k6i/items/edc69a806095e4fc489c)
+* リモートブランチが表示されない(チェックアウトできない)  
+`git branch -a` しても、リモートにあるブランチが表示されない。  
+`git remote show origin` を実行して、ブランチの状態を表示。  
+次のように表示される。  
+  ```
+  <ブランチ名>    new (next fetch will store in remotes/origin)
+  ```
+  そこで `git fetch --all` を実行して、最新の情報を取得する。
+
+### タグ
+* pushするとエラーになり、「hint: Updates were rejected because the tag already exists in the remote.」というメッセージが出力される。    
+ターミナルから次のコマンドを実行。  
+  ```
+  git pull --tags
+  ```
+
+### コミット
+* プッシュする前のコミットをなかったことによる  
+=> ブランチ内での HEAD を指定したコミットに移動する  
+  ```
+  git reset --hard <コミットID>
+  ```  
+(参考) [プッシュ前のローカルのコミットを取り消す方法](https://qiita.com/toohsk/items/d32a5820ca1a5eefc231)
