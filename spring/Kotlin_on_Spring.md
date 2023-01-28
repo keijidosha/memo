@@ -91,6 +91,33 @@ model["comments"] = repository.findAll()
 import org.springframework.ui.set
 ```
 
+#### @RequiredArgsConstructor対応(Lombok)
+
+Java で Lombok を使ってコンストラクターインジェクションを自動生成させているケース。  
+(例) 次のように書くと
+```
+@RequiredArgsConstructor
+public class Hoge {
+	private final Fuga fuga;
+}
+```
+裏で次のようなパラメーターありのコンスクトラクターを生成してくれる。
+```
+public class Hoge {
+	private final Fuga fuga;
+
+	// ⬇︎自動生成
+	public Hoge(Fuga fuga) {
+		this.fuga = fuga;
+	}
+}
+```
+これを Kotlin ではプライマリーコンストラクターとして定義できる。
+```
+class Hoge(val fuga: Fuga) {
+}
+```
+
 ### Trouble Shooting
 #### data class のコンストラクターに指定したパラメーターが @OneToMany、@ManyToOne で Entity を相互参照していると、無限ループで Stack Overflow が発生する。
 Department.kt
