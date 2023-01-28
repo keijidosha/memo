@@ -115,7 +115,7 @@ public class Hoge {
 ```
 これを Kotlin ではプライマリーコンストラクターとして定義できる。
 ```
-class Hoge(val fuga: Fuga) {
+class Hoge(private val fuga: Fuga) {
 }
 ```
 
