@@ -9,6 +9,7 @@ Table of Contents
     * [モデルにPKなど自動採番するフィールドがあり、データ追加時に次のようにコンストラクタにパラメータ指定できない場合](#モデルにpkなど自動採番するフィールドがありデータ追加時に次のようにコンストラクタにパラメータ指定できない場合)
     * [Model.addAttribute() を map への代入のように書く。](#modeladdattribute-を-map-への代入のように書く)
     * [@RequiredArgsConstructor対応(Lombok)](#requiredargsconstructor対応lombok)
+    * [@Slf4j対応(Lombok)](#slf4j対応lombok)
 * [Trouble Shooting](#trouble-shooting)
     * [data class のコンストラクターに指定したパラメーターが @OneToMany、@ManyToOne で Entity を相互参照していると、無限ループで Stack Overflow が発生する。](#data-class-のコンストラクターに指定したパラメーターが-onetomanymanytoone-で-entity-を相互参照していると無限ループで-stack-overflow-が発生する)
 
@@ -118,6 +119,17 @@ public class Hoge {
 class Hoge(private val fuga: Fuga) {
 }
 ```
+
+#### @Slf4j対応(Lombok)
+
+Kotlin では @Slf4j が機能しない。そこで companion objct で定義する。
+
+```kotlin
+companion object {
+    private val log = LoggerFactory.getLogger(Hoge::class.java)
+}
+```
+
 
 ### Trouble Shooting
 #### data class のコンストラクターに指定したパラメーターが @OneToMany、@ManyToOne で Entity を相互参照していると、無限ループで Stack Overflow が発生する。
