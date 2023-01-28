@@ -24,6 +24,16 @@
 * @NumberFormat
 * @DateTimeFormat
 
+## Bean
+
+* @Scope
+  * singleton(デフォルト)
+  * prototype
+  * request または @RequestScope
+  * session または @SessionScope
+  * application または ApplicationScope
+  * websocket
+
 ## JPA
 
 * @GeneratedValue
