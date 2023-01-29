@@ -1,6 +1,6 @@
 # remote_theme: pages-themes/dinky@v0.2.0
 plugins:
-  - jekyll-last-modified-at
   - jekyll-sitemap
 #   - jekyll-remote-theme
+#  - jekyll-last-modified-at
 
