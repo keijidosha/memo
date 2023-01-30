@@ -28,6 +28,8 @@
   * [高階関数](kotlin/kotlin_higher_order_function.md)
 * Spring
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
+* Go
+  * [Go Essential](golang/go_essential.md)
 * [Ruby](ruby/ruby.md)
   * [%記法](ruby/ruby_percent_notation.md)
   * [MariaDB](ruby/ruby_mariadb.md)
