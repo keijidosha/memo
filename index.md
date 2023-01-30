@@ -90,6 +90,7 @@
     * [curl](linux/curl.md)
     * [diff](linux/diff.md)
     * [firewalld](linux/firewalld.md)
+    * [find](linux/find.md)
     * [grep](linux/grep.md)
     * [iptables](linux/iptables.md)
     * [lsコマンド](linux/ls.md)
