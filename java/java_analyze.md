@@ -70,13 +70,13 @@ jcmd <プロセスID|メインクラス名> help
 * jmap -dump:format=b,file=<出力パス> -F <プロセスID>  
 (例) jmap -dump:format=b,file=/tmp/heap.dump -F 1001  
 -F は強制出力。-F を付けないとヒープダンプが取得できないことが多いが、-F なしで取得できるなら付けなくて良い。
-* http://www.eclipse.org/mat/ から Memory Analyzer (MAT) をダウンロードして読み込ませる。
+* [https://www.eclipse.org/mat/](https://www.eclipse.org/mat/) から Memory Analyzer (MAT) をダウンロードして読み込ませる。
 
 #### ヒープダンプに残っている文字列をカウントして多い順にソート
 
 * strings -a java_pidxxx.hprof \| sort \| uniq -c \| sort -nr \| less
 
-(参考) http://blog.cybozu.io/entry/2015/12/01/110000
+(参考) [サイボウズエンジニアのブログ - Java トラブルシューティングガイド](http://blog.cybozu.io/entry/2015/12/01/110000)
 
 #### ヒープ構成とコマンドライン指定
 
@@ -99,5 +99,5 @@ jcmd <プロセスID|メインクラス名> help
 
 (5) -XX:SurvivorRatio=8: Eden : S0 : S1 の比率が 8:1:1 になるよう割り当てる
 
-(参考) http://equj65.net/tech/java8hotspot/
+(参考) [Java8のHotSpotVMからPermanent領域が消えた理由とその影響](http://equj65.net/tech/java8hotspot/)
 
