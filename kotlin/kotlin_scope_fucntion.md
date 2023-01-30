@@ -1,6 +1,7 @@
 ## 概要
+
 |関数名|渡し方|参照|戻り値|例(val str = "hoge")|
-|-|-|-|-|-|
+|---|---|---|---|---|
 |apply|関数|this|this|val strApply = str?.apply{ println( toUpperCase()) }|
 |run|関数|this|結果の値|val upperStr = str?.run{ toUppserCase() }|
 |let|関数|it|結果の値|val upperStr = str?.let{ **it**.toUppserCase() }|
