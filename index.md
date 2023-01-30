@@ -135,8 +135,8 @@
   * [AWS](cloud/aws.md)
 * ツール
   * [Wireshark](tools/wireshark.md)
-* その他
-  * [AsciiDoc](docfmt/asciidoc.md)
+* ドキュメント作成
+  * [AsciiDoc](docs/asciidoc.md)
 
 
 * <details><summary><a href="java/tomcat.md">Tomcat</a>(おりたたみ確認用)</summary>
