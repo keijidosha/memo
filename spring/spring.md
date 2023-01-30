@@ -41,3 +41,11 @@
 * @OneToMany
 * @ManyToOne
 * @JoinColumn
+
+## AOP
+
+* @Before
+* @After
+* @Around
+* @AfterReturning
+* @AfterThrowing
