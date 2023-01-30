@@ -159,29 +159,29 @@ writeロック中は read も write も実行できない
 ## タイマー
 
 * 初回待ち時間と繰り返し間隔を指定して実行
-```
-import kotlin.concurrent.*
-
-fun main( args: Array<String> ) {
-   var cnt = 0
-
-  val timer2  = timer( daemon = true, initialDelay = 1000, period = 500 ) {
-    println( "Hello" )
-    cnt += 1
-    if( cnt == 5 ) {
-      cancel()
+  ```
+  import kotlin.concurrent.*
+  
+  fun main( args: Array<String> ) {
+     var cnt = 0
+  
+    val timer2  = timer( daemon = true, initialDelay = 1000, period = 500 ) {
+      println( "Hello" )
+      cnt += 1
+      if( cnt == 5 ) {
+        cancel()
+      }
     }
-  }
-
-  for( ii in 1..100 ) {
-    Thread.sleep( 100 )
-    if( cnt == 5 ) {
-      timer2.cancel()
-      break
+  
+    for( ii in 1..100 ) {
+      Thread.sleep( 100 )
+      if( cnt == 5 ) {
+        timer2.cancel()
+        break
+      }
     }
+  
   }
-
-}
-```
+  ```
 
 
