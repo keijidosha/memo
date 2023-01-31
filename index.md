@@ -11,6 +11,8 @@
   * [Tomcat](java/tomcat.md)
     * [Tomcat Security](java/tomcat_security.md)
     * [Tomcat 設定](java/tomcat_config.md)
+  * ビルド
+    * [Gradle](java/build/gradle.md)
 * [Kotlin](kotlin/kotlin.md)
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
