@@ -20,6 +20,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 ## ショートカット
 
 ### 移動系
+
 |動作|キー操作|
 |---|-------|
 |指定した行番号にジャンプ|command + L|
@@ -32,6 +33,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |最後の編集位置に移動|command + shift + backspace|
 
 #### カーソル移動
+
 |動作|キー操作|
 |---|-------|
 |右|control + F|
@@ -42,6 +44,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |下|control + N|
 
 #### マーク系
+
 |動作|キー操作|
 |---|-------|
 |行に番号をマークする|control + shift + 1〜9|
@@ -50,6 +53,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |ブックマーク一覧を表示|command + F3|
 
 ### 表示系
+
 |動作|キー操作|
 |---|-------|
 |変数の型を表示(マウス操作)|commandキーを押しながらマウスポインターを変数の場所に合わせる|
@@ -63,6 +67,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |最近編集したファイルの一覧を表示|Command + Shift + E|
 
 ### コード編集系
+
 |動作|キー操作|
 |---|-------|
 |行コメント|command + /|
@@ -73,6 +78,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |if, while, when などを入力して {} を自動追加|command + shift + Enter|
 
 ### テキスト編集系
+
 |動作|キー操作|
 |---|-------|
 |行頭まで削除|command + backspace|
@@ -90,6 +96,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |カーソル位置の単語を選択|control + G|
 
 ### 検索系
+
 |動作|キー操作|
 |---|-------|
 |カーソル位置の単語を選択|control + G|
@@ -99,6 +106,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |前を検索|command + shift + G, またはカーソル上|
 
 ### その他
+
 |動作|キー操作|
 |---|-------|
 |リファクタリングメニュー表示|control + T|
