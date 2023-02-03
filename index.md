@@ -1,6 +1,7 @@
 # This is my memo.
 
 * [Java](java/java.md)
+  * [文字列](java/java_string.md)
   * [Java11](java/java11.md)
   * [Ant](java/ant.md)
   * [Concurrent](java/concurrent.md)
