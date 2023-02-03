@@ -98,6 +98,7 @@
   * [VirtualBox](vm/virtualbox.md)
 * OS
   * [Linux](linux/linux.md)
+  * [Linux part2](linux/linux_2.md)
     * CentOS
       * [CentOS 6](linux/centos6.md)
       * [CentOS 7](linux/centos7.md)
