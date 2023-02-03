@@ -24,6 +24,7 @@
   * [クラス](kotlin/kotlin_class.md)
   * [コレクション](kotlin/kotlin_collection.md)
   * [スコープ関数](kotlin/kotlin_scope_fucntion.md)
+  * [ファンクション](kotlin/kotlin_function.md)
   * [並列処理](kotlin/kotlin_parallel.md)
   * [制御構造](kotlin/kotlin_control_structure.md)
   * [型、変数](kotlin/kotlin_type_variable.md)
