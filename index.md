@@ -32,6 +32,7 @@
   * [末尾再帰](kotlin/kotlin_tail_recursive.md)
   * [演算子](kotlin/kotlin_operator.md)
   * [高階関数](kotlin/kotlin_higher_order_function.md)
+  * [Coroutines](kotlin/kotlin_coroutines.md)
   * [Jooby Kotlin](kotlin/jooby_Kotlin.md)
   * バージョン
     * [1.2](kotlin/kotlin_1.2.md)
