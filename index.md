@@ -30,6 +30,7 @@
   * [型、変数](kotlin/kotlin_type_variable.md)
   * [数値](kotlin/kotlin_numeric.md)
   * [文字列](kotlin/kotlin_string.md)
+  * [拡張関数](kotlin/kotlin_extension_functions.md)
   * [末尾再帰](kotlin/kotlin_tail_recursive.md)
   * [演算子](kotlin/kotlin_operator.md)
   * [高階関数](kotlin/kotlin_higher_order_function.md)
