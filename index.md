@@ -112,6 +112,7 @@
     * [find](linux/find.md)
     * [grep](linux/grep.md)
     * [iptables](linux/iptables.md)
+    * [ln(リンク)](linux/ln.md)
     * [lsコマンド](linux/ls.md)
     * [nkf](linux/nkf.md)
     * [openssl](linux/openssl.md)
