@@ -2,7 +2,7 @@
 
 * [Java](java/java.md)
   * [文字列](java/java_string.md)
-  * [Java・Kotlin: 日付・時刻](java/java_kotlin_datetime.md)
+  * [日付・時刻](java/java_kotlin_datetime.md)
   * [Java11](java/java11.md)
   * [Ant](java/ant.md)
   * [Concurrent](java/concurrent.md)
