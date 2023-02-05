@@ -5,7 +5,7 @@
 ### forEachLine
 
 * 1行ずつ読み込み、ブロックが実行される
-  ```
+  ```kotlin
   FileReader( "hoge.txt" ).reader.forEachLine{
       println( it )
   }
@@ -14,7 +14,7 @@
 ### readLines
 
 * 各行をリストで返す
-  ```
+  ```kotlin
   val lines = FileReader( "hoge.txt" ).readLines()
   for( str in lines ){ println( str ) }
   ```
@@ -67,7 +67,7 @@ use を使わないと、InputStream が close されないままになってし
 * outputStream
 * reader  
 Reader を取得  
-  ```
+  ```kotlin
   File( "hoge.txt" ).reader().use() {
       val sb = StringBuilder()
       val buf = CharArray(64)
@@ -79,7 +79,7 @@ Reader を取得
   }
   ```
 * Reader拡張 + use() から return して直接結果を変数に代入する  
-  ```
+  ```kotlin
   val html = URL("http://host/").openStream().reader().use() {
       return@use it.readText()
   }
@@ -87,7 +87,7 @@ Reader を取得
   ```
 * bufferedReader  
 BufferedReader を取得  
-  ```
+  ```kotlin
   File( "hoge.txt" ).bufferedReader().use() { reader ->
    var str = reader.readLine()
    while( str != null ) {
@@ -144,7 +144,7 @@ true: 上書き、false: すでにファイルがあると kotlin.io.FileAlready
 * useLines
 * isRooted  
 パスがルートディレクトリからのパスを表しているか  
-  ```
+  ```kotlin
   File("/hoge/fuga.txt").isRooted    // true
   File("../fuga.txt").isRooted    // false
   ```
@@ -166,7 +166,7 @@ FileTreeWalk に対して maxDepth(1) を指定すると、直下(1階層)だけ
 * 拡張子で並び替える  
 `File( "/tmp" ).walk().filter{ it.isFile() }.sortedBy{ it.extension }.forEach{ println( it ) }`
 * sortedWith を使って(Comparator を渡して)拡張子で並び替える
-  ```
+  ```kotlin
   import java.util.*
   
   File( "/tmp" ).walk().filter{ it.isFile() }.sortedWith( Comparator{ a, b -> a.extension.compareTo( b.extension ) } ).forEach{ println( it ) }
@@ -174,9 +174,11 @@ FileTreeWalk に対して maxDepth(1) を指定すると、直下(1階層)だけ
 * ブロックに記述した方法でグループ化する。  
   例えば拡張子でグループ化する。  
   forEach には Map.Entry が渡される  
-  `File( "/tmp" ).walk().groupBy{ it.extension }.forEach{ println( "${it.key}:" ); it.value.forEach{ println( "  ${it.absolutePath}" )} }`  
-  (結果)  
+  ```kotlin
+  File( "/tmp" ).walk().groupBy{ it.extension }.forEach{ println( "${it.key}:" ); it.value.forEach{ println( "  ${it.absolutePath}" )} }
   ```
+  (結果)  
+  ```kotlin
   class:
      hoge.class
      hogee.class
@@ -195,14 +197,14 @@ FileTreeWalk に対して maxDepth(1) を指定すると、直下(1階層)だけ
 
 * createTempDir  
 一時ディレクトリを作成  
-  ```
+  ```kotlin
   val tmpDir = createTempDir( "hoge" )
   println( tmpDir.absoluteName )
   tmpDir.delete()
   ```
 * createTempFile  
 一時ファイルを作成  
-  ```
+  ```kotlin
   val tmpFile = createTempFile( "hoge.txt" )
   println( tmpFile.absoluteName )
   tmpFile.delete()
@@ -211,9 +213,9 @@ FileTreeWalk に対して maxDepth(1) を指定すると、直下(1階層)だけ
 ## その他
 
 * Kotlin で System.in を使う(標準入力を拾う)  
-in は for で使われる予約語 in と被っているため、バッククォートで囲む必要がある  
-(例) 標準入力から取得した文字列から空でない行を表示する(標準出力に渡す)  
-  ```
+  in は for で使われる予約語 in と被っているため、バッククォートで囲む必要がある  
+  (例) 標準入力から取得した文字列から空でない行を表示する(標準出力に渡す)  
+  ```kotlin
   if( System.`in`.available() > 0 ) {
       System.`in`.bufferedReader().use {
           do {
