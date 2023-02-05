@@ -1,5 +1,17 @@
 # Gradle
 
+## 設定記述
+* MANIFEST.MF に属性追加
+  ```
+  jar {
+    manifest {
+      attributes "Implementation-Version": "1.0"
+    }
+  }
+  ```
+
+## コマンド
+
 * タスク一覧表示  
 gradle tasks
 * 実行  
