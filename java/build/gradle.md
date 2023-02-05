@@ -1,6 +1,6 @@
 # Gradle
 
-## 設定記述
+## 設定
 * MANIFEST.MF に属性追加
   ```
   jar {
