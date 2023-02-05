@@ -1,6 +1,6 @@
 
 Spring Securiy 5.3 以前のコード例
-```
+```java
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 これを Spring security 6.0 用に書き換える。
-```
+```java
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
