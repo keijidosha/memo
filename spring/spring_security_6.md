@@ -122,3 +122,5 @@ public UserDetailsService userDetailsService() {
     return new InMemoryUserDetailsManager(user, admin);
 }
 ```
+password() のパラメーターには、BCrypt でハッシュ化されたパスワードを指定。  
+"$" はバックスラッシュでエスケープしておくことが必要。
