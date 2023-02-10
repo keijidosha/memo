@@ -286,3 +286,15 @@ fun hoge(): String {
 ```
     return str ?: ""
 ```
+
+### Java ソースから static フィールドとして参照可能な変数を Kotlin で定義する
+companion object に @JvmStatic を使ってフィールドを定義する。
+```
+class Hoge {
+    companion object {
+        @JvmStatic val fuga = "Fuga"
+    }
+}
+
+```
+Java から Hoge.fuga として参照できるようになる。
