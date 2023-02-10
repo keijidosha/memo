@@ -19,7 +19,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 #### コンストラクタ・インジェクション
 普通にプライマリ・コンストラクタに必要なクラスをパラメータ指定すればよさそう。  
 @Component を指定しておくと、自動的に AutoWired してくれる?
-```
+```kotlin
 import org.springframework.stereotype.Component
 
 @Component
@@ -32,7 +32,7 @@ class HogeComponent(val repository: HogeRepository) {
 コンストラクタのパラメーターにアノテーションを指定する場合は、フィールドに対するアノテーションであることを示すため @field を使う。  
 Nullable であることを示すため、型指定に ? を付ける。  
 => Nullable でないと「NullPointerException: Parameter specified as non-null is null」というエラーがスローされる。
-```
+```kotlin
 data class Person(
     @field: NotBlank
     @field: Size(max = 16)
@@ -44,14 +44,14 @@ data class Person(
 
 #### モデルにPKなど自動採番するフィールドがあり、データ追加時に次のようにコンストラクタにパラメータ指定できない場合
 
-```
+```kotlin
 var person = Person()
 person.name = "太郎"
 repository.save(person)
 ```
 
 (案1) プライマリコンストラクタには普通にフィールドを宣言し、引数なしのセカンダリコンストラクタを用意してプライマリコンストラクタに null を渡す。
-```
+```kotlin
 @Entity
 data class Person(
     @field: Id
@@ -65,8 +65,10 @@ data class Person(
 }
 ```
 
-(案2) data class をあきらめ、普通のクラスを用意する。
-```
+(案2) data class をあきらめ、普通のクラスを用意する。  
+※コンストラクターのパラメーターとしてではなく、フィールドとして定義する場合、val ではなく var 宣言しないとうまくいかない模様。  
+(ブラウザーから入力した内容がコントローラーのメソッド引数に引き継がれない??)
+```kotlin
 @Entity
 class Person {
     @Id
@@ -81,15 +83,15 @@ class Person {
 
 #### Model.addAttribute() を map への代入のように書く。
 Java で次のように書くところを
-```
+```java
 model.addAttribute("Persons", repository.findAll());
 ```
 Kotlin で次のように書くには
-```
+```kotlin
 model["comments"] = repository.findAll()
 ```
 次のインポート文を追加する。
-```
+```kotlin
 import org.springframework.ui.set
 ```
 
@@ -97,14 +99,14 @@ import org.springframework.ui.set
 
 Java で Lombok を使ってコンストラクターインジェクションを自動生成させているケース。  
 (例) 次のように書くと
-```
+```kotlin
 @RequiredArgsConstructor
 public class Hoge {
 	private final Fuga fuga;
 }
 ```
 裏で次のようなパラメーターありのコンスクトラクターを生成してくれる。
-```
+```kotlin
 public class Hoge {
 	private final Fuga fuga;
 
@@ -134,7 +136,7 @@ companion object {
 ### Trouble Shooting
 #### data class のコンストラクターに指定したパラメーターが @OneToMany、@ManyToOne で Entity を相互参照していると、無限ループで Stack Overflow が発生する。
 Department.kt
-```
+```kotlin
 @Entity
 data class Department(
     @field: Id
