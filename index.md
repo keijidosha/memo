@@ -68,6 +68,8 @@
     * [view](ruby/rails/rails_view.md)
     * [設定](ruby/rails/rails_settings.md)
 * [PHP](php/php.md)
+* Elixir
+  * [Phoenix](elixir/phoenix.md)
 * プログラミング
   * [文字列](programming/string.md)
   * [日付・時刻](programming/date_time.md)
