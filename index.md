@@ -172,6 +172,7 @@
   * [AsciiDoc](docs/asciidoc.md)
   * [FreeMind](docs/freemind.md)
   * [Markdown of Git](docs/markdown_of_git.md)
+  * [plantuml](docs/plantuml.md)
 
 
 * <details><summary><a href="java/tomcat.md">Tomcat</a>(おりたたみ確認用)</summary>
