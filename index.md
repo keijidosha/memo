@@ -132,6 +132,7 @@
     * [RPM](linux/rpm.md)
     * [rsync](linux/rsync.md)
     * [Samba](linux/samba.md)
+    * [snmp](linux/snmp.md)
     * [SoX](linux/sox.md)
     * [SSH, SCP](linux/ssh_scp.md)
     * [sudo](linux/sudo.md)
