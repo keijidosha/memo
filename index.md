@@ -172,6 +172,7 @@
   * [Android UI](android/android_ui.md)
 * mail
   * [smtp-auth](mail/smtp-auth.md)
+  * [Thunderbird](mail/thunderbird.md)
 * SIP
   * [PJSIP](sip/pjsip.md)
 * Cloud
