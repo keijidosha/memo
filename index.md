@@ -95,6 +95,7 @@
   * [Chrome](browser/chrome.md)
 * Container
   * [Docker](container/docker.md)
+  * [LXC/LXD](container/lxc_lxd.md)
 * VM
   * [VirtualBox](vm/virtualbox.md)
 * OS
