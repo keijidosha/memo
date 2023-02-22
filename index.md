@@ -105,6 +105,7 @@
       * [CentOS 6](linux/centos6.md)
       * [CentOS 7](linux/centos7.md)
       * [dnf](linux/dnf.md)
+    * [Oracle Linux 8.x](linux/oracle_linux_8.md)
     * [bash](linux/bash.md)
     * [conntrack](linux/conntrack.md)
     * [cron](linux/cron.md)
