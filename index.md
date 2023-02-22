@@ -128,6 +128,7 @@
     * [nkf](linux/nkf.md)
     * [openssl](linux/openssl.md)
     * [pv(Pipe Viewer)](linux/pv.md)
+    * [RPM](linux/rpm.md)
     * [Samba](linux/samba.md)
     * [SoX](linux/sox.md)
     * [SSH, SCP](linux/ssh_scp.md)
