@@ -33,3 +33,24 @@
     1. \<AttachedDevice> 〜 \</AttachedDevice> をコメントアウトする
     1. ゲストを追加する
     1. ゲストの設定画面を開き、「ストレージ」で「既存のディスクを追加」を選択して、ファイルを選択する
+
+## VBoxManage コマンド
+* ゲストOSを画面なしで起動  
+`VBoxManage startvm "GuestName" --type headless`
+* 実行中のゲストOS一覧を表示  
+`VBoxManage list runningvms`
+* ゲストOSの詳細情報を表示  
+`VBoxManage showvminfo "GuestName"`
+* ゲストOSの一覧を表示  
+`VBoxManage list vms`
+* 利用可能な OS の一覧を表示  
+`VBoxManage list ostypes`
+
+## Mac関連
+* ゲストの MacOS に GuestAddition をインストールした後、高解像度に設定する。  
+(例) 1920 x 1200 に設定する場合  
+  ```
+  VBoxManage setextradata "MacOSMountainLion" "VBoxInternal2/EfiHorizontalResolution" 1920
+  VBoxManage setextradata "MacOSMountainLion" "VBoxInternal2/EfiVerticalResolution" 1200
+  VBoxManage setextradata "MacOSMountainLion" "VboxInternal2/EfiGraphicsResolution" "1920x1200"
+  ```
