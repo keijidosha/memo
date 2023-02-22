@@ -45,6 +45,7 @@
   * [Go Essential](golang/go_essential.md)
   * [文字列](golang/go_string.md)
   * [日付・時刻](golang/go_datetime.md)
+* [Rust](rust/rust_essential.md)
 * [Ruby](ruby/ruby.md)
   * [%記法](ruby/ruby_percent_notation.md)
   * [MariaDB](ruby/ruby_mariadb.md)
