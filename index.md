@@ -139,6 +139,7 @@
     * [SSH, SCP](linux/ssh_scp.md)
     * [sudo](linux/sudo.md)
     * [tar](linux/tar.md)
+    * [tc](linux/tc.md)
     * [tcpdump](linux/tcpdump.md)
     * [touch](linux/touch.md)
     * [ファイル操作](linux/operate_file.md)
