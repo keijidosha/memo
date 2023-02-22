@@ -166,6 +166,7 @@
 * ドキュメント作成
   * [AsciiDoc](docs/asciidoc.md)
   * [FreeMind](docs/freemind.md)
+  * [Markdown of Git](docs/markdown_of_git.md)
 
 
 * <details><summary><a href="java/tomcat.md">Tomcat</a>(おりたたみ確認用)</summary>
