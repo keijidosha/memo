@@ -191,6 +191,14 @@ Apache 上で実行している場合、/etc/php5/apache2/php.ini に記述さ�
   ```
   ==> "00:30:00"
 
+### JSON
+
+標準入力から受け取った JSON を pretty print  
+```bash
+curl http://host/api/json | php -r 'echo json_encode(json_decode(fgets(STDIN)), JSON_PRETTY_PRINT);'
+```
+
+
 ### 環境
 
 * WEBから(HTTPリクエストで)起動されたか、コマンドラインから起動されたかを判定
@@ -203,6 +211,23 @@ Apache 上で実行している場合、/etc/php5/apache2/php.ini に記述さ�
     $result_data = file_get_contents( "php://stdin" );
   }
   ```
+* コマンドラインからの OPCacheクリアサンプル
+  ```
+  #!/bin/bash
+  WEBDIR=/var/www/html/
+  RANDOM_NAME=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13)
+  echo "<?php opcache_reset(); ?>" > ${WEBDIR}${RANDOM_NAME}.php
+  curl http://localhost/${RANDOM_NAME}.php
+  rm ${WEBDIR}${RANDOM_NAME}.php
+  ```
+  (引用) [http://phpweb.hostnet.com.br/manual/ja/function.opcache-reset.php](http://phpweb.hostnet.com.br/manual/ja/function.opcache-reset.php)
+* CentOS6 に PHP 5.6 をインストール
+  ```
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+  sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+  sudo yum install --enablerepo=remi,remi-php56 php php-devel php-mbstring php-pdo php-gd php-xml php-mcrypt php-mysqlnd
+  ```
+
 
 ### その他
 
