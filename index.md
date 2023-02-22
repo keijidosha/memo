@@ -99,7 +99,7 @@
   * [VirtualBox](vm/virtualbox.md)
 * OS
   * [Linux](linux/linux.md)
-  * [Linux part2](linux/linux_2.md)
+    * [Linux part2](linux/linux_2.md)
     * CentOS
       * [CentOS 6](linux/centos6.md)
       * [CentOS 7](linux/centos7.md)
@@ -116,6 +116,7 @@
     * [ln(リンク)](linux/ln.md)
     * [lsコマンド](linux/ls.md)
     * [lsof](linux/lsof.md)
+    * [LVM](linux/lvm.md)
     * [nkf](linux/nkf.md)
     * [openssl](linux/openssl.md)
     * [Samba](linux/samba.md)
