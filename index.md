@@ -105,6 +105,7 @@
   * [LXC/LXD](container/lxc_lxd.md)
 * VM
   * [VirtualBox](vm/virtualbox.md)
+  * [vagrant](vm/vagrant.md)
 * OS
   * [Linux](linux/linux.md)
     * [Linux part2](linux/linux_2.md)
