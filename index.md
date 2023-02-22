@@ -118,6 +118,7 @@
     * [lsコマンド](linux/ls.md)
     * [lsof](linux/lsof.md)
     * [LVM](linux/lvm.md)
+    * [mount](linux/mount.md)
     * [nkf](linux/nkf.md)
     * [openssl](linux/openssl.md)
     * [Samba](linux/samba.md)
