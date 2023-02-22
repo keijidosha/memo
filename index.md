@@ -79,6 +79,7 @@
 * ソース管理
   * [git](vcs/git.md)
     * [SourceTree](vcs/sourcetree.md)
+  * [svn](vcs/svn.md)
 * DB
   * [MySQL](db/mysql/mysql.md)
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
