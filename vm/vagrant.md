@@ -1,0 +1,103 @@
+# vagrant
+
+## ゲストOS構築
+1. mkdir ~/vagrant
+1. cd ~/vagrant
+1. mkdir centos7
+1. cd centos7
+1. vagrant init bento/centos-7.2
+1. 必要に応じて Vagrantfile 編集
+1. vagrant up
+1. vagrant ssh
+
+bento で利用可能な CentOS を確認  
+https://app.vagrantup.com/bento
+
+## Vagrantfile の書き方
+- ブリッジネットアダプタを設定する
+  - en0 にブリッジする  
+`config.vm.network :public_network, :bridge => "en0: Ethernet"`
+  - 固定IPアドレスを割り当てる  
+`config.vm.network :public_network, :bridge => "en0: Ethernet", :ip => "192.168.1.20"`
+- ホストオンリーアダプタを設定する
+  - ホストオンリーアダプタに固定IPを設定する  
+`config.vm.network "private_network", ip: "192.168.56.31"`
+  - ホストオンリーアダプタに MACアドレスを指定する  
+`config.vm.network :private_network, virtualbox__intnet: "test_net", :mac => "010203040506"`
+- メモリー割り当てを設定する  
+    ```
+    config.vm.provider "virtualbox" do |v|
+      v.memory = "2048"
+    end
+    ```
+- メモリー割り当てとCPU使用率制限を設定する  
+    ```
+    config.vm.provider "virtualbox" do |v|
+      v.customize ["modifyvm", :id, "--cpuexecutioncap", "75", "--memory", "2048"]
+    end
+    ```
+- Linked Clone を指定する  
+    ```
+    config.vm.provider "virtualbox" do |v|
+      v.linked_clone = true
+    end
+    ```
+* よく使う Vagrantfile  
+  ```
+  Vagrant.configure("2") do |config|
+    config.vm.network :public_network, :bridge => "en0: Ethernet", :ip => "192.168.1.1"
+  
+    config.vm.provider "virtualbox" do |v|
+      v.linked_clone = true
+      v.memory = "1024"
+      v.cpus = 2
+    end
+  
+  end
+  ```
+
+## 設定
+### ディスクサイズ指定・拡張
+
+* プラグインインストール  
+`vagrant plugin install vagrant-disksize`
+* Vagrantfile に設定を追記  
+`config.disksize.size = '32GB'`
+
+(参考) [Vagrantfileに一行書くだけでVMのディスク容量を増やす方法](https://qiita.com/yut_h1979/items/c84c490053877beee5c1)
+
+## CentOS のタイムゾーンを Asia/Tokyo に設定
+Vagrant でインストールした CentOS は、タイムゾーンが UTC になっているので JST に変更
+
+- CentOS7  
+  sudo timedatectl set-timezone Asia/Tokyo
+- CentOS6  
+  sudo vim /etc/sysconfig/clock
+  ```
+  ZONE="Asia/Tokyo"
+  UTC=fales
+  ```
+  sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+- Ubuntu  
+  sudo timedatectl set-timezone Asia/Tokyo
+
+## スナップショット
+
+* スナップショットをとる  
+vagrant snapshort save <スナップショット名>
+* スナップショット一覧  
+vagrant snapshort list
+* スナップショットをとる  
+vagrant snapshort restore <スナップショット名>
+* スナップショットを削除  
+vagrant snapshort delete <スナップショット名>
+
+
+## ゲストOS削除
+`vagrant destroy`
+* Vagrantファイルのあるディレクトリで実行
+* VirtualBox の仮想イメージも削除される
+* Vagrant ファイルは残るので、再利用可能
+* 不要な場合は、ディレクトリごと削除する  
+cd ..  
+rm -rf hoge
