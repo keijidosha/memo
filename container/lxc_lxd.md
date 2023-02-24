@@ -869,6 +869,14 @@ LAN側から接続できるようにするための設定
   /sbin/ip link set eth1 promisc on
   ```
 * sudo chmod 755 /etc/rc.local
+* sudo vi /etc/networkd-dispatcher/routable.d/99-iptables  
+  コンテナからブリッジ(lxdbr0)経由で LAN(インターネット)に出れるようにするための設定
+  ```
+  #!/bin/sh
+  
+  /usr/sbin/iptables -P FORWARD ACCEPT
+  ```
+* chmod 755 /etc/networkd-dispatcher/routable.d/99-iptables
 * vi ~/.vimrc  
 日本語の文字化け対策
   ```
