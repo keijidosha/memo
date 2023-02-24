@@ -98,14 +98,15 @@
   * [Sublime Text 3](editor/sublime_text_3.md)
   * [VIM](editor/vim.md)
   * [IntelliJ IDEA](editor/intellij_idea.md)
-* Browser
-  * [Chrome](browser/chrome.md)
-* Container
-  * [Docker](container/docker.md)
-  * [LXC/LXD](container/lxc_lxd.md)
-* VM
-  * [VirtualBox](vm/virtualbox.md)
-  * [vagrant](vm/vagrant.md)
+* Infra
+  * Container
+    * [Docker](container/docker.md)
+    * [LXC/LXD](container/lxc_lxd.md)
+  * VM
+    * [VirtualBox](vm/virtualbox.md)
+    * [vagrant](vm/vagrant.md)
+  * Cloud
+    * [AWS](cloud/aws.md)
 * OS
   * [Linux](linux/linux.md)
     * [Linux part2](linux/linux_2.md)
@@ -177,8 +178,8 @@
   * [Thunderbird](mail/thunderbird.md)
 * SIP
   * [PJSIP](sip/pjsip.md)
-* Cloud
-  * [AWS](cloud/aws.md)
+* Browser
+  * [Chrome](browser/chrome.md)
 * ツール
   * [Wireshark](tools/wireshark.md)
 * ドキュメント作成
