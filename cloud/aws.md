@@ -35,3 +35,53 @@
   1. xfs のルートパーティションを拡張。  
     `sudo xfs_growfs -d /`  
 ※2回拡張すると、次は 6時間ほど拡張できなくなるようなので注意が必要。
+
+## S3
+### 特定のアカウントに対して、特定の PVC と IPアドレスからだけアクセスを許可する設定
+
+S3コンソールの「アクセス許可」- 「バケットポリシー」で次のように設定
+```
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1234567890123",
+    "Statement": [
+        {
+            "Sid": "AllowVpc20201015",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::123456789012:user/hoge"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bucket-hoge",
+                "arn:aws:s3:::bucket-hoge/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:sourceVpc": "vpc-12345678"
+                }
+            }
+        },
+        {
+            "Sid": "AllowIp20201015",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::123456789012:user/hoge"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bucket-hoge",
+                "arn:aws:s3:::bucket-hoge/*"
+            ],
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": [
+                        "1.2.3.4/32",
+                        "2.3.4.0/24"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
