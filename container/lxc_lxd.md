@@ -731,6 +731,25 @@ _have()
 ```
 (参考) [v1.3.6 installed via Homebrew on macOS causes Bash `_have` error #500](https://github.com/Backblaze/B2_Command_Line_Tool/issues/500#issuecomment-450400179)
 
+### LXC 5.0 でコンテナから lxdbr0 を通じてインターネットに出れない
+
+Ubuntu 22.04 では、フォワードチェーンがデフォルトで無効になっているため、有効にする。
+
+* sudo vi /etc/networkd-dispatcher/routable.d/99-iptables
+  ```
+  #!/bin/sh
+  
+  /usr/sbin/iptables -P FORWARD ACCEPT
+  ```
+* sudo chmod 755 /etc/networkd-dispatcher/routable.d/99-iptables
+
+(参考) [Linux Mint21にしたらLXDのネットワークが外部に繋がらなくなった話](https://zenn.dev/tantan_tanuki/articles/9a68acd97c58d8)
+
+(補足)  
+Ubuntu 20.04 あたりから /etc/network/if-up.d/ 配下のスクリプトが実行されなくなっている模様。  
+代わりに /etc/networkd-dispatcher/routable.d/ 配下にスクリプトファイルを置く。  
+(参考) [Ubuntu Server 20.04 で VXLAN を構成する](https://zenn.dev/microsoft/articles/ubuntu-2004-vxlan?redirected=1)
+
 ### LXC 5.0 で CentOS7 のコンテナを実行すると「The image used by this instance requires a CGroupV1 host system」や「Failed to get D-Bus connection」といったエラーが発生する  
 
 * 新規で CentOS7 のコンテナを作成した場合: The image used by this instance requires a CGroupV1 host system  
