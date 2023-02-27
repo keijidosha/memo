@@ -10,6 +10,7 @@
   }
   ```
 * Fat JAR 作成  
+  Gradle 7.2 で確認  
   * createjfatJar タスクを追加して Fat JAR をビルド  
     ```
     task createfatJar(type: Jar) {
