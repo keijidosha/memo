@@ -12,12 +12,12 @@ curl -k https://hostname/hoge.html
 curl -X PUT -sS http://192.168.1.1/webdav/hoge.txt --upload-file hoge.txt
 * POSTでアップロード  
 curl -X POST http://192.168.1.1/upload -F "file=@/tmp/hoge.txt"
-* HTTPヘッダをセットする  
-curl http://192.168.1.1/ -H "User-Agent: hoge"
 * Basic認証  
 curl \--basic \--user user:password http://192.168.1.1/index.html  
 または  
 curl -u user:password http://192.168.1.1/index.html  
+* HTTPヘッダをセットする  
+curl http://192.168.1.1/ -H "User-Agent: hoge"
 * HTTPヘッダーだけを表示  
 curl -I -http://192.168.1.1/index.html
 * HTTPヘッダーとボディの両方を表示  
