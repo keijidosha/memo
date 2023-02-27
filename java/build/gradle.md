@@ -14,10 +14,10 @@
   * createjfatJar タスクを追加して Fat JAR をビルド  
     ```
     task createfatJar(type: Jar) {
-        baseName = 'ashAdapterSim2'
+        baseName = 'Fuga'
         duplicatesStrategy 'exclude'
         manifest {
-            attributes 'Main-Class': 'jp.co.nextgen.ash.tester.ashadaptersim2.AshMain'
+            attributes 'Main-Class': 'com.example.Hoge'
         }
         archiveClassifier = "all"
         from {
@@ -33,7 +33,7 @@
     jar {
         duplicatesStrategy 'exclude'
         manifest {
-            attributes 'Main-Class': 'jp.co.nextgen.ash.tester.ashadaptersim2.AshMain'
+            attributes 'Main-Class': 'com.example.Hoge'
         }
         from {
             configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
