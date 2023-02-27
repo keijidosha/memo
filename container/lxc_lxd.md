@@ -777,6 +777,7 @@ LXC 5.0 ではデフォルトで CGroupV2 が使われるが、この現象を�
 
 * コンテナに特権を追加  
 `lxc config set <コンテナ名> security.privileged true`  
+コンテナのリスタートで反映  
 確認  
 `lxc config show <コンテナ名>`
 
