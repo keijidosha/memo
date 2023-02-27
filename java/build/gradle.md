@@ -1,6 +1,6 @@
 # Gradle
 
-## 設定
+## build.gradle 設定
 * MANIFEST.MF に属性追加
   ```
   jar {
@@ -9,6 +9,39 @@
     }
   }
   ```
+* Fat JAR 作成  
+  * createjfatJar タスクを追加して Fat JAR をビルド  
+    ```
+    task createfatJar(type: Jar) {
+        baseName = 'ashAdapterSim2'
+        duplicatesStrategy 'exclude'
+        manifest {
+            attributes 'Main-Class': 'jp.co.nextgen.ash.tester.ashadaptersim2.AshMain'
+        }
+        archiveClassifier = "all"
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+        with jar
+    }
+    ```  
+    * ビルド  
+      `./gradlew createfatJar`
+  * デフォルトの jar タスク定義を上書きして Fat JAR のビルド定義  
+    ```
+    jar {
+        duplicatesStrategy 'exclude'
+        manifest {
+            attributes 'Main-Class': 'jp.co.nextgen.ash.tester.ashadaptersim2.AshMain'
+        }
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+    ```
+    * ビルド  
+      `./gradlew jar`
+
 
 ## コマンド
 
