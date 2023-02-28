@@ -154,6 +154,7 @@
     * [tcpdump](linux/tcpdump.md)
     * [touch](linux/touch.md)
     * [tr](linux/tr.md)
+    * [xfs](linux/xfs.md)
     * [ネットワーク](linux/linux_network.md)
     * [ファイル操作](linux/operate_file.md)
     * [ファイルシステム](linux/linux_filesystem.md)
