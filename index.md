@@ -104,6 +104,7 @@
   * [VIM](editor/vim.md)
   * [Visual Studio Code](editor/vscode.md)
   * [IntelliJ IDEA](editor/intellij_idea.md)
+  * [Word for Mac ショートカット](editor/word_for_mac.md)
 * Infra
   * Container
     * [Docker](container/docker.md)
