@@ -406,6 +406,10 @@ lxc network list-leases lxdbr0
   MTU=
   DHCP_HOSTNAME=`hostname`
   ```
+  * eth0 と eth1 の両方で DHCP から IP を取得するように設定していて、eth0 から取得した DNS サーバーに接続したいが、resolv.conf が eth1 から取得した DNS サーバーで上書きされてしまう場合は、ifcfg-eth1 に次の行を追記して、eth1 から DNS 設定を取得しないようにする。
+    ```
+    PEERDNS=no
+    ```
 
 ## Tips
 
