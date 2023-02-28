@@ -74,6 +74,7 @@
 * プログラミング言語比較
   * [文字列](programming/string.md)
   * [日付・時刻](programming/date_time.md)
+  * [ファイル](programming/some_lang_codes_file.md)
   * [プロセス・スレッド](programming/process_thread.md)
   * [HTTPアクセス](programming/some_lang_codes_http.md)
   * [JSON](programming/some_lang_codes_json.md)
