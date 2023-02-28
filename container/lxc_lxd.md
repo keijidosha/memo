@@ -616,6 +616,9 @@ lxc network attach <ホスト側のプロミスキャスなNIC> <コンテナ名
 1. vi /etc/rc.local  
 次の行を追記  
 `dhclient eth0 eth1`  
+   * DHCP で DNS 設定を取得する前に nginx が起動するなどして、設定ファイルに指定したホスト名が解決できないような場合  
+     /usr/lib/systemd/system/nginx.service の After に rc-local.service を追記して、rc.local を実行してから nginx が起動するようにする。  
+     (例) `After=network.target remote-fs.target nss-lookup.target rc-local.service`
 1. 実行属性を追加  
 `chmod 755 /etc/rc.local`  
 実体が別にあれば実体の方を変更(シンボリックリンクされている場合)  
