@@ -102,6 +102,7 @@
   * [Atom](editor/atom.md)
   * [Sublime Text 3](editor/sublime_text_3.md)
   * [VIM](editor/vim.md)
+  * [Visual Studio Code](editor/vscode.md)
   * [IntelliJ IDEA](editor/intellij_idea.md)
 * Infra
   * Container
