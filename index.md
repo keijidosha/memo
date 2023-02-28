@@ -113,6 +113,7 @@
   * Cloud
     * [AWS](cloud/aws.md)
 * OS
+  * [ネットワークコマンド](os/network_command.md)
   * [Linux](linux/linux.md)
     * [Linux part2](linux/linux_2.md)
     * CentOS
