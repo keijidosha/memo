@@ -359,6 +359,8 @@ docker run -it --rm -v /vagrant:/vagrant --name ol8 oraclelinux:8.4 /bin/bash
 docker run -it --rm -v /vagrant:/vagrant --name rh8 registry.access.redhat.com/ubi8/ubi:8.4 /bin/bash
 * RHEL 8系最新  
 docker run -it --rm -v /vagrant:/vagrant --name rh8 registry.access.redhat.com/ubi8/ubi:latest /bin/bash
+* Ubuntu 22.04  
+  docker run -it --rm -v /vagrant:/vagrant --name ub2204 ubuntu:22.04 /bin/bash
 
 ## Tips
 * タイムゾーンを JST に設定  
