@@ -39,6 +39,16 @@
       src: /home/foo/hoge.tar.gz
       dest: /usr/local
   ```
+* ディレクトリ作成
+  ```
+  - name: crreate directory
+    file:
+      path: /tmp/hoge
+      state: directory
+      owner: hoge
+      group: hoge
+      mode: 0755
+  ```
 * 複数のファイル・ディレクトリを削除
   ```
   - name: delete tar.gz + extracted directory
