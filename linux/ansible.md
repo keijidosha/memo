@@ -32,6 +32,13 @@
   - name: set locale to Japanese
     shell: localectl set-locale LANG=ja_JP.utf8
   ```
+* ファイルをローカルからターゲットにコピー
+  ```
+  - name: copy hoge.txt
+    copy:
+      src: /home/hoge/hoge.txt
+      dest: /tmp/
+  ```
 * tar.gz をリモートで解凍
   ```
   - name: unarchive xxx.tar.gz
