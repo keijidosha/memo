@@ -1,4 +1,37 @@
 
+* グループ作成
+  ```
+  - name: create group
+    group:
+      name: hoge
+      gid: 999
+  ```
+* ユーザー作成
+  ```
+  - name: create user
+    user:
+      name: hoge
+      uid: 999
+      groups: hoge
+  ```
+* selinux を無効化
+  ```
+  - name: disable selinux
+    selinux:
+      state: disabled
+      policy: targeted
+  ```
+* タイムゾーン設定
+  ```
+  - name: set timezone
+    timezone:
+      name: Asia/Tokyo
+  ```
+* ロケール設定
+  ```
+  - name: set locale to Japanese
+    shell: localectl set-locale LANG=ja_JP.utf8
+  ```
 * tar.gz をリモートで解凍
   ```
   - name: unarchive xxx.tar.gz
