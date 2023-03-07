@@ -39,6 +39,16 @@
       src: /home/hoge/hoge.txt
       dest: /tmp/
   ```
+* テンプレート
+  ```
+  - name: hoge template
+    template:
+      src: hoge.conf.j2
+      dest: /etc/hoge.conf
+      mode: 0644
+    vars:
+      hoge: fuga
+  ```
 * tar.gz をリモートで解凍
   ```
   - name: unarchive xxx.tar.gz
