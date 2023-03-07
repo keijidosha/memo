@@ -39,6 +39,18 @@
       src: /home/hoge/hoge.txt
       dest: /tmp/
   ```
+* コピーするファイルをワイルドカード指定
+  ```
+  - name: copy *.txt
+    copy:
+      src: "{{ item }}"
+      dest: /tmp/
+      owner: hoge
+      group: hoge
+      mode: 0644
+    with_fileglob:
+      - "/home/hoge/*.txt"
+  ```
 * テンプレート
   ```
   - name: hoge template
