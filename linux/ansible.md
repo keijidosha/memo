@@ -70,7 +70,7 @@
   ```
 * ディレクトリ作成
   ```
-  - name: crreate directory
+  - name: create directory
     file:
       path: /tmp/hoge
       state: directory
