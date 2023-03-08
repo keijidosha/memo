@@ -115,6 +115,8 @@
     * [vagrant](vm/vagrant.md)
   * Cloud
     * [AWS](cloud/aws.md)
+  * 構成管理
+    * [Ansible](linux/ansible.md)
 * OS
   * [ネットワークコマンド](os/network_command.md)
   * [Linux](linux/linux.md)
