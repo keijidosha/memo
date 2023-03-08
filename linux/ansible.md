@@ -121,11 +121,21 @@
         state: present
      when: not hoge_is_insatalled
   ```
-* サービスの有効化
+* サービスの有効化 + 開始
   ```
   - name: enable hoge service
     systemd:
       name: hoge.service
       daemon_reload: yes
       enabled: yes
+      state: started
+  ```
+* firewalld で https を通す
+  ```
+  - name: permit https to firewalld
+    firewalld:
+      service: https
+      state: enabled
+      permanent: true
+      immediate: true
   ```
