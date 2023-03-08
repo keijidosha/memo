@@ -105,3 +105,19 @@
       name: "{{ rpm_file_list }}"
       state: present
   ```
+* RPM がインストールされているチェックして、インストールされてなかったらインストール
+  ```
+  - name: check hoge is installed?
+    dnf:
+      name: hoge
+      state: installed
+    check_mode: true
+    register: hoge_is_insatalled
+  - name: install rpm files
+      dnf:
+        disablerepo: "\\*"
+        disable_gpg_check: true
+        name: hoge.rpm
+        state: present
+     when: not hoge_is_insatalled
+  ```
