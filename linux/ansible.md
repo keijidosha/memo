@@ -121,3 +121,11 @@
         state: present
      when: not hoge_is_insatalled
   ```
+* サービスの有効化
+  ```
+  - name: enable hoge service
+    systemd:
+      name: hoge.service
+      daemon_reload: yes
+      enabled: yes
+  ```
