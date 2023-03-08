@@ -129,7 +129,8 @@
       daemon_reload: yes
       enabled: yes
       state: started
-  ```
+  ```  
+  [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)
 * firewalld で https を通す
   ```
   - name: permit https to firewalld
@@ -138,4 +139,5 @@
       state: enabled
       permanent: true
       immediate: true
-  ```
+  ```  
+  [https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html](https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html)
