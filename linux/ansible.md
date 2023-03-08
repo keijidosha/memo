@@ -1,5 +1,11 @@
 # Ansible
 
+* Ansible Facts 変数の確認
+  ```
+  ansible <ホスト名> -m setup
+  ```  
+  ※ホスト名: Ansible の hosts ファイルに指定したターゲットホスト名
+
 * グループ作成
   ```
   - name: create group
