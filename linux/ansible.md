@@ -6,7 +6,8 @@
     group:
       name: hoge
       gid: 999
-  ```
+  ```  
+  [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html)
 * ユーザー作成
   ```
   - name: create user
@@ -14,14 +15,16 @@
       name: hoge
       uid: 999
       groups: hoge
-  ```
+  ```  
+  [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html)e
 * selinux を無効化
   ```
   - name: disable selinux
     selinux:
       state: disabled
       policy: targeted
-  ```
+  ```  
+  [https://docs.ansible.com/ansible/latest/collections/ansible/posix/selinux_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/posix/selinux_module.html)
 * タイムゾーン設定
   ```
   - name: set timezone
