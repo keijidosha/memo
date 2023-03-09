@@ -83,7 +83,7 @@
       - hoge
   ```
 * RPMファイル群のパスをリスト化して dnf でインストール  
-  ```yaml  
+  <pre>
   － name: find rpm files
     find:
       paths: /tmp/rpms
@@ -98,4 +98,4 @@
       disable_gpg_check: true
       name: "{{ rpm_file_list }}"
       state: present
-  ```
+  </pre>
