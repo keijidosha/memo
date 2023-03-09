@@ -3,7 +3,7 @@
 ## playbook
 
 * グループ作成  
-  ```
+  ```yaml
   - name: create group
     group:
       name: hoge
