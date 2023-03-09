@@ -84,7 +84,8 @@
   ```
 * RPMファイル群のパスをリスト化して dnf でインストール  
   %45  
-  ```yaml  
+  ```  
+  
     %45 name: find rpm files
       find:
         paths: /tmp/rpms
