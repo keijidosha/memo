@@ -4,6 +4,7 @@
 
 * グループ作成  
   ```  
+  
   - name: create group
     group:
       name: hoge
