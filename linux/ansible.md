@@ -13,13 +13,15 @@
   {% endhighlight %}  
   [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html)
 * ユーザー作成
-  {% highlight yaml [linenos] %}
+  ```yaml
+  {% raw %}
   - name: create user
     user:
       name: hoge
       uid: 999
       groups: hoge
-  {% endhighlight %}
+  {% endraw %}
+  ```  
   [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html)e
 * selinux を無効化
   ```yaml
