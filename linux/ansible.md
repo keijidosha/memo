@@ -84,18 +84,20 @@
   ```
 * RPMファイル群のパスをリスト化して dnf でインストール  
   <pre>
-  － name: find rpm files
+  {% raw %}
+  - name: find rpm files
     find:
       paths: /tmp/rpms
       patterns: "*.rpm"
     register: rpm_files
-  － name: create rpm file list
+  - name: create rpm file list
     set_fact:
-      rpm_file_list: "\{{ rpm_files.files ｜ map(attribute='path') ｜ list }}"
-  － name: install rpm files
+      rpm_file_list: "{{ rpm_files.files | map(attribute='path') | list }}"
+  - name: install rpm files
     dnf:
       disablerepo: "\\*"
       disable_gpg_check: true
       name: "{{ rpm_file_list }}"
       state: present
+  {% endraw %}
   </pre>
