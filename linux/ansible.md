@@ -91,7 +91,7 @@
     register: rpm_files
   － name: create rpm file list
     set_fact:
-      rpm_file_list: "{{ rpm_files.files ｜ map(attribute='path') ｜ list }}"
+      rpm_file_list: "\{{ rpm_files.files ｜ map(attribute='path') ｜ list }}"
   － name: install rpm files
     dnf:
       disablerepo: "\\*"
