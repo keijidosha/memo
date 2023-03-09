@@ -83,8 +83,9 @@
       - hoge
   ```
 * RPMファイル群のパスをリスト化して dnf でインストール  
+  %45  
   ```yaml  
-    %x45 name: find rpm files
+    %45 name: find rpm files
       find:
         paths: /tmp/rpms
         patterns: "*.rpm"
