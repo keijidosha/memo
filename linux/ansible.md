@@ -82,9 +82,10 @@
       - hoge.tar.gz
       - hoge
   ```
-* RPMファイル群のパスをリスト化して dnf でインストール
-  ```  
+* RPMファイル群のパスをリスト化して dnf でインストール  
 
+  ```yaml  
+  
   - name: find rpm files
     find:
       paths: /tmp/rpms
