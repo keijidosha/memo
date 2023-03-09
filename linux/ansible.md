@@ -3,7 +3,7 @@
 ## playbook
 
 * グループ作成
-  {% highlight yaml [linenos] %}
+  {% highlight <yaml> [linenos] %}
   {% raw %}
   - name: create group
     group:
