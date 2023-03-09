@@ -3,14 +3,14 @@
 ## playbook
 
 * グループ作成
-  {% highlight <yaml> [linenos] %}
+  ```yaml
   {% raw %}
   - name: create group
     group:
       name: hoge
       gid: 999
   {% endraw %}
-  {% endhighlight %}  
+  ```  
   [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html)
 * ユーザー作成
   ```yaml
