@@ -83,7 +83,7 @@
       - hoge
   ```
 * RPMファイル群のパスをリスト化して dnf でインストール  
-  <pre>
+  ```yaml
   {% raw %}
   - name: find rpm files
     find:
@@ -100,4 +100,4 @@
       name: "{{ rpm_file_list }}"
       state: present
   {% endraw %}
-  </pre>
+  ```
