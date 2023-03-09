@@ -2,7 +2,7 @@
 
 ## playbook
 
-* グループ作成
+* グループ作成  
   ```
   - name: create group
     group:
