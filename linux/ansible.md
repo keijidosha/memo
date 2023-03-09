@@ -84,7 +84,8 @@
   ```
 * RPMファイル群のパスをリスト化して dnf でインストール  
   ```yaml
-  {% raw %}- name: find rpm files
+  {% raw %}
+  - name: find rpm files
     find:
       paths: /tmp/rpms
       patterns: "*.rpm"
