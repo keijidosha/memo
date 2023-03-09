@@ -3,25 +3,23 @@
 ## playbook
 
 * グループ作成
-  ```yaml
+  {% highlight yaml [linenos] %}
   {% raw %}
   - name: create group
     group:
       name: hoge
       gid: 999
   {% endraw %}
-  ```  
+  {% endhighlight %}  
   [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html)
 * ユーザー作成
-  ```yaml
-  {% raw %}
+  {% highlight yaml [linenos] %}
   - name: create user
     user:
       name: hoge
       uid: 999
       groups: hoge
-  {% endraw %}
-  ```  
+  {% endhighlight %}
   [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html)e
 * selinux を無効化
   ```yaml
