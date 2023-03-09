@@ -83,8 +83,7 @@
       - hoge
   ```
 * RPMファイル群のパスをリスト化して dnf でインストール  
-  ```yaml
-  {% raw %}
+  ```yaml{% raw %}
   - name: find rpm files
     find:
       paths: /tmp/rpms
