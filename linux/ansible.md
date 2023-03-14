@@ -48,7 +48,7 @@
     shell: localectl set-locale LANG=ja_JP.utf8
   {% endraw %}
   ```
-* ファイル存在チェックして実行するか判断
+* ファイルの存在をチェックして実行するか判断
   ```yaml
   {% raw %}
   - name: is exists tar command
@@ -201,6 +201,16 @@
   {% endraw %}
   ```  
   [https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html](https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html)
+* ファイルの内容を文字列置換
+  ```yaml
+  {% raw %}
+  - name: enable console login from network
+    lineinfile:
+      path: /home/hoge/hoge.txt
+      regexp: '正規表現'
+      line:   '置換文字列'
+  {% endraw %}
+  ```
 * コマンドを実行(実行ユーザー、実行ディレクトリを指定して)。
   ```yaml
   {% raw %}
