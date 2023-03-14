@@ -196,6 +196,17 @@
   {% endraw %}
   ```  
   [https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html](https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html)
+* コマンドを実行(実行ユーザー、実行ディレクトリを指定して)。
+  ```yaml
+  {% raw %}
+  - name: exec ls hoge.txt
+    shell:
+      cmd: /home/hoge/hoge.sh
+      chdir: /home/hoge
+    become: true
+    become_user: hoge
+  {% endraw %}
+  ```  
 
 ## 変数
 
