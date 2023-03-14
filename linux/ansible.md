@@ -48,6 +48,15 @@
     shell: localectl set-locale LANG=ja_JP.utf8
   {% endraw %}
   ```
+* ファイル存在チェックした結果を変数に格納
+  ```yaml
+  {% raw %}
+  - name: is exists hoge.txt?
+    stat:
+      path: /home/hoge/hoge.txt
+    register: exists_hoge
+  {% endraw %}
+  ```
 * ファイルをローカルからターゲットにコピー
   ```yaml
   {% raw %}
