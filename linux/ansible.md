@@ -80,6 +80,16 @@
       - "/home/hoge/*.txt"
   {% endraw %}
   ```
+* シンボリックリンクを作成
+  ```yaml
+  {% raw %}
+  - name: create symbolic link
+    file:
+      src:  /hoge/hoge/hoge.txt
+      dest: /hoge/hoge/fuga.txt
+      state: link
+  {% endraw %}
+  ```
 * テンプレート
   ```yaml
   {% raw %}
