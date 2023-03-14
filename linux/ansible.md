@@ -51,7 +51,7 @@
 * ファイル存在チェックして実行するか判断
   ```yaml
   {% raw %}
-  - name: is exists hoge.txt?
+  - name: is exists tar command
     stat:
       path: /usr/bin/tar
     register: check_tar
