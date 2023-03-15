@@ -261,7 +261,8 @@
       - hoge
   {% endraw %}
   ```  
-  ansible-playbook -t hoge とパラメーター指定した場合だけ実行される。
+  ansible-playbook -t hoge とパラメーター指定した場合だけ実行される。  
+  (参考) [[Ansible] 通常時は実行せず、タグが指定されたときのみタスクを実行する](https://tekunabe.hatenablog.jp/entry/2020/06/27/ansible_tags_never)
 
 
 ## 変数
