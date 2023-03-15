@@ -167,14 +167,15 @@
       name: hoge
       state: installed
     check_mode: true
-    register: hoge_is_insatalled
+    ignore_errors: true
+    register: check_hoge_installed
   - name: install rpm files
       dnf:
         disablerepo: "\\*"
         disable_gpg_check: true
         name: hoge.rpm
         state: present
-     when: not hoge_is_insatalled
+     when: check_hoge_installed.failed
   {% endraw %}
   ```
 * サービスの有効化 + 開始
