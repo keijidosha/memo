@@ -180,7 +180,7 @@
 * サービスの有効化 + 開始
   ```yaml
   {% raw %}
-  - name: enable hoge service
+  - name: enable service hoge
     systemd:
       name: hoge.service
       daemon_reload: yes
@@ -208,7 +208,7 @@
 * ファイルの内容を文字列置換
   ```yaml
   {% raw %}
-  - name: enable console login from network
+  - name: replace string in text file
     lineinfile:
       path: /home/hoge/hoge.txt
       regexp: '正規表現'
@@ -223,7 +223,7 @@
 * コマンドを実行(実行ユーザー、実行ディレクトリを指定して)。
   ```yaml
   {% raw %}
-  - name: exec ls hoge.txt
+  - name: exec hoge.sh
     shell:
       cmd: /home/hoge/hoge.sh
       chdir: /home/hoge
