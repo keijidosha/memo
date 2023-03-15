@@ -245,7 +245,7 @@
     shell:
       # hoge.sh の標準出力を grep/awk/sed した内容をパラメーターで渡す
       cmd: /home/hoge/fuga.sh {{ exec_hoge.stdout }}
-    # hoge.sh の実行ステータスが 0 で、標準出力が "fuga" の場合に実行
+    # hoge.sh の実行ステータスが 0 で、grep/awk/sed した後の標準出力が "fuga" の場合に実行
     when: exec_hoge.rc is defind && exec_hoge.rc == 0 && exec_hoge.stdout == "fuga"
   {% endraw %}
   ```  
