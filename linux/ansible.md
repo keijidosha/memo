@@ -338,7 +338,7 @@
                     "netmask": "255.xx.xx.0",
                     "network": "10.xx.xx.0"
                 },
-                "macaddress": "00:16:3e:xx:xx:xx",
+                "macaddress": "11:22:33:44:55:66",
                 "type": "ether"
             },
             "ansible_eth1": {
@@ -350,7 +350,7 @@
                     "netmask": "255.xx.xx.0",
                     "network": "172.xx.xx.0"
                 },
-                "macaddress": "00:16:3e:d7:14:e2",
+                "macaddress": "11:22:33:44:55:67",
                 "mtu": 1500,
                 "promisc": false,
                 "type": "ether"
