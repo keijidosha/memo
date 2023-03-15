@@ -231,6 +231,24 @@
     become_user: hoge
   {% endraw %}
   ```  
+* コマンドの実行結果を使って、次の処理を判定・実行
+  ```yaml
+  {% raw %}
+  - name: exec hoge.sh
+    shell:
+      cmd: /home/hoge/hoge.sh | grep hoge | awk '{print $3;}' | sed -e 's/hoge/fuga/'
+      chdir: /home/hoge
+    register: exec_hoge
+    become: true
+    become_user: hoge
+  - name: exec if hoge is fuga
+    shell:
+      # hoge.sh の標準出力を grep/awk/sed した内容をパラメーターで渡す
+      cmd: /home/hoge/fuga.sh {{ exec_hoge.stdout }}
+    # hoge.sh の実行ステータスが 0 で、標準出力が "fuga" の場合に実行
+    when: exec_hoge.rc is defind && exec_hoge.rc == 0 && exec_hoge.stdout == "fuga"
+  {% endraw %}
+  ```  
 
 ## 変数
 
