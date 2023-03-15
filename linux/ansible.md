@@ -249,6 +249,20 @@
     when: exec_hoge.rc is defind && exec_hoge.rc == 0 && exec_hoge.stdout == "fuga"
   {% endraw %}
   ```  
+* 明示的にタグを指定しないと実行されないタスク  
+  tags に never を指定。  
+  ```yaml
+  {% raw %}
+  - hosts: hoge_host
+    roles:
+      - hoge_role
+    tags:
+      - never
+      - hoge
+  {% endraw %}
+  ```  
+  ansible-playbook -t hoge とパラメーター指定した場合だけ実行される。
+
 
 ## 変数
 
