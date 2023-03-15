@@ -177,7 +177,8 @@
         state: present
      when: check_hoge_installed.failed
   {% endraw %}
-  ```
+  ```  
+  対象の RPM がインストールされていない場合 dnf が 1 を返し、そのままではエラーで ansible が中断してしまうので、ignore_errors: true を設定。
 * サービスの有効化 + 開始
   ```yaml
   {% raw %}
