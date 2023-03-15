@@ -188,7 +188,9 @@
       state: started
   {% endraw %}
   ```  
+  (参考)  
   [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)  
+  [[Ansible] service モジュールの基本的な使い方（サービスの起動・停止・自動起動の有効化など）](https://tekunabe.hatenablog.jp/entry/2019/02/24/ansible_service_intro)
   * state の設定値  
     * started
     * stopped
