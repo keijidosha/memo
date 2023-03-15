@@ -188,7 +188,11 @@
       state: started
   {% endraw %}
   ```  
-  [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)
+  [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)  
+  * state の設定値  
+    * started
+    * stopped
+    * restarted  
 * firewalld で https を通す
   ```yaml
   {% raw %}
