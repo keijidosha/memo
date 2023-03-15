@@ -266,6 +266,26 @@
   ```  
   ansible-playbook -t hoge とパラメーター指定した場合だけ実行される。  
   (参考) [[Ansible] 通常時は実行せず、タグが指定されたときのみタスクを実行する](https://tekunabe.hatenablog.jp/entry/2020/06/27/ansible_tags_never)
+* 変数を条件分岐で設定する
+  ```yaml
+  {% raw %}
+  - name: copy ash-data.yml template
+    shell:
+      cmd: /home/hoge/hoge.sh {{ param1 }} {{ param2 }}
+  vars:
+    param1: >-
+      {%- if   user == 'hoge'     -%} 1
+      {%- elif user == 'hogehoge' -%} 2
+      {%- else -%}                    3
+      {%- endif -%}
+    param2: >-
+      {%- if   target == 'fuga'     -%} 1
+      {%- elif target == 'fugafuga' -%} 2
+      {%- else -%}                      3
+      {%- endif -%}
+
+  {% endraw %}
+  ```  
 
 
 ## 変数
