@@ -178,7 +178,27 @@
      when: check_hoge_installed.failed
   {% endraw %}
   ```  
-  対象の RPM がインストールされていない場合 dnf が 1 を返し、そのままではエラーで ansible が中断してしまうので、ignore_errors: true を設定。
+  対象の RPM がインストールされていない場合 dnf が 1 を返し、そのままではエラーで ansible が中断してしまうので、ignore_errors: true を設定。  
+  
+  ```yaml
+  {% raw %}
+  - name: check hoge is installed?
+    dnf:
+      name: hoge
+      state: installed
+    check_mode: true
+    ignore_errors: true
+    register: check_hoge_installed
+  - name: install rpm files
+      dnf:
+        disablerepo: "\\*"
+        disable_gpg_check: true
+        name: hoge.rpm
+        state: present
+     when: check_hoge_installed.failed
+  {% endraw %}
+  ```  
+
 * サービスの有効化 + 開始
   ```yaml
   {% raw %}
