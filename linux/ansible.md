@@ -70,7 +70,8 @@
       src: /home/hoge/hoge.txt
       dest: /tmp/
   {% endraw %}
-  ```
+  ```  
+  (参考) [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html)
 * コピーするファイルをワイルドカード指定
   ```yaml
   {% raw %}
