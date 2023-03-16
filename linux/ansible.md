@@ -2,6 +2,8 @@
 
 ## playbook
 
+* コマンドライン・オプション  
+  [https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
 * グループ作成
   ```yaml
   {% raw %}
