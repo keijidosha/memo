@@ -179,23 +179,18 @@
   {% endraw %}
   ```  
   対象の RPM がインストールされていない場合 dnf が 1 を返し、そのままではエラーで ansible が中断してしまうので、ignore_errors: true を設定。  
-  
+  *** ansible 2.9 で、上の方法では RPM インストールチェックがうまくいかないので、ファイルの存在チェックで判断した方が良さそう ***  
   ```yaml
   {% raw %}
-  - name: check hoge is installed?
-    dnf:
-      name: hoge
-      state: installed
-    check_mode: true
-    ignore_errors: true
-    register: check_hoge_installed
+  - name: check httpd is installed?
+    stat:
+      path: /usr/sbin/httpd
+    register: check_httpd_installed
   - name: install rpm files
       dnf:
-        disablerepo: "\\*"
-        disable_gpg_check: true
-        name: hoge.rpm
+        name: httpd
         state: present
-     when: check_hoge_installed.failed
+     when: not check_httpd_installed.stat.exists
   {% endraw %}
   ```  
 
