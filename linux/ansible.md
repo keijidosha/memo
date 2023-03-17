@@ -226,7 +226,18 @@
       immediate: true
   {% endraw %}
   ```  
-  [https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html](https://docs.ansible.com/ansible/2.9_ja/modules/firewalld_module.html)
+  [https://docs.ansible.com/ansible/latest/collections/ansible/posix/firewalld_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/posix/firewalld_module.html)
+* firewalld でポートを通す
+  ```yaml
+  {% raw %}
+  - name: permit port 8080 to firewalld
+    firewalld:
+      port: 8080/tcp
+      state: enabled
+      permanent: true
+      immediate: true
+  {% endraw %}
+  ```  
 * ファイルの内容を文字列置換
   ```yaml
   {% raw %}
