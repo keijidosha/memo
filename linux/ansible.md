@@ -188,12 +188,12 @@
   - name: check httpd is installed?
     stat:
       path: /usr/sbin/httpd
-    register: check_httpd_installed
+    register: check_httpd_command
   - name: install rpm files
       dnf:
         name: httpd
         state: present
-     when: not check_httpd_installed.stat.exists
+     when: not check_httpd_command.stat.exists
   {% endraw %}
   ```  
 
@@ -238,16 +238,56 @@
       immediate: true
   {% endraw %}
   ```  
-* ファイルの内容を文字列置換
+* ファイルの文字列を置換
   ```yaml
   {% raw %}
   - name: replace string in text file
+    replace:
+      path: /home/hoge/hoge.txt
+      regexp: '正規表現'
+      replace:   '置換文字列'
+  {% endraw %}
+  ```  
+  変換対象が複数の場合  
+  ```yaml
+  {% raw %}
+  - name: replace string in text file
+    replace:
+      path: /home/hoge/hoge.txt
+      regexp:  "{{ item.regexp }}"
+      replace: "{{ item.replace }}"
+    with_items:
+      - regexp: hoge
+        replace: fuga
+      - regexp: foo
+        replace: bar
+  {% endraw %}
+  ```  
+* ファイルの内容を行単位で置換
+  ```yaml
+  {% raw %}
+  - name: replace by line in text file
     lineinfile:
       path: /home/hoge/hoge.txt
       regexp: '正規表現'
       line:   '置換文字列'
   {% endraw %}
-  ```
+  ```  
+  変換対象が複数の場合  
+  ```yaml
+  {% raw %}
+  - name: replace by line in text file
+    lineinfile:
+      path: /home/hoge/hoge.txt
+      regexp: "{{ item.regexp }}"
+      line:   "{{ item.line }}"
+    with_items:
+      - regexp: '^hoge'
+        line: fuga
+      - regexp: '^foo'
+        line: bar
+  {% endraw %}
+  ```  
   * 正規表現
     * 正規表現文字列をダブルクォートで囲った中でエスケープ用のバックスラッシュを使う場合は、2重に記述  
       (例) "^\\\\(hoge\\\\)"
