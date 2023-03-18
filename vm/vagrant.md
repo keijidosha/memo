@@ -11,7 +11,7 @@
 1. vagrant ssh
 
 bento で利用可能な CentOS を確認  
-https://app.vagrantup.com/bento
+[https://app.vagrantup.com/bento](https://app.vagrantup.com/bento)
 
 ## Vagrantfile の書き方
 - ブリッジネットアダプタを設定する
