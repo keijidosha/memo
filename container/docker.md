@@ -172,7 +172,9 @@ docker build -t <イメージ名> .
 
 ## コンテナの移行
 
-### 移行元
+### コンテナをイメージ化して移行
+
+#### 移行元
 
 * コンテナをイメージ化  
 `docker commit <コンテナID・コンテナ名> <イメージ名>:<タグ>`
@@ -181,7 +183,7 @@ docker build -t <イメージ名> .
 * イメージをファイルに出力  
 `docker save -o <出力ファイル名>.tar <イメージID>`
 
-### 移行先
+#### 移行先
 * イメージファイルをロード  
 `sudo docker load -i <ファイル名>.tar`
 * ロードしたイメージの ID を確認  
@@ -189,6 +191,20 @@ docker build -t <イメージ名> .
 * イメージ名とタグを割り当て  
 `sudo docker image tag <イメージID> <イメージ名>[:タグ]`
 
+### コンテナをディレクトリ丸ごと移行(SSH + tar で)
+
+1. 移行元で docker サービスを停止  
+   `sudo systemctl stop docker`
+1. 移行先で docker サービスを停止  
+   `sudo systemctl stop docker`
+1. 移行先で ssh コマンドを使って移行元の /var/lib/docker ディレクトリで tar で固めた内容を標準出力に出力し、そのまま移行元側で解凍  
+   ```
+   cd /var/lib/
+   ssh <移行先IP> -- sudo tar -C /var/lib/ -cvf - docker/ | sudo tar xf -
+   ```
+
+(参考) [Dockerのイメージ/コンテナを他マシンへ移設するに最終的に"うりゃ！"っとしたはなし](http://kazuhito-m.github.io/tech/2016/12/23/copy-docker-data-to-other-macine)
+  
 ## ネットワーク
 
 * ネットワークを作成  
