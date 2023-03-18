@@ -365,7 +365,7 @@ lxc image delete hoge_exp
 lxc delete hoge/snap0
 
 ### インポート先
-1. lxc image import xxx.tar.gz --alias hoge_exp
+1. lxc image import xxx.tar.gz \-\-alias hoge_exp
 1. lxc init [-p lanprofile] hoge_exp hoge
 
 ## ネットワークデバイス
