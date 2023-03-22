@@ -360,6 +360,13 @@
 
 ## 変数
 
+* tasks の中で変数を定義  
+  ```yaml
+  - name: hoge
+    set_fact:
+      url: https://example.com/
+    when: ansible_distribution == "xxx"
+  ```
 * Ansible Facts 変数の確認
   ```
   ansible <ホスト名> -m setup
