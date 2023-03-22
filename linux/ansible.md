@@ -362,10 +362,12 @@
 
 * tasks の中で変数を定義  
   ```yaml
+  {% raw %}
   - name: hoge
     set_fact:
       url: https://example.com/
     when: ansible_distribution == "xxx"
+  {% endraw %}
   ```
 * Ansible Facts 変数の確認
   ```
