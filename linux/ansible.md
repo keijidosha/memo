@@ -358,6 +358,17 @@
   ```  
   「{\%-」で始まる行は、変数名の定義からインデントさせないと「Syntax Error」が発生。
 
+## inventory
+
+### ansible-inventory コマンド
+
+* ansible-inventory -i hosts --graph  
+  グループとホストの関連をツリー表示  
+* ansible-inventory -i hosts --host <ホスト名>  
+  指定したホストを実行した時に定義される変数の一覧を表示  
+* ansible-inventory -i hosts --list  
+  すべてのホストの情報を表示  
+
 ## 変数
 
 * tasks の中で変数を定義  
