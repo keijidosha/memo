@@ -110,6 +110,19 @@
       hoge: fuga
   {% endraw %}
   ```
+* ファイルを読み込んで変数にセット  
+  ```yaml
+  {% raw %}
+  - name: read file(Base64 encoded).
+    slurp:
+      src:  /hoge/hoge/hoge.txt
+    register: hoge
+  - name: show hoge.txt
+    debug:
+      msg: "{{ hoge.content | b64decode }}"
+  {% endraw %}
+  ```  
+  ※読み込んだ内容は Base64 化される。
 * tar.gz をリモートで解凍
   ```yaml
   {% raw %}
