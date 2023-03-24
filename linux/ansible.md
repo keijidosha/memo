@@ -391,6 +391,19 @@
   {% endraw %}
   ```  
   「{\%-」で始まる行は、変数名の定義からインデントさせないと「Syntax Error」が発生。
+* ある条件でエラーにする  
+  ```yaml
+  {% raw %}
+  - name: exec hoge.sh
+    shell:
+      cmd: /home/hoge/hoge.sh
+      chdir: /home/hoge
+    register: exec_hoge
+    failed_when: exec_hoge.stderr is defined and exec_hoge.stderr != ''
+  {% endraw %}
+  ```  
+  シェルの実行結果が 0 であっても、エラー出力が空でない場合はエラーにする。  
+  => register に指定した変数の内容が画面に出力される。
 
 ## inventory
 
