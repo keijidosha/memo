@@ -238,6 +238,27 @@
       immediate: true
   {% endraw %}
   ```  
+* ファイルに文字列を書き込む  
+  ```yaml
+  {% raw %}
+  - name: write string to text file
+    copy:
+      dest: /home/hoge/hoge.txt
+      content: "hoge is {{ hoge }}\n"
+  {% endraw %}
+  ```  
+  * 複数の行を書き込む場合は "|" を使用
+    ```yaml
+    {% raw %}
+    - name: write string to text file
+      copy:
+        dest: /home/hoge/hoge.txt
+        content: |
+          hoge is {{ hoge }}
+          fuga is {{ fuga }}
+    {% endraw %}
+    ```  
+    ※変数を使う場合でも文字列はダブルクォートで囲まなくてよい。
 * ファイルの文字列を置換
   ```yaml
   {% raw %}
