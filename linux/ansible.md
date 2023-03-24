@@ -391,6 +391,19 @@
   {% endraw %}
   ```  
   「{\%-」で始まる行は、変数名の定義からインデントさせないと「Syntax Error」が発生。
+* 変数を入力するプロンプトを表示  
+  ```yaml
+  {% raw %}
+  - hosts: hoge
+    vars_prompt:
+      - name: hoge_value
+        prompt: "input value of hoge"
+        private: no
+    roles:
+      - hoge
+  {% endraw %}
+  ```  
+  入力された文字列が name に指定した hoge_value にセットされる。
 * ある条件でエラーにする  
   ```yaml
   {% raw %}
