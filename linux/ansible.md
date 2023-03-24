@@ -393,6 +393,7 @@
 ## 変数
 
 * tasks の中で変数を定義  
+  set_fact を使用。
   ```yaml
   {% raw %}
   - name: hoge
@@ -401,6 +402,16 @@
     when: ansible_distribution == "xxx"
   {% endraw %}
   ```
+* OS ごとに分けて変数をファイルに定義  
+  (例) CentOS、RHEL と Ubuntu でファイルを分ける場合  
+  1. roles/<ロール名>/vars ディレクトリ配下に CentOS.yml, RedHat.yml, Ubuntu.yml を作成して変数を定義。  
+  1. タスク内で次のようにして変数を定義したファイルを読み込み。  
+     ```
+     {% raw %}
+     - name: include var file
+       include_vars: "{{ ansible_distribution }}.yml"
+     {% endraw %}
+     ```
 * Ansible Facts 変数の確認
   ```
   ansible <ホスト名> -m setup
