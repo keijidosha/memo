@@ -404,6 +404,22 @@
   {% endraw %}
   ```  
   入力された文字列が name に指定した hoge_value にセットされる。
+* タスク定義の中で変数を入力  
+vars_prompt はタスクと一緒に定義できない  
+=> vars_prompt だと、タグ指定により指定されたロールでなくても、入力を求められてしまう。  
+  ```yaml
+  {% raw %}
+  - name: input about hoge
+    pause:
+      echo: true
+      prompt: "input about hoge"
+    register: about_hoge
+  - name: debug
+    debug:
+      msg: "input is {{ about_hoge.user_input }}"
+  {% endraw %}
+  ```  
+  入力した内容は .user_input で参照可能。
 * ある条件でエラーにする  
   ```yaml
   {% raw %}
