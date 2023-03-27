@@ -356,6 +356,18 @@
     when: exec_hoge.rc is defind && exec_hoge.rc == 0 && exec_hoge.stdout == "fuga"
   {% endraw %}
   ```  
+* タスク実行しても changed のカウントに含めない  
+(例) shell 実行すると、実際には変更が発生していなくても changed にカウントされる。  
+これをカウントされないようにするには changed_when: false を指定。  
+  ```yaml
+  {% raw %}
+  - name: exec hoge.sh
+    shell:
+      cmd: /home/hoge/hoge.sh
+      chdir: /home/hoge
+    changed_when: false
+  {% endraw %}
+  ```  
 * 明示的にタグを指定しないと実行されないタスク  
   tags に never を指定。  
   ```yaml
