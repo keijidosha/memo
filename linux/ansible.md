@@ -431,7 +431,7 @@ vars_prompt はタスクと一緒に定義できない
       msg: "input is {{ about_hoge.user_input }}"
   {% endraw %}
   ```  
-  入力した内容は .user_input で参照可能。
+  入力した内容は .user_input で参照できる。
 * ある条件でエラーにする  
   ```yaml
   {% raw %}
