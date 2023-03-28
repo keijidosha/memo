@@ -356,6 +356,29 @@
     when: exec_hoge.rc is defind && exec_hoge.rc == 0 && exec_hoge.stdout == "fuga"
   {% endraw %}
   ```  
+  * コマンドの実行結果をフィルタで判定して、次の処理実行するかを決定  
+    ```yaml
+    {% raw %}
+    - name: grep
+      shell:
+        cmd: grep -L hoge *.txt
+      register: grep_hoge
+    - name: set_fact
+      set_fact:
+        exists_hoge: '{{ grep_hoge.stdout_lines | select("regex", "^[0-9]+hoge\.txt$") | list | count > 0 }}'
+        exists_fuga: '{{ grep_hoge.stdout_lines | select("regex", "^[0-9]+fuga\.txt$") | list | count > 0 }}'
+    - name: message hoge
+      debug:
+        msg: hoge exits
+        when: exists_hoge
+    - name: message fuga
+      debug:
+        msg: fuga exits
+        when: exists_fuga
+    {% endraw %}
+    ```  
+    hoge を含む拡張子 txt のファイルのうち、ファイル名が数字で始まり、hoge.txt で終わるファイルと、fuga.txt で終わるファイルが存在するかどうかをチェック。  
+    (フィルタを使ったケースとして少し無理のある例になっています。。)
 * タスク実行しても changed のカウントに含めない  
 (例) shell 実行すると、実際には変更が発生していなくても changed にカウントされる。  
 これをカウントされないようにするには changed_when: false を指定。  
