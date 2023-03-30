@@ -427,6 +427,10 @@ lxc network list-leases lxdbr0
 * vagrant 上の Linux で実行しているコンテナから、ホスト側(例: VirtualBox の共有フォルダ)に書き込めるようにする  
   (例) コンテナの uid 1000, gid 1000 のユーザーを、ホストの uid 1000, gid 1000 にマッピングして、ホスト側のフォルダに書き込めるようにする。
   1. コンテナ内で uid 1000 のユーザーを作成する。  
+     ```
+     groupadd -g 1000 hoge
+     useradd -g hoge -u 1000 -m hoge
+     ```
   1. コンテナの /etc/subuid と /etc/subgid に次の内容を記述。
      ```
      root:1000:1
@@ -436,6 +440,9 @@ lxc network list-leases lxdbr0
      lxc config set <コンテナ名> raw.idmap 'both 1000 1000'
      ```
   1. コンテナを再起動。
+     ```
+     lxc restart <コンテナ名>
+     ```
 
 ### ネットワーク
 
