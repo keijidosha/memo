@@ -434,7 +434,8 @@ lxc network list-leases lxdbr0
   1. コンテナの /etc/subuid と /etc/subgid に次の内容を記述。
      ```
      root:1000:1
-     ```
+     ```  
+     ※ 結果的に subuid と subgid は特に設定してなくてもうまく参照できている模様。
   1. ホスト側でコンテナに対して ID のマッピングを設定。  
      ```
      lxc config set <コンテナ名> raw.idmap 'both 1000 1000'
