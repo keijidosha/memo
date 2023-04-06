@@ -136,15 +136,15 @@ Mac で SSH 接続を許可するため、[システム環境設定] - [共有] 
   DNS に bitbucket.org を問い合わせると、IPv4 と IPv6 の IP が返ってくる。  
   すると git から呼び出された ssh はまず IPv6 に SSH 接続しようとするが、応答が返って来ずタイムアウトするまで待機。  
   その後で ssh は IPv4 で接続し、プッシュ/プルができるようになる。  
-  そこで ~/.ssh/config に次のように記述し、IPv6 接続しないようにする。  
+  そこで ~/.ssh/config に「AddressFamily inet」を記述し、IPv6 接続しないようにする。  
   ```
   Host bitbucket.org
-  HostName bitbucket.org
-  PreferredAuthentications publickey
-  IdentityFile privatekey
-  UseKeychain yes
-  AddKeysToAgent yes
-  AddressFamily inet
+    HostName bitbucket.org
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/privatekey
+    UseKeychain yes
+    AddKeysToAgent yes
+    AddressFamily inet
   ```
   ssh が bitbucket に IPv6 で接続する様子は次のコマンドで確認。  
   `netstat -an | grep "\.22 "`
