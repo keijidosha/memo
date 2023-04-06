@@ -12,8 +12,8 @@ Table of Contents
    * [環境設定](#環境設定)
       * [Mac に git リポジトリを作成し、SourceTree から接続する](#mac-に-git-リポジトリを作成しsourcetree-から接続する)
       * [Mac で秘密鍵を使って SSH で github に接続する](#mac-で秘密鍵を使って-ssh-で-github-に接続する)
-   * [トラブルシューティング](#トラブルシューティング)
       * [削除](#削除)
+   * [トラブルシューティング](#トラブルシューティング)
       * [ブランチ](#ブランチ-1)
       * [タグ](#タグ)
       * [コミット](#コミット)
@@ -85,7 +85,6 @@ Mac で SSH 接続を許可するため、[システム環境設定] - [共有] 
    `ssh-add --apple-use-keychain <秘密鍵のパス>`  
    => パスフレーズをきかれるので入力
 
-## トラブルシューティング
 ### 削除
 * ファイル削除  
   ```
@@ -100,6 +99,7 @@ Mac で SSH 接続を許可するため、[システム環境設定] - [共有] 
   git rm -r examples
   ```
 
+## トラブルシューティング
 ### ブランチ
 * ブランチをし忘れてソースを編集してしまった  
 コミット前であれば、-b で編集中のソースを残したまま、ブランチを作成してチェックアウトできる  
@@ -130,3 +130,21 @@ Mac で SSH 接続を許可するため、[システム環境設定] - [共有] 
   git reset --hard <コミットID>
   ```  
 (参考) [プッシュ前のローカルのコミットを取り消す方法](https://qiita.com/toohsk/items/d32a5820ca1a5eefc231)
+
+### SSH接続
+* bitbucket に ssh で接続するようにすると、プッシュ/プルに数分かかってしまう。  
+  DNS に bitbucket.org を問い合わせると、IPv4 と IPv6 の IP が返ってくる。  
+  すると git から呼び出された ssh はまず IPv6 に SSH 接続しようとするが、応答が返って来ずタイムアウトするまで待機。  
+  その後で ssh は IPv4 で接続し、プッシュ/プルができるようになる。  
+  そこで ~/.ssh/config に次のように記述し、IPv6 接続しないようにする。  
+  ```
+  Host bitbucket.org
+  HostName bitbucket.org
+  PreferredAuthentications publickey
+  IdentityFile privatekey
+  UseKeychain yes
+  AddKeysToAgent yes
+  AddressFamily inet
+  ```
+  ssh が bitbucket に IPv6 で接続する様子は次のコマンドで確認。  
+  `netstat -an | grep "\.22 "`
