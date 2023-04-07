@@ -228,6 +228,19 @@
     * started
     * stopped
     * restarted  
+* 特定のポートがリスン状態になるまで待機(サービス起動直後など)  
+  ```yaml
+  {% raw %}
+  - name: wait port 80 is listening
+    wait_for:
+      port: 80
+      host: 127.0.0.1
+  {% endraw %}
+  ```  
+  ※host は、ansible 実行対象から見たホストになる模様。  
+  (例) ansible のターゲットホストが 192.168.1.1 で host に 127.0.0.1 を指定した場合は、192.168.1.1 自身の 80 ポートを待機。
+  (参考)  
+  [ansible.builtin.wait_for module – Waits for a condition before continuing](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/wait_for_module.html)
 * firewalld で https を通す
   ```yaml
   {% raw %}
