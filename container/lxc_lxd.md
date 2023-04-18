@@ -425,20 +425,20 @@ lxc network list-leases lxdbr0
   => /etc/bashrc の末尾にでも記述しておくと全ユーザーに反映する。
 
 * vagrant 上の Linux で実行しているコンテナから、ホスト側(例: VirtualBox の共有フォルダ)に書き込めるようにする  
-  (例) コンテナの uid 1000, gid 1000 のユーザーを、ホストの uid 1000, gid 1000 にマッピングして、ホスト側のフォルダに書き込めるようにする。
-  1. コンテナ内で uid 1000 のユーザーを作成する。  
+  (例) コンテナの uid 3000, gid 3000 のユーザーを、ホストの uid 1000, gid 1000 にマッピングして、ホスト側のフォルダに書き込めるようにする。
+  1. コンテナ内で uid 3000 のユーザーを作成する。  
      ```
-     groupadd -g 1000 hoge
-     useradd -g hoge -u 1000 -m hoge
+     groupadd -g 3000 hoge
+     useradd -g hoge -u 3000 -m hoge
      ```
   1. コンテナの /etc/subuid と /etc/subgid に次の内容を記述。
      ```
-     root:1000:1
+     root:3000:1
      ```  
      ※ 結果的に subuid と subgid は特に設定してなくてもうまく参照できている模様。
   1. ホスト側でコンテナに対して ID のマッピングを設定。  
      ```
-     lxc config set <コンテナ名> raw.idmap 'both 1000 1000'
+     lxc config set <コンテナ名> raw.idmap 'both 1000 3000'
      ```
   1. コンテナを再起動。
      ```
