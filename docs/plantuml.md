@@ -55,7 +55,7 @@ loop を使う
   end
   ```
 * クラスが呼び出される前に配置する  
-`participannt SomeClass`
+`participant SomeClass`
 * クラスを活性化する  
 `activate SomeClass`
 * クラスを非活性化する  
