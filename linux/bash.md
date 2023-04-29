@@ -227,7 +227,7 @@ for F in *.json; do hoge $F & sleep 0; done
   export PS1="[\u@\h\D{ %FT%T} \W]\\$ "
   ```  
   export PS1="[\u@\h \D&#x7B;%FT%T} \W]\\$ "  
-  ⬆︎"{%" のエスケープがうまくいかないので
+  ⬆︎"&#x7B;%" のエスケープがうまくいかないので '{' を 16進数で記述。
 
 ## Java
 * RedHat Linux 9 で JDK 1.3.1 を使う場合。  
