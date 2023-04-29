@@ -225,7 +225,9 @@ for F in *.json; do hoge $F & sleep 0; done
 * プロンプトに日付・時刻を表示する  
   ```
   export PS1="[\u@\h\D{ %FT%T} \W]\\$ "
-  ```
+  ```  
+  export PS1="[\u@\h \D&#x7B;%FT%T} \W]\\$ "  
+  ⬆︎"{%" のエスケープがうまくいかないので
 
 ## Java
 * RedHat Linux 9 で JDK 1.3.1 を使う場合。  
