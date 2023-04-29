@@ -226,6 +226,7 @@ for F in *.json; do hoge $F & sleep 0; done
   ```
   export PS1="[\u@\h\D{ %FT%T} \W]\\$ "
   ```  
+  正しくは  
   export PS1="[\u@\h \D&#x7B;%FT%T} \W]\\$ "  
   ⬆︎"&#x7B;%" のエスケープがうまくいかないので '{' を 16進数で記述。
 
