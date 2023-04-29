@@ -224,7 +224,7 @@ for F in *.json; do hoge $F & sleep 0; done
 `stty stop undef`
 * プロンプトに日付・時刻を表示する  
   ```
-  export PS1="[\u@\h \D\{\%FT%T\} \W]\\$ "
+  export PS1="[\u@\h \D{%%FT%T} \W]\\$ "
   ```
 
 ## Java
