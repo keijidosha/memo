@@ -1,7 +1,7 @@
 # Log4j2
 
 * ファイルサイズ(1MB)でローテーションして、10世代残す
-  ```
+  ```xml
   <Appenders>
       <RollingFile name="hoge" fileName="$logs/hoge.log" filePattern="logs/hoge.%i.log.gz">
           <PatternLayout pattern="[%d{yyyy.MM.dd HH:mm:ss.SSS}] %p &lt;%c{1}&gt; %m%n" />
@@ -12,7 +12,7 @@
   ```
   fileIndex に max を指定すると、ローテーション後の古いファイルほど連番の数字が大きくなる => /var/log/message.x と同じ感じ
 * 日付でローテーションして、10日以上古いファイルを削除
-  ```
+  ```xml
   <Appenders>
       <RollingFile name="hoge" fileName="logs/hoge.log" filePattern="logs/hoge.%d{yyyy-MM-dd}.log">
           <PatternLayout pattern="[%d{yyyy.MM.dd HH:mm:ss.SSS}] %p &lt;%c{1}&gt; %m%n" />
@@ -27,7 +27,7 @@
   </Appenders>
   ```
 * 日付でローテーションして、10個まで残す
-  ```
+  ```xml
   <Appenders>
       <RollingFile name="hoge" fileName="logs/hoge.log" filePattern="logs/hoge.%d{yyyy-MM-dd}.log">
           <PatternLayout pattern="[%d{yyyy.MM.dd HH:mm:ss.SSS}] %p &lt;%c{1}&gt; %m%n" />
@@ -42,11 +42,11 @@
   </Appenders>
   ```
 * OS標準でないエンコーディングを指定して出力する場合は、Pattern に指定する
-  ```
+  ```xml
   <PatternLayout charset="Windows-31j" pattern="[%d{yyyy.MM.dd HH:mm:ss.SSS}] %p &lt;%c{1}&gt; %m%n" />
   ```
 * Marker でフィルターして、特定の情報だけをログ出力する
-  ```
+  ```xml
   <RollingFile name="hoge" fileName="logs/hoge.log" filePattern="logs/hoge.%i.log.gz">
       <PatternLayout pattern="[%d{yyyy.MM.dd HH:mm:ss.SSS}] %p &lt;%c{1}&gt; %m%n" />
       <SizeBasedTriggeringPolicy size="5MB" />
@@ -55,7 +55,7 @@
   </RollingFile>
   ```
   
-  ```
+  ```java
   MarkerManager.Log4jMarker hogeLogMarker = new MarkerManager.Log4jMarker( "HOGE" );
   
   logger.info( hogeLogMarker, message )
