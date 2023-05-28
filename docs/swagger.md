@@ -3,6 +3,10 @@
 
 ## Tips
 
+* swagger editor を Docker で起動  
+  ```
+  docker run --name swagger -d -it --rm -p 8080:8080 swaggerapi/swagger-editor
+  ```
 * Docker で swagger の yaml ファイルを HTML に変換。  
   ```
   docker run --rm -it -v /vagrant:/vagrant redoc bash
