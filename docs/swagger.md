@@ -13,4 +13,35 @@
   redoc-cli bundle xxx-api.yaml
   ```
 
-(参考) https://www.d-make.co.jp/blog/2021/03/09/openapi-yaml-html/
+(参考) [https://www.d-make.co.jp/blog/2021/03/09/openapi-yaml-html/](https://www.d-make.co.jp/blog/2021/03/09/openapi-yaml-html/)
+
+* Docker 定義用ディレクトリ作成  
+  ```
+  cd ~/Documents/docker/
+  mkdir redoc-cli
+  cd redoc-cli
+  ```
+* Dockerfile 作成  
+  ```
+  FROM node
+
+  RUN apt-get -y update
+
+  RUN npm i -g npm
+  RUN npm i -g redoc-cli
+  ```
+* ビルド  
+  ```
+  docker build -t redoc-cli:0.0.1 .
+  ```
+* 実行  
+  ```
+  cd ~/Documents/
+  docker run --rm -it -v$(pwd):/swagger my-redoc-cli:0.0.1 bash
+  ```
+* 変更  
+  ```
+  cd /swagger
+  redoc-cli bundle openapi.yml
+  ```  
+  redoc-static.html が生成される。
