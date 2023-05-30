@@ -39,9 +39,11 @@
   cd ~/Documents/
   docker run --rm -it -v$(pwd):/swagger my-redoc-cli:0.0.1 bash
   ```
-* 変更  
+* HTML生成  
   ```
   cd /swagger
-  redoc-cli bundle openapi.yml
+  npx @redocly/cli build-docs openapi.yml 
   ```  
-  redoc-static.html が生成される。
+  redoc-static.html が生成される。  
+  (参考) 旧コマンド  
+  `redoc-cli bundle openapi.yml`
