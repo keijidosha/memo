@@ -452,7 +452,9 @@ lxc network list-leases lxdbr0
     lxc config device add <コンテナ名> <転送設定に付ける名前> proxy listen=tcp:0.0.0.0:8080 connect=tcp:127.0.0.1:80 bind=host
     ```  
     設定確認  
-    `lxc config show <コンテナ名>`
+    `lxc config device show <コンテナ名>`  
+    設定削除  
+    `lxc config device remove <コンテナ名> <転送設定に付けた名前>`
   * iptables で転送  
     ```
     sudo iptables -t nat -A PREROUTING -p tcp -i eth1 --dport 8080 -j DNAT --to-destination 192.168.1.1:80
