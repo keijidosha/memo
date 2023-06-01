@@ -447,6 +447,12 @@ lxc network list-leases lxdbr0
      (参考) [LXDコンテナとホストの間でファイルを共有する方法](LXDコンテナとホストの間でファイルを共有する方法)
 
 * ホストへのアクセスをコンテナに転送
+  * proxy 設定で転送
+    ```
+    lxc config device add <コンテナ名> <転送設定に付ける名前> proxy listen=tcp:0.0.0.0:8080 connect=tcp:127.0.0.1:80 bind=host
+    ```  
+    設定確認  
+    `lxc config show <コンテナ名>`
   * iptables で転送  
     ```
     sudo iptables -t nat -A PREROUTING -p tcp -i eth1 --dport 8080 -j DNAT --to-destination 192.168.1.1:80
