@@ -38,12 +38,12 @@
 * 実行  
   ```
   cd ~/Documents/
-  docker run --rm -it -v$(pwd):/swagger my-redoc-cli:0.0.1 bash
+  docker run --rm -it -v$(pwd):/swagger redoc-cli:0.0.1 bash
   ```
 * HTML生成  
   ```
   cd /swagger
-  npx @redocly/cli build-docs openapi.yml 
+  npx @redocly/cli build-docs openapi.yml
   ```  
   redoc-static.html が生成される。  
   (参考) 旧コマンド  
