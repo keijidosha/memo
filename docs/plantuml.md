@@ -13,10 +13,14 @@ Table of Contents
 [PlantUML](http://plantuml.com/)
 
 # はじめに
+* 特定のディレクトリにあるファイルを一括変換  
+  ```
+  java -jar plantuml.jar -tsvg -filedir ~/hoge/
+  ```
 * 常駐監視してファイルが保存されるとSVG出力  
   ```bash
   #!/bin/sh
-  java -jar /xxx/lib/plantuml.jar -gui -tsvg
+  java -jar plantuml.jar -gui -tsvg
   ```
 * ファイル名  
 ファイル名の拡張子を html などにしておくと、エディタの補完が効く  
