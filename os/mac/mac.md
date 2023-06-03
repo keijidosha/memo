@@ -99,7 +99,9 @@ sudo visudo
     ```
   * ローカルスナップショットを削除  
 `sudo tmutil deletelocalsnapshots 2021-02-23-142244`
-
+* Safari でカーソル上・下キーを押すと、キーを離してもスクロールし続けてしまう。  
+Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響している模様。  
+「Evernote Web Clipper」を無効にすると解消。
 
 ## 起動
 
