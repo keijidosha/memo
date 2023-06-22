@@ -50,8 +50,8 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |---|--------|
 |行複製|option + shift + ↑↓|
 |行移動|option + ↑↓|
-|ソート(昇順)|1. 範囲選択<br>2. command + P<br>3. Sort Lines Ascending|
-|ソート(降順)|1. 範囲選択<br>2. command + P<br>3. Sort Lines Descending|
+|ソート(昇順)|1. 範囲選択<br>2. command + shift + P<br>3. Sort Lines Ascending|
+|ソート(降順)|1. 範囲選択<br>2. command + shift + P<br>3. Sort Lines Descending|
 
 ### 検索
 
@@ -115,6 +115,14 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |ワークスペースでカーソル位置にあるファイルを開く|command + ↓|
 |一番左のエディタにフォーカスを移動|command + 1|
 |ウィンドウの一覧を表示して切り替え|control + w|
+
+## コマンド
+
+### Markdown ファイルを HTMLファイルに変換
+
+1. Markdown ファイルを開く
+2. Command + Shift + P
+3. Markdown PDF: Export(html) を選択
 
 ## 設定変更
 ### エディターの背景色変更
