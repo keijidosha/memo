@@ -111,6 +111,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |動作|キー操作|
 |---|-------|
 |リファクタリングメニュー表示|control + T|
+|エディタにフォーカス移動|Esc|
 
 * カーソル位置にある変数の使用箇所を強調表示する色の設定を変更  
 [Preference] - [Editor] - [Color Scheme] - [General] の identifier under caret の色を変更する
