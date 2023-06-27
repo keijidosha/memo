@@ -104,6 +104,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |カーソル位置の文字列を検索(2)|control + G, command + G/command + shift + G|
 |次を検索|command + G, またはカーソル下|
 |前を検索|command + shift + G, またはカーソル上|
+|どこでも検索|shift x 2回|
 
 ### その他
 
