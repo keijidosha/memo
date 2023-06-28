@@ -60,6 +60,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |変数の詳細を表示|command + shift キーを押しながらマウスポインターを変数の場所に合わせる|
 |メソッドや変数の定義を簡易表示|control + J または F1|
 |メソッドや変数の内容をダイアログ表示|command + Y|
+|メソッドの呼び出し箇所でパラメーターを表示|command + P|
 |ビルド結果の表示を隠す|shift + escape|
 |クラス階層を表示|control + H|
 |プロジェクトに対して最近行った変更をリスト|option + shift + C|
@@ -92,9 +93,12 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |カーソル位置と一致する単語をすべて選択|option + command + G|
 |行複製|command + D|
 |行削除|command + delete|
-|行移動(インデント補正なし)|option + shift + ↑↓|
-|行移動(インデント補正付き)|command + shift + ↑↓|
+|行を上下に移動(インデント補正なし)|option + shift + ↑↓|
+|行を上下に移動(インデント補正付き)|command + shift + ↑↓|
+|メソッドを上下に移動|command + shift + ↑↓|
 |カーソル位置の単語を選択|control + G|
+
+(参考) [https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance](https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance)
 
 ### 検索系
 
