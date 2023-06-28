@@ -76,6 +76,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |importを最適化|control + option + O|
 |自動インデント|control + option + I|
 |if, while, when などを入力して {} を自動追加|command + shift + Enter|
+|コードのフォーマット|command + option + L|
 
 ### テキスト編集系
 
