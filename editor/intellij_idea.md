@@ -66,6 +66,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |プロジェクトに対して最近行った変更をリスト|option + shift + C|
 |最近開いたファイルの一覧を表示|Command + E|
 |最近編集したファイルの一覧を表示|Command + Shift + E|
+|カーソル位置のクラス、メソッドをツリーに表示|option + F1, [プロジェクトビュー] - [プロジェクト]|
 
 ### コード編集系
 
@@ -97,6 +98,8 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |行を上下に移動(インデント補正付き)|command + shift + ↑↓|
 |メソッドを上下に移動|command + shift + ↑↓|
 |カーソル位置の単語を選択|control + G|
+|カーソル位置の単語と同じ単語を複数選択|control + G を複数回操作|
+|大文字・小文字切り替え|command + shift + U|
 
 (参考) [https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance](https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance)
 
