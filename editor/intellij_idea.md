@@ -29,7 +29,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |コードブロックの終了位置にジャンプ|command + option + ]|
 |クラスやメソッド、変数の定義にジャンプ|command + B|
 |インターフェースメソッドの実装箇所にジャンプ|command + option + B|
-|次の定義/前の定義に移動|control + ↓/control + ↑|
+|次のメソッド/前のメソッドに移動|control + shift + ↓ / control + shift + ↑|
 |最後の編集位置に移動|command + shift + backspace|
 
 #### カーソル移動
