@@ -90,7 +90,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |下に行挿入|shift + enter|
 |上に行挿入|command + option + enter|
 |カーソル位置の単語を選択、さらに同じ単語を順次複数選択|control + G|
-|複数行カーソル|option + shift + マウスクリック|
+|複数行カーソル|option + shift + マウスクリック<br>または<br>option 2回 + ↑↓|
 |カーソル位置と一致する単語をすべて選択|option + command + G|
 |行複製|command + D|
 |行削除|command + delete|
