@@ -8,6 +8,7 @@ Keep-Aliveタイムアウトを 5秒に設定
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -16,9 +17,14 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
+const keepAliveTimeout = 30
+
 func root(ec echo.Context) error {
 	byteArray, _ := ioutil.ReadAll(ec.Request().Body)
 	println(string(byteArray))
+
+	ec.Response().Header().Add("Keep-Alive", fmt.Sprintf("timeout=%d", keepAliveTimeout))
+	ec.Response().Header().Add("Connection", "keep-alive")
 
 	return ec.String(http.StatusOK, "OK")
 }
@@ -33,7 +39,7 @@ func main() {
 
 	svr := &http.Server{
 		Addr:        ":8080",
-		IdleTimeout: time.Duration(5) * time.Second,
+		IdleTimeout: time.Duration(keepAliveTimeout) * time.Second,
 		Handler:     ec,
 	}
 
