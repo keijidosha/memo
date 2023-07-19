@@ -20,3 +20,17 @@ if (systemProperties) {
     }
 }
 ```
+
+```
+String userAgentCopy = this.userAgent;
+if (userAgentCopy == null) {
+    if (systemProperties) {
+        userAgentCopy = System.getProperty("http.agent");
+    }
+    if (userAgentCopy == null) {
+        userAgentCopy = VersionInfo.getUserAgent("Apache-HttpClient",
+                "org.apache.http.client", getClass());
+    }
+}
+```
+
