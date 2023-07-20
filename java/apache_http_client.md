@@ -6,30 +6,28 @@
   * retryCount: 3
   * requestSentRetryEnabled: false
 * DefaultHttpRequestRetryHandler に 3つ引数を指定するコンストラクターを使って、無視する(リトライしない) Exception を指定することも可能。
-* 
 
+
+独自例外ハンドラー例
 
 ```
-if (systemProperties) {
-    String s = System.getProperty("http.keepAlive", "true");
-    if ("true".equalsIgnoreCase(s)) {
-        s = System.getProperty("http.maxConnections", "5");
-        final int max = Integer.parseInt(s);
-        poolingmgr.setDefaultMaxPerRoute(max);
-        poolingmgr.setMaxTotal(2 * max);
+private class MyHttpRequestRetryHandler extends DefaultHttpRequestRetryHandler {
+    AshHttpRequestRetryHandler(final int retryCount, final boolean requestSentRetryEnabled) {
+        super(retryCount, requestSentRetryEnabled);
     }
-}
-```
+    @Override
+    public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
+        // SomeException はリトライしない
+        if(exception instanceof SomeException) {
+            System.out.println("Skip (no retry) SomeException.");
+            return false;
+        // HogeException は 10回リトライ
+        } else if(exception instanceof HogeException && executionCount < 10 ) {
+            System.out.println("HogeException: " + executionCount + ", " exception.toString());
+            return true;
+        }
 
-```
-String userAgentCopy = this.userAgent;
-if (userAgentCopy == null) {
-    if (systemProperties) {
-        userAgentCopy = System.getProperty("http.agent");
-    }
-    if (userAgentCopy == null) {
-        userAgentCopy = VersionInfo.getUserAgent("Apache-HttpClient",
-                "org.apache.http.client", getClass());
+        return super.retryRequest(exception, executionCount, context);
     }
 }
 ```
