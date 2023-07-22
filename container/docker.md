@@ -366,6 +366,24 @@ docker run -it --rm --net host --privileged nfs-server1
 
 (参考) [Dockerコンテナ同士のNFSのサーバ・クライアント疎通サンプル](http://otiai10.hatenablog.com/entry/2018/03/22/175016)
 
+## Docker Desktop で Redmine + SQLite
+
+* Redmine 用ディレクトリ作成  
+  ```
+  mkdir redmine-sql
+  cd redmine-sql
+  ```
+* DBファイル保存用ディレクトリ作成  
+`mkdir db`
+* 添付ファイル保存用ディレクトリ作成  
+`mkdir files`
+* コンテナ作成  
+  ```
+  docker run --name redmine-sqlite -p3001:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:4.2.10-alpine
+  ```
+* 自動起動設定  
+`docker update --restart=always redmine-sqlite`
+
 ## 各OSのコンテナ起動
 * CentOS 7.5  
 docker run -it \--rm -v /vagrant:/vagrant \--name centos75 centos:centos7.5.1804 /bin/bash
