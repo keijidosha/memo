@@ -380,7 +380,7 @@ docker run -it --rm --net host --privileged nfs-server1
 `mkdir files`
 * コンテナ作成  
   ```
-  docker run --name redmine-sqlite -p3001:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:4.2.10-alpine
+  docker run --name redmine-sqlite -p3030:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:4.2.10-alpine
   ```
 * 自動起動設定  
 `docker update --restart=always redmine-sqlite`
