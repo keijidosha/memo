@@ -290,6 +290,33 @@ https://mickey24.hatenablog.com/entry/bufio_scanner_line_length
   }
 ```
 
+標準入力から読み込む場合
+
+```go
+package main
+
+import (
+    "bufio"
+    "fmt"
+    "log"
+    "os"
+)
+
+func main() {
+
+    scanner := bufio.NewScanner(os.Stdin)
+    for scanner.Scan() {
+        fmt.Println(scanner.Text())
+    }
+
+    if err := scanner.Err(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+
+
 ### 一定量(文字数/バイト)ずつ読み込み
 #### go
 ```golang
