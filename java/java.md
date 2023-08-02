@@ -1,5 +1,10 @@
 # Java
 
+## Tips
+
+* JARファイルを解凍せずにマニフェストファイルの内容を表示  
+`unzip -p <JARファイル名> META-INF/MANIFEST.MF`
+
 ## ランタイムオプション
 * -XX:-UseCodeCacheFlushing  
 コードキャッシュフラッシングを使わない。これがONになっているとコードキャッシュを使い切ってもログ出力されない。  
