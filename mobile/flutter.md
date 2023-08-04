@@ -2,7 +2,7 @@
 
 ## コマンド
 
-* fluter docker
+* fluter doctor
 * flutter devices  
 起動しているデバイスの一覧
 * flutter run
