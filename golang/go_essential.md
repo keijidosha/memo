@@ -53,6 +53,14 @@ export PATH=$PATH:/usr/local/go/bin
 ## 操作
 * 実行  
 `go run hello.go`
+* プロジェクト開始(例)
+  ```
+  mkdir hoge
+  cd hoge
+  go mod init hoge
+  go get github.com/labstack/echo/v4
+  go mod tidy
+  ```
 * コンパイル  
 `go build hello.go`
   * Linux 64bit用にコンパイル  
