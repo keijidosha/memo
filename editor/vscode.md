@@ -120,9 +120,13 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ### Markdown ファイルを HTMLファイルに変換
 
+プラグイン Markdown PDF をインストールしておく。
+
 1. Markdown ファイルを開く
 2. Command + Shift + P
 3. Markdown PDF: Export(html) を選択
+
+※ワークスペースが信頼されていない場合、「Markdown PDF: Export(html)」のメニューは表示されない。
 
 ## 設定変更
 ### エディターの背景色変更
