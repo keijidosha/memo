@@ -62,6 +62,10 @@ export PATH=$PATH:/usr/local/go/bin
   go get github.com/labstack/echo/v4
   go mod tidy
   # モジュールを module1 という名前で作成する場合
+  mkdir module1
+  cd module1
+  go mod init hoge/module1
+  cd ..
   go work init . module1
   ```
 * コンパイル  
