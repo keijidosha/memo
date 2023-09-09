@@ -58,8 +58,11 @@ export PATH=$PATH:/usr/local/go/bin
   mkdir hoge
   cd hoge
   go mod init hoge
+  # echo を使う場合
   go get github.com/labstack/echo/v4
   go mod tidy
+  # モジュールを module1 という名前で作成する場合
+  go work init . module1
   ```
 * コンパイル  
 `go build hello.go`
