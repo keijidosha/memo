@@ -880,9 +880,11 @@ package main
 
 import (
     "fmt"
+	  "sync"
     "time"
 )
 
+// チャネルへの通知で終了判断
 func say(s string, id int, ch chan int) {
     for i := 0; i < 5; i++ {
         time.Sleep(100 * time.Millisecond)
@@ -891,12 +893,23 @@ func say(s string, id int, ch chan int) {
     ch <- id
 }
 
+// チャネルクローズで終了判断
 func say2(s string, ch chan int) {
     for i := 0; i < 5; i++ {
         time.Sleep(100 * time.Millisecond)
         fmt.Println(s)
     }
     close(ch)
+}
+
+// WaitGroup で終了判断
+func say3(s string, wg *sync.WaitGroup) {
+    defer wg.Done()
+
+    for i := 0; i < 5; i++ {
+        time.Sleep(100 * time.Millisecond)
+        fmt.Println(s)
+    }
 }
 
 func main() {
@@ -913,6 +926,13 @@ func main() {
     // }
     for range ch2 {}        // ch2 がクローズされるまで待機
     fmt.Println("exit")
+
+    wg := sync.WaitGroup{}
+    for i := 0; i<3; i++ {
+        wg.Add()
+        go say3("hoge", &wg)
+    }
+    wg.Wait()
 }
 ```
 
