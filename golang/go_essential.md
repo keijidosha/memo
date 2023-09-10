@@ -53,20 +53,30 @@ export PATH=$PATH:/usr/local/go/bin
 ## 操作
 * 実行  
 `go run hello.go`
-* プロジェクト開始(例)
+* プロジェクト開始(例: ワークスペース)
   ```
+  # ワークスペース用ディレクトリ作成
   mkdir hoge
   cd hoge
-  go mod init hoge
-  # echo を使う場合
+  # main パッケージ用ディレクトリ作成
+  mkdir main
+  cd main
+  go mod init hoge/main
+  # (例) echo を使う場合
   go get github.com/labstack/echo/v4
   go mod tidy
+  vi hoge.go
+  cd ..
   # モジュールを module1 という名前で作成する場合
   mkdir module1
   cd module1
   go mod init hoge/module1
+  vi module1.go
   cd ..
-  go work init . module1
+  go work init main module1
+  # ビルド
+  cd main
+  go build hoge.go
   ```
 * コンパイル  
 `go build hello.go`
