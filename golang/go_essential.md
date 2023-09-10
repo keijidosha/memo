@@ -929,7 +929,7 @@ func main() {
 
     wg := sync.WaitGroup{}
     for i := 0; i<3; i++ {
-        wg.Add()
+        wg.Add(1)
         go say3("hoge", &wg)
     }
     wg.Wait()
