@@ -942,6 +942,27 @@ func main() {
       // ループ処理
   }
   ```
+* ウェイトなしでのチャネルチェックと、クローズチェック  
+次の対策  
+(1) クローズしたチャネルからデータを取り出そうとすると、エラーで終了する。  
+(2) チャネルにデータがない場合、データが追加されるまで待機する。  
+  ```
+  func hoge(ch chan int) {
+    var ok bool
+    var number int
+    select {
+    case number, ok <= ch:
+      if !ok {
+        fmt.Println("channels was closed")
+      } else {
+        fmt.PrintF("received number is %d\n", number)
+      }
+    default:
+      fmt.Println("No data in channel")
+      time.Sleep(5 * time.Second)
+    }
+  }
+  ```
 
 ## パッケージ
 * カレントディレクトリ以下のパッケージをインポートする  
