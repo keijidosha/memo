@@ -1,5 +1,13 @@
 # VirtualBox
 
+* ゲストの時間を一時的に変更する(Vagrant で確認)  
+  1. サービス停止  
+     `sudo systemctl stop vboxadd-service`
+  2. 時刻変更  
+     `sudo date -s '2025/01/01 09:00'`
+  3. サービス開始  
+     `sudo systemctl start vboxadd-service`  
+     ゲストの時刻がホストに合わせられる。
 * ゲストの CentOS の時間がずれないようにする
   1. メニュー選択して Addtions CD Image をゲストOS が見えるようにする  
      [Devices] - [Insert Guest Addtions CD Image...]
