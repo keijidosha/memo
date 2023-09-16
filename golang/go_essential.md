@@ -788,12 +788,12 @@ func main() {
     fmt.Println(persons[0].Name) // hoge2 が表示される。
     ```
     * ただし、slice にインデックスを指定して構造体の要素を変更する場合は、ポインターでなくても slice に反映される。  
-    (例)  
-    ```
-    persons := []Person{{Name: "hoge"}, {Name: "fuga"}}
-    persons[0].Name = "hoge2"
-    fmt.Println(persons[0].Name) // hoge2 が表示される。
-    ```
+      (例)  
+      ```
+      persons := []Person{{Name: "hoge"}, {Name: "fuga"}}
+      persons[0].Name = "hoge2"
+      fmt.Println(persons[0].Name) // hoge2 が表示される。
+      ```
 
 ## インターフェース
 * 例  
