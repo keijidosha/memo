@@ -782,7 +782,7 @@ func main() {
   * slice もほほ同じ。slice から取り出した構造体に対して値を変更し、slice に反映されるようにする場合は、slice に構造体の参照を格納する。  
     (例)  
     ```
-    persons := []*Person{{Name: "hoge"}, {Name: "fuga"}}
+    persons := []*Person{{Name: "hoge"}, {Name: "fuga"} }
     p := persons[0]
     p.Name = "hoge2"
     fmt.Println(persons[0].Name) // hoge2 が表示される。
