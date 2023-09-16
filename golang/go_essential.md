@@ -779,7 +779,7 @@ func main() {
     persons := make(map[int]*Person)
     persons[1101] = &Person{Name: "hoge"}
     ```
-  * slice もほほ同じ。slice から取り出した構造体に対して値を変更し、slice に反映されるようにする場合は、slice にこうぞ遺体の参照を格納する。  
+  * slice もほほ同じ。slice から取り出した構造体に対して値を変更し、slice に反映されるようにする場合は、slice に構造体の参照を格納する。  
     (例)  
     ```
     persons := []*Person{{Name: "hoge"}, {Name: "fuga"}}
