@@ -776,8 +776,23 @@ func main() {
   * map に構造体を格納し、取り出す時も値コピーされる。構造体の内容の変更がそのまま map に反映されるようにする場合は、map に構造体の参照を格納する。  
     (例)  
     ```
-    persons = make(map[int]*Person)
-    persons[1101] = &Person{name: "hoge"}
+    persons := make(map[int]*Person)
+    persons[1101] = &Person{Name: "hoge"}
+    ```
+  * slice もほほ同じ。slice から取り出した構造体に対して値を変更し、slice に反映されるようにする場合は、slice にこうぞ遺体の参照を格納する。  
+    (例)  
+    ```
+    persons := []*Person{{Name: "hoge"}, {Name: "fuga"}}
+    p := persons[0]
+    p.Name = "hoge2"
+    fmt.Println(persons[0].Name) // hoge2 が表示される。
+    ```
+    * ただし、slice にインデックスを指定して構造体の要素を変更する場合は、ポインターでなくても slice に反映される。  
+    (例)  
+    ```
+    persons := []Person{{Name: "hoge"}, {Name: "fuga"}}
+    persons[0].Name = "hoge2"
+    fmt.Println(persons[0].Name) // hoge2 が表示される。
     ```
 
 ## インターフェース
