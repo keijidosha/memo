@@ -1,5 +1,31 @@
 ## echo
 
+### パラメーター取得
+
+* パスパラメーター  
+(例) /users/:id  
+`id := c.Param("id")`
+* クエリーパラメーター  
+(例) /users?id=1  
+`id := c.QueryParam("id")`
+* POSTボディ(URL エンコード)  
+(例) curl -X POST http://127.0.0.1/save -H 'Content-Type: application/x-www-form-urlencoded' –d ‘id=1’
+`id := c.FormValue("id")`
+* POST JSON ボディ  
+(例) curl -X POST http://127.0.0.1/save -H 'Content-Type: application/json' –d ‘{"id":1,"name":"hoge"}’
+  ```
+  type User struct {
+    Id   int32  `json:"id"`
+    Name string `json:"name"`
+  }
+  func save(ec echo.Context) error {
+    u := new(User)
+    if err := ec.Bind(u); err != nil {
+      return ec.String(http.StatusBadRequest, "bad request")
+    }
+  }
+  ```
+
 ### Keep-Alive タイムアウトを指定するサンプル
 
 Keep-Aliveタイムアウトを 30秒に設定
