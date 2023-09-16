@@ -2,7 +2,7 @@
 
 ### Keep-Alive タイムアウトを指定するサンプル
 
-Keep-Aliveタイムアウトを 5秒に設定
+Keep-Aliveタイムアウトを 30秒に設定
 
 ```go
 package main
