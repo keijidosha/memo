@@ -102,6 +102,11 @@ sudo visudo
 * Safari でカーソル上・下キーを押すと、キーを離してもスクロールし続けてしまう。  
 Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響している模様。  
 「Evernote Web Clipper」を無効にすると解消。
+* インストールしたアプリを起動しようとすると、「このアプリは壊れています。ゴミ箱に入れますか?」というダイアログが表示される。  
+(回避策)  
+次のコマンドを実行する。  
+`xattr -rc /Applications/xxx.app`
+
 
 ## 起動
 
