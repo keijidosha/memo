@@ -102,6 +102,9 @@ skinparam sequence {
 * 見出し3: `== xxx`
 * 箇条書き: `* xxx`
 * 数字付き箇条書き: `# xxx`
+* ハイパーリンク: `[[https://xxx Label]]`  
+  * ラベルなしの場合: `[[https://xxx]]`
+
 
 
 ## その他
