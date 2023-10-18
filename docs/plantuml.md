@@ -173,6 +173,8 @@ skinparam sequence {
   
 * 文字色を設定  
   `ここから<color:red>赤文字</color>がここまで`
+* 全体の文字色を指定
+  `skinparam defaultFontColor magenta`
 * 背景色を設定  
   `ここから<back:aqua>背景水色</back>がここまで`
 * ボールド  
