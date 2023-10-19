@@ -192,3 +192,15 @@ skinparam sequence {
   `ここから<size:16>16ptフォント</size>`
 
 ※行末まで同じ文字色にする場合は、`</color>` は省略可能。明示的に終わりを示したい場合だけ指定すれば良い。
+
+## トラブルシューティング
+
+* サイズの大きな画像(PNG)を出力しようとすると、途中で切れてしまう。  
+  デフォルトの画像の上限が 4096 なので、上限を緩和する。  
+  `export PLANTUML_LIMIT_SIZE=8192`  
+  これによりメモリー不足になった場合は、メモリーの上限を緩和する。  
+  `-Xmx1024m`  
+  (参考)  
+  [PlantUML FAQ](https://plantuml.com/ja/faq)  
+  [PlantUMLのpng画像が切れてしまう](https://www.pospome.work/entry/20160422/1461322513)  
+
