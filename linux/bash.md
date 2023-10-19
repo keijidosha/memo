@@ -18,6 +18,17 @@ Table of Contents
    * [shell script samples](#shell-script-samples)
 * [Java](#java)
 
+## 変数
+### デフォルト値
+
+`HOGE=123 hoge.sh` として実行するスクリプトで、変数 HOGE が省略された場合のデフォルト値を設定する。
+```
+#!/bin/bash
+HOGE=${HOGE:-111}
+echo $HOGE
+```
+`hoge.sh` と実行すると、`111` が表示される。
+
 ## 日付
 
 ### 日付を取得する
