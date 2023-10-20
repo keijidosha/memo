@@ -4,6 +4,9 @@
 
 * コマンドライン・オプション  
   [https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
+  * dry run  
+    --check  
+    ansible-playbook -i hosts site.yml `--check`
 * グループ作成
   ```yaml
   {% raw %}
