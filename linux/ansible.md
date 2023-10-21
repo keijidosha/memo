@@ -91,6 +91,16 @@
       - "/home/hoge/*.txt"
   {% endraw %}
   ```
+* ターゲット間でファイルをコピー
+  ```yaml
+  {% raw %}
+  - name: copy hoge.txt
+    copy:
+      src: /home/hoge/hoge.txt
+      dest: /tmp/
+    remote_src: true
+  {% endraw %}
+  ```  
 * シンボリックリンクを作成
   ```yaml
   {% raw %}
