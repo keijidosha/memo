@@ -52,6 +52,8 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |行移動|option + ↑↓|
 |ソート(昇順)|1. 範囲選択<br>2. command + shift + P<br>3. Sort Lines Ascending|
 |ソート(降順)|1. 範囲選択<br>2. command + shift + P<br>3. Sort Lines Descending|
+|小文字変換|command + K, command + L|
+|大文字|command + K, command + U|
 
 ### 検索
 
