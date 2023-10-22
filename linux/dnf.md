@@ -10,3 +10,5 @@
 `dnf module enable nginx:1.18`
 * モジュールのバージョン設定をリセット  
 `dnf module reset nginx`
+* モジュール削除  
+  `dnf erase xxx`
