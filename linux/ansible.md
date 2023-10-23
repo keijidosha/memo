@@ -353,6 +353,17 @@
       (例) "^\\\\(hoge\\\\)"
     * \w などは使えない  
       (例) "\\w" の代わりに "( |\t)" と指定
+  * 正規表現で置換パラメーターを使う場合、backrefs を指定。  
+    ```yaml
+    {% raw %}
+    - name: replace by line in text file
+      lineinfile:
+        path: /home/hoge/hoge.txt
+        backrefs: yes
+        regexp: 'xxx1=(\d+);'
+        line:   'xxx2=\1;'
+    {% endraw %}
+    ```  
 * コマンドを実行(実行ユーザー、実行ディレクトリを指定して)。
   ```yaml
   {% raw %}
