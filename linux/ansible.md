@@ -98,7 +98,7 @@
     copy:
       src: /home/hoge/hoge.txt
       dest: /tmp/
-    remote_src: true
+      remote_src: true
   {% endraw %}
   ```  
 * シンボリックリンクを作成
