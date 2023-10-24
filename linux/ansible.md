@@ -359,7 +359,7 @@
     - name: replace by line in text file
       lineinfile:
         path: /home/hoge/hoge.txt
-        backrefs: yes
+        backrefs: true
         regexp: 'xxx1=(\d+);'
         line:   'xxx2=\1;'
     {% endraw %}
