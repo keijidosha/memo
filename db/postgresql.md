@@ -6,6 +6,13 @@
 * 拡張表示  
 \x
 
+## エクスポート
+
+* 特定のテーブルのデータだけをエクスポート  
+  `pg_dump --username=<ユーザーID> --data-only --table <テーブル名> <DB名> > xxx.sql`
+* インポート  
+  `psql -f xxx.sql <DB名>`
+
 ## シーケンス
 
 * シーケンスの値を変更する  
