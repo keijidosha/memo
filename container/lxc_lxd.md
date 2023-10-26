@@ -112,7 +112,7 @@ https://images.linuxcontainers.org/
 * コンテナにスナップショットを復元する  
 `lxc restore <コンテナ名> <スナップショット名>`
 * スナップショットを削除する  
-`lxc delete <スナップショット名>`
+`lxc delete <コンテナ名>/<スナップショット名>`
 * lxc のバージョンを表示  
 `lxc --version`
 * lxd のバージョンを表示  
