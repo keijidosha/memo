@@ -31,6 +31,8 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |インターフェースメソッドの実装箇所にジャンプ|command + option + B|
 |次のメソッド/前のメソッドに移動|control + ↓ / control + ↑(他とかぶらないキーに設定変更して)|
 |最後の編集位置に移動|command + shift + backspace|
+|次のエラー箇所に移動|F2|
+|前のエラー箇所に移動|shift + F2|
 
 #### カーソル移動
 
