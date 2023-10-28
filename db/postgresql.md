@@ -6,6 +6,44 @@
 * 拡張表示  
 \x
 
+## テーブル作成(サンプル)
+
+### シンプルなサンプル。
+
+```
+CREATE TABLE hoge(
+  id bigint NOT NULL PRIMARY KEY GENERATED ALWAYS  AS IDENTITY,
+  name varchar(16)
+);
+```
+id という名前でプライマリーキーを作成し、シーケンスで採番する。
+
+### パーティションテーブル
+
+```
+CREATE TABLE hoge(
+  date timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL PRIMARY KEY,
+  name varchar(16)
+) PARTITION BY RANGE(date);
+
+CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00') TO ('2023-02-01 00:00:00');
+```
+* date カラムでパーテションテーブルに振り分ける。  
+* 親テーブルにプライマリーキーやインデックスを指定しておくと、パーティションテーブルを作成する時に自動的にプライマリーキーやインデックスが作成される。  
+* ただし、親テーブルにプライマリーキーを指定する場合は、そのカラムが RANGE 指定にも含まれている必要がある。  
+  RANGE に指定したカラムとは別のカラムをプライマリーキーに指定する必要がある場合、次のようにプライマリーキーを各パーティションテーブルごとに個別に指定する。
+
+```
+CREATE TABLE hoge(
+  id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
+  date timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  name varchar(16)
+) PARTITION BY RANGE(date);
+
+CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00') TO ('2023-02-01 00:00:00');
+ALTER TABLE ONLY hoge_202301 ADD CONSTRAINT hoge_202301_pkey PRIMARY KEY (id);
+```
+
 ## エクスポート
 
 * 特定のテーブルのデータだけをエクスポート  
