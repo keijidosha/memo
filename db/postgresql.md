@@ -41,8 +41,8 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
   Indexes:
       "hoge_202301_pkey" PRIMARY KEY, btree (date)
   ```
-* ただし、親テーブルにプライマリーキーを指定する場合は、そのカラムが RANGE 指定にも含まれている必要がある。  
-  RANGE に指定したカラムとは別のカラムをプライマリーキーに指定する必要がある場合、次のようにプライマリーキーを各パーティションテーブルごとに個別に指定する。
+* ただし、親テーブルにプライマリーキーを指定する場合は、そのカラムが RANGE にも指定されている必要がある。  
+  RANGE に指定したカラムとは別のカラムをプライマリーキーにする必要がある場合、次のようにプライマリーキーを各パーティションテーブルごとに個別に指定する。
   ```
   CREATE TABLE hoge(
     id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
@@ -66,6 +66,8 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
   Indexes:
       "hoge_202301_pkey" PRIMARY KEY, btree (id)
   ```
+  * RANGE にプライマリーキーを指定する場合であっても、SUBSTRING(id,1,2) のようにファンクションを使うと、親テーブルにプライマリーキーは指定できない。
+
 
 ## エクスポート
 
