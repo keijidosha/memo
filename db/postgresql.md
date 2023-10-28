@@ -30,19 +30,42 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
 ```
 * date カラムでパーテションテーブルに振り分ける。  
 * 親テーブルにプライマリーキーやインデックスを指定しておくと、パーティションテーブルを作成する時に自動的にプライマリーキーやインデックスが作成される。  
+  ```
+  \d hoge_202301
+                            Table "public.hoge_202301"
+   Column |           Type           | Collation | Nullable |      Default      
+  --------+--------------------------+-----------+----------+-------------------
+   date   | timestamp with time zone |           | not null | CURRENT_TIMESTAMP
+   name   | character varying(16)    |           |          | 
+  Partition of: hoge FOR VALUES FROM ('2023-01-01 00:00:00+00') TO ('2023-02-01 00:00:00+00')
+  Indexes:
+      "hoge_202301_pkey" PRIMARY KEY, btree (date)
+  ```
 * ただし、親テーブルにプライマリーキーを指定する場合は、そのカラムが RANGE 指定にも含まれている必要がある。  
   RANGE に指定したカラムとは別のカラムをプライマリーキーに指定する必要がある場合、次のようにプライマリーキーを各パーティションテーブルごとに個別に指定する。
-
-```
-CREATE TABLE hoge(
-  id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
-  date timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-  name varchar(16)
-) PARTITION BY RANGE(date);
-
-CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00') TO ('2023-02-01 00:00:00');
-ALTER TABLE ONLY hoge_202301 ADD CONSTRAINT hoge_202301_pkey PRIMARY KEY (id);
-```
+  ```
+  CREATE TABLE hoge(
+    id bigint NOT NULL GENERATED ALWAYS AS IDENTITY,
+    date timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    name varchar(16)
+  ) PARTITION BY RANGE(date);
+  
+  CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00') TO ('2023-02-01 00:00:00');
+  ALTER TABLE ONLY hoge_202301 ADD CONSTRAINT hoge_202301_pkey PRIMARY KEY (id);
+  ```
+  次のようにプライマリーキーとは別のカラムでパーテション化される。
+  ```
+  \d hoge_202301
+                            Table "public.hoge_202301"
+   Column |           Type           | Collation | Nullable |      Default      
+  --------+--------------------------+-----------+----------+-------------------
+   id     | bigint                   |           | not null | 
+   date   | timestamp with time zone |           | not null | CURRENT_TIMESTAMP
+   name   | character varying(16)    |           |          | 
+  Partition of: hoge FOR VALUES FROM ('2023-01-01 00:00:00+00') TO ('2023-02-01 00:00:00+00')
+  Indexes:
+      "hoge_202301_pkey" PRIMARY KEY, btree (id)
+  ```
 
 ## エクスポート
 
