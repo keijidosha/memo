@@ -111,6 +111,7 @@
   * Container
     * [Docker](container/docker.md)
     * [LXC/LXD](container/lxc_lxd.md)
+      * [LXC/LXD 調査](container/lxc_lxd_explore.md)
   * VM
     * [VirtualBox](vm/virtualbox.md)
     * [vagrant](vm/vagrant.md)
