@@ -20,7 +20,7 @@ Table of Contents
   @Component("Bean1")
   public class MyBean1 implements MyBean {
       @Override
-      public String sayHello() {
+      public void sayHello() {
           System.out.println(getClass().getName());
       }
   }
@@ -30,7 +30,7 @@ Table of Contents
   @Component("Bean2")
   public class MyBean2 implements MyBean {
       @Override
-      public String sayHello() {
+      public void sayHello() {
           System.out.println(getClass().getName());
       }
   }
@@ -40,9 +40,8 @@ Table of Contents
   @Component("Bean3")
   public class MyBean3 implements MyBean {
       @Override
-      public String sayHello() {
+      public void sayHello() {
           System.out.println(getClass().getName());
-          return null;
       }
   }
   ```
