@@ -37,5 +37,9 @@
      cd /swagger
      npx @redocly/cli build-docs openapi.yml
      ```  
-     redoc-static.html が生成される。  
+     redoc-static.html が生成される。
+     出力する HTML ファイル名を指定する場合は --output オプションを指定。
+     ```
+     npx @redocly/cli build-docs openapi.yml --output=hoge.html
+     ```  
      (参考) [https://www.d-make.co.jp/blog/2021/03/09/openapi-yaml-html/](https://www.d-make.co.jp/blog/2021/03/09/openapi-yaml-html/)
