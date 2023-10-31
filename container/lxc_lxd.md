@@ -95,7 +95,7 @@ https://images.linuxcontainers.org/
 `lxc snapshot <コンテナ名> <スナップショット名>`
 * コンテナのスナップショット一覧表示  
 `lxc info <コンテナ名>`
-* スナップショットの有効気げを設定する
+* スナップショットの有効期限を設定する
   ```
   export EDITOR=vim
   lxc config edit <コンテナ名>/<スナップショット名>
