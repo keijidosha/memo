@@ -10,6 +10,9 @@ Table of Contents
       * [設定](#設定)
       * [プロファイル](#プロファイル)
       * [実行](#実行)
+      * [スナップショット](#スナップショット)
+      * [コンテナに対してコマンド実行](#コンテナに対してコマンド実行)
+      * [ホストディレクトリをコンテナにマウント](#ホストディレクトリをコンテナにマウント)
       * [コンテナのコピー](#コンテナのコピー)
       * [ファイルアップロード/ダウンロード](#ファイルアップロードダウンロード)
          * [アップロード](#アップロード)
@@ -91,6 +94,13 @@ https://images.linuxcontainers.org/
 `lxc delete <コンテナ名>`
 * コンテナに bash で接続  
 `lxc exec <コンテナ名> bash`
+* lxc のバージョンを表示  
+`lxc --version`
+* lxd のバージョンを表示  
+`lxd --version`
+
+## スナップショット
+
 * コンテナのスナップショットをとる  
 `lxc snapshot <コンテナ名> <スナップショット名>`
 * コンテナのスナップショット一覧表示  
@@ -104,10 +114,9 @@ https://images.linuxcontainers.org/
 `lxc restore <コンテナ名> <スナップショット名>`
 * スナップショットを削除する  
 `lxc delete <コンテナ名>/<スナップショット名>`
-* lxc のバージョンを表示  
-`lxc --version`
-* lxd のバージョンを表示  
-`lxd --version`
+
+## コンテナに対してコマンド実行
+
 * コマンド実行  
   * 普通に実行する場合  
   `lxc exec <コンテナ名> bash`
@@ -118,6 +127,9 @@ https://images.linuxcontainers.org/
   bash -c などを使う  
   `lxc exec <コンテナ名> -- bash -c "lsof | grep deleted"`  
   `lxc exec <コンテナ名> -- sh -c "lsof | vi -R -"`  
+
+## ホストディレクトリをコンテナにマウント
+
 * **ホストのディレクトリをコンテナにマウント**  
 `lxc config device add <コンテナ名> <デバイス名> disk source=<ホスト側マウント元ディレクトリ> path=<コンテナディレクトリ>`  
 (例)  
