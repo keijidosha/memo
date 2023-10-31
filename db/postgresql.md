@@ -1,3 +1,16 @@
+Table of Contents
+=================
+
+  * [psql](#psql)
+    * [コマンド](#コマンド)
+  * [テーブル作成(サンプル)](#テーブル作成サンプル)
+    * [シンプルなサンプル](#シンプルなサンプル)
+    * [パーティションテーブル](#パーティションテーブル)
+  * [プライマリキー](#プライマリキー)
+  * [エクスポート](#エクスポート)
+  * [シーケンス](#シーケンス)
+  * [ログ](#ログ)
+
 # PostgreSQL
 
 ## psql
@@ -8,7 +21,7 @@
 
 ## テーブル作成(サンプル)
 
-### シンプルなサンプル。
+### シンプルなサンプル
 
 ```
 CREATE TABLE hoge(
@@ -68,6 +81,12 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
   ```
   * RANGE にプライマリーキーを指定する場合であっても、SUBSTRING(id,1,2) のようにファンクションを使うと、親テーブルにプライマリーキーは指定できない。
 
+## プライマリキー
+
+* プライマリキーが存在しない場合だけ作成する(ワンライナー)  
+  ```
+  DO $do$ BEGIN IF NOT EXISTS ( SELECT 1 FROM pg_constraint con JOIN pg_class cls ON con.conrelid = cls.oid WHERE con.contype = 'p' AND cls.relname = 'primary_key_name' ) THEN ALTER TABLE IF EXISTS table_name ADD CONSTRAINT primay_key_name PRIMARY KEY (pk_column); END IF; END $do$;
+  ```
 
 ## エクスポート
 
