@@ -109,7 +109,8 @@ Table of Contents
       public MyService(
               // コンストラクターインジェクションで ConfigurableApplicationContext を取得しておく。
               ApplicationContext context,
-              // 型が ApplicationContext だと AnnotationConfigApplicationContext を引っ張ってくるので、より具体的な型を指定する。
+              // 型が ApplicationContext だと AnnotationConfigApplicationContext を
+              // 引っ張ってくるので、より具体的な型を指定する。
               FileSystemXmlApplicationContext myApplicationContext,
               // @Qualifier で使用する Bean を指定。
               @Qualifier("Bean1")
