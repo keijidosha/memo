@@ -110,7 +110,7 @@ Table of Contents
               // コンストラクターインジェクションで ConfigurableApplicationContext を取得しておく。
               ApplicationContext context,
               // 型が ApplicationContext だと AnnotationConfigApplicationContext を
-              // 引っ張ってくるので、より具体的な型を指定する。
+              // 引っ張ってくるので、より具体的な型を指定する(@Bean で定義したメソッド名とパラメーター名を合わせていても)。
               FileSystemXmlApplicationContext myApplicationContext,
               // @Qualifier で使用する Bean を指定。
               @Qualifier("Bean1")
