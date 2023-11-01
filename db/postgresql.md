@@ -17,7 +17,13 @@ Table of Contents
 
 ### コマンド
 * 拡張表示  
-\x
+  `\x`
+* コマンド履歴から重複排除  
+  .psqlrc に次の設定を記述
+  ```
+  \set HISTCONTROL ignoredups
+  \set COMP_KEYWORD_CASE upper
+  ```
 
 ## テーブル作成(サンプル)
 
