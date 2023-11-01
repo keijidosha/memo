@@ -131,8 +131,10 @@ Table of Contents
           // ConfigurableApplicationContext を使って Bean を指定。
           MyBean mb = context.getBean("Bean2", MyBean.class);
           mb.sayHello();
+          // @Bean 指定したメソッド名と、コンストラクタパラメーター名一致しで取得した Bean を実行。
           myBeanHoge.sayHello();
 
+          // XML ファイルに記述された Bean 定義を使って取得した Bean を実行。
           final MyBean mbXml1 = xmlApplicationContext.getBean("XmlMyBean", MyBean.class);
           mbXml1.sayHello();
           final MyBean mbXml2 = xmlApplicationContext.getBean("Bean4", MyBean.class);
