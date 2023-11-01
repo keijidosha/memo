@@ -82,6 +82,7 @@ Table of Contents
       @Bean
       public FileSystemXmlApplicationContext myApplicationContext() {
           // XML から Bean の定義を読み込む。
+          // "file:" を付けると絶対パス、付けないと実行時ディレクトリからの相対パスになる。
           return new FileSystemXmlApplicationContext( "file:/etc/di.xml");
       }
   }
