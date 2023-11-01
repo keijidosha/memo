@@ -77,7 +77,8 @@ Table of Contents
           return new MyBean3();
       }
 
-      // Bean が返す型が ApplicationContext だと、サービスが AnnotationConfigApplicationContext を拾ってしまうので、より具体的な型を返す。
+      // Bean が返す型が ApplicationContext だと、サービスが
+      // AnnotationConfigApplicationContext を拾ってしまうので、より具体的な型を返す。
       @Bean
       public FileSystemXmlApplicationContext myApplicationContext() {
           // XML から Bean の定義を読み込む。
