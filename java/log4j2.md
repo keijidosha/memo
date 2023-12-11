@@ -54,6 +54,18 @@
       <MarkerFilter marker="HOGE" onMatch="ACCEPT" onMismatch="DENY"/>
   </RollingFile>
   ```
+  MarkerFilter を複数指定する場合は、Filters で囲む  
+  ```xml
+  <RollingFile name="hoge" fileName="logs/hoge.log" filePattern="logs/hoge.%i.log.gz">
+      <PatternLayout pattern="[%d{yyyy.MM.dd HH:mm:ss.SSS}] %p &lt;%c{1}&gt; %m%n" />
+      <SizeBasedTriggeringPolicy size="5MB" />
+      <DefaultRolloverStrategy max="10" fileIndex="max" />
+      <Filters>
+        <MarkerFilter marker="HOGE" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+        <MarkerFilter marker="FUGA" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+  </RollingFile>
+  ```
   
   ```java
   MarkerManager.Log4jMarker hogeLogMarker = new MarkerManager.Log4jMarker( "HOGE" );
