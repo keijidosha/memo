@@ -288,7 +288,7 @@ lxc network list-leases lxdbr0
   ```
   ip r add 192.168.1.0/24 via <lxdbr0のIP>
   ```
-  以下、確認内容。
+  以下、確認した内容。
   1. eth1 を止める。  
      `sudo ip l set eth1 down`
   1. dhclient のプロセスを停止し、eth0 用の IP を DHCP で取り直して、eth0 用のデフォルトゲートウェイを取り直す。  
