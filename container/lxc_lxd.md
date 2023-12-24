@@ -281,32 +281,34 @@ lxc network list-leases lxdbr0
      `sudo ip r add 172.16.1.0/24 via 10.1.2.1`  
      ※ブリッジアダプターからパケットが出て行くと、ホストOS のスタティックルーティングが参照されない?(ゲストOS に NAT とブリッジのアダプターが設定されていると、デフォルトではブリッジアダプターからパケットが出て行く。)
      ※ コンテナ側での設定は不要。  
-  * コンテナに NIC を 2枚割り当てている場合、デフォルトGW が eth1 を向いてしまい、上記の設定をしても eth0 からの VPN を経由しない場合がある。その場合、コンテナ側でも設定を追加。
-    1. eth1 を止める。  
-       `sudo ip l set eth1 down`
-    1. dhclient のプロセスを停止し、eth0 用の IP を DHCP で取り直して、eth0 用のデフォルトゲートウェイを取り直す。  
-       ```
-       ps ax | grep dhclient
-       sudo kill xxx
-       sudo dhclient eth0
-       ip r
-       ```  
-       (例) `default via 172.16.1.1 dev eth0` と表示された場合
-    1. もう一度 dhclient のプロセスを停止し、今度は eth0 と eth1 の IP を DHCP で取得
-       ```
-       ps ax | grep dhclient
-       sudo kill xxx
-       sudo dhclient eth0 eth1
-       ```
-    1. 目的のネットワークへのスタティックルーティングを、先ほど取得した GW の IP を経由するように設定
-       ```
-       ip r add 192.168.1.0/24 via 172.16.1.1 
-       ```
-       ※eth0 から抜ける時用の GW IP は lxdbr0 の IP になっているので、直接 lxdbr0 の IP を指定して良さそう。  
-       lxdbr0 の IP はゲストOS で確認。  
-       ```
-       ip r add 192.168.1.0/24 via <lxdbr0のIP>
-       ```
+* コンテナに NIC を 2枚割り当てている場合、デフォルトGW が eth1 を向いてしまい、上記の設定をしても eth0 からの VPN を経由しない場合がある。その場合、コンテナ側でも設定を追加。  
+  (結論)  
+  ※eth0 から抜ける時用の GW IP は lxdbr0 の IP になっているので、直接 lxdbr0 の IP を指定して良さそう。  
+  => lxdbr0 の IP はゲストOS で確認。  
+  ```
+  ip r add 192.168.1.0/24 via <lxdbr0のIP>
+  ```
+  以下、確認内容。
+  1. eth1 を止める。  
+     `sudo ip l set eth1 down`
+  1. dhclient のプロセスを停止し、eth0 用の IP を DHCP で取り直して、eth0 用のデフォルトゲートウェイを取り直す。  
+     ```
+     ps ax | grep dhclient
+     sudo kill xxx
+     sudo dhclient eth0
+     ip r
+     ```  
+     (例) `default via 172.16.1.1 dev eth0` と表示された場合
+  1. もう一度 dhclient のプロセスを停止し、今度は eth0 と eth1 の IP を DHCP で取得
+     ```
+     ps ax | grep dhclient
+     sudo kill xxx
+     sudo dhclient eth0 eth1
+     ```
+  1. 目的のネットワークへのスタティックルーティングを、先ほど取得した GW の IP を経由するように設定
+     ```
+     ip r add 192.168.1.0/24 via 172.16.1.1 
+     ```
 
 ## CentOS 7.5 のイメージを作成
 
