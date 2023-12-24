@@ -302,6 +302,10 @@ lxc network list-leases lxdbr0
        ```
        ip r add 192.168.1.0/24 via 172.16.1.1 
        ```
+       ※eth0 から抜ける時用の GW IP は lxdbr0 の IP になっているので、直接 lxdbr0 の IP を指定して良さそう。
+       ```
+       ip r add 192.168.1.0/24 via <lxdbr0のIP>
+       ```
 
 
 
