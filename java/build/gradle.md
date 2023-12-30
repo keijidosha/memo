@@ -47,7 +47,7 @@
       id 'com.palantir.git-version' version '0.12.3'
     }
 
-    group 'jp.co.nextgen.ash.policeplus.rerecognizer'
+    group 'com.examples'
     version ''
 
     repositories {
