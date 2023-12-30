@@ -48,7 +48,7 @@
     }
 
     group 'com.examples'
-    version ''
+    version 'v1.2'
 
     repositories {
         mavenCentral()
