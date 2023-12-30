@@ -44,6 +44,7 @@
     ```
     plugins {
       id 'java'
+      // git からコミットのハッシュ値、タグを取得してくれるプラグイン
       id 'com.palantir.git-version' version '0.12.3'
     }
 
@@ -55,25 +56,33 @@
     }
 
     tasks.withType(JavaCompile).configureEach {
+      // コンパイル時の警告を表示する設定
       options.deprecation = true
       options.compilerArgs << '-Xlint:unchecked'
     }
 
+    // git からバージョン情報取得
     def gitInfo = versionDetails()
     version = gitInfo.lastTag
     def implementationVersion = version + '(' + gitInfo.gitHash[0..7] + ')'
 
     jar {
+      // hoge.jar がビルドされる
       archiveBaseName = 'hoge'
+      // これを指定しなかった場合、hoge-0.0.1.jar といった感じの JAR ファイルがビルドされる。
       archiveVersion = ''
-      duplicatesStrategy 'exclude'
+      // MANIFEST.MF に設定する内容
       manifest {
         attributes(
+                // 起動するクラス
                 'Main-Class': 'com.examples.Hoge',
+                // gitかから取得したバージョン
                 'Implementation-Version' : implementationVersion,
                 'Implementation-Title' : 'Hoge'
         )
       }
+      // Fat JAR をビルド
+      duplicatesStrategy 'exclude'
       from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
       }
