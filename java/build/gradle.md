@@ -40,8 +40,57 @@
         }
     }
     ```
-    * ビルド  
-      `./gradlew jar`
+  * サンプル
+    ```
+    plugins {
+      id 'java'
+      id 'com.palantir.git-version' version '0.12.3'
+    }
+
+    group 'jp.co.nextgen.ash.policeplus.rerecognizer'
+    version ''
+
+    repositories {
+        mavenCentral()
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+      options.deprecation = true
+      options.compilerArgs << '-Xlint:unchecked'
+    }
+
+    def gitInfo = versionDetails()
+    version = gitInfo.lastTag
+    def implementationVersion = version + '(' + gitInfo.gitHash[0..7] + ')'
+
+    jar {
+      archiveBaseName = 'hoge'
+      archiveVersion = ''
+      duplicatesStrategy 'exclude'
+      manifest {
+        attributes(
+                'Main-Class': 'com.examples.Hoge',
+                'Implementation-Version' : implementationVersion,
+                'Implementation-Title' : 'Hoge'
+        )
+      }
+      from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+      }
+    }
+
+    dependencies {
+      implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.9'
+      testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+      testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+
+    test {
+      useJUnitPlatform()
+    }
+    ```
+  * ビルド  
+    `./gradlew jar`
 
 
 ## コマンド
