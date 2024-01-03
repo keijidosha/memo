@@ -92,7 +92,8 @@
   import java.time.format.DateTimeFormatter;
   
   DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm:ss.SSS" );
-  TimeStamp timestamp = Timestamp.valueOf( LocalDateTime.from( formatter.parse( "2001-09-30 09:10:30.123" )));
+  TimeStamp timestamp = Timestamp.valueOf( LocalDateTime.from(
+      formatter.parse( "2001-09-30 09:10:30.123" )));
   ```
 
 - java.time.format.DateTimeFormatter でパースした結果を java.time.OffsetDateTime に変換する
