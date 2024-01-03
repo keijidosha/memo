@@ -86,3 +86,22 @@
   System.out.println( new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss.SSS" ).format( now2 ));
   ```
 
+* java.time.format.DateTimeFormatter でパースした結果を java.sql.Timestamp に変換する  
+  ```
+  import java.sql.Timestamp;
+  import java.time.format.DateTimeFormatter;
+  
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm:ss.SSS" );
+  TimeStamp timestamp = Timestamp.valueOf( LocalDateTime.from( formatter.parse( "2001-09-30 09:10:30.123" )));
+  ```
+
+* java.time.format.DateTimeFormatter でパースした結果を java.time.OffsetDateTime に変換する
+  ```
+  import java.time.OffsetDateTime;
+  import java.time.ZoneId;
+  import java.time.temporal.TemporalAccessor;
+  
+  DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm:ss" ).withZone( ZoneId.systemDefault());
+  TemporalAccessor temporalAccessor = dateTimeFormatter.parse( "2001-01-02 09:10:20" );
+  OffsetDateTime offsetDateTime = OffsetDateTime.of( LocalDateTime.from( temporalAccessor), ZoneId.systemDefault().getRules().getOffset(Instant.from(temporalAccessor)));
+  ```
