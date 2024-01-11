@@ -72,4 +72,39 @@
   
   logger.info( hogeLogMarker, message )
   ```
-
+* ログレベルごとにログファイルを分けて出力  
+  ログファイルA は INFO で、ログファイルB には DEBUG で出力。  
+  「&lt;Root level="debug"&gt;」で Root 配下の Max ログ出力レベルを debug いかに制限した上で、配下の「ref="logfile-info"」をさらに info に制限するイメージか?
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE project>
+  <Configuration status="off" monitorInterval="60">
+      <Properties>
+          <Property name="format">[%d{yyyy/MM/dd HH:mm:ss.SSS}] %p : %m%n</Property>
+          <Property name="logfile">/var/log/hoge/hoge.log</Property>
+          <Property name="logfile-patten">/var/log/hoge/hoge.log.%i</Property>
+          <Property name="logfile-info">/var/log/hoge/hoge-info.log</Property>
+          <Property name="logfile-patten-info">/var/log/hoge/hoge-info.log.%i</Property>
+      </Properties>
+  
+      <Appenders>
+          <RollingFile name="logfile" fileName="${logfile}" filePattern="${logfile-patten}">
+              <PatternLayout pattern="${format}" />
+              <SizeBasedTriggeringPolicy size="1MB" />
+              <DefaultRolloverStrategy fileIndex="min" min="1" max="10" />
+          </RollingFile>
+          <RollingFile name="logfile-info" fileName="${logfile-info}" filePattern="${logfile-patten-info}">
+              <PatternLayout pattern="${format}" />
+              <SizeBasedTriggeringPolicy size="1MB" />
+              <DefaultRolloverStrategy fileIndex="min" min="1" max="10" />
+          </RollingFile>
+      </Appenders>
+  
+      <Loggers>
+          <Root level="debug">
+              <AppenderRef ref="logfile-info" level="info" />
+              <AppenderRef ref="logfile"     level="debug" />
+          </Root>
+      </Loggers>
+  </Configuration>
+  ```
