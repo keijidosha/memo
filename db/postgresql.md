@@ -18,6 +18,12 @@ Table of Contents
 ### コマンド
 * 拡張表示  
   `\x`
+* 接続先情報を環境変数に設定
+  ```
+  export PGHOST=192.168.1.1
+  export PGPORT=65432
+  export PGUSER=hoge
+  ```
 * コマンド履歴から重複排除  
   .psqlrc に次の設定を記述
   ```
