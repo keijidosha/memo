@@ -4,7 +4,7 @@
 
 * Json の項目名を別名にする  
 (例) Java: itemId ==> Json: itemid
-  ```
+  ```kotlin
   import com.fasterxml.jackson.annotation.JsonProperty
 
   class Item {
@@ -13,7 +13,7 @@
   }
   ```
 * Json を読み込む時、Json に存在しない項目は無視する(エラーにしない)  
-  ```
+  ```kotlin
   import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
   class Item {
@@ -24,7 +24,7 @@
   }
   ```
 * null の場合は出力(シリアライズ)に含めない  
-  ```
+  ```kotlin
   import com.fasterxml.jackson.annotation.JsonInclude
 
   class Item {
@@ -48,7 +48,7 @@
     `compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: '2.9.6'`  
     ※ 2.9.6 は使っている Jackson のバージョンを指定
   * コンストラクタの引数にアノテーションを指定  
-    ```
+    ```kotlin
     import com.fasterxml.jackson.annotation.JsonInclude
 
     data class Item(
@@ -59,7 +59,7 @@
     )
     ```
   * KotlinModule を登録した ObjectMapper を使ってシリアライズ  
-    ```
+    ```kotlin
     val mapper = ObjectMapper().registerModule( KotlinModule())
     println( mapper.writeValueAsString( item ))
     ```
