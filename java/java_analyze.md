@@ -70,7 +70,10 @@ jcmd <プロセスID|メインクラス名> help
 * jmap -dump:format=b,file=<出力パス> -F <プロセスID>  
 (例) jmap -dump:format=b,file=/tmp/heap.dump -F 1001  
 -F は強制出力。-F を付けないとヒープダンプが取得できないことが多いが、-F なしで取得できるなら付けなくて良い。
-* [https://www.eclipse.org/mat/](https://www.eclipse.org/mat/) から Memory Analyzer (MAT) をダウンロードして読み込ませる。
+* [https://www.eclipse.org/mat/](https://www.eclipse.org/mat/) から Memory Analyzer (MAT) をダウンロードして読み込ませる。  
+(2024 追記)visualvm を使うのが良さそう。
+ダウンロードして、&lt;path&gt;/bin/visualvm で起動。  
+https://visualvm.github.io/download.html
 
 #### ヒープダンプに残っている文字列をカウントして多い順にソート
 
