@@ -13,10 +13,10 @@ Table of Contents
 
 # xxxOf
 
-|-----|-----------------|------------|-|
 
 
 | 関数名 | 生成されたインスタンス | メソッドシグネチャ | |
+| ----- | ----------------- | ------------ | - |
 | arrayListOf |ArrayList | fun <T> arrayListOf(vararg elements: T): ArrayList<T> ||
 | arrayOf | パラメータに渡された型の配列 | |immutable |
 |hashMapOf |HashMap |fun <K, V> hashMapOf(vararg pairs: Pair<K, V>): HashMap<K, V>||
