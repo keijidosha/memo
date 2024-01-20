@@ -12,6 +12,15 @@
 ### 見出し3
 #### 見出し4
 
+* Table of Contents を入れる  
+  pages に変換された時に ToC が追加される。  
+  「Code」のページにはそのまま「- Table of Content{:toc}」で表示されてしまう。
+  ```
+  - Table of Content
+  {:toc}
+  ```
+
+
 ## コード
 (1) バッククォート 3つで挟む
 
