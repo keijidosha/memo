@@ -1,3 +1,6 @@
+- Table of Content
+{:toc}
+
 Table of Contents
 =================
 * [xxxOf](#xxxof)
@@ -9,10 +12,11 @@ Table of Contents
 * [その他](#その他)
 
 # xxxOf
-|関数名|生成されたインスタンス|メソッドシグネチャ| |
+| 関数名 | 生成されたインスタンス | メソッドシグネチャ | |
 |-----|-----------------|------------|-|
-|arrayListOf|ArrayList|fun <T> arrayListOf(vararg elements: T): ArrayList<T>||
-|arrayOf |パラメータに渡された型の配列||immutable|
+| arrayListOf |ArrayList | fun <T> arrayListOf(vararg elements: T): ArrayList<T> ||
+| arrayOf | パラメータに渡された型の配列 | |immutable |
+
 |hashMapOf |HashMap |fun <K, V> hashMapOf(vararg pairs: Pair<K, V>): HashMap<K, V>||
 |hashSetOf |HashSet |fun <T> hashSetOf(vararg elements: T): HashSet<T>||
 |linkedMapOf |LinkedHashMap |fun <K, V> linkedMapOf(vararg pairs: Pair<K, V> ): LinkedHashMap<K, V>|順序が維持される|
