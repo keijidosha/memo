@@ -1,3 +1,6 @@
+- Table of Content  
+{:toc}
+
 # Kotlin: ファンクション
 
 ## 高階関数
