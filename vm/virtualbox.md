@@ -36,6 +36,12 @@
      Value: 1000
      ```
      ※VirtualBox 5.1 で実行
+* ホストがスリープしたなどでゲストの時間がずれてしまった場合に、ゲストの時刻をシステムクロックに合わせる
+  ゲストで実行
+  ```
+  sudo systemctl stop vboxadd-service && sudo date -s '2020/01/01 09:00' && sudo systemctl start vboxadd-service
+  ```
+  VirtualBox のサービスを止めた上で、大幅に時刻をずらしておくと、次にサービス開始した時に、少しずつ時刻を合わせていくのではなく、一気に合わせてくれる。
 * 別のマシンにゲストOSをディレクトリごとコピーした後、コピー先でゲストを追加できない(ディスクイメージが見つからない)  
   * 設定ファイル *.vbox をエディタで開く
     1. \<AttachedDevice> 〜 \</AttachedDevice> をコメントアウトする
