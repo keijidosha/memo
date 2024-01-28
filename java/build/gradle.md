@@ -1,6 +1,6 @@
 # Gradle
 
-- Table of Content  
+- Table of Content
   {:toc}
 
 
