@@ -1,6 +1,7 @@
 # Gradle
 
-- Table of Content{:toc}
+- Table of Content
+{:toc}
 
 
 ## build.gradle 設定
