@@ -34,6 +34,29 @@ fun <T> run( act1: () -> Any?, act2: () -> T ): T {
   ```
   Executors.newSingleThreadExecutor().submit{ println( "Hello" ) }
   ```
+* Executor に Callable を渡して実行後の値を受け取る
+  ```
+  val executor = Executors.newCachedThreadPool()
+  val future = executor.submit(Callable<String>{
+    println("Thread 1-1")
+    Thread.sleep(1000)
+    "Thread1-1"
+  })
+  println("future=${future.get()}")  // Thread1-1 が表示される
+  executor.shutdown()
+  ```
+  * Callable も省略する
+    ```
+    val executor = Executors.newCachedThreadPool()
+    val future = executor.submit<String>{
+      println("Thread 1-2")
+      Thread.sleep(1000)
+      "Thread1-2"
+    }
+    println("future=${future.get()}")  // Thread1-2 が表示される
+    executor.shutdown()
+    ```
+    submit に戻り値の型を指定すると、Callable として扱われる模様
 
 ## Callable Reference
 
