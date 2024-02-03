@@ -96,17 +96,27 @@
       formatter.parse( "2001-09-30 09:10:30.123" )));
   ```
 
-- java.time.format.DateTimeFormatter でパースした結果を java.time.OffsetDateTime に変換する
+- java.time.format.DateTimeFormatter でパースした結果を java.time.OffsetDateTime に変換する  
+  ```
+  import java.time.Instant;
+  import java.time.LocalDateTime;
+  import java.time.OffsetDateTime;
+  import java.time.ZoneId;
+  import java.time.format.DateTimeFormatter;
+  
+  ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(Instant.now());
+  DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+  OffsetDateTime offsetDateTime = OffsetDateTime.of(LocalDateTime.from(df.parse("2021-10-11 09:15:30")), zoneOffset);
+  ```
+  または
   ```
   import java.time.OffsetDateTime;
   import java.time.ZoneId;
   import java.time.temporal.TemporalAccessor;
-  
+
   DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm:ss" )
       .withZone( ZoneId.systemDefault());
   TemporalAccessor temporalAccessor = dateTimeFormatter.parse( "2001-01-02 09:10:20" );
-  OffsetDateTime offsetDateTime = OffsetDateTime.of(
-    LocalDateTime.from(
-      temporalAccessor),
-        ZoneId.systemDefault().getRules().getOffset(Instant.from(temporalAccessor)));
+  ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(Instant.from(temporalAccessor);
+  OffsetDateTime offsetDateTime = OffsetDateTime.of(LocalDateTime.from(temporalAccessor), zoneOffset));
   ```
