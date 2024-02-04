@@ -1,13 +1,13 @@
 # Java・Kotlin: 日付・時刻
 
 * 現在日付・時刻を取得する  
-  ```
+  ```java
   import java.time.LocalDateTime;
   
   LocalDateTime now = LocalDateTime.now();
   ```
 * 現在日付・時刻を取得し、フォーマットして表示する
-  ```
+  ```java
   import java.time.LocalDateTime;
   import java.time.format.DateTimeFormatter;
   
@@ -17,7 +17,7 @@
   ```
 
 * ファイルの最終更新日付を文字列化(書式化)する(Instant を LocalDateFormat に変換する)  
-  ```
+  ```java
   import java.nio.file.Paths;
   import java.nio.file.Files;
   import java.time.LocalDateTime;
@@ -32,7 +32,7 @@
   System.out.println( ldt.format( df ));
   ```
 * RFC1123形式の日付・時刻を解析して日本時間で表示する  
-  ```
+  ```java
   import java.time.*;
   import java.time.format.*;
   
@@ -52,7 +52,7 @@
   ```
 
 * java.util.Date から java.time.LocalDateTime に変換する  
-  ```
+  ```java
   import java.util.Date;
   import java.time.LocalDateTime;
   import java.time.ZoneId;
@@ -64,7 +64,7 @@
   ```
 
 * java.time.LocalDateTime から java.util.Date に変換する  
-  ```
+  ```java
   import java.util.Date;
   import java.time.LocalDateTime;
   import java.time.ZoneOffset;
@@ -76,7 +76,7 @@
   ```
 
 * java.time.ZonedDateTime から java.util.Date に変換する  
-  ```
+  ```java
   import java.util.Date;
   import java.time.ZonedDateTime;
   import java.text.SimpleDateFormat;
@@ -87,7 +87,7 @@
   ```
 
 - java.time.format.DateTimeFormatter でパースした結果を java.sql.Timestamp に変換する  
-  ```
+  ```java
   import java.sql.Timestamp;
   import java.time.format.DateTimeFormatter;
   
@@ -97,19 +97,20 @@
   ```
 
 - java.time.format.DateTimeFormatter でパースした結果を java.time.OffsetDateTime に変換する  
-  ```
+  ```java
   import java.time.Instant;
   import java.time.LocalDateTime;
   import java.time.OffsetDateTime;
   import java.time.ZoneId;
   import java.time.format.DateTimeFormatter;
   
-  ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(Instant.now());
+  private static final ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(Instant.now());
+
   DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
   OffsetDateTime offsetDateTime = OffsetDateTime.of(LocalDateTime.from(df.parse("2021-10-11 09:15:30")), zoneOffset);
   ```
   または
-  ```
+  ```java
   import java.time.OffsetDateTime;
   import java.time.ZoneId;
   import java.time.temporal.TemporalAccessor;
