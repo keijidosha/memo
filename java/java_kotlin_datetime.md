@@ -126,7 +126,7 @@
   ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.systemDefault());
   OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
   ```
-  日付・時刻フォーマットにオフセットが含まれている場合は、そのまま OffsetDaeTime に変換可能
+  日付・時刻フォーマットにオフセット(+09, +0900)が含まれている場合は書式に X を指定して、そのまま OffsetDaeTime に変換可能
   ```java
   import java.time.OffsetDateTime;
   import java.time.format.DateTimeFormatter;
@@ -134,6 +134,16 @@
 
   DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss X");
   TemporalAccessor temporalAccessor = df.parse("2021-10-11 09:15:30 +0900");
+  OffsetDateTime offsetDateTime = OffsetDateTime.from(temporalAccessor);
+  ```  
+  日付・時刻フォーマットにコロン付きのオフセット(+09:00)が含まれている場合は書式に XXX を指定して、そのまま OffsetDaeTime に変換可能
+  ```java
+  import java.time.OffsetDateTime;
+  import java.time.format.DateTimeFormatter;
+  import java.time.temporal.TemporalAccessor;
+
+  DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss XXX");
+  TemporalAccessor temporalAccessor = df.parse("2021-10-11 09:15:30 +09:00");
   OffsetDateTime offsetDateTime = OffsetDateTime.from(temporalAccessor);
   ```  
   日付・時刻フォーマットにタイムゾーンID(Asia/Tokyo)が含まれている場合は、いったん ZonedDateTime に変換
