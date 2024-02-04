@@ -97,27 +97,43 @@
   ```
 
 - java.time.format.DateTimeFormatter でパースした結果を java.time.OffsetDateTime に変換する  
+  システムの ZoneOffset を取得して変換
   ```java
   import java.time.Instant;
   import java.time.LocalDateTime;
   import java.time.OffsetDateTime;
   import java.time.ZoneId;
   import java.time.format.DateTimeFormatter;
+  import java.time.temporal.TemporalAccessor;
   
   private static final ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(Instant.now());
+  private static final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-  DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-  OffsetDateTime offsetDateTime = OffsetDateTime.of(LocalDateTime.from(df.parse("2021-10-11 09:15:30")), zoneOffset);
+  TemporalAccessor temporalAccessor = df.parse("2021-10-11 09:15:30");
+  LocalDateTime localDateTime = LocalDateTime.from(temporalAccessor);
+  OffsetDateTime offsetDateTime = OffsetDateTime.of(localDateTime, zoneOffset);
   ```
-  または
+  または ZonedDateTime を経由して変換
   ```java
   import java.time.OffsetDateTime;
   import java.time.ZoneId;
   import java.time.temporal.TemporalAccessor;
 
-  DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern( "yyyy-MM-dd HH:mm:ss" )
-      .withZone( ZoneId.systemDefault());
-  TemporalAccessor temporalAccessor = dateTimeFormatter.parse( "2001-01-02 09:10:20" );
-  ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(Instant.from(temporalAccessor);
-  OffsetDateTime offsetDateTime = OffsetDateTime.of(LocalDateTime.from(temporalAccessor), zoneOffset));
+  private static final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+  TemporalAccessor temporalAccessor = df.parse("2021-10-11 09:15:30");
+  LocalDateTime localDateTime = LocalDateTime.from(temporalAccessor);
+  ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.systemDefault());
+  OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+  ```
+
+- LocalDateTime から OffsetDateTime に変換
+  ```java
+  import java.time.LocalDateTime;
+  import java.time.OffsetDateTime;
+  import java.time.ZonedDateTime;
+
+  LocalDateTime localDateTime = LocalDateTime.now();
+  ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.systemDefault());
+  OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
   ```
