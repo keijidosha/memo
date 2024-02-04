@@ -112,7 +112,7 @@
   TemporalAccessor temporalAccessor = df.parse("2021-10-11 09:15:30");
   LocalDateTime localDateTime = LocalDateTime.from(temporalAccessor);
   OffsetDateTime offsetDateTime = OffsetDateTime.of(localDateTime, zoneOffset);
-  ```
+  ```  
   または ZonedDateTime を経由して変換
   ```java
   import java.time.OffsetDateTime;
@@ -125,6 +125,16 @@
   LocalDateTime localDateTime = LocalDateTime.from(temporalAccessor);
   ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.systemDefault());
   OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
+  ```
+  日付・時刻フォーマットにオフセットが含まれている場合は、そのまま OffsetDaeTime に変換可能
+  ```java
+  import java.time.OffsetDateTime;
+  import java.time.format.DateTimeFormatter;
+  import java.time.temporal.TemporalAccessor;
+
+  DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss X");
+  TemporalAccessor temporalAccessor = df.parse("2021-10-11 09:15:30 +0900");
+  OffsetDateTime offsetDateTime = OffsetDateTime.from(temporalAccessor);
   ```
 
 - LocalDateTime から OffsetDateTime に変換
