@@ -201,3 +201,4 @@
   // 日本のタイムゾーンで表示: 2021/10/11 18:15:30.000 Asia/Tokyo
   System.out.println(offsetDateTime.atZoneSameInstant(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS VV")));
   ```
+  SameInstant のメソッドを使う。atZoneSimilarLocal() や withOffsetSameLocal() のメソッドを使うと、09:15:30 がそのまま日本時間として(UTCではなく)扱われる。
