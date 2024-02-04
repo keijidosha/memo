@@ -181,3 +181,23 @@
   ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.systemDefault());
   OffsetDateTime offsetDateTime = zonedDateTime.toOffsetDateTime();
   ```
+
+- ISO8601 形式の文字列をパースして、日本時間のオフセット、日本のタイムゾーンで表示
+  ```java
+  import java.time.OffsetDateTime;
+  import java.time.ZoneId;
+  import java.time.ZoneOffset;
+  import java.time.format.DateTimeFormatter;
+  import java.time.temporal.TemporalAccessor;
+
+  private static final ZoneOffset zoneOffset = ZoneId.systemDefault().getRules().getOffset(Instant.now());
+
+  // ISO8601 形式の書式
+  DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssX");
+  TemporalAccessor temporalAccessor = df.parse("2021-10-11T09:15:30Z");
+  OffsetDateTime offsetDateTime = OffsetDateTime.from(temporalAccessor);
+  // 日本時間のオフセットで表示: 2021/10/11 18:15:30.000 +09:00
+  System.out.println(offsetDateTime.withOffsetSameInstant(zoneOffset).format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS XXX")));
+  // 日本のタイムゾーンで表示: 2021/10/11 18:15:30.000 Asia/Tokyo
+  System.out.println(offsetDateTime.atZoneSameInstant(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS VV")));
+  ```
