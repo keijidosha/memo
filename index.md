@@ -39,6 +39,7 @@
   * [高階関数](kotlin/kotlin_higher_order_function.md)
   * [Coroutines](kotlin/kotlin_coroutines.md)
   * [Jooby Kotlin](kotlin/jooby_Kotlin.md)
+  * [Kotlin Samples](kotlin/kotlin_samples.md)
   * バージョン
     * [1.2](kotlin/kotlin_1.2.md)
 * [Spring Boot](spring/springboot.md)
