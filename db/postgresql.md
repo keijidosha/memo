@@ -1,15 +1,5 @@
-Table of Contents
-=================
-
-  * [psql](#psql)
-    * [コマンド](#コマンド)
-  * [テーブル作成(サンプル)](#テーブル作成サンプル)
-    * [シンプルなサンプル](#シンプルなサンプル)
-    * [パーティションテーブル](#パーティションテーブル)
-  * [プライマリキー](#プライマリキー)
-  * [エクスポート](#エクスポート)
-  * [シーケンス](#シーケンス)
-  * [ログ](#ログ)
+- Table of Content  
+{:toc}
 
 # PostgreSQL
 
@@ -119,6 +109,17 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
 `\d シーケンス名`  
 currval of sequence "xxx" is not yet defined in this session というエラーが出る場合は  
 `select last_value from <シーケンス名>;`
+
+## 関数
+
+* 日付計算  
+  * 1時間後
+    `SELECT CURRENT_TIMESTAMP + '1 hour'`
+  * 30分後  
+    (例1) `SELECT CURRENT_TIMESTAMP + '30 minute'`  
+    (例2) `SELECT CURRENT_TIMESTAMP + time '00:30'`
+  * 30分前  
+    `SELECT CURRENT_TIMESTAMP - time '00:30'`
 
 ## ログ
 
