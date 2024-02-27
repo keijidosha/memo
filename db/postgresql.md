@@ -127,7 +127,7 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
   ```
   psql
   create user someuser;
-  create database somedb with owner = someuser encoding = 'UTF-8';
+  create database somedb with owner=someuser encoding=UTF8;
   \q
   psql -d somedb
   alter schema public owner to someuser;
