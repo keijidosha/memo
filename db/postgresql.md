@@ -90,12 +90,68 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
   DO $do$ BEGIN IF NOT EXISTS ( SELECT 1 FROM pg_constraint con JOIN pg_class cls ON con.conrelid = cls.oid WHERE con.contype = 'p' AND cls.relname = 'primary_key_name' ) THEN ALTER TABLE IF EXISTS table_name ADD CONSTRAINT primay_key_name PRIMARY KEY (pk_column); END IF; END $do$;
   ```
 
-## エクスポート
+## エクスポート・インポート
+
+### シンプル・テキストベース
 
 * 特定のテーブルのデータだけをエクスポート  
-  `pg_dump --username=<ユーザーID> --data-only --table <テーブル名> <DB名> > xxx.sql`
+  `pg_dump -U <ユーザーID> --data-only -t <テーブル名> -d <DB名> > xxx.sql`
 * インポート  
   `psql -f xxx.sql <DB名>`
+
+### 別ホストに複製
+
+* 事前にデータベースを作成して別ホストからインポート
+  ```
+  pg_dump -h 192.168.1.1 dbname | psql dbname
+  ```
+* バイナリ形式で別ホストからインポート
+  ```
+  pg_dump -Fc -h 192.168.1.1 dbname | pg_restore -Fc -d dbname
+  ```
+* データベース全体を別ホストから移行
+  ```
+  pg_dumpall -h 192.168.1.1 | psql
+  ```
+* gzip ファイル経由でデータベース全体を別ホストから移行
+  ```
+  pg_dumpall | gzip > dumpfile
+  zcat dumpfile | psql postgres
+  ```
+* オーナーなしでエクスポートすることで、オーナーを変更してインポート
+  エクスポート
+  ```
+  pg_dump -Fc -O dbname > dbname.dump
+  ```
+  DB を作成してインポート
+  ```
+  psql
+  create user someuser;
+  create database somedb with owner = someuser encoding = 'UTF-8';
+  \q
+  psql -d somedb
+  alter schema public owner to someuser;
+  \q
+  ```
+
+### パラメーター
+
+* -Fc  
+  --format=c|t:specify backup file format  
+  ファイル形式はカスタム
+* -O  
+  --no-owner:skip restoration of object ownership  
+  オーナーを指定しない
+* -x  
+  --no-privileges:skip restoration of access privileges (grant/revoke)  
+  アクセス権限(grant/revoke)を設定しない
+* -U  
+  --username=NAME:connect as specified database user  
+  インポートに使うユーザを指定
+* -d  
+  --dbname=NAME:connect to database name  
+  インポート対象DBを指定
+
 
 ## シーケンス
 
