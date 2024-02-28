@@ -209,6 +209,7 @@
   * [AsciiDoc](docs/asciidoc.md)
   * [FreeMind](docs/freemind.md)
   * [Markdown of Git](docs/markdown_of_git.md)
+  * [Redmine Wiki](docs/redminewiki.md)
   * [plantuml](docs/plantuml.md)
   * [swagger](docs/swagger.md)
   * [tbls](docs/tbls.md)
