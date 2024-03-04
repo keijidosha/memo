@@ -1,43 +1,7 @@
+- Table of Content  
+{:toc}
+
 # LXC／LXD
-
-Table of Contents
-=================
-
-   * [LXC／LXD](#lxclxd)
-   * [Table of Contents](#table-of-contents)
-      * [よく使うコマンド](#よく使うコマンド)
-      * [準備](#準備)
-      * [設定](#設定)
-      * [プロファイル](#プロファイル)
-      * [実行](#実行)
-      * [スナップショット](#スナップショット)
-      * [コンテナに対してコマンド実行](#コンテナに対してコマンド実行)
-      * [ホストディレクトリをコンテナにマウント](#ホストディレクトリをコンテナにマウント)
-      * [コンテナのコピー](#コンテナのコピー)
-      * [ファイルアップロード/ダウンロード](#ファイルアップロードダウンロード)
-         * [アップロード](#アップロード)
-         * [ダウンロード](#ダウンロード)
-      * [コンテナを別の LXD にコピー(エクスポート・インポート)](#コンテナを別の-lxd-にコピーエクスポートインポート)
-         * [エクスポート元](#エクスポート元)
-         * [インポート先](#インポート先)
-      * [ネットワークデバイス](#ネットワークデバイス)
-      * [Tips](#tips)
-        * [ネットワーク](#ネットワーク)
-      * [CentOS 7.5 のイメージを作成](#centos-75-のイメージを作成)
-      * [Oracle Linux 8.4 のイメージを作成](#oracle-linux-84-のイメージを作成)
-      * [トラブルシューティング](#トラブルシューティング)
-         * [btrfs で作成されたストレージプール(ここでは default プール)の拡張](#btrfs-で作成されたストレージプールここでは-default-プールの拡張)
-         * [publish](#publish)
-         * [vi で日本語が文字化けする](#vi-で日本語が文字化けする)
-         * [Vagrant でインストールした Ubuntu で lxc のコマンド補完が効かない](#vagrant-でインストールした-ubuntu-で-lxc-のコマンド補完が効かない)
-         * [LXC 5.0 でコンテナから lxdbr0 を通じてインターネットに出れない](#lxc-50-でコンテナから-lxdbr0-を通じてインターネットに出れない)
-         * [LXC 5.0 で CentOS7 のコンテナを実行すると「The image used by this instance requires a CGroupV1 host system」や「Failed to get D-Bus connection」といったエラーが発生する](#lxc-50-で-centos7-のコンテナを実行するとthe-image-used-by-this-instance-requires-a-cgroupv1-host-systemやfailed-to-get-d-bus-connectionといったエラーが発生する)
-         * [LXC 5.0 で nice level を変更するプログラムを実行すると「Failed to set up process scheduling priority (nice level): Permission denied」というエラーが発生](#lxc-50-で-nice-level-を変更するプログラムを実行するとfailed-to-set-up-process-scheduling-priority-nice-level-permission-deniedというエラーが発生)
-      * [よく使うパターン](#よく使うパターン)
-      * [VirtualBox   Vagrant   Ubuntu 22.04 での環境構築](#virtualbox--vagrant--ubuntu-2204-での環境構築)
-
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
-
 
 ## よく使うコマンド
 
