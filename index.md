@@ -140,6 +140,7 @@
     * [conntrack](linux/conntrack.md)
     * [cron](linux/cron.md)
     * [curl](linux/curl.md)
+    * [date](linux/date.md)
     * [diff](linux/diff.md)
     * [firewalld](linux/firewalld.md)
     * [find](linux/find.md)
