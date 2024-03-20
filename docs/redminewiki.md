@@ -46,3 +46,5 @@
   `%{color: blue}hoge%`
 * 文字色をカラーコードで指定  
   `%{color: #00ff00}hoge%`
+* 背景色を色名で指定  
+  `%{background-color: red}hoge%`
