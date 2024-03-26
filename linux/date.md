@@ -23,3 +23,11 @@
 
 * date --iso8601="seconds"
 * date --iso8601="seconds" --utc
+
+## Mac
+
+* Mac で GNU 版 date コマンドを使う  
+  ```
+  brew install coreutils
+  alias date='gdate'
+  ```
