@@ -20,6 +20,14 @@
   \set HISTCONTROL ignoredups
   \set COMP_KEYWORD_CASE upper
   ```
+* 検索結果をタブ区切りで出力  
+  ```
+  psql -F "<tab>" -Atc "SELECT xxx FROM xxx"
+  ```  
+  -F: 区切り文字, &lt;tab> は contrl + V, I で入力(I は A から数えて 9番目)  
+  -A: 桁揃えなし(no align)  
+  -t: 結果のみを表示(tuple only)
+
 
 ## テーブル作成(サンプル)
 
