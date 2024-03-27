@@ -216,7 +216,8 @@
   * [plantuml](docs/plantuml.md)
   * [swagger](docs/swagger.md)
   * [tbls](docs/tbls.md)
-
+* その他
+  * [正規表現](etc/regexp.md)
 
 * <details><summary><a href="java/tomcat.md">Tomcat</a>(おりたたみ確認用)</summary>
 
