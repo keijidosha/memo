@@ -98,6 +98,15 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
   DO $do$ BEGIN IF NOT EXISTS ( SELECT 1 FROM pg_constraint con JOIN pg_class cls ON con.conrelid = cls.oid WHERE con.contype = 'p' AND cls.relname = 'primary_key_name' ) THEN ALTER TABLE IF EXISTS table_name ADD CONSTRAINT primay_key_name PRIMARY KEY (pk_column); END IF; END $do$;
   ```
 
+## SQL
+
+### 正規表現
+
+* ~(チルダ): 正規表現に一致する、大文字・小文字を区別
+* ~*: 正規表現に一致する、大文字・小文字を区別しない
+* !~: 正規表現に一致しない、大文字・小文字を区別
+* !~*: 正規表現に一致しない、大文字・小文字を区別しない
+
 ## エクスポート・インポート
 
 ### シンプル・テキストベース
