@@ -5,6 +5,12 @@
 * DefaultHttpRequestRetryHandler を引数なしで new すると、次のデフォルトパラメーターが適用される。
   * retryCount: 3
   * requestSentRetryEnabled: false
+* 次の例外はリトライ対象外となる。
+  * InterruptedIOException
+  * UnknownHostException
+  * ConnectException
+  * SSLException
+* org.apache.commons.httpclient.ConnectTimeoutException(コネクションタイムアウト)は InterruptedIOException のサブクラスなのでリトライされない。
 * DefaultHttpRequestRetryHandler に 3つ引数を指定するコンストラクターを使って、無視する(リトライしない) Exception を指定することも可能。
 
 
