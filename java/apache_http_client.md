@@ -1,4 +1,15 @@
 
+## タイムアウト
+
+Spring の HttpComponentsClientHttpRequestFactory で設定するタイムアウト
+
+* getConnectionRequestTimeout  
+  コネクションプールからコネクションが取得できるまでの待ち時間(デフォルト: 無期限)
+* setConnectTimeout  
+  接続までのタイムアウト(デフォルト: 無期限)
+* setReadTimeout  
+  接続してからレスポンスが返ってくるまでのタイムアウト(デフォルト: 無期限)
+
 ## リトライ
 
 * 何も指定しないとデフォルトで DefaultHttpRequestRetryHandler が使われる。
