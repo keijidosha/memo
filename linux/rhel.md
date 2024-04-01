@@ -22,6 +22,7 @@ https://access.redhat.com/management/subscriptions
 ### サブスクリプションが切れてしまった場合
 
 subscription-manager register を実行すると、新しいサブスクリプションが作成される。  
+(参考) [How to activate your no-cost Red Hat Enterprise Linux subscription](https://developers.redhat.com/blog/2021/02/10/how-to-activate-your-no-cost-red-hat-enterprise-linux-subscription#step_2__download_no_cost_rhel)  
 (例)  
 ```
 # Dokcer で RHEL のコンテナを起動
