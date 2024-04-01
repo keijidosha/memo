@@ -19,6 +19,22 @@ https://access.redhat.com/management/subscriptions
 * サブスクリプションを解除  
 `subscription-manager remove --all`
 
+### サブスクリプションが切れてしまった場合
+
+subscription-manager register を実行すると、新しいサブスクリプションが作成される。  
+(例)  
+```
+# Dokcer で RHEL のコンテナを起動
+$ docker run -it --rm -v /vagrant:/vagrant --name rh8 registry.access.redhat.com/ubi8/ubi:8.4 /bin/bash
+# サブスクリプションを登録 => このコンテナでサブスクリプションを 1つ消費することになるので、後で解除。
+$ subscription-manager register --username=hoge --password=pass
+Registering to: subscription.rhsm.redhat.com:443/subscription
+The system has been registered with ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+The registered system name is: xxxxxxxxxxxx
+# このシステム(コンテナ)からサブスクリプションの使用を解除。
+$ subscription-manager unregister
+```
+
 (参考)  
 * [Red Hat Developer Subscriptionを取得して、RHELをサブスクリプション登録・登録解除する方法](https://tech-mmmm.blogspot.com/2021/02/red-hat-developer-subscriptionrhel.html)  
 * [RHELの開発者用サブスクリプションを取得する方法](https://qiita.com/SkyLaptor/items/31eb7b506339718455d4)
