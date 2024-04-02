@@ -16,7 +16,10 @@ Spring の HttpComponentsClientHttpRequestFactory で設定するタイムアウ
 * 何も指定しないとデフォルトで DefaultHttpRequestRetryHandler が使われる。
 * DefaultHttpRequestRetryHandler を引数なしで new すると、次のデフォルトパラメーターが適用される。
   * retryCount: 3
-  * requestSentRetryEnabled: false
+  * requestSentRetryEnabled: false  
+    requestSentRetryEnabled を true にすると、リクエストを送信した後でエラーが発生した場合もリトライを許可することになる。  
+    これは例えば送信したリクエストがサーバー側で受信され、レスポンスが受け取れなかった場合でも再送されることになる。  
+    冪等性のないリクエスト(POSTのような)を 2回送信してしまう可能性があるので注意。
 * 次の例外はリトライ対象外となる。
   * InterruptedIOException
   * UnknownHostException
