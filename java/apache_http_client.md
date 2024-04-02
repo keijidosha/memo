@@ -13,7 +13,7 @@ Spring の HttpComponentsClientHttpRequestFactory で設定するタイムアウ
 
 ## リトライ
 
-* 何も指定しないとデフォルトで DefaultHttpRequestRetryHandler が使われる。
+* HttpClientBuilder で setRetryHandler() を使ったリトライハンドラーの指定しなかった場合、デフォルトで DefaultHttpRequestRetryHandler が使われる。
 * DefaultHttpRequestRetryHandler を引数なしで new すると、次のデフォルトパラメーターが適用される。
   * retryCount: 3
   * requestSentRetryEnabled: false  
