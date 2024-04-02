@@ -18,6 +18,7 @@
   * [Tomcat](java/tomcat.md)
     * [Tomcat Security](java/tomcat_security.md)
     * [Tomcat 設定](java/tomcat_config.md)
+  * [Apache HTTP Client](java/apache_http_client.md)
   * ビルド
     * [Gradle](java/build/gradle.md)
 * [Kotlin](kotlin/kotlin.md)
