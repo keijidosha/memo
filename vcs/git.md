@@ -22,7 +22,22 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## 使い方
 * コミット間での差分比較  
-`git diff <比較元ハッシュ値>..<比較先ハッシュ値> [比較ファイル]`
+  `git diff <比較元ハッシュ値>..<比較先ハッシュ値> [比較ファイル]`
+* ブランチ作成  
+  `git checkout -b <ブランチ名>`
+* 新規ファイル追加  
+  `git add .`
+* 差分表示  
+  `git diff --cached -w`
+* コミット  
+  `git commit -m "message"`
+* プッシュ
+  ```
+  git push -u orign HEAD
+  git checkout main
+  git merge -
+  git push origin HEAD
+  ```
 
 ## サーバでGitリポジトリ作成
 ### サーバ側
