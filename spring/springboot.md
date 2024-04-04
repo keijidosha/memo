@@ -1,18 +1,25 @@
+- Table of Content  
+{:toc}
+
 # Spring Boot
 
-Table of Contents
-=================
+## プロパティ
 
-* [Tips](#tips)
-     * [Gradleプロジェクトを作成](#gradleプロジェクトを作成)
-     * [組み込みの WEB サーバーが起動しないようにする。](#組み込みの-web-サーバーが起動しないようにする)
-     * [FatJAR](#fatjar)
-* [Trouble Shooting](#trouble-shooting)
-     * [@Controller で @XxxMapping に指定した URL にアクセスすると 404 Not Found になる。](#controller-で-xxxmapping-に指定した-url-にアクセスすると-404-not-found-になる)
+* spring.mvc.log-resolved-exception  
+  リクエスト受信時のパラメーターチェックでエラーが出た場合のハンドラーを登録すると、リクエスト元にスタックトレースがレスポンスされなくなる代わりに、エラー内容がログ出力されなくなる。  
+  このプロパティを true にすると、ハンドルして解決したエラーもログ出力されるようになる。
+* spring.jackson.mapper.accept_case_insensitive_properties  
+  REST API で受信した JSON の項目名と、Java の DTO クラスに定義したフィールド名の大文字・小文字が違っているとエラーになる。  
+  同一視させたい場合は、このプロパティを true にする。  
+* application-dev.yml を読み込んで起動  
+  次のコマンドラインパラメーターを指定。  
+  `-Dspring.profiles.active=dev`
+* Log4j 設定ファイルの指定  
+  次のコマンドラインパラメーターを指定  
+  `-Dlogging.config=/pth/conf/ash-call110br-log4j2-spring.xml`
 
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-# Tips
+## Tips
 
 #### Gradleプロジェクトを作成  
 1. Spring Initializer を開く  
@@ -50,7 +57,7 @@ application.properties に設定を追記
 spring.h2.console.enabled=true
 ```
 
-# Trouble Shooting
+## Trouble Shooting
 
 ### @Controller で @XxxMapping に指定した URL にアクセスすると 404 Not Found になる。
 Main クラス配下でない(外側の)パッケージにコントローラーのクラスを作成していた。
