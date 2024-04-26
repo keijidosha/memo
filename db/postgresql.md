@@ -199,3 +199,23 @@ currval of sequence "xxx" is not yet defined in this session というエラー�
 * 発行した SQL をログ出力する  
 postgresqlconf に次の指定をする  
 `log_statement='all'`
+
+## トラブルシューティング
+
+### ロック
+
+* ロック状況の確認  
+  ```
+  SELECT l.pid,l.granted,d.datname,l.locktype,relation,relation::regclass,transactionid,l.mode FROM pg_locks l  LEFT JOIN pg_database d ON l.database = d.oid WHERE  l.pid != pg_backend_pid() ORDER BY l.pid;
+  ```
+* relation 列に表示された oid からテーブル名を特定  
+  ※テーブルが存在する DB に接続して実行すること  
+  ```
+  SELECT oid, relname, relnamespace, relowner FROM pg_class WHERE oid=123;
+  ```
+* pid からクライアントを特定  
+  ```
+  SELECT * FROM pg_stat_activity WHERE pid=123;
+  ```  
+  \x で拡張表示すると見やすくなる。
+
