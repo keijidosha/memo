@@ -191,7 +191,10 @@ Gradle 7.2 で確認
   ```
 
 
-(参考) [実行可能 jar をコマンドっぽく実行するために（java -jar 使いたくない）](https://qiita.com/k_ui/items/65def414bd7ec54aedeb)
+(参考)  
+* [実行可能 jar をコマンドっぽく実行するために（java -jar 使いたくない）](https://qiita.com/k_ui/items/65def414bd7ec54aedeb)
+* [Gradleでタスク自動化](https://qiita.com/mikanbako/items/cf9fee45e293238ad77b)
+* [Gradle を完全に理解した人が、何も分からなくなるための第一歩](https://qiita.com/opengl-8080/items/c482998fa15ce738e2ba)
 
 ## コマンド
 
