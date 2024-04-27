@@ -158,6 +158,41 @@ Gradle 7.2 で確認
   distributionUrl=https\://services.gradle.org/distributions/gradle-8.5-bin.zip
   ```
 
+### FatJAR にスクリプトを結合(内蔵)して、実行可能な JAR ファイルを作成
+
+* bin ディレクトリを作成  
+  ```
+  mkdir bin
+  ```
+* bin ディレクトリに exec.sh を作成して次のように JAR ファイルを実行するための内容を記述(ファイル名は適当に)  
+  ```
+  #!/bin/sh
+  JAVA_OPTS='-Xmx32M'
+  java $JAVA_OPTS -jar "$0" "$@"
+  exit $?
+  ```
+* bin ディレクトリに makeExecutable.sh を作成して次のようにスクリプトと JAR ファイルを結合して実行可能ファイルにするための内容を記述(ファイル名は適当に)  
+  ```
+  #!/bin/bash
+  
+  cat bin/exec.sh build/libs/hoge.jar > build/libs/hoge
+  chmod 755 build/libs/hoge
+  ```
+* build.gradle を編集して実行可能ファイルにするためのスクリプトを呼び出す  
+  ```
+  task executable(type: Exec) {
+      dependsOn "build"
+      commandLine '/bin/bash', 'bin/makeExecutable.sh'
+  }
+  ```
+* gradle で executable を実行すると、build タスク実行後に executable タスクが実行される。  
+  ```
+  ./gradlew executable
+  ```
+
+
+(参考) [実行可能 jar をコマンドっぽく実行するために（java -jar 使いたくない）](https://qiita.com/k_ui/items/65def414bd7ec54aedeb)
+
 ## コマンド
 
 * タスク一覧表示  
