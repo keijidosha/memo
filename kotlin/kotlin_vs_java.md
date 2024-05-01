@@ -17,3 +17,11 @@ if(System.getenv("MARGIN") == null) {
     margin = Integer.parseInt(System.getenv("MARGIN"));
 }
 ```
+
+(予定)
+
+## ラムダ式
+
+## 拡張関数
+
+
