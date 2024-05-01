@@ -41,6 +41,7 @@
   * [Coroutines](kotlin/kotlin_coroutines.md)
   * [Jooby Kotlin](kotlin/jooby_Kotlin.md)
   * [Kotlin Samples](kotlin/kotlin_samples.md)
+  * [Kotlin vs Java](kotlin/kotlin_vs_java.md)
   * バージョン
     * [1.2](kotlin/kotlin_1.2.md)
 * [Spring Boot](spring/springboot.md)
