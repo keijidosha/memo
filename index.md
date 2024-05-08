@@ -78,6 +78,7 @@
     * [tutorial](ruby/rails/rails_tutorial.md)
     * [view](ruby/rails/rails_view.md)
     * [設定](ruby/rails/rails_settings.md)
+* [Python](python/python.md)
 * [PHP](php/php.md)
 * Elixir
   * [Phoenix](elixir/phoenix.md)
