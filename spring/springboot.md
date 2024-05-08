@@ -17,6 +17,18 @@
 * Log4j 設定ファイルの指定  
   次のコマンドラインパラメーターを指定  
   `-Dlogging.config=/pth/conf/ash-call110br-log4j2-spring.xml`
+* Tomcat のリスンポート  
+  `server.port`  
+  コマンドライン指定  
+  ```
+  --server.port=9080
+  ```
+* Tomcat の AJP 有効/無効  
+  `custom.ajp.enable`  
+  コマンドライン指定で無効にする  
+  ```
+  --custom.ajp.enable=false
+  ```
 
 
 ## Tips
