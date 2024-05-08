@@ -21,6 +21,7 @@
   * [Apache HTTP Client](java/apache_http_client.md)
   * ビルド
     * [Gradle](java/build/gradle.md)
+  * [テスト](java/java_test.md)
 * [Kotlin](kotlin/kotlin.md)
   * [I/O(ファイル,ネットワーク等)](kotlin/kotlin_io.md)
   * [Java連携](kotlin/kotlin_java_link.md)
