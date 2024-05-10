@@ -106,6 +106,15 @@ Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響して�
 (回避策)  
 次のコマンドを実行する。  
 `xattr -rc /Applications/xxx.app`
+* sonoma にバージョンアップすると、vagrant が起動できない。  
+  ```
+  There was an error while executing `VBoxManage`, a CLI used by Vagrant
+  for controlling VirtualBox. The command and stderr is shown below.
+  Command: ["startvm", "5dc0bfe6-3ef8-4c01-9956-ef0ba7e9df8a", "--type", "headless"]
+  Stderr: VBoxManage: error: The virtual machine 'xxx_default_1672833235510_45979' has terminated unexpectedly during startup because of signal 9
+  VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MachineWrap, interface IMachine
+  ```  
+  VirtualBox を 7.0.14 から 7.0.18 に上げることで解消。
 
 
 ## 起動
