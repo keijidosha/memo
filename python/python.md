@@ -111,6 +111,24 @@ else:
 `range(10)` は `range(0, 10, 1)` と同じ  
 0 から 1 ずつ増えて 9(10未満)で終わり。
 
+* リストからインデックス付きで値を取り出す  
+  enumerate を使う。
+  ```python
+  names = ['hoge', 'fuga']
+  for idx, name in enumerate(names):
+    print(idx, name)
+  # => 0 hoge, 1 fuga
+  ```
+* ディクショナリからキーと値を取り出す  
+  items を使う
+  ```python
+  dic = { 'id': 1, 'name': 'hoge' }
+  for k, v in dic.items():
+    print(k, v)
+  # => id 1, name hoge
+  ```
+  items() がタプルを返し、それをアンパックして k, v に代入する。
+
 
 ## 文字列
 
