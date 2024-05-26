@@ -42,6 +42,34 @@ if __name__ == '__main__':
   if 6 not in list:
     print('not included')
   ```
+* 空/ゼロチェック
+  ```python
+  # 整数
+  ii = 0
+  if ii:
+    print('not zero')
+  else:
+    print('zero')
+  # => zero
+  # 0.0 も False として判定される
+
+  # 文字列
+  str = ''
+  if str:
+    print('not empty')
+  else:
+    print('empty')
+  # => empty
+
+  # リスト
+  list = []
+  if list:
+    print('not empty')
+  else:
+    print('empty')
+  # => empty
+  # 空タプル (), 空ディクリショナリ {}, 空Set () も False として判定される
+  ```
 
 ## 文字列
 
