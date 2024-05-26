@@ -121,6 +121,7 @@ if __name__ == '__main__':
   ```pytohn
   list = [1,2,3,4,5]
   ```
+
 * タプル  
   ```python
   tuple = (1,2,3,4,5)
@@ -140,6 +141,15 @@ if __name__ == '__main__':
     hoge, fuga = tuple
     print(hoge, fuga)  # 1 2
     ```
+
+* ディクショナリ  
+  ```python
+  dic = { 'id': 1, 'name': 'hoge' }
+  # 別の書き方
+  dic2 = dict( id=1, name='hoge' )
+  dic3 = dict([('id', 1), ('name', 'hoge')])
+  ```
+
 
 ## Tips
 
