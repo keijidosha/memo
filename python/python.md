@@ -27,6 +27,13 @@ if __name__ == '__main__':
   ```python
   print(r"That \n means new line")
   ```
+* 文字列中に変数を埋め込む  
+  文字列の前に f を付ける(f-strings)  
+  ```python
+  capital = 'Tokyo'
+  country = 'Japan'
+  print(f'Tha capital of {country} is {capital}')
+  ```
 
 ### 長い文字列
 
