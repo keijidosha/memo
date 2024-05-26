@@ -29,6 +29,15 @@ if __name__ == '__main__':
   else:
     pirnt('正')
   ```
+* == は同じ値かどうかを比較、is は参照が同じか(メモリ上の同じアドレスを指しているか?)をチェック
+  ```python
+  s1 = 'hoge' + str(1)
+  s2 = 'hoge' + str(1)
+  print(s1 == s2)
+  # => True
+  print(s1 is s2)
+  # => False
+  ```
 * リストに含まれているかチェック
   ```python
   list = [1, 2, 3, 4, 5]
