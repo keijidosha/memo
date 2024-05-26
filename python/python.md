@@ -283,6 +283,17 @@ print(set)  # {1, 2, 3, 4, 5} => 重複した 2 が 1つにまとめられる
  s = set(list)  # {1, 2, 3, 4, 5}
  ```
 
+## 関数
+
+### キーワード引数
+
+```python
+def func(hoge, fuga):
+  print("hoge=", hoge)
+  print("fuga", fuga)
+
+func(fuga="fuga!", hoge="hoge!")
+```
 
 ## Tips
 
