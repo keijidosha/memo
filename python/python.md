@@ -149,6 +149,14 @@ if __name__ == '__main__':
   dic2 = dict( id=1, name='hoge' )
   dic3 = dict([('id', 1), ('name', 'hoge')])
   ```
+  * ディクリショナリから存在しないキーで取り出す
+    ```python
+    id = dic['identity']
+    # => KeyError がスローされる
+    id = dic.get('identity')
+    print(type(id))  # <class 'NoneType'>
+    # => get で取り出すと NoneType が返る
+    ```
 
 
 ## Tips
