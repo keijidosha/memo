@@ -3,17 +3,6 @@
 
 # Python
 
-
-### スクリプトが直接起動された場合だけ、main を実行する。
-
-```python
-def main():
-   # メイン処理
-
-if __name__ == '__main__':
-    main()
-```
-
 ## 制御構造
 
 ### if
@@ -297,7 +286,16 @@ print(set)  # {1, 2, 3, 4, 5} => 重複した 2 が 1つにまとめられる
 
 ## Tips
 
-* 簡易 HTTP サーバーをたてる  
-  ```
-  python -m http.server 8000
-  ```
+### スクリプトが直接起動された場合だけ、main を実行する。
+
+```python
+def main():
+   # メイン処理
+
+if __name__ == '__main__':
+    main()
+```
+### 簡易 HTTP サーバーをたてる  
+```
+python -m http.server 8000
+```
