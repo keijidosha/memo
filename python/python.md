@@ -27,6 +27,9 @@ if __name__ == '__main__':
   ```python
   print(r"That \n means new line")
   ```
+
+### 長い文字列
+
 * 長い文字列を複数行に分けて書く  
   カッコで囲む  
   ```python
@@ -52,6 +55,44 @@ if __name__ == '__main__':
   No2
   No3\
   """)
+  ```
+
+### 文字列のスライス(substring)
+
+* 3番目の文字を取り出す  
+  ```python
+  str = "Hawaii"
+  print(str[2])  # w
+  ```
+* 最後の文字を取り出す  
+  ```python
+  str = "Hawaii"
+  print(str[-1])  # i
+  ```
+* 2〜4番目の文字列を取り出す  
+  ```python
+  str = "Hawaii"
+  print(str[2:5])  # wai
+  ```
+* 最初の 3文字を取り出す
+  ```python
+  str = "Hawaii"
+  print(str[:3])  # Haw
+  ```
+* 3文字目以降を取り出す
+  ```python
+  str = "Hawaii"
+  print(str[2:])  # waii
+  ```
+* 最後の 3文字を取り出す
+  ```python
+  str = "Hawaii"
+  print(str[-3:])  # aii
+  ```
+* 最後の 3文字より手前の文字列を取り出す
+  ```python
+  str = "Hawaii"
+  print(str[:-3])  # Haw
   ```
 
 ## 計算
