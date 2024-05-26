@@ -285,14 +285,46 @@ print(set)  # {1, 2, 3, 4, 5} => 重複した 2 が 1つにまとめられる
 
 ## 関数
 
-### キーワード引数
+### キーワード引数、デフォルト引数
 
 ```python
-def func(hoge, fuga):
+def func(hoge, fuga, foo=3):
   print("hoge=", hoge)
-  print("fuga", fuga)
+  print("fuga=", fuga)
+  print("foo=", foo)
 
-func(fuga="fuga!", hoge="hoge!")
+# キーワード引数で呼び出す
+func(fuga="fuga!", hoge="hoge!", foo=1)
+# 1番目は位置引数で、2つ目からはキーワード引数で呼び出す
+func("hoge#", foo=1, fuga="fuga#")
+# 1, 2番目は一引数で、3番目はデフォルト引数で呼び出す
+func("hoge$", "fuga$")
+```
+
+デフォルト引数に空のリストをセットする場合、リストが再利用されることに注意する。
+```python
+def func(num, hoge=[]):
+  hoge.append(num)  # 2回目以降に呼び出す時は、前回呼び出された時のリストに対して追加される。
+  return hoge
+
+list = func(1)
+print(list)  # [1]
+list = func(2)
+print(list)  # [1, 2]
+```
+
+これを避けるには、デフォルト引数に None を指定し、関数内で None の場合にリストを初期化する。
+```pyton
+def func(num, hoge=None):
+  if hoge is None:  # 何回呼び出されても、毎回引数が省略された場合はリストを初期化する。
+    hoge = []
+  hoge.append(num)
+  return hoge
+
+list = func(1)
+print(list)  # [1]
+list = func(2)
+print(list)  # [2] <= 2だけになる
 ```
 
 ## Tips
