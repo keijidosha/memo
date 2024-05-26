@@ -213,6 +213,8 @@ if __name__ == '__main__':
     id = dic.get('identity')
     print(type(id))  # <class 'NoneType'>
     # => get で取り出すと NoneType が返る
+    print(id is None)
+    # => True
     ```
 
 * セット
