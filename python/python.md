@@ -183,59 +183,66 @@ if __name__ == '__main__':
 
 ## データ構造
 
-* リスト  
-  ```pytohn
-  list = [1,2,3,4,5]
-  ```
+### リスト  
 
-* タプル  
-  ```python
-  tuple = (1,2,3,4,5)
-  ```
-  * 空のタプル  
-    ```python
-    tuple = ()
-    ```
-  * 要素が 1つだけのタプル  
-    1つ目の要素の次にカンマを付けるとタプルとして認識される
-    ```python
-    tuple = (1,)
-    ```
-  * タプルをアンパック
-    ```python
-    tuple = (1,2)
-    hoge, fuga = tuple
-    print(hoge, fuga)  # 1 2
-    ```
+```pytohn
+list = [1,2,3,4,5]
+```
 
-* ディクショナリ  
-  ```python
-  dic = { 'id': 1, 'name': 'hoge' }
-  # 別の書き方
-  dic2 = dict( id=1, name='hoge' )
-  dic3 = dict([('id', 1), ('name', 'hoge')])
-  ```
-  * ディクリショナリから存在しないキーで取り出す
-    ```python
-    id = dic['identity']
-    # => KeyError がスローされる
-    id = dic.get('identity')
-    print(type(id))  # <class 'NoneType'>
-    # => get で取り出すと NoneType が返る
-    print(id is None)
-    # => True
-    ```
+### タプル  
 
-* セット
-  ```python
-  s = { 1, 2, 3, 2, 4, 5}
-  print(set)  # {1, 2, 3, 4, 5} => 重複した 2 が 1つにまとめられる
-  ```
-  * リストからセットに変換してユニーク化
-    ```python
-    list = [ 1, 2, 3, 2, 4, 5 ]
-    s = set(list)  # {1, 2, 3, 4, 5}
-    ```
+```python
+tuple = (1,2,3,4,5)
+```
+
+* 空のタプル  
+ ```python
+ tuple = ()
+ ```
+* 要素が 1つだけのタプル  
+ 1つ目の要素の次にカンマを付けるとタプルとして認識される
+ ```python
+ tuple = (1,)
+ ```
+* タプルをアンパック
+ ```python
+ tuple = (1,2)
+ hoge, fuga = tuple
+ print(hoge, fuga)  # 1 2
+ ```
+
+### ディクショナリ  
+
+```python
+dic = { 'id': 1, 'name': 'hoge' }
+# 別の書き方
+dic2 = dict( id=1, name='hoge' )
+dic3 = dict([('id', 1), ('name', 'hoge')])
+```
+
+* ディクリショナリから存在しないキーで取り出す
+ ```python
+ id = dic['identity']
+ # => KeyError がスローされる
+ id = dic.get('identity')
+ print(type(id))  # <class 'NoneType'>
+ # => get で取り出すと NoneType が返る
+ print(id is None)
+ # => True
+ ```
+
+### セット
+
+```python
+s = { 1, 2, 3, 2, 4, 5}
+print(set)  # {1, 2, 3, 4, 5} => 重複した 2 が 1つにまとめられる
+```
+
+* リストからセットに変換してユニーク化
+ ```python
+ list = [ 1, 2, 3, 2, 4, 5 ]
+ s = set(list)  # {1, 2, 3, 4, 5}
+ ```
 
 
 ## Tips
