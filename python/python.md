@@ -14,6 +14,35 @@ if __name__ == '__main__':
     main()
 ```
 
+## 制御構造
+
+### if
+
+* if 文  
+  ```python
+  ii = 3
+
+  if ii < 0:
+    print('負')
+  elif ii == 0:
+    print('ゼロ')
+  else:
+    pirnt('正')
+  ```
+* リストに含まれているかチェック
+  ```python
+  list = [1, 2, 3, 4, 5]
+  ii = 3
+
+  # 含まれているかチェック
+  if ii in list:
+    print('included')
+
+  # 含まれていないかチェック
+  if 6 not in list:
+    print('not included')
+  ```
+
 ## 文字列
 
 * シングルクォート、ダブルクォートで囲った文字列の中にシングルクォートを書く  
