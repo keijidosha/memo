@@ -80,6 +80,24 @@ if __name__ == '__main__':
   # 空タプル (), 空ディクリショナリ {}, 空Set () も False として判定される
   ```
 
+### while + else
+
+while ループを抜けると else が実行される。  
+(break で抜けた場合は else は実行されない。)
+```python
+idx = 1
+sum = 0
+
+while idx <= 10:
+  if idx == 11:
+    break
+  sum += idx
+  idx += 1
+else:
+  print(sum)
+# => 55
+```
+
 ## 文字列
 
 * シングルクォート、ダブルクォートで囲った文字列の中にシングルクォートを書く  
