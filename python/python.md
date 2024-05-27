@@ -382,6 +382,14 @@ func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='Oafu', 
 パラメーターで渡された関数を実行する前後に処理を追加し、そのデコレーターを関数と関連付けて実行する。
 
 ```python
+def debug_message(func):
+  def wrapper(*args, **kwargs):
+    print('args:', args)
+    result = func(*args, **kwargs)
+    print('result:', result)
+    return result
+  return wrapper
+
 def trace_message(func):
   def wrapper(*args, **kwargs):
     print('start:', func.__name__)
@@ -391,11 +399,13 @@ def trace_message(func):
   return wrapper
 
 @trace_message
+@debug_message
 def traced_func(country, *states, **args):
   print('country=', country)
   print('states=', states)
   for k, v in args.items():
     print(k, '=', v)
+  return 'OK'
 
 # USA は位置パラメーター, California, New York, Florida はタプル, 残りはディクショナリとして渡す。
 traced_func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='Oafu', city='Honolulu')
