@@ -327,7 +327,7 @@ list = func(2)
 print(list)  # [2] <= 2だけになる
 ```
 
-### 引数をタプルで渡す
+### 引数をタプルとして渡す
 
 パラメーター名の前に * を付けるとタプルとして受け取る。
 
@@ -339,6 +339,18 @@ def func(*args):
 
 func('Hawaii', 'Oafu', 'Honolulu')
 ```
+
+### 位置引数とタプルを混在して渡す
+
+```python
+def func(state, *args):
+  print('state=', state)
+  for arg in args:
+    print(arg)
+
+func('Hawaii', 'Oafu', 'Honolulu')
+```
+
 
 ## Tips
 
