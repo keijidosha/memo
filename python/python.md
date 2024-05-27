@@ -327,6 +327,19 @@ list = func(2)
 print(list)  # [2] <= 2だけになる
 ```
 
+### 引数をタプルで渡す
+
+パラメーター名の前に * を付けるとタプルとして受け取る。
+
+```python
+def func(*args):
+  print(args)
+  state, island, city = args
+  print('state=', state, ', island=', island, ', city=', city)
+
+func('Hawaii', 'Oafu', 'Honolulu')
+```
+
 ## Tips
 
 ### スクリプトが直接起動された場合だけ、main を実行する。
