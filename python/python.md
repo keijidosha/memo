@@ -285,7 +285,8 @@ print(set)  # {1, 2, 3, 4, 5} => 重複した 2 が 1つにまとめられる
 
 ## 関数
 
-### キーワード引数、デフォルト引数
+### パラメーター
+#### キーワード引数、デフォルト引数
 
 ```python
 def func(hoge, fuga, foo=3):
@@ -328,7 +329,7 @@ print(list)  # [2] <= 2だけになる
 ```
 
 
-#### キーワード引数をディクショナリとして渡す
+##### キーワード引数をディクショナリとして渡す
 
 ```python
 def func(**args):
@@ -339,7 +340,7 @@ def func(**args):
 func(state='Hawaii', island='Oafu', city='Honolulu')
 ```
 
-### 引数をタプルとして渡す
+#### 引数をタプルとして渡す
 
 パラメーター名の前に * を付けるとタプルとして受け取る。
 
@@ -352,7 +353,7 @@ def func(*args):
 func('Hawaii', 'Oafu', 'Honolulu')
 ```
 
-#### 位置引数とタプルを混在して渡す
+##### 位置引数とタプルを混在して渡す
 
 ```python
 def func(state, *args):
@@ -363,7 +364,7 @@ def func(state, *args):
 func('Hawaii', 'Oafu', 'Honolulu')
 ```
 
-### 位置引数, タプル, ディクショナリの引数を混在して渡す
+#### 位置引数, タプル, ディクショナリの引数を混在して渡す
 
 ```python
 def func(country, *states, **args):
