@@ -327,6 +327,18 @@ list = func(2)
 print(list)  # [2] <= 2だけになる
 ```
 
+
+#### キーワード引数をディクショナリとして渡す
+
+```python
+def func(**args):
+  print(args)
+  for k, v in args.items():
+    print(k, '=', v)
+
+func(state='Hawaii', island='Oafu', city='Honolulu')
+```
+
 ### 引数をタプルとして渡す
 
 パラメーター名の前に * を付けるとタプルとして受け取る。
@@ -340,7 +352,7 @@ def func(*args):
 func('Hawaii', 'Oafu', 'Honolulu')
 ```
 
-### 位置引数とタプルを混在して渡す
+#### 位置引数とタプルを混在して渡す
 
 ```python
 def func(state, *args):
@@ -351,6 +363,18 @@ def func(state, *args):
 func('Hawaii', 'Oafu', 'Honolulu')
 ```
 
+### 位置引数, タプル, ディクショナリの引数を混在して渡す
+
+```python
+def func(country, *states, **args):
+  print('country=', country)
+  print('states=', states)
+  for k, v in args.items():
+    print(k, '=', v)
+
+# USA は位置パラメーター, California, New York, Florida はタプル, 残りはディクショナリとして渡す。
+func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='Oafu', city='Honolulu')
+```
 
 ## Tips
 
