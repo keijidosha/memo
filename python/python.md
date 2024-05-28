@@ -410,6 +410,53 @@ def traced_func(country, *states, **args):
 # USA は位置パラメーター, California, New York, Florida はタプル, 残りはディクショナリとして渡す。
 traced_func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='Oafu', city='Honolulu')
 ```
+
+## クラス
+
+### with
+
+* サンプル by claude
+  ```python
+  class File:
+    def __init__(self, file_name, mode):
+        self.file_obj = None
+        self.file_name = file_name
+        self.mode = mode
+
+    def __enter__(self):
+        self.file_obj = open(self.file_name, self.mode)
+        return self.file_obj
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file_obj:
+            self.file_obj.close()
+
+  with File('example.txt', 'r') as f:
+    contents = f.read()
+    print(contents)
+  ```
+* サンプル by Gemini
+  ```
+  class Resource:
+    def __init__(self, name):
+        self.name = name
+
+    def __enter__(self):
+        print(f"リソース {self.name} を取得しました")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type is not None:
+            print(f"リソース {self.name} で例外が発生しました: {exc_type}")
+        else:
+            print(f"リソース {self.name} を解放しました")
+
+  with Resource("my_resource") as resource:
+      # リソースを使用する
+      print(f"リソース {resource.name} を使用しています")
+  ```
+
+
 ## Tips
 
 ### スクリプトが直接起動された場合だけ、main を実行する。
