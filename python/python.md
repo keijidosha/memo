@@ -472,3 +472,59 @@ if __name__ == '__main__':
 ```
 python -m http.server 8000
 ```
+
+### UTF-8 から SJIS 変換して、変換不能文字を特定の文字で置き換える。
+
+サンプル by Gemini
+```python
+import codecs
+
+def convert_and_replace(input_file, output_file, replace_char):
+    with open(input_file, 'r', encoding='utf-8') as f_in:
+        data = f_in.read()
+
+    try:
+        # SJISに変換
+        converted_data = data.encode('shift-jis')
+    except UnicodeEncodeError as e:
+        # 変換できない文字があった場合
+        print(f"変換エラー: {e}")
+
+        # 代替文字に変換
+        converted_data = data.encode('shift-jis', errors='replace', replacement=replace_char)
+
+    with open(output_file, 'w', encoding='shift-jis') as f_out:
+        f_out.write(converted_data.decode('shift-jis'))
+
+if __name__ == '__main__':
+    input_file = 'input.txt'
+    output_file = 'output.txt'
+    replace_char = '?'  # SJISにない文字を置き換える文字
+
+    convert_and_replace(input_file, output_file, replace_char)
+```
+または
+```python
+import codecs
+
+def convert_and_replace_with_codecs(input_file, output_file, replace_char):
+    with open(input_file, 'r', encoding='utf-8') as f_in:
+        data = f_in.read()
+
+    try:
+        # SJISに変換
+        encoder = codecs.getencoder('shift-jis')
+        converted_data, _ = encoder(data, errors='replace', replacement=replace_char)
+    except UnicodeEncodeError as e:
+        print(f"変換エラー: {e}")
+
+    with open(output_file, 'w', encoding='shift-jis') as f_out:
+        f_out.write(converted_data)
+
+if __name__ == '__main__':
+    input_file = 'input.txt'
+    output_file = 'output.txt'
+    replace_char = '?'  # SJISにない文字を置き換える文字
+
+    convert_and_replace_with_codecs(input_file, output_file, replace_char)
+```
