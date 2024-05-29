@@ -455,7 +455,13 @@ traced_func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='
       # リソースを使用する
       print(f"リソース {resource.name} を使用しています")
   ```
-
+  * exc_type：例外が発生した場合は例外の種類、そうでなければNone
+  * exc_val：例外が発生した場合は例外オブジェクト、そうでなければNone
+  * exc_tb：例外が発生した場合は例外のトレースバック、そうでなければNone
+  * 注意点
+    * with文を使用してクラスのインスタンスを管理する場合は、必ず__enter__と__exit__メソッドを定義する必要があります。
+    * __exit__メソッドは、例外が発生した場合でも必ず呼び出されます。
+    * with文は、ネストすることができます。
 
 ## Tips
 
