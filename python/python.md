@@ -140,6 +140,33 @@ else:
   print(f'Tha capital of {country} is {capital}')
   ```
 
+## 日付
+
+### 書式
+
+* %Y: 年
+* %m: 月(2桁)
+* %d: 日(2桁)
+* %H: 時(24h)
+* %M: 分
+* %S: 秒
+* %f: マイクロ秒
+* %p: AM/PM
+
+* 時刻をミリ秒まで表示  
+  ```python
+  import datetime
+
+  print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
+  ```
+* ミリ秒の少数点以下4桁目を四捨五入して表示  
+  ```python
+  import datetime
+
+  now = datetime.datetime.now()
+  print('{}.{:03d}'.format(now.strftime('%Y-%m-%d %H:%M'), round(now.microsecond / 1000)))
+  ```
+
 ### 長い文字列
 
 * 長い文字列を複数行に分けて書く  
