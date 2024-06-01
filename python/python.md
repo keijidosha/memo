@@ -40,7 +40,7 @@
   if 6 not in list:
     print('not included')
   ```
-* 空/ゼロチェック
+* 空/ゼロは True か False かチェック
   ```python
   # 整数
   ii = 0
@@ -57,7 +57,7 @@
     print('not empty')
   else:
     print('empty')
-  # => empty
+  # => empty 空文字列も False として判定される
 
   # リスト
   list = []
@@ -67,7 +67,8 @@
     print('empty')
   # => empty
   # 空タプル (), 空ディクリショナリ {}, 空Set () も False として判定される
-  ```
+  ```  
+  False と判定されるのは 0, 0.0, (空文字列), 空リスト, 空ディクショナリ, 空Set, 空タプル
 
 ### while + else
 
@@ -98,7 +99,8 @@ else:
 # => 45
 ```
 `range(10)` は `range(0, 10, 1)` と同じ  
-0 から 1 ずつ増えて 9(10未満)で終わり。
+0 から 1 ずつ増えて 9(10未満)で終わり。  
+(for も break で抜けた場合は else は実行されない。)
 
 * リストからインデックス付きで値を取り出す  
   enumerate を使う。
