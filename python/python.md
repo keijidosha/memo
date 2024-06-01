@@ -533,6 +533,18 @@ traced_func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='
   hoge._name = 'Saburo'  # しかし _name には直接代入できてしまう
   print(hoge.name)
   ```
+* Python ではクラスの外からフィールドを追加できてしまう。  
+  ```python
+  class Hoge():
+      def showName(self):
+          print('My name is', self.name)  # クラス Hoge に name というフィールドはない
+
+  hoge = Hoge()
+  hoge.name = 'Taro'  # しかし name というフィールドに値をセットできてしまう。
+  print(hoge.name) 
+  hoge.showName()     # 外から追加したフィールドは、クラスの中からも参照できる。
+  ```
+
 
 
 
