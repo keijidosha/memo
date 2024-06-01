@@ -490,6 +490,29 @@ traced_func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='
     * __exit__メソッドは、例外が発生した場合でも必ず呼び出されます。
     * with文は、ネストすることができます。
 
+### プロパティ
+
+* クラスのメソッドをフィールド(プロパティ)のように見せかけ(_ 付きのフィールドを隠して、_ なしの変数が存在するかのように見せかけ)、フィールドの存在をわかりづらくすることで、フィールドを書き換えられないように見せかける。
+  ```
+  class Hoge():
+      def __init__(self, name: str):
+        self._name = name
+
+      @property          # @property を指定することで、括弧なしの name で値を取得できるようになる。
+      def name(self):
+          return self._name
+
+  hoge = Hoge('Taro')
+  print(hoge.name)       # name で値を取り出せる
+  print(hoge.name())     # @property の付いたメソッドを呼び出そうとするとエラーになる(TypeError: 'str' object is not callable)
+  hoge.name = 'Jiro'     # <= name への代入はエラーになる(AttributeError: can't set attribute)
+  print(hoge.name)
+  hoge._name = 'Saburo'  # しかし _name には直接代入できてしまう
+  print(hoge.name)
+  ```
+
+
+
 ## Tips
 
 ### スクリプトが直接起動された場合だけ、main を実行する。
