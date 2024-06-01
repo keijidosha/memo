@@ -234,6 +234,29 @@ else:
   print('{}.{:03d}'.format(now.strftime('%Y-%m-%d %H:%M'), round(now.microsecond / 1000)))
   ```
 
+### 文字列から datetime に変換
+
+* 年月日
+  ```python
+  date = datetime.datetime.strptime('20240102', '%Y%m%d')
+  ```
+* 年月日時分秒
+  ```python
+  date = datetime.datetime.strptime('20240102091530', '%Y%m%d%H%M%S')
+  ```
+* 年月日時分秒マイクロ秒
+  ```python
+   date = datetime.datetime.strptime('20240102091530123000', '%Y%m%d%H%M%S%f')
+  ```
+
+### 文字列が日付として正しいかチェック
+
+```python
+# 不正な日付を datetime に変換しようとすると「ValueError: unconverted data remains: 2」エラーになる。
+date = datetime.datetime.strptime('20240132', '%Y%m%d')
+```
+=> 「remains: 2」は、最後の 2が変換できなかった、という意味。
+
 ## 計算
 
 * 割り算の整数部分だけを取得  
@@ -493,7 +516,7 @@ traced_func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='
 ### プロパティ
 
 * クラスのメソッドをフィールド(プロパティ)のように見せかけ(_ 付きのフィールドを隠して、_ なしの変数が存在するかのように見せかけ)、フィールドの存在をわかりづらくすることで、フィールドを書き換えられないように見せかける。
-  ```
+  ```python
   class Hoge():
       def __init__(self, name: str):
         self._name = name
