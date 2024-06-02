@@ -588,6 +588,25 @@ hoge = Hoge()       # <= TypeError: Can't instantiate abstract class Hoge with a
 @abc.abstractmethod が付与されたメソッドを継承先で実装していないと例外がスローされる。
 
 
+### クラス変数、クラスメソッド、スタティックメソッド
+
+```python
+class Hoge():
+    class_value = 'hoge'
+
+    @classmethod
+    def class_hello(cls):
+        print(cls.class_value)    # クラス変数を参照する場合はパラメーターの cls を付ける
+
+    @staticmethod
+    def static_hello():
+        print(Hoge.class_value)    # クラス変数を参照する場合はクラス名を付ける
+
+Hoge.class_hello()     # hoge
+Hoge.static_hello()    # hoge
+```
+
+
 ## Tips
 
 ### スクリプトが直接起動された場合だけ、main を実行する。
