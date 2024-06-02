@@ -593,6 +593,7 @@ hoge = Hoge()       # <= TypeError: Can't instantiate abstract class Hoge with a
 ```python
 class Hoge():
     class_value = 'hoge'
+    __class_value = 'private hoge'
 
     @classmethod
     def class_hello(cls):
@@ -601,9 +602,12 @@ class Hoge():
     @staticmethod
     def static_hello():
         print(Hoge.class_value)    # クラス変数を参照する場合はクラス名を付ける
+        print(Hoge.__class_value)  # プライベータなクラス変数をクラス内から参照
 
-Hoge.class_hello()     # hoge
-Hoge.static_hello()    # hoge
+Hoge.class_hello()         # hoge
+Hoge.static_hello()        # hoge
+print(Hoge.class_value)    # hoge <= 直接クラス変数を参照することも可能
+print(Hoge.__class_value)  # private なクラス変数を外から参照すると AttributeError: type object 'Hoge' has no attribute '__class_value'
 ```
 
 
