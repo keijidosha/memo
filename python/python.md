@@ -546,8 +546,46 @@ traced_func('USA', 'California', 'New York', 'Florida', state='Hawaii', island='
   print(hoge.name) 
   hoge.showName()     # 外から追加したフィールドは、クラスの中からも参照できる。
   ```
+* フィールド名に __ を付けると、外からは参照できなくなるが、外から同名の変数を別に設定できてしまう。
+  ```python
+  class Hoge():
+      def __init__(self, name: str):
+          self.__name = name
+  
+      @property
+      def name(self):
+          return self.__name
+  
+      def showName2(self):
+          print(self.name2)
+  
+  hoge = Hoge('Taro')
+  print(hoge.name)        # Taro
+  hoge.__name = 'Saburo'  # __name に Saburo をセットできてしまう
+  print(hoge.__name)      # Saburo
+  print(hoge.name)        # Taro <= Hoge クラス内の __name は置き換わらず Taro のまま、つまり別の変数が作成されている。
+  ```
 
 
+### 抽象クラス
+
+```python
+import abc
+
+class MetaClass(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def hello(self):
+        pass
+
+class Hoge(MetaClass):
+    def __init__(self):
+        print('init')
+
+meta = MetaClass()  # <= TypeError: Can't instantiate abstract class MetaClass with abstract methods hello
+hoge = Hoge()       # <= TypeError: Can't instantiate abstract class Hoge with abstract methods hello
+```
+
+@abc.abstractmethod が付与されたメソッドを継承先で実装していないと例外がスローされる。
 
 
 ## Tips
