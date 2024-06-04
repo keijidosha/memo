@@ -120,6 +120,24 @@ else:
   ```
   items() がタプルを返し、それをアンパックして k, v に代入する。
 
+### 例外処理
+
+```python
+try:
+    ii = int('123')
+    print(ii)
+    list = []
+    print(list[0])
+except ValueError as ex:
+    print(ex)
+except Exception as ex:
+    print(ex)
+else:
+    print('no error')
+finally:
+    print('finally')
+```
+
 
 ## 文字列
 
