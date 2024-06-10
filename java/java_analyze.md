@@ -17,28 +17,28 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ### コマンドいろいろ
 
-* Java VM の設定一覧詳細を表示
+* Java VM の設定一覧詳細を表示  
 java -XX:+PrintFlagsFinal -version -server
-* jps
+* jps  
 Javaプロセス一覧
-* jstack
-スレッドダンプ取得
+* jstack  
+スレッドダンプ取得  
 jstack <プロセスID>
 * jmap
-  * ヒープ使用状況、ヒープ設定パラメータ(NewRatio, SurvivorRatioなど)
+  * ヒープ使用状況、ヒープ設定パラメータ(NewRatio, SurvivorRatioなど)  
     jmap -heap <プロセスID>
-  * ネイティブメモリー使用状況
+  * ネイティブメモリー使用状況  
     jmap <プロセスID>
-  * ヒープダンプ
+  * ヒープダンプ  
     jmap -dump:format=b,file=heap.dump <プロセスID>
 * jinfo
-  * JVM設定表示
+  * JVM設定表示  
     jinfo <プロセスID>
-  * フラグ設定値だけを表示
+  * フラグ設定値だけを表示  
     jinfo -flags <プロセスID>
-  * フラグ設定値を変更
+  * フラグ設定値を変更  
     jinfo -flag key=value <プロセスID>
-* lsof(Linuxコマンド)  
+* lsof(Linuxコマンド)    
 参照ファイル一覧  
 lsof <プロセスID>  
 lsof -u ユーザーID  
