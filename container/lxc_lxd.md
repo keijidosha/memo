@@ -217,6 +217,40 @@ lxc network list-leases lxdbr0
      ```  
      (参考) [LXDコンテナとホストの間でファイルを共有する方法](LXDコンテナとホストの間でファイルを共有する方法)
 
+* Vagrant で共有フォルダを追加し、そのフォルダをコンテナで別アカウントから読み書き可能になるようマッピングする。  
+  (例) vagrant 配下のディレクトリを ViutualBox ゲストの uid 1000 のユーザー hoge からコントナの uid 3000 hoge に共有している状態で、配下の share2 を共有して VirtualBox ゲストの /share2 にマウントし、uid 5000 の fuga に読み書き可能になるようマッピング。  
+  1. 共有するディレクトリを作成。
+     ```
+     cd ~/vagrant/vmxxx
+     mkdir share2
+     ```
+  1. Vagrantfile の `Vagrant.configure("2") do |config|` から `end` の間に次の設定を追加して、vagrant(vm) を起動。
+     ```
+     config.vm.synced_folder "./share2", "/share2", owner: "fuga"
+     ```
+  1. vm にログインして、VirtualBox ゲストにユーザー fuga を uid 3000 で作成。
+     ```
+     vagrant ssh
+     groupadd -g 3000 fuga
+     useradd -g fuga -u 3000 -m fuga -s /bin/bash
+     ```
+  1. コンテナに入り、uid 5000 でユーザー fuga を作成。
+     ```
+     lxc start container-name
+     lxc exec container-name bash
+     groupadd -g 5000 fuga
+     useradd -g fuga -u 5000 -m fuga -s /bin/bash
+     ```
+  1. VirtualBox ゲストで uid 1000 をコンテナの 3000 に、3000 を 5000 にマッピングするようコンテナを設定。  
+     => VirtualBox ゲストの uid が +2000 されてコンテナにマッピングされる。
+     ```
+     lxc config set container-name raw.idmap 'uid 1000-3000 3000-5000'
+     ```
+  1. コンテナをリスタート
+     ```
+     lxc restart container-name
+     ```
+
 * ホストへのアクセスをコンテナに転送
   * proxy 設定で転送
     ```
