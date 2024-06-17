@@ -172,6 +172,9 @@ skinparam sequence {
   `skinparam defaultFontColor magenta`
 * 背景色を設定  
   `ここから<back:aqua>背景水色</back>がここまで`
+* note の背景色を設定  
+  `note right of hoge #aqua: 説明`  
+  : の前に色を指定(色名または色コード)
 * ボールド  
   `ここから<b>ボールド</b>がここまで`
 * ボールドで文字色を設定  
