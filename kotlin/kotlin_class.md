@@ -133,7 +133,9 @@ class MyException(msg: String): Exception(msg) {
 ```
 
 ### ネスト
+
 inner を付けると、内部のクラスから外側のクラスのフィールドを参照できる。
+
 ```kotlin
 class hoge {
     private val name = "hoge"
