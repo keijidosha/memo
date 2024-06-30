@@ -644,11 +644,46 @@ print(Hoge.__class_value)  # private なクラス変数を外から参照する�
   == から呼び出される。
 
 
+## ファイル
+
+* パスから上位のディレクトリを取得  
+  ```python
+  import os
+  
+  file_path = '/home/hoge/readme.txt'
+  print(os.path.dirname(file_path))  # '/home/hoge'
+  ```
+* 複数のパス・ファイル名を結合  
+  ```python
+  import os
+
+  main_dir = '/home'
+  user = 'hoge'
+  file_name = 'readme.txt'
+  print(os.path.join(main_dir, user, file_name))  # '/home/hoge/readme.txt'
+  ```
+* ディレクトリを取り除いたファイル名  
+  ```python
+  import os
+  
+  file_path = '/home/hoge/readme.txt'
+  print(os.path.basename(file_path))  # 'readme.txt'
+  ```
+* 拡張子なしのパス  
+  ```python
+  import os
+  
+  file_path = '/home/hoge/readme.txt'
+  print(os.path.splitext(file_path))  # '/home/hoge/readme'
+  ```
+  
+
+
 ## その他
 
 ### コマンドライン引数
 
-```
+```python
 import sys
 
 print(sys.argv[0])  # 自身のスクリプト名
