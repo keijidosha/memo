@@ -669,12 +669,13 @@ print(Hoge.__class_value)  # private なクラス変数を外から参照する�
   file_path = '/home/hoge/readme.txt'
   print(os.path.basename(file_path))  # 'readme.txt'
   ```
-* 拡張子なしのパス  
+* 拡張子なしのパスと拡張子  
   ```python
   import os
   
   file_path = '/home/hoge/readme.txt'
-  print(os.path.splitext(file_path))  # '/home/hoge/readme'
+  print(os.path.splitext(file_path)[0])  # '/home/hoge/readme'
+  print(os.path.splitext(file_path)[1])  # 'txt'
   ```
   
 
