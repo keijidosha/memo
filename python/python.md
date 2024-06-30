@@ -644,6 +644,18 @@ print(Hoge.__class_value)  # private なクラス変数を外から参照する�
   == から呼び出される。
 
 
+## その他
+
+### コマンドライン引数
+
+```
+import sys
+
+print(sys.argv[0])  # 自身のスクリプト名
+print(sys.argv[1])  # 最初の引数
+```
+
+
 ## Tips
 
 ### スクリプトが直接起動された場合だけ、main を実行する。
