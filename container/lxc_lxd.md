@@ -528,9 +528,31 @@ eth0 に DHCP アドレスを割り当てるため、Oracle Linux 8.4 のコン�
 
 ## トラブルシューティング
 
-### btrfs で作成されたストレージプール(ここでは default プール)の拡張
+### ストレージプール(ここでは default プール)の拡張
 
-[LXC 5.0]
+#### [LXC 5.0]  
+##### zfs
+
+```
+# zfspool がインストールされていない場合
+sudo apt install zfsutils-linux
+
+# プールの使用状況を確認
+lxc storage info default
+info:
+(略)
+  space used: 5.41GiB
+  total space: 5.59GiB
+
+# ストレージプールを 10GB 拡張
+sudo truncate -s +10G /var/snap/lxd/common/lxd/disks/default.img
+sudo zpool set autoexpand=on default
+sudo zpool online -e default /var/snap/lxd/common/lxd/disks/default.img
+sudo zpool set autoexpand=off default
+```
+
+##### btrfs
+
 ```
 # btrfs の使用状況を確認
 $ lxc storage info default
@@ -560,7 +582,8 @@ info:
   total space: 15.59GiB
 ```
 
-[LXC 3.0]
+#### [LXC 3.0]
+
 ```
 $ df -h
 (略)
