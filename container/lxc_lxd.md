@@ -469,7 +469,7 @@ Docker コンテナ内で実行
   ```
   ホスト側で実行
   ```
-  lxc image import /vagrant/lxc/ol84.tgz --alias oraclelinux8.4  
+  lxc image import /vagrant/lxc/ol84.tgz --alias oraclelinux8.4
   ```
 
 * 作成したイメージを使ってコンテナを作成  
