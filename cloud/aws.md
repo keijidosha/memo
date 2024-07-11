@@ -10,6 +10,44 @@
 * 削除  
 `aws s3 rm s3://<バケット>/<パス>/<ファイル>`
 
+### 認証
+
+* MFA(2段階)認証しているアカウントで CLI を使う
+  1. AWS CLI の設定ファイルにプロファイルを追加して MFA 認証が必要なアカウント情報を記述  
+     ~/.aws/credentials  
+     ```
+     [mfa-acc]
+     aws_access_key_id = ABCxxx
+     aws_secret_access_key = abcxxx
+     ```
+  1. 認証アプリ(Authyなど)でワンタイムパスワード(OTP)を取得
+  1. CLI で期限付きの認証情報を取得
+     ```
+     aws sts get-session-token --profile mfa-acc --serial-number arn:aws:iam::12345678:mfa/username --token-code <OTP>
+     ```
+     結果例
+     ```
+     {
+       "Credentials": {
+         "AccessKeyId": "ABCxxx",
+         "SecretAccessKey": "abcxxx",
+         "SessionToken": "xxx...",
+         "Expiration": "2024-01-10T00:15:30+00:00"
+       }
+     }
+     ```
+  1. 表示された期限付きの認証情報を CLI の設定ファイルの MFA 用プロファイルに追記  
+     ~/.aws/credentials  
+     ```
+     [otp-mfa-acc]
+     aws_access_key_id = ABCxxx
+     aws_secret_access_key = abcxxx
+     aws_session_token = xxx...
+     ```
+  1. 追記したプロファイル名を指定して CLI を実行
+     ```
+     aws ec2 describe-instances --profile=otp-mfa-acc
+     ```
 
 ## EBS
 * EBS パーティション拡張
