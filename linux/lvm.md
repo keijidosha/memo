@@ -1,6 +1,7 @@
 # LVM
 
 ## ボリュームグループをマウント  
+
 * ボリュームグループを検索  
     ```
     lvm vgscan
@@ -15,6 +16,24 @@
     ```
     mount /dev/VolGroup00/LogVol00 /mnt/sda1
     ```
+
+2024.07 アップデート(別マシンのディスクを接続してマウントする場合など)
+```
+lsblk
+
+# 物理ボリュームのスキャン:
+sudo pvscan
+
+# ボリュームグループのアクティブ化:
+sudo vgchange -ay
+
+# 論理ボリュームの確認:
+# ここで /dev 配下の論理ボリュームのパスが表示されるので、そのパスをマウントする。
+sudo lvdisplay
+
+# ボリュームのマウント:
+sudo mount /dev/volume_group_name/logical_volume_name /mnt/
+```
 
 ## ボリュームグループの名前を変更
 * ボリュームグループを使用不可に設定  
