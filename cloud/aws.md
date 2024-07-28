@@ -16,6 +16,12 @@
   aws ec2 describe-images --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile my --region us-east-1
   ```
 
+### スナップショット
+* hoge で始まるスナップショットの一覧
+  ```
+  aws ec2 describe-snapshots --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile my --region us-east-1
+  ```
+
 ### 認証
 
 * MFA(2段階)認証しているアカウントで CLI を使う
