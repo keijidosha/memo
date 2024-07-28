@@ -21,6 +21,10 @@
   ```
   aws ec2 describe-snapshots --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile my --region us-east-1
   ```
+* スナップショットをアカウント間でコピーするために必要な権限を付与
+  ```
+  aws ec2 modify-snapshot-attribute --snapshot-id snap-1234xxx --attribute createVolumePermission --operation-type add --user-ids 123456789012 --profile my --region us-east-1
+  ```
 
 ### 認証
 
