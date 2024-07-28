@@ -15,6 +15,10 @@
   ```
   aws ec2 describe-images --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile my --region us-east-1
   ```
+* 別アカウントで共有された AMI をコピー
+  ```
+  aws ec2 copy-image --source-image-id ami-1234567890abcdefg --source-region us-east-1 --region us-east-1 --name "aminame" --profile my
+  ```
 
 ### スナップショット
 * hoge で始まるスナップショットの一覧
