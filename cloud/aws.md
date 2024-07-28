@@ -10,24 +10,38 @@
 * 削除  
 `aws s3 rm s3://<バケット>/<パス>/<ファイル>`
 
+### EC2
+* インスタンスのリストを取得
+  ```
+  aws ec2 describe-instances --profile=taro --region us-east-1
+  ```
+
 ### AMI
+* AMI を作成
+  ```
+  aws ec2 create-image --profile=taro --instance-id i-1234567890abcdefg --name "hoge" --tag-specifications 'ResourceType=image,Tags=[{Key=Name,Value=hoge},{Key=env,Value=prod}]' 'ResourceType=snapshot,Tags=[{Key=Name,Value=hoge},{Key=env,Value=prod}]'
+  ```
 * hoge で始まる AMI の一覧
   ```
-  aws ec2 describe-images --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile my --region us-east-1
+  aws ec2 describe-images --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile taro --region us-east-1
+  ```
+* AMI を別アカウントに共有
+  ```
+  aws ec2 modify-image-attribute --profile=taro --image-id ami-1234567890abcdefg --launch-permission "Add=[{UserId=123456789012}]"
   ```
 * 別アカウントで共有された AMI をコピー
   ```
-  aws ec2 copy-image --source-image-id ami-1234567890abcdefg --source-region us-east-1 --region us-east-1 --name "aminame" --profile my
+  aws ec2 copy-image --source-image-id ami-1234567890abcdefg --source-region us-east-1 --region us-east-1 --name "aminame" --profile taro
   ```
 
 ### スナップショット
 * hoge で始まるスナップショットの一覧
   ```
-  aws ec2 describe-snapshots --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile my --region us-east-1
+  aws ec2 describe-snapshots --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile taro --region us-east-1
   ```
 * スナップショットをアカウント間でコピーするために必要な権限を付与
   ```
-  aws ec2 modify-snapshot-attribute --snapshot-id snap-1234xxx --attribute createVolumePermission --operation-type add --user-ids 123456789012 --profile my --region us-east-1
+  aws ec2 modify-snapshot-attribute --snapshot-id snap-1234xxx --attribute createVolumePermission --operation-type add --user-ids 123456789012 --profile taro --region us-east-1
   ```
 
 ### 認証
