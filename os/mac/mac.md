@@ -95,11 +95,11 @@ Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響して�
   CPU の熱暴走防止で kernel_task 他のプロセスの CPU 使用率を下げようとしている?  
   対策: SMC をリセット(T2 チップ搭載 Mac)
   * Mac の電源が落ちている状態で **左** common + option + **右** shift キーを 7秒間押し続ける。
-  * 続いて 左 common + option + 右 shift + 電源ボタンを 7秒間押し続ける。
+  * 続いて 左 common + option + 右 shift + 電源ボタンを 7秒間押し続ける。  
     (参考)  
-    https://support.apple.com/ja-jp/102605#t2  
-    https://support.apple.com/ja-jp/102172  
-    https://robokumac.com/2019/06/07/macbook-pro-52/  
+    [Mac の SMC をリセットする](https://support.apple.com/ja-jp/102605#t2)  
+    [kernel_task の Mac CPU の使用率が高い場合](https://support.apple.com/ja-jp/102172)  
+    [MacBook Pro の動作が激重。「kernel_task」が暴走した場合の対処法。](https://robokumac.com/2019/06/07/macbook-pro-52/)  
 
 
 ## 起動
