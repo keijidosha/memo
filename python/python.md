@@ -691,6 +691,19 @@ print(sys.argv[0])  # 自身のスクリプト名
 print(sys.argv[1])  # 最初の引数
 ```
 
+### I/O
+
+* 標準入力から読み込む  
+  ```python
+  text = sys.stdin.read()
+  ```
+* 標準入力から 1行ずつ読み込む  
+  ```python
+  for line in sys.stdin:
+    line = line.rstrip()
+  ```
+
+
 
 ## Tips
 
