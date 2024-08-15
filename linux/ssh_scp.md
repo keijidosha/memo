@@ -61,6 +61,12 @@ export TMOUT=300
    ```
 1. ssh-agent を使って秘密鍵をメモリー上に登録しているとそれを使う。
 
+### 秘密鍵のパスフレーズを変更
+
+```
+ssh-keygen -p -f ~/.ssh/<private_key_file>
+```
+
 ## ポートフォワード
 ### ローカルポートフォワードでリスンするポートを別ホストからも接続できるよう、全NICにバインドしたい
 `ssh -g -L 22:anotherhost:54322 user@host`  
