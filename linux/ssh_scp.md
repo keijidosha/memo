@@ -49,6 +49,18 @@ export TMOUT=300
      UserKnownHostsFile=/dev/null
   ```
 
+### 参照する秘密鍵の優先順位
+
+1. ~/.ssh/config に接続先ホストで使用する秘密鍵が指定されているとそれを使う。
+1. ~/.ssh/ に次の名前のファイルがあるとそれを使う。
+   ```
+   id_rsa
+   id_dsa
+   id_ecdsa
+   id_ed25519
+   ```
+1. ssh-agent を使って秘密鍵をメモリー上に登録しているとそれを使う。
+
 ## ポートフォワード
 ### ローカルポートフォワードでリスンするポートを別ホストからも接続できるよう、全NICにバインドしたい
 `ssh -g -L 22:anotherhost:54322 user@host`  
