@@ -33,6 +33,20 @@ export TMOUT=300
   ssh -o ServerAliveInterval=60 host
   ```
 
+### IPv4 だけで接続する、または Ipv6 だけで接続する。
+
+~/.ssh/config に指定する  
+* IPv4 だけで接続する
+  ```
+  Host hoge.example.com
+     AddressFamily inet
+  ```
+* IPv6 だけで接続する
+  ```
+  Host hoge.example.com
+     AddressFamily inet6
+  ```
+
 ### ホストに初めて接続すると時、ホストキーをチェックせず、known_hosts ファイルにも記録しない
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null 192.168.1.1
 * 設定ファイルに記述する  
