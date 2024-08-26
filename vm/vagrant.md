@@ -110,3 +110,39 @@ rm -rf hoge
   `vagrant ssh -- -L 8080:10.1.2.3:80`  
   次のコマンドと同様の動作  
   `ssh -p 2222 vagrant@127.0.0.1 -L 8080:10.1.2.3:80`
+
+## Troubel Shooting
+
+### VirtualBox を更新すると、Vagrant 起動時にエラーメッセージが出て拡張機能(ホストディレクトリのマウント)ができなくなる。
+
+* vagrant up すると、次のメッセージが表示される。  
+  今回は Ubuntu 22.04
+  ```
+  Package linux-headers-5.15.0-56-generic is not available, but is referred to by another package.
+  This may mean that the package is missing, has been obsoleted, or
+  is only available from another source
+
+  E: Package 'linux-headers-5.15.0-56-generic' has no installation candidate
+  ```
+* 次のコマンドを実行
+  * sudo apt-get update
+  * sudo apt-get upgrade
+  * sudo apt-get dist-upgrade
+* ゲストOS 再起動
+  ```
+  sudo shutdown -r now
+  ```
+* Vagrant 起動時に表示されていたコマンドを実行して、カーネルソースをイストール
+  ```
+  DEBIAN_FRONTEND=noninteractive sudo apt-get install -y linux-headers-`uname -r` build-essential dkms
+  ```
+* ゲストOS 再起動
+  ```
+  exit
+  # vagrant reload でも OK
+  vagrant halt
+  vagrnt up
+  vagrant ssh
+  ```
+* ls /vagrant/ でホストディレクトリがマウントされていることが確認できる。
+
