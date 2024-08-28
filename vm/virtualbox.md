@@ -42,7 +42,8 @@
   sudo systemctl stop vboxadd-service && sudo date -s '2020/01/01 09:00' && sudo systemctl start vboxadd-service
   ```
   VirtualBox のサービスを止めた上で、大幅に時刻をずらしておくと、次にサービス開始した時に、少しずつ時刻を合わせていくのではなく、一気に合わせてくれる。
-* ホストのディスク容量が少なくなったなどで、ゲストのファイルを別ドライブに移動
+* ホストのディスク容量が少なくなったなどで、ゲストのファイルを別ドライブに移動  
+  ※Windows はこの方法では移動できないので注意。別ドライブへの再インストールが必要になりそう。
   1. ~/VirtualBox/ 配下の VM のフォルダを別ドライブにコピー。  
      (例) /Volumes/SSD/VirtualBox/ にコピー
   1. VirtualBox の画面からコピーした VM を選択して、メニューから「除去」をクリック。  
