@@ -199,25 +199,49 @@ lxc network list-leases lxdbr0
 * vagrant 上の Linux で実行しているコンテナから、ホスト側(例: VirtualBox の共有フォルダ)に書き込めるようにする  
   (例) コンテナの uid 3000, gid 3000 のユーザーを、ホストの uid 1000, gid 1000 にマッピングして、ホスト側のフォルダに書き込めるようにする。  
   (注) idmap は security.privileged が true に設定されていると効かない。  
-  1. コンテナ内で uid 3000 のユーザーを作成する。  
-     ```
-     groupadd -g 3000 hoge
-     useradd -g hoge -u 3000 -m hoge
-     ```
-  1. コンテナの /etc/subuid と /etc/subgid に次の内容を記述。
-     ```
-     root:3000:1
-     ```  
-     ※ 結果的に subuid と subgid は特に設定してなくてもうまく参照できている模様。
-  1. ホスト側でコンテナに対して ID のマッピングを設定。  
-     ```
-     lxc config set <コンテナ名> raw.idmap 'both 1000 3000'
-     ```
-  1. コンテナを再起動。
-     ```
-     lxc restart <コンテナ名>
-     ```  
-     (参考) [LXDコンテナとホストの間でファイルを共有する方法](LXDコンテナとホストの間でファイルを共有する方法)
+
+  * vagrant でフォルダを共有する時に、同じ UID, GID を持つユーザーに合わせておく方法(より確実)。
+    1. vagrant のゲストに UID 3000 でユーザーを作成。  
+       合わせてコンテナ側でも同じ手順で名前でユーザー hoge を作成しておく。
+       ```
+       sudo groupadd -g 3000 hoge
+       sudo useradd -g hoge -u 3000 -m hoge
+       ```
+    1. Vagrantfile に共有フォルダの設定を追加
+       ```
+       config.vm.synced_folder "./share", "/share", owner: "hoge", group: "hoge"
+       ```
+    1. vagrant でゲストを起動して、コンテナに idmap を 3000 => 3000 で設定
+       ```
+       lxc config set containername raw.idmap 'both 3000 3000'
+       ```
+    1. コンテナを起動し、共有フォルダにあるファイルのオーナーが hoge になっていることを確認。
+       ```
+       lxc start containername
+       lxc exec containername bash
+       su - hoge
+       ls -l /share
+       ```
+  * vagrant ユーザー(UID: 1000)を、コンテナ上のユーザーの異なる UID にマッピングする方法(この方法だと VirtualBox 7.16 から 7.20 に上げたタイミングで問題が発生)。
+    1. コンテナ内で uid 3000 のユーザーを作成する。  
+       ```
+       groupadd -g 3000 hoge
+       useradd -g hoge -u 3000 -m hoge
+       ```
+    1. コンテナの /etc/subuid と /etc/subgid に次の内容を記述。
+       ```
+       root:3000:1
+       ```  
+       ※ 結果的に subuid と subgid は特に設定してなくてもうまく参照できている模様。
+    1. ホスト側でコンテナに対して ID のマッピングを設定。  
+       ```
+       lxc config set <コンテナ名> raw.idmap 'both 1000 3000'
+       ```
+    1. コンテナを再起動。
+       ```
+       lxc restart <コンテナ名>
+       ```  
+       (参考) [LXDコンテナとホストの間でファイルを共有する方法](LXDコンテナとホストの間でファイルを共有する方法)
 
 * Vagrant で共有フォルダを追加し、そのフォルダをコンテナで別アカウントから読み書き可能になるようマッピングする。  
   (例) vagrant 配下のディレクトリを ViutualBox ゲストの uid 1000 のユーザー hoge からコントナの uid 3000 hoge に共有している状態で、配下の share2 を共有して VirtualBox ゲストの /share2 にマウントし、uid 5000 の fuga に読み書き可能になるようマッピング。  
