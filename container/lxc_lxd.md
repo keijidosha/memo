@@ -100,6 +100,8 @@ https://images.linuxcontainers.org/
 `lxc config device add <コンテナ名> <デバイス名> disk source=<ホスト側マウント元ディレクトリ> path=<コンテナディレクトリ>`  
 (例)  
 `lxc config device add linuxcontainer vagrant disk source=/vagrant/ path=/vagrant/`
+* マウント解除する場合  
+  `lxc config device remove <コンテナ名> <デバイス名>`  
 
 ## コンテナのコピー  
 `lxc copy --container-only <コピー元コンテナ> <コピー先コンテナ>`
