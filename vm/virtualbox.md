@@ -56,6 +56,19 @@
     1. \<AttachedDevice> 〜 \</AttachedDevice> をコメントアウトする
     1. ゲストを追加する
     1. ゲストの設定画面を開き、「ストレージ」で「既存のディスクを追加」を選択して、ファイルを選択する
+* VirtualBox に Linux をインストールした後、Addtions をインストール。
+  1. ゲスト OS を起動。
+  1. [Devices] メニユーから [Insert Guest Addtions CD Image...] をクリック
+  1. 次のコマンドを実行
+     ```
+     mount -rt iso9660 /dev/cdrom /mnt
+     cd /mnt
+     ./VBoxLinuxAdditions.run
+     ```
+  * カーネルを変更した場合などは次のコマンドを実行(UEK から RHCK など)。
+    ```
+    /sbin/rcvboxadd quicksetup all
+    ```
 
 ## VBoxManage コマンド
 * ゲストOSを画面なしで起動  
