@@ -102,6 +102,39 @@ vagrant snapshort delete <スナップショット名>
 cd ..  
 rm -rf hoge
 
+## Box を構築
+
+### Oracle Linux 8.x
+
+* 最新の Oracle Linux 8.x の Box を構築
+  1. git clone https://github.com/oracle/vagrant-projects
+  1. vagrant-projects/OracleLinux/8/
+  1. vagrant up
+  1. vagrant ssh
+  1. cat /etc/oracle-release
+     ```
+     Oracle Linux Server release 8.10
+     ```
+* 特定のバージョンの Oracle Linux 8.x の Box を構築
+  1. git clone https://github.com/oracle/vagrant-projects
+  1. vagrant-projects/OracleLinux/8/
+  1. vi Vagrantfile  
+     次の行を追記
+     ```
+     config.vm.box_version = "8.4.256"
+     ```  
+     選択肢にないバージョンを指定すると、指定可能なバージョンのリストが表示される。
+     ```
+     Available versions: 8.0.20, 8.1.25, 8.1.101, 8.2.125, 8.2.126, 8.2.134, 8.2.144, 8.2.145, 8.3.182, 8.3.183, 8.3.195, 8.3.198, 8.4.220, 8.4.221, 8.4.256, 8.4.257, 8.5.285, 8.5.286, 8.5.311, 8.5.320, 8.6.331, 8.6.332, 8.6.359, 8.6.360, 8.7.377, 8.7.378, 8.7.405, 8.7.411, 8.8.485, 8.8.487, 8.9.491, 8.9.511, 8.10.621, 8.10.623
+     ```
+  1. vagrant up
+  1. vagrant ssh
+  1. cat /etc/oracle-release
+     ```
+     Oracle Linux Server release 8.10
+     ```
+     カーネルのバージョンは 8.4 のものになっているが、なぜかバージョン表記は 8.10。
+
 ## Tips
 
 * SSHポートフォワード  
