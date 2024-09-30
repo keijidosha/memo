@@ -61,6 +61,18 @@ sudo visudo
 * pmset sleepnow  
 今すぐスリープする
 
+## 音声合成(sayコマンド)
+
+* リニアPCMで出力  
+  ```
+  say -v Kyoko -r 120 --file-format=WAVE --data-format=LEI16@8000 -o sample@8000pcm.wav "こんにちは"
+  ```
+* mu-law で出力
+  ```
+  say -v Kyoko -r 120 --file-format=WAVE --data-format=ulaw@8000 -o sample@8000ulaw.wav "こんにちは"
+  ```
+
+
 ## トラブルシューティング
 
 * Touch Bar のある Mac で、日本語変換をキャンセルするのに、ESCキーを 2度押ししないと戻れない。  
