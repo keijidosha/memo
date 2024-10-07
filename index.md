@@ -49,7 +49,7 @@
   * [Spring Framework](spring/spring_framework.md)
   * [Kotlin on Spring](spring/Kotlin_on_Spring.md)
   * [Spring Security 6 対応](spring/spring_security_6.md)
-* Go
+* [Go](golang/go.md)
   * [Go Essential](golang/go_essential.md)
   * [文字列](golang/go_string.md)
   * [日付・時刻](golang/go_datetime.md)
