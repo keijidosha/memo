@@ -12,3 +12,5 @@
 `dnf module reset nginx`
 * モジュール削除  
   `dnf erase xxx`
+* 依存モジュールを表示  
+  `dnf deplist xxx`
