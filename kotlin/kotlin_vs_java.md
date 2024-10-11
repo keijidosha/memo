@@ -22,6 +22,9 @@ if(System.getenv("MARGIN") == null) {
 
 ## ラムダ式
 
+## ストリーム
+
 ## 拡張関数
+
 
 
