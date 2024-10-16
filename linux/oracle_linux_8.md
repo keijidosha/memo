@@ -2,7 +2,10 @@
 
 
 * EPEL リポジトリを追加  
-/etc/yum.repos.d/ol8-epel.repo  
+  `dnf install oracle-epel-release-el8`  
+  base リポジトリの latest が enabled になっている状態で実行。  
+  または  
+  vi /etc/yum.repos.d/ol8-epel.repo  
   ```
   [ol8_developer_EPEL]
   name= Oracle Linux $releasever EPEL ($basearch)
