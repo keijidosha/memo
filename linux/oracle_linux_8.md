@@ -4,6 +4,7 @@
 * EPEL リポジトリを追加  
   `dnf install oracle-epel-release-el8`  
   base リポジトリの latest が enabled になっている状態で実行。  
+  (参考) https://apexugj.blogspot.com/2022/05/adding-epel-on-oci-compute.html  
   または  
   vi /etc/yum.repos.d/ol8-epel.repo  
   ```
