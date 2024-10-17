@@ -2,6 +2,9 @@
 
 
 ## モジュール
+* パッケージの一覧  
+  `dnf list ansible`  
+  `dnf list "python3*`
 * モジュールの一覧  
 `dnf module list`
 * AppStream からインストールするモジュールで指定可能なバージョンの一覧  
