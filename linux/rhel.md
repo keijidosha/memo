@@ -8,6 +8,8 @@
 `subscription-manager register --username='hoge' --password='fuga'`
 * サブスクリプション管理からログアウト  
 `subscription-manager unregister`
+
+2024.10.01 現在、SCAにより、サブスクリプションをアタッチしなくても register 時に自動的にサブスクリプション(yumリポジトリ)へのアクセスが可能になるため、以下の attach/remove は不要になり、register/unregister だけでよくなった模様。
 * 利用可能なサブスクリプションの一覧を表示  
 `subscription-manager list --available`  
 サブスクリプションの一覧は次の URL からでも可能。  
