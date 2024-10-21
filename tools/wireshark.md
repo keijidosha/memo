@@ -1,3 +1,6 @@
+- Table of Content  
+{:toc}
+
 # Wireshark
 
 ## キャプチャ後の表示フィルタ
@@ -12,3 +15,13 @@
 http
 * SIP と RTP のみ表示  
 sip || rtp
+
+## トラブルシューティング
+
+* Mac でキャプチャしようとすると、次のダイアログメッセージが表示される。  
+  「The capture session could not be initiated on interface 'en0'」  
+  /dev/bpf* の権限を追加する。  
+  ```
+  sudo chown $(whoami):admin /dev/bpf*
+  ```
+  (参考) [MacOSのWiresharkが権限エラーでキャプチャできないとき](https://tex2e.github.io/blog/shell/wireshark-permission-err-macos)
