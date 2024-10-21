@@ -12,7 +12,7 @@
 * Canonical のイメージを表示・確認  
   `lxc image list canonical:`
 * Canonical から RockyLinux 8 コンテナをインストール  
-  `lxc launch canonical:RockyLinux/8/amd64 rocky8`
+  `lxc launch canonical:rockylinux/8/amd64 rocky8`
 
 (参考) https://qiita.com/d-ebi/items/eb8f84f230029ef0e2c5
 
