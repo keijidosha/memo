@@ -14,7 +14,8 @@
 * Canonical から RockyLinux 8 コンテナをインストール  
   `lxc launch canonical:rockylinux/8/amd64 rocky8`
 
-(参考) https://qiita.com/d-ebi/items/eb8f84f230029ef0e2c5
+(参考) https://qiita.com/d-ebi/items/eb8f84f230029ef0e2c5  
+(images.linuxcontainers.org 閉鎖の案内) https://discuss.linuxcontainers.org/t/important-notice-for-lxd-users-image-server/18479  
 
 ## よく使うコマンド
 
