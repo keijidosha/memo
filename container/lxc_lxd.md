@@ -3,6 +3,19 @@
 
 # LXC／LXD
 
+## images.linuxcontainers.org が閉鎖されたことへの対応
+
+* リモートサーバーのリストに Canonical を追加  
+  `lxc remote add canonical https://images.lxd.canonical.com --protocol=simplestreams`
+* リモートサーバーのリストに Canonical が追加されていることを確認  
+  `lxc remote list`
+* Canonical のイメージを表示・確認  
+  `lxc image list canonical:`
+* Canonical から RockyLinux 8 コンテナをインストール  
+  `lxc launch canonical:RockyLinux/8/amd64 rocky8`
+
+(参考) https://qiita.com/d-ebi/items/eb8f84f230029ef0e2c5
+
 ## よく使うコマンド
 
 ## 準備
