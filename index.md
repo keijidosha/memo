@@ -155,6 +155,7 @@
     * [lsコマンド](linux/ls.md)
     * [lsof](linux/lsof.md)
     * [LVM](linux/lvm.md)
+    * [make](linux/make.md)
     * [mount](linux/mount.md)
     * [nkf](linux/nkf.md)
     * [openssl](linux/openssl.md)
