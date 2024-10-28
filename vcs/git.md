@@ -21,6 +21,16 @@ Table of Contents
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## 使い方
+* クローンして特定のブランチをチェックアウト(SSH 接続の例)
+  ```
+  # クローン
+  git clone git@github.com:hoge/fuga.git
+  cd fuga/
+  # チェックアウト
+  git checkout develop
+  # カレントのブランチを確認
+  git branch
+  ```
 * コミット間での差分比較  
   `git diff <比較元ハッシュ値>..<比較先ハッシュ値> [比較ファイル]`
 * ブランチ作成  
