@@ -107,6 +107,12 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 |---|--------|
 |diff|command + shift + P, Compare Active File With ...|
 
+### Git
+
+|動作|キー操作|
+|---|--------|
+|変更差分を表示|command + shift + P, Git: Open Changes|
+
 ### その他
 
 |動作|キー操作|
