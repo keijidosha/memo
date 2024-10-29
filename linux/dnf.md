@@ -34,3 +34,5 @@
   dnf clean all
   rm -rf /var/cache/dnf/
   ```
+* dnf install を実行すると yes/no を聞いてこないままインストールまで実行されてしまう。  
+  /etc/dnf/dnf.conf で「assumeyes=True」になっていないか確認する。
