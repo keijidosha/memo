@@ -134,10 +134,10 @@
   * [Linux](linux/linux.md)
     * [Linux part2](linux/linux_2.md)
     * CentOS
-      * [CentOS 6](linux/centos6.md)
       * [CentOS 7](linux/centos7.md)
-      * [yum](linux/yum.md)
+      * [CentOS 6](linux/centos6.md)
       * [dnf](linux/dnf.md)
+      * [yum](linux/yum.md)
     * [Oracle Linux 8.x](linux/oracle_linux_8.md)
     * [RHEL](linux/rhel.md)
     * [awk](linux/awk.md)
