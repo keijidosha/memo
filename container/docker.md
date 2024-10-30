@@ -387,13 +387,17 @@ docker run -it --rm --net host --privileged nfs-server1
 
 ## 各OSのコンテナ起動
 * CentOS 7.5  
-docker run -it \--rm -v /vagrant:/vagrant \--name centos75 centos:centos7.5.1804 /bin/bash
+  docker run -it \--rm -v /vagrant:/vagrant \--name centos75 centos:centos7.5.1804 /bin/bash
 * Oracle Linux 8.4  
-docker run -it \--rm -v /vagrant:/vagrant \--name ol8 oraclelinux:8.4 /bin/bash
+  docker run -it \--rm -v /vagrant:/vagrant \--name ol84 oraclelinux:8.4 /bin/bash
+* Oracle Linux 8.10  
+  docker run -it \--rm -v /vagrant:/vagrant \--name ol810 oraclelinux:8.10 /bin/bash
 * RHEL 8.4  
-docker run -it \--rm -v /vagrant:/vagrant \--name rh8 registry.access.redhat.com/ubi8/ubi:8.4 /bin/bash
+  docker run -it \--rm -v /vagrant:/vagrant \--name rh84 registry.access.redhat.com/ubi8/ubi:8.4 /bin/bash
+* RHEL 8.10  
+  docker run -it \--rm -v /vagrant:/vagrant \--name rh810 registry.access.redhat.com/ubi8/ubi:8.10 /bin/bash
 * RHEL 8系最新  
-docker run -it \--rm -v /vagrant:/vagrant \--name rh8 registry.access.redhat.com/ubi8/ubi:latest /bin/bash
+  docker run -it \--rm -v /vagrant:/vagrant \--name rh8 registry.access.redhat.com/ubi8/ubi:latest /bin/bash
 * Ubuntu 22.04  
   docker run -it \--rm -v /vagrant:/vagrant \--name ub2204 ubuntu:22.04 /bin/bash
 
