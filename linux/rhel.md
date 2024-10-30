@@ -56,5 +56,7 @@ $ subscription-manager unregister
   subscription-manager repos --enable codeready-builder-for-rhel-8-$(arch)-rpms
   dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
   ```  
-  (参考) [Getting Started with EPEL](https://docs.fedoraproject.org/en-US/epel/getting-started/)
+  (参考)  
+  [あらためてEPELリポジトリの使い方をまとめてみた](https://qiita.com/yamada-hakase/items/fdf9c276b9cae51b3633)  
+  [Getting Started with EPEL](https://docs.fedoraproject.org/en-US/epel/getting-started/)  
   
