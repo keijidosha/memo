@@ -10,10 +10,11 @@
   `subscription-manager register --username='hoge' --password='fuga'`
 * サブスクリプション管理からログアウト  
   `subscription-manager unregister`
-* サブスクリプトション管理からログアウトせずに OS を削除してしまった場合
+* サブスクリプトション管理からログアウト(unregister)せずに OS を削除してしまった場合
   1. [Red Hat Subscription Management](https://access.redhat.com/management) にログイン。
   1. [System Inventory] をクリック。
-  1. 該当する ID の右端にある：(縦の3点)をクリックして[Delete] をクリック。
+  1. 該当する Name の右端にある：(縦の3点)をクリックして[Delete] をクリック。  
+     Name には Linux のホスト名が表示される。
 
 2024.10.01 現在、SCAにより、サブスクリプションをアタッチしなくても register 時に自動的にサブスクリプション(yumリポジトリ)へのアクセスが可能になるため、以下の attach/remove は不要になり、register/unregister だけでよくなった模様。
 * 利用可能なサブスクリプションの一覧を表示  
