@@ -1,5 +1,7 @@
 # RHEL
 
+- Table of Content  
+{:toc}
 
 ## サブスクリプション管理
 * サブスクリプションの一覧を表示  
@@ -41,3 +43,13 @@ $ subscription-manager unregister
 (参考)  
 * [Red Hat Developer Subscriptionを取得して、RHELをサブスクリプション登録・登録解除する方法](https://tech-mmmm.blogspot.com/2021/02/red-hat-developer-subscriptionrhel.html)  
 * [RHELの開発者用サブスクリプションを取得する方法](https://qiita.com/SkyLaptor/items/31eb7b506339718455d4)
+
+## EPEL
+
+* EPEL を有効にする  
+  ```
+  subscription-manager repos --enable codeready-builder-for-rhel-8-$(arch)-rpms
+  dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  ```  
+  (参考) [Getting Started with EPEL](https://docs.fedoraproject.org/en-US/epel/getting-started/)
+  
