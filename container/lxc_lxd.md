@@ -13,6 +13,20 @@
   `lxc image list canonical:`
 * Canonical から RockyLinux 8 コンテナをインストール  
   `lxc launch canonical:rockylinux/8/amd64 rocky8`
+* ダウンロードしたイメージに alias を付与  
+  `lxc image alias create <alias> <fingerprint>`  
+  alias を付与しておくと、ダウンロード済みのイメージからコンテナを作成可能になる。  
+  ※fingerprint は lxc image list で確認  
+  (例)  
+  ```
+  lxc image alias create canonical-ol8.10 9fe68be23287
+  lxc launch canonical-ol8.10 oracle8.10
+  ```  
+  alias を作成していない場合は、fingerprint を指定して作成するとことも可能  
+  ```
+  lxc launch 9fe68be23287 oracle8.10 
+  ```
+  
 
 (参考) https://qiita.com/d-ebi/items/eb8f84f230029ef0e2c5  
 (images.linuxcontainers.org 閉鎖の案内) https://discuss.linuxcontainers.org/t/important-notice-for-lxd-users-image-server/18479  
