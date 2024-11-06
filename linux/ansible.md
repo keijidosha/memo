@@ -673,3 +673,12 @@ vars_prompt はタスクと一緒に定義できない
         }
     }
     ```
+
+## コレクシション
+
+* インストール済みコレクションの一覧  
+  ansible-galaxy collection list  
+* コレクションをインストール  
+  ansible-galaxy collection install <コレクション名>  
+  (例)  
+  `ansible-galaxy collection install community.general`  
