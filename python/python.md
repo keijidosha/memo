@@ -716,6 +716,13 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+### import パスを表示
+
+```
+python3 -c "import sys; print(sys.path)"
+```
+
 ### 簡易 HTTP サーバーをたてる  
 ```
 python -m http.server 8000
