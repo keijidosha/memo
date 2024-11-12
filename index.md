@@ -140,6 +140,7 @@
       * [yum](linux/yum.md)
     * [Oracle Linux 8.x](linux/oracle_linux_8.md)
     * [RHEL](linux/rhel.md)
+    * [Ubuntu](linux/ubuntu.md)
     * [awk](linux/awk.md)
     * [bash](linux/bash.md)
     * [conntrack](linux/conntrack.md)
