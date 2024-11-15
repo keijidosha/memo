@@ -11,7 +11,8 @@
 * サブスクリプション管理からログアウト  
   `subscription-manager unregister`
 * サブスクリプトション管理からログアウト(unregister)せずに OS を削除してしまった場合
-  1. [Red Hat Subscription Management](https://access.redhat.com/management) にログイン。
+  1. [Red Hat Subscription Management](https://access.redhat.com/management) にログイン。  
+     または直接 [System Inventory](https://console.redhat.com/insights/inventory?page=1&per_page=50#SIDs=&tags=) にログイン。
   1. [System Inventory] をクリック。
   1. 該当する Name の右端にある：(縦の3点)をクリックして[Delete] をクリック。  
      Name には Linux のホスト名が表示される。
