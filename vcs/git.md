@@ -153,9 +153,15 @@ Mac で SSH 接続を許可するため、[システム環境設定] - [共有] 
 * プッシュする前のコミットをなかったことによる  
 => ブランチ内での HEAD を指定したコミットに移動する  
   ```
+  git reset --soft HEAD^
+  ```  
+  または  
+  ```
   git reset --hard <コミットID>
   ```  
-(参考) [プッシュ前のローカルのコミットを取り消す方法](https://qiita.com/toohsk/items/d32a5820ca1a5eefc231)
+(参考)  
+[[Git]コミットの取り消し、打ち消し、上書き](https://qiita.com/shuntaro_tamura/items/06281261d893acf049ed)  
+[プッシュ前のローカルのコミットを取り消す方法](https://qiita.com/toohsk/items/d32a5820ca1a5eefc231)
 
 ### SSH接続
 * bitbucket に ssh で接続するようにすると、プッシュ/プルに数分かかってしまう。  
