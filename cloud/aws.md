@@ -98,7 +98,8 @@
       └─nvme0n1p1 259:1    0   3G  0 part /
       ```
   1. nvme0n1 を拡張。  
-    `sudo growpart /dev/nvme0n1 1`
+    `sudo growpart /dev/nvme0n1 1`  
+    growpart コマンドがインストールされていない場合は、cloud-utils-growpart をインストール。
   1. パーティション一覧を表示。
     `df -hT`
   1. 次のように xfs パーティションの場合は、xfs_growfs コマンドで拡張。  
