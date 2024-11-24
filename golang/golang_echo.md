@@ -1,14 +1,18 @@
-## echo
+- Table of Content  
+{:toc}
 
-Table of Contents
-=================
+# echo
 
-  * [パラメーター取得](#パラメーター取得)
-  * [Keep-Alive タイムアウトを指定するサンプル](#keep-alive-タイムアウトを指定するサンプル)
+## 新規 echo プロジェクト作成
 
+```
+mkdir myapp && cd myapp
+go mod init myapp
+go get github.com/labstack/echo/v4
+go mod tidy
+```
 
-
-### パラメーター取得
+## パラメーター取得
 
 * パスパラメーター  
 (例) /users/:id  
@@ -34,7 +38,7 @@ Table of Contents
   }
   ```
 
-### Keep-Alive タイムアウトを指定するサンプル
+## Keep-Alive タイムアウトを指定するサンプル
 
 Keep-Aliveタイムアウトを 30秒に設定
 
