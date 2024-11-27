@@ -13,6 +13,8 @@
   `dnf list --installed`  
   RPM 名を指定  
   `dnf list --installed "java*"`  
+* パッケージの削除  
+  `dnf erase <packagename>`
 
 ## モジュール
 
