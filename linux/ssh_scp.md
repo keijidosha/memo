@@ -112,6 +112,15 @@ cat hoge.bin | pv -L 1m | ssh usr@192.168.1.1 'cat - > /tmp/hoge.tmp; mv /tmp/ho
 scp -pr centos root@172.16.1.1":/var/lib/vmware/Virtual\ Machines/
 ```
 
+## 設定ファイル
+
+設定ファイルのパスを指定する。  
+`-F <config path>`  
+SSH でポートフォワードする時、1023 より下のポート番号を転送元に指定する場合、管理者権限が必要になるものの、SSH 接続設定ファイルは一般ユーザー配下に作成していて管理者権限では参照されない場合など。
+```
+ssh hoge -L 80:127.0.0.1:80 -F ~hoge/.ssh/conf.d/hoge.conf
+```
+
 ## 認証
 ### ssh-agent を使って、秘密鍵を追加
 ```
