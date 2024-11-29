@@ -39,6 +39,10 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
   `git add .`
 * 差分表示  
   `git diff --cached -w`
+* blame(アノテーション)表示  
+  `git blame <ファイル名>`
+* 変更量表示  
+  `git diff --stat <変更前タグ> <変更後タグ>`
 * コミット  
   `git commit -m "message"`
 * プッシュ
