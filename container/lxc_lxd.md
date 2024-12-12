@@ -134,6 +134,10 @@ https://images.linuxcontainers.org/
 ## コンテナのコピー  
 `lxc copy --container-only <コピー元コンテナ> <コピー先コンテナ>`
 
+## コンテナ名変更
+`lxc rename <変更前> <変更後>`  
+rename はスナップショット名の変更にも使用可能
+
 ## ファイルアップロード/ダウンロード
 ### アップロード
 * ホストからコンテナにファイルコピー  
