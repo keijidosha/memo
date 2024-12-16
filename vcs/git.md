@@ -1,24 +1,7 @@
+- Table of Content  
+{:toc}
+
 # git
-
-Table of Contents
------------------
-
-* [git](#git)
-   * [使い方](#使い方)
-   * [サーバでGitリポジトリ作成](#サーバでgitリポジトリ作成)
-      * [サーバ側](#サーバ側)
-      * [クライアント側](#クライアント側)
-         * [ブランチ](#ブランチ)
-   * [環境設定](#環境設定)
-      * [Mac に git リポジトリを作成し、SourceTree から接続する](#mac-に-git-リポジトリを作成しsourcetree-から接続する)
-      * [Mac で秘密鍵を使って SSH で github に接続する](#mac-で秘密鍵を使って-ssh-で-github-に接続する)
-      * [削除](#削除)
-   * [トラブルシューティング](#トラブルシューティング)
-      * [ブランチ](#ブランチ-1)
-      * [タグ](#タグ)
-      * [コミット](#コミット)
-
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## 使い方
 * クローンして特定のブランチをチェックアウト(SSH 接続の例)
