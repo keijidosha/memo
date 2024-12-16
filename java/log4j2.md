@@ -1,4 +1,63 @@
+- Table of Content  
+{:toc}
+
 # Log4j2
+
+## 初期設定(例)
+
+### gradle
+
+```
+dependencies {
+    implementation group: 'org.slf4j', name: 'slf4j-api',                        version: '2.0.16'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api',         version: '2.24.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j2-impl', version: '2.24.2'
+}
+```
+
+### 設定ファイル
+
+src/main/resources に log4j2.xml というファイル名で配置。
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<Configuration status="off" monitorInterval="60">
+
+    <Properties>
+        <Property name="format">[%d{yyyy/MM/dd HH:mm:ss.SSS}] %p : %m%n</Property>
+        <Property name="logfile">logs/hoge.log</Property>
+        <Property name="logfile-patten">logs/hoge.log.%i</Property>
+    </Properties>
+
+
+    <Appenders>
+        <RollingFile name="logfile" fileName="${logfile}" filePattern="${logfile-patten}">
+            <PatternLayout pattern="${format}" />
+            <SizeBasedTriggeringPolicy size="10MB" />
+            <DefaultRolloverStrategy fileIndex="min" min="1" max="10" />
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="logfile" />
+        </Root>
+    </Loggers>
+</Configuration>
+```
+
+### ログ出力
+
+```Java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+(略)
+final Logger logger = LoggerFactory.getLogger(getClass());
+logger.info("Hello World");
+```
+
+## 設定
 
 * ファイルサイズ(1MB)でローテーションして、10世代残す
   ```xml
