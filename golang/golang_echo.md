@@ -125,6 +125,7 @@ func main() {
 		LocalTime:  true,
 	}
 	zerolog.SetGlobalLevel(zerolog.DebugLevel)
+	zerolog.TimeFieldFormat = "2006-01-02T15:04:05.000Z"
 	log.Logger = zerolog.New(writer).With().Timestamp().Logger()
 
 	ec := echo.New()
