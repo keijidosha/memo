@@ -86,3 +86,52 @@ func main() {
 ```
 
 ※デフォルトは無制限
+
+## echo で zerolog を使う
+
+go.mod
+```
+require (
+    github.com/labstack/echo/v4 v4.12.0
+    gopkg.in/natefinch/lumberjack.v2 v2.2.1
+)
+```
+
+```
+import (
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
+	"gopkg.in/natefinch/lumberjack.v2"
+)
+
+type ZerologAdapter struct {
+	logger zerolog.Logger
+}
+
+func (z *ZerologAdapter) Write(p []byte) (n int, err error) {
+	z.logger.Info().Msg(string(p))
+	return len(p), nil
+}
+
+func main() {
+	writer := &lumberjack.Logger{
+		Filename:   "logs/zerolog.log",
+		MaxSize:    1,
+		MaxBackups: 3,
+		MaxAge:     5,
+		Compress:   true,
+		LocalTime:  true,
+	}
+	zerolog.SetGlobalLevel(zerolog.DebugLevel)
+	log.Logger = zerolog.New(writer).With().Timestamp().Logger()
+
+	ec := echo.New()
+
+	ec.Logger.SetOutput(&ZerologAdapter{logger: log.Logger})
+
+	ec.Use(middleware.Logger())
+	ec.Use(middleware.Recover())
+}
+```
