@@ -125,6 +125,7 @@ func main() {
 		LocalTime:  true,
 	}
 	zerolog.SetGlobalLevel(zerolog.DebugLevel)
+	// タイムスタンプをミリ秒単位に設定(デフォルトは秒単位)
 	zerolog.TimeFieldFormat = "2006-01-02T15:04:05.000Z"
 	log.Logger = zerolog.New(writer).With().Timestamp().Logger()
 
