@@ -58,7 +58,8 @@
      aws_secret_access_key = abcxxx
      ```
   1. 認証アプリ(Authyなど)でワンタイムパスワード(OTP)を取得
-  1. CLI で期限付きの認証情報を取得
+  1. CLI で期限付きの認証情報を取得  
+     `--serial-number` には IAM の「セキュリティ認証情報」タブの「多要素認証(MFA)」に表示されている識別子を指定。
      ```
      aws sts get-session-token --profile mfa-acc --serial-number arn:aws:iam::12345678:mfa/username --token-code <OTP>
      ```
