@@ -17,7 +17,9 @@ dependencies {
 
 ### 設定ファイル
 
-src/main/resources に log4j2.xml というファイル名で配置。
+src/main/resources に log4j2.xml というファイル名で配置。  
+またはシステムプロパティ log4j.configurationFile に設定ファイルのパスを指定。  
+(例) `-Dlog4j.configurationFile=/etc/log4j2.xml`
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
