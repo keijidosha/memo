@@ -13,6 +13,10 @@
   git checkout develop
   # カレントのブランチを確認
   git branch
+  ```  
+  クローンからチェックアウトまでをコマンド 1つで行う場合。  
+  ```
+  git clone git@bitbucket.org:nextgen-rd/hoge.git -b develop
   ```
 * コミット間での差分比較  
   `git diff <比較元ハッシュ値>..<比較先ハッシュ値> [比較ファイル]`
