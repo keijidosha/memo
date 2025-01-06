@@ -32,3 +32,9 @@ System.out.println(supplierResult);
 ```
 
 結果は同じ
+
+## スレッド実行する処理をラムダ式で記述
+
+```
+new Thread( () -> { System.out.println("hoge"); } ).start()
+```
