@@ -67,11 +67,15 @@ jcmd <プロセスID|メインクラス名> help
   * jps でプロセス ID を確認
   * プロセスID を指定して取得した jstack の実行結果を、日時別のファイルに保存
     ```
-    jstack &lt;PID&gt; jstack-$(date +%Y%m%d%H%M%S).txt
+    jstack <PID> jstack-$(date +%Y%m%d%H%M%S).txt
     ```
   * 出力されたファイルから不要な行や文字列を取り除いて、スレッド名だけを抽出し、大文字・小文字を無視して並び替え
     ```
     grep -E '^"' jstack-20250107091530.log | sed -e 's/" ..*$//' | sed -e 's/^"//' | sort -f
+    ```
+  * または直接フィルタ
+    ```
+    jstack <PID> | grep -E '^"' | sed -e 's/" ..*$//' | sed -e 's/^"//' | sort -f
     ```
 
 ### ヒープ
