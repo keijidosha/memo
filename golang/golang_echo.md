@@ -5,7 +5,7 @@
 
 ## 新規 echo プロジェクト作成
 
-```
+```bash
 mkdir myapp && cd myapp
 go mod init myapp
 go get github.com/labstack/echo/v4
@@ -25,7 +25,7 @@ go mod tidy
 `id := c.FormValue("id")`
 * POST JSON ボディ  
 (例) curl -X POST http://127.0.0.1/save -H 'Content-Type: application/json' –d ‘{"id":1,"name":"hoge"}’
-  ```
+  ```go
   type User struct {
     Id   int32  `json:"id"`
     Name string `json:"name"`
@@ -90,14 +90,14 @@ func main() {
 ## echo で zerolog を使う
 
 go.mod
-```
+```go
 require (
     github.com/labstack/echo/v4 v4.12.0
     gopkg.in/natefinch/lumberjack.v2 v2.2.1
 )
 ```
 
-```
+```go
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
