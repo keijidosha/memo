@@ -29,6 +29,17 @@
   ```
   --custom.ajp.enable=false
   ```
+* Tomcat のアクセスログを出力
+  ```yaml
+  server:
+    tomcat:
+      accesslog:
+        enabled: true
+        directory: /tmp/log/
+        suffix: .log
+        prefix: tomcat-access_log
+        file-date-format: .yyyy-MM-dd
+  ```
 
 
 ## Tips
