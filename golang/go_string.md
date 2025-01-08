@@ -1,19 +1,24 @@
 # Go: 文字列
 
 ## 数値
-* 数値変換  
-  ```go
-  import "strconv"
-  import "fmt"
-
-  func main() {
-      num, err := strconv.Atoi("123")
-      if err != nil {
-          log.Fatal(err)
-      }
-      fmt.Println(num)
-  }
-  ```
+* 数値変換
+  * int32 に変換
+    ```go
+    import "strconv"
+    import "fmt"
+  
+    func main() {
+        num, err := strconv.Atoi("123")
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Println(num)
+    }
+    ```
+  * int64 に変換  
+    `num, err := strconv.ParseInt("1234567890123456789",10,64)`
+  * uint64 に変換  
+    `num, err := strconv.ParseUint("1234567890123456789",10,64)`
 * 数値から文字列に変換  
   ```go
   fmt.Println(strconv.Itoa(123))
