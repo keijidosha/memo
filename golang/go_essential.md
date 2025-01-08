@@ -1,47 +1,13 @@
+- Table of Content  
+{:toc}
+
 # Go Essential
-
-Table of Contents
------------------
-
-* [Table of Contents](#table-of-contents)
-   * [インストール](#インストール)
-      * [Mac](#mac)
-      * [Linux](#linux)
-   * [操作](#操作)
-   * [関数呼び出し](#関数呼び出し)
-   * [変数](#変数)
-      * [型](#型)
-         * [型変換](#型変換)
-            * [interface{} からの型変換(type assertion)](#interface-からの型変換type-assertion)
-      * [使用](#使用)
-   * [制御](#制御)
-      * [for](#for)
-      * [swtich](#swtich)
-         * [Type Switches](#type-switches)
-   * [ポインター](#ポインター)
-   * [構造体](#構造体)
-   * [コレクション](#コレクション)
-      * [配列](#配列)
-      * [Slice](#slice)
-      * [Maps](#maps)
-   * [関数](#関数)
-   * [メソッド](#メソッド)
-   * [インターフェース](#インターフェース)
-   * [エラーハンドリング](#エラーハンドリング)
-      * [エラー型判定](#エラー型判定)
-   * [Goroutines, channel](#goroutines-channel)
-   * [パッケージ](#パッケージ)
-   * [日付・時刻](#日付時刻)
-   * [ログ出力](#ログ出力)
-   * [スリープ(待機)](#スリープ待機)
-
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## インストール
 ### Mac
 `brew install go`
 ### Linux
-```
+```sh
 yum install gcc
 cd /usr/local/src/
 curl -O https://dl.google.com/go/go1.12.4.linux-amd64.tar.gz
@@ -54,7 +20,7 @@ export PATH=$PATH:/usr/local/go/bin
 * 実行  
 `go run hello.go`
 * プロジェクト開始(例: ワークスペース)
-  ```
+  ```sh
   # ワークスペース用ディレクトリ作成
   mkdir hoge
   cd hoge
@@ -116,7 +82,7 @@ export PATH=$PATH:/usr/local/go/bin
 * Shared Library としてビルド  
   * import "C" を記述し、他言語から呼び出したいファンクションの export 宣言を記述  
     main() ファンクションはコンパイルを通すために必要。
-    ```
+    ```go
     package main
 
     import "C"
@@ -775,13 +741,13 @@ func main() {
 * 注意
   * map に構造体を格納し、取り出す時も値コピーされる。構造体の内容の変更がそのまま map に反映されるようにする場合は、map に構造体の参照を格納する。  
     (例)  
-    ```
+    ```go
     persons := make(map[int]*Person)
     persons[1101] = &Person{Name: "hoge"}
     ```
   * slice もほほ同じ。slice から取り出した構造体に対して値を変更し、slice に反映されるようにする場合は、slice に構造体の参照を格納する。  
     (例)  
-    ```
+    ```go
     persons := []*Person{ {Name: "hoge"}, {Name: "fuga"} }
     p := persons[0]
     p.Name = "hoge2"
@@ -789,7 +755,7 @@ func main() {
     ```
     * ただし、slice にインデックスを指定して構造体の要素を変更する場合は、ポインターでなくても slice に反映される。  
       (例)  
-      ```
+      ```go
       persons := []Person{ {Name: "hoge"}, {Name: "fuga"} }
       persons[0].Name = "hoge2"
       fmt.Println(persons[0].Name) // hoge2 が表示される。
@@ -968,7 +934,7 @@ func main() {
 次の対策  
 (1) クローズしたチャネルからデータを取り出そうとすると、エラーで終了する。  
 (2) チャネルにデータがない場合、データが追加されるまで待機する。  
-  ```
+  ```go
   func hoge(ch chan int) {
     var ok bool
     var number int
