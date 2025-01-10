@@ -54,6 +54,7 @@
   * [文字列](golang/go_string.md)
   * [日付・時刻](golang/go_datetime.md)
   * [コマンドラインパラメーター](golang/commandline_parameter.md)
+  * [ネットワークプログラミング](golang/go_network.md)
   * [echo](golang/golang_echo.md)
 * [Rust](rust/rust_essential.md)
 * [Ruby](ruby/ruby.md)
