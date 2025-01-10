@@ -1031,6 +1031,29 @@ func main() {
 * タイムスタンプを UTC で出力する  
 `log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds | log.LUTC | log.Lshortfile)`
 
+(例)
+```go
+import (
+    "os"
+    "log"
+    "runtime/debug"
+)
+
+func main() {
+    log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
+
+    log.Println("Hello")
+
+    fp, err := os.Open( "hoge.txt" )
+    if err != nil {
+        debug.PrintStack()
+        log.Fatal( err )
+    }
+    defer fp.Close()
+    ...
+}
+```
+
 ## スリープ(待機)
 * time.Sleep を使う  
 `time.Sleep(3 * time.Second)`
