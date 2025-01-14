@@ -5,7 +5,7 @@
 
 ## 標準入力から 1行ずつ読み込む
 
-Java
+### Java
 ```java
 try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
     for(;;) {
@@ -16,7 +16,17 @@ try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))
 }
 ```
 
-Go
+### Kotlin
+```kotlin
+BufferedReader(InputStreamReader(System.`in`)).use { reader ->
+    while(true) {
+        val line = reader.readLine() ?: break
+        println(line)
+    }
+}
+```
+
+### Go
 ```go
 scanner := bufio.NewScanner(os.Stdin)
 var line string
