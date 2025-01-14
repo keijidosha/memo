@@ -86,6 +86,7 @@
 * プログラミング言語比較
   * [文字列](programming/string.md)
   * [日付・時刻](programming/date_time.md)
+  * [標準入力・出力](programming/std_inout.md)
   * [ファイル](programming/some_lang_codes_file.md)
   * [バイナリデータ(バイト配列)](programming/some_lang_codes_bytearray.md)
   * [HTTPアクセス](programming/some_lang_codes_http.md)
