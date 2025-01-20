@@ -132,6 +132,10 @@ https://images.linuxcontainers.org/
   `lxc config device remove <コンテナ名> <デバイス名>`  
 
 ## コンテナのコピー  
+lxc 3.x  
+`lxc copy --instance-only <コピー元コンテナ> <コピー先コンテナ>`  
+※--instance-only: スナップショットはコピーしない  
+lxc 2.x  
 `lxc copy --container-only <コピー元コンテナ> <コピー先コンテナ>`
 
 ## コンテナ名変更
