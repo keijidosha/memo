@@ -3,8 +3,6 @@
 
 # Mac
 
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
-
 ## Spotlight
 * 拡張子での絞り込みは「ファイル名:*.txt」
 * FreeMind ファイル検索時は「種類:ディベロッパ」
