@@ -18,12 +18,14 @@
   ```
   git clone git@bitbucket.org:nextgen-rd/hoge.git -b develop
   ```
-* コミット間での差分比較  
-  `git diff <比較元ハッシュ値>..<比較先ハッシュ値> [比較ファイル]`
 * ブランチ作成  
   `git checkout -b <ブランチ名>`
 * 新規ファイル追加  
   `git add .`
+* 修正中(未コミット)ソースの差分表示  
+  `git diff`
+* コミット間での差分比較  
+  `git diff <比較元ハッシュ値>..<比較先ハッシュ値> [比較ファイル]`
 * 差分表示  
   `git diff --cached -w`
 * blame(アノテーション)表示  
