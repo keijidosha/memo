@@ -67,8 +67,8 @@ Go ビルド時に埋め込む
   ```go
   package main
 
-  var version = ""
-  var revision = ""
+  var version string
+  var revision string
 
   func main() {
       fmt.Printf("%s, %s\n", version, revision)
