@@ -43,6 +43,42 @@
   git push origin HEAD
   ```
 
+## コミット情報取得
+
+Go ビルド時にバージョン情報を埋め込む場合などに使用。
+
+* コミットのハッシュ値を取得。
+  * 全部
+    ```
+    git log --pretty=format:%H -n 1
+    ```
+  * 短い形式
+    ```
+    git rev-parse --short HEAD
+    ```
+* 直近のラベルを取得
+  ```
+  git describe --tags --abbrev=0
+  ```
+
+Go ビルド時に埋め込む
+
+* ソース
+  ```go
+  package main
+
+  var version = ""
+  var revision = ""
+
+  func main() {
+      fmt.Printf("%s, %s\n", version, revision)
+  }
+  ```
+* ビルド
+  ```bash
+  go build -ldflags "-X main.version=$(git describe --tags --abbrev=0) -X main.revision=$(git rev-parse --short HEAD)"
+  ```
+
 ## サーバでGitリポジトリ作成
 ### サーバ側
 * リポジトリ用ディレクトリを作成  
