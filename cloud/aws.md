@@ -87,6 +87,13 @@
      aws ec2 describe-instances --profile=otp-mfa-acc
      ```
 
+### その他
+
+* CLI 実行環境で使われる権限を表示  
+  ```
+  aws sts get-caller-identity
+  ```
+
 ## EBS
 * EBS パーティション拡張
   1. EBSパーティションを選択して、メニュー[アクション] - [ボリュームの変更] を選択。
