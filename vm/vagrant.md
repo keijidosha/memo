@@ -1,3 +1,6 @@
+- Table of Content  
+{:toc}
+
 # vagrant
 
 ## ゲストOS構築
