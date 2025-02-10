@@ -105,6 +105,58 @@ vagrant snapshort delete <スナップショット名>
 cd ..  
 rm -rf hoge
 
+## Box バックアップ/復元
+
+* バックアップ
+  ディレクトリ移動
+  ```
+  cd OracleLinux8.10bento/
+  ```  
+  状態を確認
+  ```
+  vagrant status
+  ```
+  表示内容
+  ```
+  default                   running (virtualbox)
+  ^^^^^^^
+  ```
+  バックアップ  
+  表示された default を VM 名に指定。
+  ```
+  vagrant package default --output ../OracleLinux8.10bento.box
+  ```
+* 削除
+  ```
+  vagrant destroy
+  ```
+* 復元
+  復元用ディレクトリ作成して、ディレクトリ移動
+  ```
+  mkdir OracleLinux8.10bento  
+  cd OracleLinux8.10bento/
+  ```
+  バックアップしておいた Box を復元
+  ```
+  vagrant box add OracleLinux8.10bento ../OracleLinux8.10bento.box
+  ```
+  追加されていることを確認
+  ```
+  vagrant box list
+  ```
+  表示内容
+  ```
+  OracleLinux8.10bento      (virtualbox, 0)
+  ```
+  復元した Box を初期化
+  ```
+  vagrant init OracleLinux8.10bento
+  ```
+  起動
+  ```
+  vagrant up
+  ```
+
 ## Box を構築
 
 ### Oracle Linux 8.x
