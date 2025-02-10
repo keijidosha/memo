@@ -157,6 +157,8 @@ rm -rf hoge
   vagrant up
   ```
 
+(参考) [vagrant環境のboxをバックアップする方法](https://qiita.com/rakuraku0615/items/5fcd59b1c6f263142ec5)
+
 ## Box を構築
 
 ### Oracle Linux 8.x
