@@ -757,6 +757,36 @@ LXC 5.0 ではデフォルトで CGroupV2 が使われるが、この現象を�
 確認  
 `lxc config show <コンテナ名>`
 
+### Vagrantfile に sync_foldef で共有設定をすると、共有フォルダーのマウントに失敗する(LXC 5.21.2)。
+
+(例) Vagrantfile に次の設定を追加すると
+
+```
+config.vm.synced_folder "./share", "/share", owner: "hoge", group: "hoge"
+```
+
+次のメッセージが表示される。
+
+> Vagrant was unable to mount VirtualBox shared folders. This is usually because the filesystem "vboxsf" is not available. This filesystem is made available via the VirtualBox Guest Additions and kernel module.
+
+確認1: mount.vboxsf のシンボリックリンクが正しいか確認。
+
+```
+ls -l /usr/sbin/mount.vboxsf
+```
+
+解決: vagrant-vbguest をインストール
+
+```
+vagrant plugin install vagrant-vbguest
+```
+
+> Installing the 'vagrant-vbguest' plugin. This can take a few minutes...  
+> Fetching micromachine-3.0.0.gem  
+> Fetching vagrant-vbguest-0.32.0.gem  
+> Installed the plugin 'vagrant-vbguest (0.32.0)'!  
+
+
 ## よく使うパターン
 
 ```
