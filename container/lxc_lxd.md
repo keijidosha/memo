@@ -169,13 +169,16 @@ TARBALL が作成される
 
 * 後片付け
   1. publish したイメージの削除  
-lxc image delete hoge_exp
-  1.  スナップショットの削除  
-lxc delete hoge/snap0
+     lxc image delete hoge_exp
+  1. スナップショットの削除  
+     lxc delete hoge/snap0
 
 ### インポート先
 1. lxc image import xxx.tar.gz \-\-alias hoge_exp
 1. lxc init [-p lanprofile] hoge_exp hoge
+
+* 後片付け
+  1. lxc image delete hoge_exp
 
 ## ネットワークデバイス
 
