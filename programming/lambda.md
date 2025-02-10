@@ -41,7 +41,7 @@ private String openFile(final String filePath, final Function<BufferedReader, St
 }
 ```
 
-例外を個別に処理せずスローしたい場合は、Function を使わず、例外をスローするラムダ式のインターフェースを定義する。
+例外を個別に処理せずまとめてスローしたい場合は、Java 標準で用意されている Function を使わず例外をスローするラムダ式のインターフェースを定義する。
 
 ```java
 public String test() {
