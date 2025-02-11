@@ -5,6 +5,9 @@
 
 ## images.linuxcontainers.org が閉鎖されたことへの対応
 
+Ubuntu 22.04 で発生。  
+Ubuntu 24.04 では次の対応をしなくても最初から Canonical のリモートサーバーが追加されている模様。
+
 * リモートサーバーのリストに Canonical を追加  
   `lxc remote add canonical https://images.lxd.canonical.com --protocol=simplestreams`
 * リモートサーバーのリストに Canonical が追加されていることを確認  
