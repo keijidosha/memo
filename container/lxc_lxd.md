@@ -786,6 +786,26 @@ vagrant plugin install vagrant-vbguest
 > Fetching vagrant-vbguest-0.32.0.gem  
 > Installed the plugin 'vagrant-vbguest (0.32.0)'!  
 
+### vagrant 起動時に GuestAdditions のバージョン不一致のメッセージが表示される。
+
+次のメッセージが表示される。
+
+> Got different reports about installed GuestAdditions version:  
+> Virtualbox on your host claims:   6.0.0  
+> VBoxService inside the vm claims: 7.0.20  
+> Going on, assuming VBoxService is correct...  
+> [default] GuestAdditions 7.0.20 running --- OK.  
+
+(解決策) Vagrantfile に次の設定を追加。
+
+```
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = false
+  end
+```
+
+(参考) stackoverflow: [vagrant up: Got different reports about installed GuestAdditions version](https://stackoverflow.com/questions/43733108/vagrant-up-got-different-reports-about-installed-guestadditions-version)
+
 
 ## よく使うパターン
 
