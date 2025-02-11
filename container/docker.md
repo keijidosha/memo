@@ -1,31 +1,7 @@
+- Table of Content  
+{:toc}
+
 # Docker
-
-Table of Contents
------------------
-
-   * [Table of Contents](#table-of-contents)
-      * [docker コマンド](#docker-コマンド)
-         * [イメージ](#イメージ)
-         * [コンテナ](#コンテナ)
-         * [マウント・ボリューム](#マウントボリューム)
-      * [ビルド](#ビルド)
-      * [コンテナの移行](#コンテナの移行)
-         * [移行元](#移行元)
-         * [移行先](#移行先)
-      * [ネットワーク](#ネットワーク)
-      * [Docker Compose](#docker-compose)
-      * [docker-machine](#docker-machine)
-      * [Docker インストール](#docker-インストール)
-         * [Ubuntu](#ubuntu)
-         * [CentOS](#centos)
-         * [インストール後](#インストール後)
-         * [docker-compose](#docker-compose-1)
-      * [応用](#応用)
-      * [Docker で NFSサーバー](#docker-で-nfsサーバー)
-      * [Docker Desktop で Redmine + SQLite](#docker-desktop-で-redmine--sqlite)
-      * [各OSのコンテナ起動](#各osのコンテナ起動)
-      * [Tips](#tips)
-      * [その他](#その他)
 
 ## docker コマンド
 
@@ -69,7 +45,20 @@ docker history <イメージ名>
   * デタッチしたコンテナにアタッチする  
     docker attach <コンテナID>
 * コンテナの詳細情報を表示する  
-docker inspect <コンテナID>
+  docker inspect <コンテナID>
+  * コンテナにマウントしているパスも確認可能
+    ```
+    "Mounts": [
+        {
+            "Type": "bind",
+            "Source": "/share",
+            "Destination": "/share",
+            "Mode": "",
+            "RW": true,
+            "Propagation": "rprivate"
+        }
+    ],
+    ```
 * ポート転送をしてバックグラウンドで起動する  
 (例) Apache HTTPD をバックグラウンドで起動し、ホスト上で 8080 に到着したパケットを転送する  
 `docker run -p 8080:80 -d httpd`  
