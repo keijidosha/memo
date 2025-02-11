@@ -164,7 +164,9 @@ docker build -t <イメージ名> .
 
 ### コンテナをイメージ化して移行
 
-#### 移行元
+#### save/load
+
+##### 移行元
 
 * コンテナをイメージ化  
 `docker commit <コンテナID・コンテナ名> <イメージ名>:<タグ>`
@@ -173,13 +175,60 @@ docker build -t <イメージ名> .
 * イメージをファイルに出力  
 `docker save -o <出力ファイル名>.tar <イメージID>`
 
-#### 移行先
+##### 移行先
 * イメージファイルをロード  
 `sudo docker load -i <ファイル名>.tar`
 * ロードしたイメージの ID を確認  
 `sudo docker images`
 * イメージ名とタグを割り当て  
 `sudo docker image tag <イメージID> <イメージ名>[:タグ]`
+
+#### export/import
+
+(例)
+
+##### 移行元
+
+* コンテナをエクスポート
+  ```
+  docker export container_name | gzip -c > container_name.tar.gz
+  ```
+* コンテナにマウントしているパスを確認
+  ```
+  docker inspect container_name
+  ```
+  ```
+  "Mounts": [
+      {
+          "Type": "bind",
+          "Source": "/share",
+          "Destination": "/share",
+          "Mode": "",
+          "RW": true,
+          "Propagation": "rprivate"
+      }
+  ],
+  ```
+
+##### 移行先
+
+* エクスポートファイルをイメージとしてインポート
+  ```
+  cat container_name.tar.gz | gzip -d | docker import - container_image_name:latest
+  ```
+* インポートしたイメージを確認
+  ```
+  docker images
+  ```
+  ```
+  REPOSITORY             TAG       IMAGE ID       CREATED          SIZE
+  container_iamge_name   latest    9dd1d1360320   11 seconds ago   8.43GB
+  ```
+* イメージからコンテナを作成(マウントパスも指定)
+  ```
+  docker run -it --name container_image_name -v /share:/share container_name /bin/bash
+  ```
+
 
 ### コンテナをディレクトリ丸ごと移行(SSH + tar で)
 
