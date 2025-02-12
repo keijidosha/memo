@@ -1,21 +1,7 @@
+- Table of Content  
+{:toc}
+
 # IntelliJ IDEA
-
-Table of Contents
------------------
-
-   * [Table of Contents](#table-of-contents)
-      * [ショートカット](#ショートカット)
-         * [移動系](#移動系)
-            * [カーソル移動](#カーソル移動)
-            * [マーク系](#マーク系)
-         * [表示系](#表示系)
-         * [コード編集系](#コード編集系)
-         * [テキスト編集系](#テキスト編集系)
-         * [検索系](#検索系)
-         * [その他](#その他)
-      * [トラブルシューティング](#トラブルシューティング)
-
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## ショートカット
 
@@ -142,3 +128,9 @@ build.gradle があるディレクトリで、`gradle build -x test` してみ�
 Preferenes(Command + ,) - [Build, Execution, Deployment] - [Build Tools] - [Gradle] で [Gradle user home] に Gradle 7.6 のパスを指定する。  
 => /Users/xxx/.gradle/wrapper/dists/gradle-7.6-bin/9l9tetv7ltxvx3i8an4pb86ye/gradle-7.6/  
 (元は 6.6 の指定になっていた。おそらく前のバージョンの IDEA で使っていた Gradle のパス。)
+* java プロジェクトを開くとビルドエラーが出て、クラスの定義や呼び出し元にジャンプできなくなる。  
+  次のどれかでだいたいは解決できている。
+  1. [File] メニューの [Invalidate Caches] を実行。
+     この時 [Clear downloaded shared indexes] はチェックしておく。
+  1. [Build] メニューの [Rebuild Project] を実行。
+  1. Gradle ブロジェクトの場合は、コンソールから ./gradle コマンドでビルドする。
