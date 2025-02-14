@@ -183,6 +183,11 @@ TARBALL が作成される
 * 後片付け
   1. lxc image delete hoge_exp
 
+* ワンライナー
+  ```
+  for C in hogecontainer; do echo ${C}; lxc image import ${C}.tar.gz --alias ${C}_exp; lxc init ${C}_exp ${C}; lxc image delete ${C}_exp; done
+  ```
+
 ## ネットワークデバイス
 
 * ネットワークデバイスの一覧を表示  
