@@ -176,6 +176,12 @@ TARBALL が作成される
   1. スナップショットの削除  
      lxc delete hoge/snap0
 
+* ワンライナー
+  ```
+  for C in cntname; do echo ${C}; lxc snapshot ${C} exp; lxc info --verbose ${C}; lxc publish ${C}/exp --alias ${C}_exp; lxc image export ${C}_exp ${C}; lxc image delete ${C}_exp; lxc delete ${C}/exp; done
+  ```  
+  「exp」という名前のスナップショットを作成してエクスポート
+
 ### インポート先
 1. lxc image import xxx.tar.gz \-\-alias hoge_exp
 1. lxc init [-p lanprofile] hoge_exp hoge
@@ -185,7 +191,7 @@ TARBALL が作成される
 
 * ワンライナー
   ```
-  for C in hogecontainer; do echo ${C}; lxc image import ${C}.tar.gz --alias ${C}_exp; lxc init ${C}_exp ${C}; lxc image delete ${C}_exp; done
+  for C in cntname; do echo ${C}; lxc image import ${C}.tar.gz --alias ${C}_exp; lxc init ${C}_exp ${C}; lxc image delete ${C}_exp; done
   ```
 
 ## ネットワークデバイス
