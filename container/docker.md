@@ -296,6 +296,10 @@ docker-machine rm <マシン名>
 ## Docker インストール
 
 ### Ubuntu
+
+※Vagrant/VirtualBox 環境で upgrade すると、addtional tools が使えなくなってネットワークや共有フォルダで問題が出る可能性があるので、簡単なテストをして確認しておいた方がよさそう。  
+まずは upgrade した環境で小さなコンテナを立ててネットワーク接続を確認するなど(例: curl https://www.xxxx.co.jp/。
+
 1. sudo apt update
 1. sudo apt upgrade
 1. sudo apt install docker.io
