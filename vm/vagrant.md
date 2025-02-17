@@ -200,6 +200,13 @@ rm -rf hoge
   `vagrant ssh -- -L 8080:10.1.2.3:80`  
   次のコマンドと同様の動作  
   `ssh -p 2222 vagrant@127.0.0.1 -L 8080:10.1.2.3:80`
+* ストレージの拡張
+  * Vagrantfile で拡張して
+    ```
+    config.disksize.size = '64GB'
+    ```
+  * [Vagrant + VirtulBox + Ubuntu 22.04 の ext4 でフォーマットされたパーティションを拡張](/linux/lvm.md#vagrant--virtulbox--ubuntu-2204-の-ext4-でフォーマットされたパーティションを拡張) を実施
+  * Vagrant で VirtualBox を使っている場合、VirtualBox アプリでのストレージ拡張はしない方がよいかも。
 
 ## Troubel Shooting
 
