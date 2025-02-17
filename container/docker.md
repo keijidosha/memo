@@ -226,7 +226,7 @@ docker build -t <イメージ名> .
   ```
 * イメージからコンテナを作成(マウントパスも指定)
   ```
-  docker run -it --name container_image_name -v /share:/share container_name /bin/bash
+  docker run -it --name container_name -v /share:/share container_image_name /bin/bash
   ```
 
 
