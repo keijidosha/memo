@@ -742,7 +742,14 @@ Ubuntu 22.04 では、フォワードチェーンがデフォルトで無効に�
   ```
 * sudo chmod 755 /etc/networkd-dispatcher/routable.d/99-iptables
 
-(参考) [Linux Mint21にしたらLXDのネットワークが外部に繋がらなくなった話](https://zenn.dev/tantan_tanuki/articles/9a68acd97c58d8)
+(参考)  
+* [Linux Mint21にしたらLXDのネットワークが外部に繋がらなくなった話](https://zenn.dev/tantan_tanuki/articles/9a68acd97c58d8)
+* [No internet connection using default bridge lxdbr0](https://discuss.linuxcontainers.org/t/no-internet-connection-using-default-bridge-lxdbr0/14026)
+
+次のコマンドで確認すると、nftables でパケットがドロップされているという話。  
+```bash
+sudo nft list ruleset
+```
 
 (補足)  
 Ubuntu 20.04 あたりから /etc/network/if-up.d/ 配下のスクリプトが実行されなくなっている模様。  
