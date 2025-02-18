@@ -852,6 +852,9 @@ lxc network attach eth1 <コンテナ名> eth1
 # 特定の MACアドレスを割り当てる場合
 lxc config set <コンテナ名> volatile.eth0.hwaddr 12:34:56:78:90:ab
 
+# 共有フォルダの uid/gid を合わせる
+lxc config set <コンテナ名> raw.idmap 'both 3000 3000'
+
 lxc config device add <コンテナ名> vagrant disk source=/vagrant path=/vagrant
 lxc start <コンテナ名>
 lxc exec <コンテナ名> bash
