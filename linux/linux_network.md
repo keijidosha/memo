@@ -120,28 +120,39 @@
   ethtool -g eth0
   ```
 * バッファサイズを調整
-  * プロファイル名を確認
-    ```
-    nmcli connection show
-    NAME  UUID             TYPE      DEVICE 
-    eth0  xxx-xxx-xxx-xxx  ethernet  eth0
-    ```
-  * プロファイルの内容を確認
-    ```
-    nmcli  connection show eth0
-    ```
-  * 受信用リングバッファサイズを設定
-    ```
-    nmcli connection modify eth0 ethtool.ring-rx 4096
-    ```
-  * 送信用リングバッファサイズを設定
-    ```
-    nmcli connection modify eth0 ethtool.ring-tx 4096
-    ```
-  * 変更した設定を反映
-    ```
-    nmcli connection up eth0
-    ```
+  * nmcli
+    * プロファイル名を確認
+      ```
+      nmcli connection show
+      NAME  UUID             TYPE      DEVICE 
+      eth0  xxx-xxx-xxx-xxx  ethernet  eth0
+      ```
+    * プロファイルの内容を確認
+      ```
+      nmcli  connection show eth0
+      ```
+    * 受信用リングバッファサイズを設定
+      ```
+      nmcli connection modify eth0 ethtool.ring-rx 4096
+      ```
+    * 送信用リングバッファサイズを設定
+      ```
+      nmcli connection modify eth0 ethtool.ring-tx 4096
+      ```
+    * 変更した設定を反映
+      ```
+      nmcli connection up eth0
+      ```
+  * ethtool  
+    再起動するとリセットされることに注意
+    * 受信用リングバッファサイズを設定
+      ```
+      ethtool -G eth0 rx 512
+      ```
+    * 送信用リングバッファサイズを設定
+      ```
+      ethtool -G eth0 tx 512
+      ```
 
 
 ## vnc
