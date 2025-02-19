@@ -155,7 +155,10 @@
       ```
       ethtool -G eth0 tx 512
       ```
-
+    * 同時に変更
+      ```
+      ethtool -G eth0 rx 512 tx 512
+      ```
 
 ## vnc
 ### VNCサーバ起動
