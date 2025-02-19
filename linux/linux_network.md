@@ -146,7 +146,7 @@
       nmcli connection up eth0
       ```
   * ethtool  
-    再起動するとリセットされることに注意
+    再起動するとリセットされることに注意(/etc/rc.local に次のコマンドを記述するなどして)
     * 受信用リングバッファサイズを設定
       ```
       ethtool -G eth0 rx 512
