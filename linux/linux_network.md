@@ -114,6 +114,8 @@
 * パケットのドロップの有無を確認
   ```
   ethtool -S eth0
+  ifconfig eth0
+  netstat -i
   ```
 * バッファサイズを確認
   ```
