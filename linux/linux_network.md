@@ -109,6 +109,41 @@
     send host-name ”<hostname>”;
     ```
 
+## ethtool, nmcli(ネットワークチューニング/パケットドロップ/...)
+
+* パケットのドロップの有無を確認
+  ```
+  ethtool -S eth0
+  ```
+* バッファサイズを確認
+  ```
+  ethtool -g eth0
+  ```
+* バッファサイズを調整
+  * プロファイル名を確認
+    ```
+    nmcli connection show
+    NAME  UUID             TYPE      DEVICE 
+    eth0  xxx-xxx-xxx-xxx  ethernet  eth0
+    ```
+  * プロファイルの内容を確認
+    ```
+    nmcli  connection show eth0
+    ```
+  * 受信用リングバッファサイズを設定
+    ```
+    nmcli connection modify eth0 ethtool.ring-rx 4096
+    ```
+  * 送信用リングバッファサイズを設定
+    ```
+    nmcli connection modify eth0 ethtool.ring-tx 4096
+    ```
+  * 変更した設定を反映
+    ```
+    nmcli connection up eth0
+    ```
+
+
 ## vnc
 ### VNCサーバ起動
 1. vncserver を起動  
