@@ -117,6 +117,10 @@
     ```
     /sbin/rcvboxadd quicksetup all
     ```
+    * カーネル変更後の addtions 再構築に必要な RPM をインストールする場合
+      ```
+      sudo yum install kernel-devel kernel-headers dkms gcc gcc-c++
+      ```
 
 ## VBoxManage コマンド
 * ゲストOSを画面なしで起動  
