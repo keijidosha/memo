@@ -116,6 +116,7 @@
   ethtool -S eth0
   ifconfig eth0
   netstat -i
+  netstat -s
   ```
 * バッファサイズを確認
   ```
