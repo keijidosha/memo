@@ -954,6 +954,8 @@ lxc config set <コンテナ名> volatile.eth0.hwaddr 12:34:56:78:90:ab
 
 # 共有フォルダの uid/gid を合わせる
 lxc config set <コンテナ名> raw.idmap 'both 3000 3000'
+# ホストの 1000(vagrant) をコンテナの root(0) にマッピングして、root から /vagrant フォルダに書き込めるようにする場合
+lxc config set <コンテナ名> raw.idmap 'both 1000 0'
 
 lxc config device add <コンテナ名> vagrant disk source=/vagrant path=/vagrant
 lxc start <コンテナ名>
