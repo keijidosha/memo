@@ -169,6 +169,7 @@
     * [RPM](linux/rpm.md)
     * [rsync](linux/rsync.md)
     * [Samba](linux/samba.md)
+    * [sar](linux/sar.md)
     * [sed](linux/sed.md)
     * [snmp](linux/snmp.md)
     * [SoX](linux/sox.md)
