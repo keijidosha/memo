@@ -3,6 +3,36 @@
 
 
 # bash
+
+## 条件文
+
+* 数値
+  ```
+  II=3
+  if [ $II -ge 1 ]; then echo "greater or equal" ; else echo less; fi
+  if [ $II -le 5 ]; then echo "less or equal"    ; else echo greater; fi
+  if [ $II -eq 3 ]; then echo "equal"            ; else echo "not equal"; fi
+  if [ $II -ne 0 ]; then echo "not equal"        ; else echo equal; fi
+  ```
+* 文字列
+  ```
+  SS=hoge
+  if [ $SS = "hoge" ] ; then echo "equal"    ; else echo "not equal"; fi
+  if [ $SS != "fuga" ]; then echo "not equal"; else echo "equal"; fi
+  if [ -n $SS ]       ; then echo "not empty"; else "empty"; fi
+  if [ -z "" ]        ; then echo "empty"    ; else "not empty"; fi
+  ```
+* ファイル
+  ```
+  if [ -f /etc/hosts ] ; then echo "file exists"         ; else echo "not file exists"; fi
+  if [ ! -f /etc/hoge ]; then echo "not file exists"     ; else echo "file exists"; fi
+  if [ -d /etc ]       ; then echo "directory exists"    ; else echo "not directory exists"; fi
+  if [ ! -f /hoge ]    ; then echo "not directory exists"; else echo "directory exists"; fi
+  if [ -e /etc/hosts ] ; then echo "exists"              ; else echo "not exists"; fi
+  if [ ! -e /etc/hoge ]; then echo "not exists"          ; else echo "exists"; fi
+  if [ -s /etc/hosts ] ; then echo "not empty file"      ; else echo "empty file"; fi
+  ```
+
 ## 変数
 ### デフォルト値
 
