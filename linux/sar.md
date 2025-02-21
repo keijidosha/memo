@@ -25,6 +25,6 @@
 
 * ネットワーク状況を SVG 出力
   ```
-  sadf -g sa01 -- -n ALL > network_01.svg
+  sadf -T -g sa01 -- -n ALL > network_01.svg
   ```
 
