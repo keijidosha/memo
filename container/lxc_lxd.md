@@ -611,6 +611,106 @@ eth0 に DHCP アドレスを割り当てるため、Oracle Linux 8.4 のコン�
   nameserver 192.168.1.254
   ```
 
+## Oracle Linux 8.10 のイメージを作成
+
+* ホスト側で Oracle Linux 8.10 の ISO イメージをマウント
+  ```
+  sudo mount -rt iso9660 OracleLinux-R8-U10-x86_64-dvd.iso  /mnt
+  ```
+* docker で実行
+  ```
+  docker run -it --rm -v /vagrant:/vagrant -v /mnt:/ol810iso --name lxcbuild oraclelinux:8.10 /bin/bash
+  ```
+* tmp ディレクトリに yum 設定ファイルを作成  
+  cd /tmp  
+  vi ol810.conf  
+  ```
+  [main]
+  keepcache=0
+  exactarch=1
+  obsoletes=1
+  gpgcheck=0
+  plugins=1
+  
+  [ol810_baseos]
+  name=Oracle Linux 8 BaseOS Latest ($basearch)
+  baseurl=file:///ol810iso/BaseOS/
+  
+  [ol810_appstream]
+  name=Oracle Linux 8 Application Stream ($basearch)
+  baseurl=file:///ol810iso/AppStream/
+  ```
+* rootfs ディレクトリを作成  
+  ```
+  mkdir -p /tmp/ol810/rootfs
+  ```
+* base パッケージから Core をインストール。
+  ```
+  yum -c /tmp/ol810.conf --disablerepo="*" --enablerepo="ol810_baseos,ol810_appstream" --installroot=/tmp/ol810/rootfs -y groupinstall Core
+  ```  
+  さらに dhclient もインストール。  
+  ```
+  yum -c /tmp/ol810.conf --disablerepo="*" --enablerepo="ol810_baseos,ol810_appstream" --installroot=/tmp/ol810/rootfs -y install dhclient
+  ```
+* 後で Docker 側で tar 圧縮する時、tar コマンドが必要になるので Docker 環境にインストール(Oracle Linux 8.10 ではデフォルトで tar がイントールされているのでこれは不要そう)  
+  ```
+  yum -c /tmp/ol810.conf --disablerepo="*" --enablerepo="ol810_baseos,ol810_appstream" -y install tar
+  ```
+* LXCイメージファイルの設定ファイルを作成  
+  (参考) Unix 時間の取得  
+  `date +%s`  
+  vi /tmp/ol810/metadata.yaml  
+  ```
+  {
+      "architecture": "x86_64",
+      "creation_date": 1740104480,
+      "properties": {
+          "architecture": "x86_64",
+          "description": "Oralce Linux 8.10(x86_64)",
+          "name": "oraclelinux-8.10-x86_64",
+          "os": "oraclelinux",
+          "release": "8.10",
+          "variant": "default"
+      }
+  }
+  ```
+* 設定ファイル編集  
+  `cd /tmp/ol810`  
+  `chroot rootfs/`  
+  ```
+  echo "export LANG=C" >> /root/.bashrc
+  ```
+  ```
+  echo "export LANG=C" >> /etc/locale.conf
+  ```  
+  Oracle Linux 8.10 では rc.local が存在するのでこれも不要そう。  
+  `vi /etc/rc.local`  
+  ```
+  #!/bin/bash
+  
+  touch /var/lock/subsys/local
+  ```
+  `chmod 755 /etc/rc.d/rc.local`  
+  `exit`  
+* LXCイメージを圧縮してインポート  
+  Docker コンテナ内で実行
+  ```
+  tar zcvf /vagrant/ol810.tgz metadata.yaml rootfs
+  ```  
+  Docker を抜ける
+  ```
+  exit
+  ```  
+  ホスト側で実行
+  ```
+  lxc image import /vagrant/ol810.tgz --alias oraclelinux8.10
+  ```
+
+* 作成したイメージを使ってコンテナを作成  
+  ```
+  lxc launch oraclelinux8.10 ol810
+  ```
+
 ## トラブルシューティング
 
 ### ストレージプール(ここでは default プール)の拡張
