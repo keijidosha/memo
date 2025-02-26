@@ -1,3 +1,6 @@
+- Table of Content  
+{:toc}
+
 # SoX
 
 * Wavファイル情報を表示  
