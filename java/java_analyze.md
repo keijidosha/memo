@@ -35,8 +35,8 @@ lsof -u ユーザーID
 param="-class -compiler -gc -gccapacity -gccause -gcmetacapacity -gcnew -gcnewcapacity -gcold -gcoldcapacity -gcutil -printcompilation"; for p in $param; do echo $p; jstat $p \`jps | grep <メインクラス名> | awk '{print $1;}'\`; done  
   * 上のコマンドをタブ区切りにする  
 param="-class -compiler -gc -gccapacity -gccause -gcmetacapacity -gcnew -gcnewcapacity -gcold -gcoldcapacity -gcutil -printcompilation"; for p in $param; do jstat $p \`jps | grep MainKt | awk '{print $1;}'\` | sed 's/^  *//' | sed 's/  */\t/g'; done > hoge.txt
-  * 日付付きで GC ログ出力(ヘッダーは出力しない)
-echo -n `date +%Y/%m/%d-%H:%M:%S`"      " >> gc.log
+  * 日付付きで GC ログ出力(ヘッダーは出力しない)  
+echo -n `date +%Y/%m/%d-%H:%M:%S`"      " >> gc.log  
 jstat -gc \`jps | grep MainKt | awk '{print $1;}'\` | sed -e '/S0C.*/d'  | sed 's/^  *//' | sed 's/  */\t/g' >> gc.log
 * jcmd  
 重要: 対象 Javaプロセスを実行しているのと同じユーザで実行する  
