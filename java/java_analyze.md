@@ -1,19 +1,7 @@
+- Table of Content  
+{:toc}
+
 # JVM, メモリー状況取得, 障害対応
-
-Table of Contents
-
----
-
-* [JVM, メモリー状況取得, 障害対応](#jvm-メモリー状況取得-障害対応)
-  * [コマンドいろいろ](#コマンドいろいろ)
-  * [ヒープ](#ヒープ)
-    * [ヒープダンプを取得して MemoryAnalyzer で分析](#ヒープダンプを取得して-memoryanalyzer-で分析)
-    * [ヒープダンプに残っている文字列をカウントして多い順にソート](#ヒープダンプに残っている文字列をカウントして多い順にソート)
-    * [ヒープ構成とコマンドライン指定](#ヒープ構成とコマンドライン指定)
-
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
-
----
 
 ### コマンドいろいろ
 
