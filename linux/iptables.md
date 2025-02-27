@@ -69,7 +69,7 @@ sudo vi /etc/modprobe.d/iptables.conf
   ```
   # SYN/ACKパケットを許可
   sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
-  # 他の確立されたポート 80 からのレスポンスパケットをドロップ
+  # 確立された、ポート 80 からの(通常はレスポンス)パケットをドロップ
   sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
   ```
   設定を確認  
