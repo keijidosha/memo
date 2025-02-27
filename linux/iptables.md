@@ -60,3 +60,30 @@ iptables -A INPUT -p tcp -m state –syn –state NEW –dport 22 -i eth0 -s 1.2
 sudo vi /etc/modprobe.d/iptables.conf  
 (/etc/modprobe.d ディレクトリに作成するファイル名は何でも良い)  
 `options ipt_recent ip_pkt_list_tot=100`
+
+## テスト
+
+* read timeout を再現  
+  syn/ack を通過させ、その後のサーバーからのレスポンスをブロックすることで read timeout を再現するフィルタ  
+  例は localhost 内の通信で確認  
+  ```
+  # SYN/ACKパケットを許可
+  sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
+  # 他の確立されたポート 80 からのレスポンスパケットをドロップ
+  sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
+  ```
+  設定を確認  
+  ```
+  sudo iptables -L -v
+  ```
+  設定を削除  
+  ```
+  # すべてを削除
+  sudo iptables -F OUTPUT
+  # または個別に削除
+  sudo iptables -D OUTPUT -p tcp --sport 80 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
+  sudo iptables -D OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
+  ```
+  
+
+
