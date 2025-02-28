@@ -17,6 +17,17 @@
 * すべてのネットワークインターフェースを対象にする  
 `-i any`
 
+## 応用
+
+* tcpdump で 5分間キャプチャして終了する
+  ```
+  timeout 300 tcpdump -w dump.pcap tcp and port 80
+  ```
+  または 300秒でローテーションして、ローテーション数は 1回なのでそのまま終了する
+  ```
+  tcpdump -w dump.pcap -W1 -G300 tcp and port 80
+  ```
+
 ## リモートの tcpdump と、ローカルの WireShark を連携してキャプチャ・表示する
 リモートホストに SSH 接続して tcpdump を実行  
 キャプチャデータをローカルに転送して WireShark で受け取り表示
