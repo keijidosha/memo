@@ -22,12 +22,17 @@
 * tcpdump で 5分間キャプチャして終了する
   ```
   timeout 300 tcpdump -w dump.pcap tcp and port 80
-  ```
-  sudo で tcpcump を実行する場合は、timeout を sudo の前に持ってくると control + C で終了できる模様(sudo の後に timeout を指定すると control + C で終了できない)。
+  ```  
+  次のように sudo の前に timeout を指定して tcpcump を実行すると、300秒経過しても tcpdump が終了しないので注意が必要(sudo -s などしてあらかじsめ root になって timeout を指定する)。  
+  => 一般ユーザー権限で TERM シグナルを送信しても root 権限で動いている tcpdump を終了されられないためと思われる。
   ```
   timeout 300 sudo tcpdump -w dump.pcap tcp and port 80
   ```
-  または 300秒でローテーションして、ローテーション数は 1回なのでそのまま終了する
+  または次のように sudo + timeout を指定した場合は 300秒経過後に終了するが、途中で control + C で終了することはできない。途中でも終了できるようにしたい場合は、sudo -s などしてあらかじめ root になっておき、最初の例のように sudo なしで実行する。
+  ```  
+  sudo timeout 300 tcpdump -w dump.pcap tcp and port 80
+  ```
+  もう 1つの方法として、次のように 300秒でローテーションして、ローテーション数は 1回なのでそのまま終了する。
   ```
   tcpdump -w dump.pcap -W1 -G300 tcp and port 80
   ```  
