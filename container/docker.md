@@ -340,6 +340,14 @@ exit
 docker images
 ```
 
+### Mac
+
+podman desktop
+```
+brew install podman-desktop
+```
+brew でインストール後に /Applications/Podman Desktop.app を起動して CLI をインストール。
+
 ### docker-compose
 
 ```
