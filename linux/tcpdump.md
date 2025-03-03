@@ -23,10 +23,16 @@
   ```
   timeout 300 tcpdump -w dump.pcap tcp and port 80
   ```
+  sudo で tcpcump を実行する場合は、timeout を sudo の前に持ってくると control + C で終了できる模様(sudo の後に timeout を指定すると control + C で終了できない)。
+  ```
+  timeout 300 sudo tcpdump -w dump.pcap tcp and port 80
+  ```
   または 300秒でローテーションして、ローテーション数は 1回なのでそのまま終了する
   ```
   tcpdump -w dump.pcap -W1 -G300 tcp and port 80
-  ```
+  ```  
+  この場合、-G に指定した 300秒を経過後の最初のポート80 宛てのパケット受信後に終了する模様(終了するきっかけになった、300秒経過してからのパケットはキャプチャファイルには含まれない)。  
+  指定時間経過してからポート 80 宛てのパケットが来ないと終了しない模様。
 
 ## リモートの tcpdump と、ローカルの WireShark を連携してキャプチャ・表示する
 リモートホストに SSH 接続して tcpdump を実行  
