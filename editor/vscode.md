@@ -1,30 +1,7 @@
+- Table of Content  
+{:toc}
+
 # Visual Studio Code
-
-Table of Contents
-=================
-
-   * [Table of Contents](#table-of-contents)
-      * [ショートカット](#ショートカット)
-         * [移動系](#移動系)
-         * [選択系](#選択系)
-         * [編集系](#編集系)
-         * [検索](#検索)
-         * [置換](#置換)
-         * [対象選択系](#対象選択系)
-         * [表示系](#表示系)
-         * [ファイル系](#ファイル系)
-         * [比較系](#比較系)
-         * [その他](#その他)
-      * [設定変更](#設定変更)
-         * [エディターの背景色変更](#エディターの背景色変更)
-         * [markdownファイル編集時に行末をトリムしない](#markdownファイル編集時に行末をトリムしない)
-      * [Tips](#tips)
-      * [Plugins](#plugins)
-         * [Bookmarks](#bookmarks)
-         * [vscode-input-sequence](#vscode-input-sequence)
-
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
-
 ## ショートカット
 ### 移動系
 
