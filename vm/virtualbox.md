@@ -122,6 +122,14 @@
       sudo yum install kernel-devel kernel-headers dkms gcc gcc-c++
       ```
 
+# 共有フォルダ
+
+* 共有フォルダを一般ユーザー(root ではない)から参照・更新できるようにする。  
+  VirtualBox の共有フォルダは root ユーザーと vboxsf グループに対して rxw なので、ユーザーを vboxsf グループに追加する。
+  ```
+  usermod -aG vboxsf <user>
+  ```
+
 ## VBoxManage コマンド
 * ゲストOSを画面なしで起動  
 `VBoxManage startvm "GuestName" --type headless`
