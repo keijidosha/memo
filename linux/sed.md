@@ -11,6 +11,12 @@
     ```
     sed -e "s/^hoge$/http:\/\/hoge.com\//"
     ```
+  * パターンにマッチした文字列を展開して置換  
+    \1, \2, ... で展開  
+    ```
+    echo "   ID  =  abc" | sed -e "s/\( *ID *= *\)abc/\1def/"
+    ```  
+    結果: "   ID  =  def"
 * 行削除
   ```
   sed -e "/^hoge.*$/d"
