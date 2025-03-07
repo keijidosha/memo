@@ -17,6 +17,16 @@
     echo "   ID  =  abc" | sed -e "s/\( *ID *= *\)abc/\1def/"
     ```  
     結果: "   ID  =  def"
+  * 2行にまたがって置換  
+    N で行結合してから置換  
+    ```
+    echo -e "[config]\nname=user" | sed "N; s/\[config\]\nname=[A-z]*/[config]\nname=hoge/"
+    ```
+    結果:
+    ```
+    [config]
+    name=hoge
+    ```
 * 行削除
   ```
   sed -e "/^hoge.*$/d"
