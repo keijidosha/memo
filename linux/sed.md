@@ -27,7 +27,7 @@
     [config]
     name=hoge
     ```
-    * インプットが 3行以上ある場合? は、:loop; P; D も必要?
+  * インプットが 3行以上ある場合? は、:loop; P; D も必要?
     ```
     echo -e "#comment\n[config]\nname=user\n#comment" | sed ":loop; N; s/\[config\]\nname=[A-z]*/[config]\nname=hoge/g; P; D"
     ```
@@ -37,6 +37,10 @@
     [config]
     name=hoge
     #comment
+    ```
+  * 置換対象が 3行以上にまたがる場合は -z が有効か?
+    ```
+    echo -e "[config]\nname=user" | sed -z "s/\[config\]\nname=[A-z]*\nage=[0-9]*/[config]\nname=hoge\nage=15/"
     ```
 * 行削除
   ```
