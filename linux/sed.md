@@ -27,6 +27,17 @@
     [config]
     name=hoge
     ```
+    * インプットが 3行以上ある場合? は、:loop; P; D も必要?
+    ```
+    echo -e "#comment\n[config]\nname=user\n#comment" | sed ":loop; N; s/\[config\]\nname=[A-z]*/[config]\nname=hoge/g; P; D"
+    ```
+    結果:
+    ```
+    #comment
+    [config]
+    name=hoge
+    #comment
+    ```
 * 行削除
   ```
   sed -e "/^hoge.*$/d"
