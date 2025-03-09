@@ -71,11 +71,11 @@
         ```
         echo -e "# db configurtion\n[db]\nname=hoge\nid=hoge\npassword=password\nip=127.0.0.1\nreadonly=true" | awk "/\[db\]/ { c=0 } c>=3 && c<=5 { gsub(/ip=.*/, \"ip=192.168.1.1\") } { c++; print }"
         ```
-      * `([^\n]\n){行数}` で行数をカウント => 見づらいのでおすすめしない  
-        (例) [db] から 3行はさんだ下にある行の IP を 127.0.0.1 から 192.168.1.1 に置換  
-        sed: 3行を `\(.*\n\)\{3\}` で表現、`\([^\n]*\n\)\{3\}` でも可。
+      * `([^\n]\n){行数}` で行数をカウント  
+        (例) [db] から 3〜5行の範囲にある行の IP を 127.0.0.1 から 192.168.1.1 に置換  
+        sed: 3〜5行を `\([^\n]*\n\)\{3,5\}` で表現。  
         ```
-        echo -e "# db configurtion\n[db]\nname=hoge\nid=hoge\npassword=password\nip=127.0.0.1\nreadonly=true" | sed -z "s/\([db]\(.*\n\)\{3\}\)ip=[^\n]*/\1ip=192.168.1.1/"
+        echo -e "# db configurtion\n[db]\nname=hoge\nid=hoge\npassword=password\nip=127.0.0.1\nreadonly=true" | sed -z "s/\(\[db\]\n\([^\n]*\n\)\{3,5\}\)ip=[^\n]*/\1ip=192.168.1.1/"
         ```
 * 行削除
   ```
