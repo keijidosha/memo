@@ -209,6 +209,31 @@ done < readme.txt
 ls -1 | while read line; do echo $line; done
 ```
 
+変数にセットされた複数行のカンマで区切られた文字列を順に処理する
+```bash
+LIST="
+# comment
+abc,def,efg
+
+# comment
+123,456,789
+"
+while IFS= read -r line; do
+  # 空行を取り除く
+  [[ -z "$line" ]] && continue
+  # '#' で始まるコメント行を取り除く
+  [[ ${line} =~ ^#.* ]] && continue
+  # カンマで分割
+  IFS=',' read -r var1 var2 var3 <<< "$line"
+  echo "${var1}, ${var2}, ${var3}"
+done <<< "${LIST}"
+```
+結果
+```
+abc, def, efg
+123, 456, 789
+```
+
 ワンライナー(ループ内)でバッグラウンド実行する  
 ```bash
 for F in *.json; do hoge $F &; done
