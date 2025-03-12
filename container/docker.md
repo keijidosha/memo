@@ -429,6 +429,11 @@ docker run -it --rm --net host --privileged nfs-server1
 * 添付ファイル保存用ディレクトリ作成  
 `mkdir files`
 * コンテナ作成  
+  podman
+  ```
+  podman run --name redmine-sqlite -p3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:6.0.4-alpine
+  ```
+  docker
   ```
   docker run --name redmine-sqlite -p3030:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:4.2.10-alpine
   ```
