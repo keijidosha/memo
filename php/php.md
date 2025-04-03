@@ -213,6 +213,10 @@ curl http://host/api/json | php -r 'echo json_encode(json_decode(fgets(STDIN)), 
   ```
 * コマンドラインからの OPCacheクリアサンプル
   ```
+  php -r 'opcache_reset();'
+  ```
+  または
+  ```
   #!/bin/bash
   WEBDIR=/var/www/html/
   RANDOM_NAME=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13)
