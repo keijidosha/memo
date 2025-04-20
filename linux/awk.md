@@ -13,3 +13,15 @@
   ```
   awk 'match($0, /^HOGE=(FUGA.*),.*$/, a) {print a[1]}' hoge.txt
   ```
+* ファイルの先頭から16桁を比較して重複している行について、行全体を結果出力する
+  ```
+  FN=hoge.txt
+  awk '{print substr($0,1,16)}' $FN | sort | uniq -d | \
+  while read key; do
+    grep "^$key" $FN
+  done
+  ```
+  ワンライナー
+  ```
+  FN=hoge.txt awk '{print substr($0,1,16)}' $FN | sort | uniq -d | while read key; do   grep "^$key" $FN; done
+  ```
