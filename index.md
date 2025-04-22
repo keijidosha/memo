@@ -147,6 +147,7 @@
     * [Ubuntu](linux/ubuntu.md)
     * [awk](linux/awk.md)
     * [bash](linux/bash.md)
+    * [bc](linux/bc.md)
     * [chrony](linux/chrony.md)
     * [conntrack](linux/conntrack.md)
     * [cron](linux/cron.md)
