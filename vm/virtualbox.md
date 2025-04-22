@@ -37,6 +37,19 @@
    sudo xfs_growfs -d /
    ```
 
+※**vagrant で作成した vmdk をこの方法で拡張すると vmdk ファイルが壊れる** ので、Vagrantfile の config.disksize.size で拡張すること。
+```
+There was an error while executing `VBoxManage`, a CLI used by Vagrant
+for controlling VirtualBox. The command and stderr is shown below.
+
+Command: ["startvm", "47805c35-d16d-434e-881c-ff5f6077d676", "--type", "headless"]
+
+Stderr: VBoxManage: error: Could not open the medium '/xxx/xxx_default_1739791434726_74041/xxx-amd64-disk001.vmdk'.
+VBoxManage: error: VMDK: inconsistency between grain table and backup grain table in '/xxx/VirtualBox VMs/xxx_default_1739791434726_74041/xxx-amd64-disk001.vmdk' (VERR_VD_VMDK_INVALID_HEADER).
+VBoxManage: error: VD: error VERR_VD_VMDK_INVALID_HEADER opening image file '/xxx/VirtualBox VMs/xxx_default_1739791434726_74041/xxx-amd64-disk001.vmdk' (VERR_VD_VMDK_INVALID_HEADER)
+VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MediumWrap, interface IMedium
+```
+
 ## システムクロック
 
 * ゲストの時間を一時的に変更する(Vagrant で確認)  
