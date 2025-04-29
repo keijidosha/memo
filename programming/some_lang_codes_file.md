@@ -129,6 +129,14 @@ func main() {
 
 ### 行読み込み
 
+#### Python
+```python
+with open('read.txt", 'r') as f:
+    for line in f:
+        print(line)
+```
+読み込んだ 1行の行末に改行文字が付く
+
 #### PHP
 ```php
 <?php
