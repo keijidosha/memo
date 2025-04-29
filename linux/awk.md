@@ -23,5 +23,5 @@
   ```
   ワンライナー
   ```
-  FN=hoge.txt awk '{print substr($0,1,16)}' $FN | sort | uniq -d | while read key; do   grep "^$key" $FN; done
+  FN=hoge.txt; awk '{print substr($0,1,16)}' $FN | sort | uniq -d | while read key; do grep "^$key" $FN; done
   ```
