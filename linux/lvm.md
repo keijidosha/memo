@@ -52,7 +52,7 @@ sudo mount /dev/volume_group_name/logical_volume_name /mnt/
     ```
 * Ubuntu を起動して、パーティションエディタで拡張  
     ```
-    sudo parted /dev/sda  
+    sudo parted /dev/sda
     ```
   * パーティション状況を確認  
     ```
