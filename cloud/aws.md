@@ -18,6 +18,22 @@
   ```
   aws ec2 describe-instances --profile=taro --region us-east-1
   ```
+* インスタンスを作成
+  ```
+  aws ec2 run-instances --dry-run --region us-east-1 \
+    --image-id ami-12345678901234567 --count 1 \
+    --instance-type t3a.nano --key-name HogeKey \
+    --subnet-id subnet-12345678 \
+    --security-group-ids sg-12345678901234567 \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=hoge},{Key=id,Value=123}]" \
+    "ResourceType=volume,Tags=[{Key=Name,Value=hoge},{Key=id,Value=123}]" \
+    --credit-specification CpuCredits=standard \
+    --associate-public-ip-address \
+    --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":10,"DeleteOnTermination":true}}]' \
+    --profile=otp-mfa-acc
+  ```  
+  "VolumeSize":10: ボリュームサイズ 10GB  
+  otp-mfa-acc: 後述の認証で取得した情報をセットしたプロファイル名。インスタスン作成に必要な権限を持つアカウントを使って実行する場合は不要。
 
 ### AMI
 * AMI を作成
