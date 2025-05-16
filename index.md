@@ -114,6 +114,7 @@
   * [CSS](html/css.md)
   * [HTML5](html/html5.md)
   * [JavaScript](html/javascript.md)
+* [yaml](yaml/yaml.md)
 * Editor, IDE
   * [Atom](editor/atom.md)
   * [Sublime Text 3](editor/sublime_text_3.md)
