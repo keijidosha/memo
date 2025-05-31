@@ -59,6 +59,39 @@ bento で利用可能な CentOS を確認
   end
   ```
 
+## VMware(Fusion)
+
+### Vagrantfile
+
+VMware を使う場合は `config.vm.provider` に `vmware_desktop` を指定。
+
+```
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-24.04"
+  config.vm.disk :disk, size: "64GB", primary: true
+
+  config.vm.provider :vmware_desktop do |v|
+    v.linked_clone = false
+    v.gui = false
+    v.memory = "4096"
+    v.cpus = "4"
+  end
+
+  config.vm.network :public_network, :bridge => "en0: Ethernet"
+  config.vm.synced_folder "/Users/hoge/tmp/",      "/home/hoge/tmp",  owner: "vagrant", group: "vagrant"
+end
+```
+
+### ディスク拡張
+
+ディスク拡張は config.vm.disk で指定したサイズを変更
+
+```
+config.vm.disk :disk, size: "64GB", primary: true
+⬇︎
+config.vm.disk :disk, size: "128GB", primary: true
+```
+
 ## 設定
 ### ディスクサイズ指定・拡張
 
