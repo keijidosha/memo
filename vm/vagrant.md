@@ -118,6 +118,9 @@ config.vm.disk :disk, size: "64GB", primary: true
 config.vm.disk :disk, size: "128GB", primary: true
 ```
 
+物理ディスク拡張後の LVM 設定は [LVM](..//linux/lvm.md#vagrant--virtulbox--ubuntu-2204-%E3%81%AE-ext4-%E3%81%A7%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E3%81%95%E3%82%8C%E3%81%9F%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E6%8B%A1%E5%BC%B5) を参照。
+
+
 ## 設定
 
 ## CentOS のタイムゾーンを Asia/Tokyo に設定
