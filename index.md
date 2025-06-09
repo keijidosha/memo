@@ -147,6 +147,7 @@
     * [Oracle Linux 8.x](linux/oracle_linux_8.md)
     * [RHEL](linux/rhel.md)
     * [Ubuntu](linux/ubuntu.md)
+      * [apt/dpkg](linux/apt_dpkg.md)
     * [awk](linux/awk.md)
     * [bash](linux/bash.md)
     * [bc](linux/bc.md)
