@@ -2,6 +2,23 @@
 {:toc}
 
 #  AWS
+
+## EC2
+
+### デフォルト OS アカウント
+
+* Amazon Linux AMI: ec2-user
+* Centos AMI: centos または ec2-user
+* Debian AMI: admin
+* Fedora AMI: fedora または ec2-user
+* RHEL AMI: ec2-user または root
+* SUSE AMI: ec2-user または root
+* Ubuntu AMI: ubuntu
+* Oracle AMI: ec2-user
+* Bitnami AMI: bitnami
+
+https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html より
+
 ## CLI
 ### S3
 * 一覧  
