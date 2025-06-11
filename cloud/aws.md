@@ -40,13 +40,15 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html ã‚
   aws ec2 run-instances --dry-run --region us-east-1 \
     --image-id ami-12345678901234567 --count 1 \
     --instance-type t3a.nano --key-name HogeKey \
-    --subnet-id subnet-12345678 \
+    --subnet-id subnet-12345678 subnet-abcdefgh \
     --security-group-ids sg-12345678901234567 \
+    --disable-api-termination \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=hoge},{Key=id,Value=123}]" \
     "ResourceType=volume,Tags=[{Key=Name,Value=hoge},{Key=id,Value=123}]" \
     --credit-specification CpuCredits=standard \
     --associate-public-ip-address \
     --private-ip-address 192.168.1.1 \
+    --ebs-optimized \
     --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":10,"DeleteOnTermination":true}}]' \
     --profile=otp-mfa-acc
   ```  
