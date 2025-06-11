@@ -29,6 +29,7 @@
     "ResourceType=volume,Tags=[{Key=Name,Value=hoge},{Key=id,Value=123}]" \
     --credit-specification CpuCredits=standard \
     --associate-public-ip-address \
+    --private-ip-address 192.168.1.1 \
     --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":10,"DeleteOnTermination":true}}]' \
     --profile=otp-mfa-acc
   ```  
