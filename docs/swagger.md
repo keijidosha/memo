@@ -27,10 +27,19 @@
      ```
      docker build -t redoc-cli:0.0.1 .
      ```
+     または
+     ```
+     podman build -t redoc-cli:0.0.1 .
+     ```
   1. 実行  
      ```
      cd ~/Documents/
      docker run --rm -it -v$(pwd):/swagger redoc-cli:0.0.1 bash
+     ```
+     または
+     ```
+     cd ~/Documents/
+     podman run --rm -it -v$(pwd):/swagger redoc-cli:0.0.1 bash
      ```
   1. HTML生成  
      ```
