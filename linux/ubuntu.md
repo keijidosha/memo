@@ -11,6 +11,16 @@
   ulimit -S -c unlimited
   ```
   => /tmp に core で始まるファイルが出力される。
+  * 恒久的に設定する場合は /etc/security/limits.conf に追記
+    ```
+    *               soft    core            unlimited
+    *               hard    core            unlimited
+    ```
+  * サービス実行の場合は、次の設定を追加?
+    ```
+    [Service]
+    LimitCORE=infinity
+    ```
 * 意図的にコアを吐かせるサンプル(コアダンプが出力される確認するための)
   ```
   #include <stdio.h>
