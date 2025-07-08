@@ -161,6 +161,7 @@
     * [find](linux/find.md)
     * [grep](linux/grep.md)
     * [iptables](linux/iptables.md)
+    * [journalctl](linux/journalctl.md)
     * [ln(リンク)](linux/ln.md)
     * [lsコマンド](linux/ls.md)
     * [lsof](linux/lsof.md)
