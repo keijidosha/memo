@@ -11,6 +11,12 @@
   ```
   apt list --installed <pkgname>
   ```
+  または
+  ```
+  dpkg -l <pkgname>
+  または
+  dpkg -l | grep <pkgname>
+  ```
 * deb ファイルの中身を確認
   ```
   ar x xxx.dev
@@ -28,4 +34,9 @@
   ```
   apt update
   apt install --reinstall --download-only -o Dir::Cache::Archives="/root" openjdk-8-jdk
+  ```
+* インストール済み deb パッケージを新しいバージョンの deb パッケージで更新
+  ```
+  sudo apt install --dry-run ./<pkgname>.deb
+  sudo apt install ./<pkgname>.deb
   ```
