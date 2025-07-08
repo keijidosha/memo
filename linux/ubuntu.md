@@ -10,16 +10,21 @@
   sudo sysctl -w kernel.core_pattern="/tmp/core.%e.%p.%t"
   ulimit -S -c unlimited
   ```
+  これもしておいた方が良いか?
+  ```
+  echo "/tmp/core.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
+  echo "kernel.core_pattern = /tmp/core.%e.%p" | sudo tee -a /etc/sysctl.conf
+  ```
   => /tmp に core で始まるファイルが出力される。
   * 恒久的に設定する場合は /etc/security/limits.conf に追記
     ```
     *               soft    core            unlimited
     *               hard    core            unlimited
     ```
-  * サービス実行の場合は、次の設定を追加?
+  * apport のサービスを止める
     ```
-    [Service]
-    LimitCORE=infinity
+    sudo systemctl stop apport.service
+    sudo systemctl disable apport.service
     ```
 * 意図的にコアを吐かせるサンプル(コアダンプが出力される確認するための)
   ```
@@ -35,6 +40,11 @@
   ```
   gcc -o segfault segfault.c
   ./segfault
+  ```
+  または
+  ```
+  sleep 100 &
+  kill -SEGV $!
   ```
 
 
