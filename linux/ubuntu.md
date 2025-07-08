@@ -46,5 +46,10 @@
   sleep 100 &
   kill -SEGV $!
   ```
-
+* バックトレース
+  ```
+  sudo apt update
+  sudo apt install gdb
+  gdb <command> <dumpfile>
+  ```
 
