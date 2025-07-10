@@ -162,6 +162,22 @@ skinparam sequence {
 
 (参考) [もう辛くない！テキストで書くUML クラス図編](https://qiita.com/ykawakami/items/f6688b845945669f0ce5)
 
+### 出力形式
+
+* -teps: To generate images using EPS format
+* -thtml: To generate HTML file for class diagram
+* -tlatex:nopreamble: To generate images using LaTeX/Tikz format without preamble
+* -tlatex: To generate images using LaTeX/Tikz format
+* -tpdf: To generate images using PDF format
+* -tpng: To generate images using PNG format (default)
+* -tscxml: To generate SCXML file for state diagram
+* -tsvg: To generate images using SVG format
+* -ttxt: To generate images with ASCII art
+* -tutxt: To generate images with ASCII art using Unicode characters
+* -tvdx: To generate images using VDX format
+* -txmi: To generate XMI file for class diagram
+
+
 ## その他
 
 ### 文字装飾
@@ -196,6 +212,11 @@ skinparam sequence {
 * URL リンク  
   `[["<URL>" 表示文字列 ]]`
 
+### ヘルプを表示
+
+```
+java -jar plantuml.jar -h
+```
 
 ## トラブルシューティング
 
