@@ -49,7 +49,9 @@ sudo mount /dev/volume_group_name/logical_volume_name /mnt/
 * Vagrantfile でディスクサイズ変更(要プラグイン)  
     ```
     config.disksize.size = '128GB'
-    ```
+    ```  
+    変更後は vagrant reload では反映されない。  
+    vagrant halt, vagrant up が必要。  
 * Ubuntu を起動して、パーティションエディタで拡張  
     ```
     sudo parted /dev/sda
