@@ -118,7 +118,15 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
 
 ### 別ホストに複製
 
-* 事前にデータベースを作成して別ホストからインポート
+* スキーマ作成とデータ追加するスクリプトをエクポート
+  ```
+  pg_dump -d dbname > db.sql
+  ```
+* DB ドロップと DB 作成してからスキーマ作成とデータ追加するスクリプトをエクスポート
+  ```
+  pg_dump --clean --create -d dbname > db.sql
+  ```
+* 事前にデータベースを作成してインポート先 DB を用意した上で、別ホストからインポート
   ```
   pg_dump -h 192.168.1.1 dbname | psql dbname
   ```
