@@ -400,6 +400,9 @@ lxc network list-leases lxdbr0
 
   sleep 10
   /usr/sbin/dhclient eth0 eth1
+
+  # デフォルトゲートウェイを lxdbr0 に設定する場合
+  ip r add default via <lxdbr0のIP>
   ```
   sudo chmod 755 /usr/local/bin/dhclient.sh  
   sudo vim /etc/rc.d/rc.local  
