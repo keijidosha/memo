@@ -392,6 +392,22 @@ lxc network list-leases lxdbr0
      ```
      ip r add 192.168.1.0/24 via 172.16.1.1 
      ```
+* コンテナに NIC を 2枚(例: NAT とブリッジ)割り当てていると、コンテナ起動時に DHCP で IPv4 アドレスがうまく取れない。  
+  10秒待ってから DHCP で IP アドレスを取りに行くようにする。  
+  sudo vim /usr/local/bin/dhclient.sh  
+  ```
+  #!/bin/sh
+
+  sleep 10
+  /usr/sbin/dhclient eth0 eth1
+  ```
+  sudo chmod 755 /usr/local/bin/dhclient.sh  
+  sudo vim /etc/rc.d/rc.local  
+  (末尾に追記)
+  ```
+  /usr/local/bin/dhclient.sh &
+  ```
+  sudo chmod 755 /etc/rc.d/rc.local
 
 ## CentOS 7.5 のイメージを作成
 
