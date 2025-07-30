@@ -1059,3 +1059,34 @@ func main() {
 `time.Sleep(3 * time.Second)`
 * time.After を使う  
 `<-time.After(3 * time.Second)`
+
+## バージョン表示
+
+* Git リポジトリからバージョンを取得して表示  
+  goプログラム
+  ```go
+  var (
+      Version   string
+      Revision  string
+      BuildTime string
+  )
+  
+  fmt.Println("Version:  ", Version)
+  fmt.Println("Revision: ", Revision)
+  fmt.Println("BuildTime:", BuildTime)
+  ```
+  Makefile
+  ```make
+  VERSION := $(shell git describe --tags --abbrev=0)
+  REVISION := $(shell git rev-parse --short HEAD)
+  BUILDTIME := $(shell date +%Y-%m-%dT%H:%M:%S)
+
+  build:
+      go build \
+          -ldflags "\
+          -X main.Version=$(VERSION) \
+          -X main.Revision=$(REVISION) \
+          -X main.BuildTime=$(BUILDTIME)" \
+      hoge.go
+  ```
+  
