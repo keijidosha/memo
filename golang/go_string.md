@@ -91,9 +91,9 @@ func main() {
     input := `There is 3 pens`
     fmt.Println(input)
     re := regexp.MustCompile(`^(There is )(\d+)`)
-    idx := 10
+    actualPenCount := 10
     // $110 となると、110番目にマッチした要素を探すので、${1}110 となるようにする。
-    rep := fmt.Sprintf("${1}%d", idx)
+    rep := fmt.Sprintf("${1}%d", actualPenCount)
     result := re.ReplaceAllString(input, rep)
     fmt.Println(result)    // There is 10 pens
 }
