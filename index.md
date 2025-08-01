@@ -54,6 +54,7 @@
   * [Go Essential](golang/go_essential.md)
   * [文字列](golang/go_string.md)
   * [日付・時刻](golang/go_datetime.md)
+  * [Go パラメーター(値渡し・参照渡し)](golang/paramegers.md)
   * [コマンドラインパラメーター](golang/commandline_parameter.md)
   * [ネットワークプログラミング](golang/go_network.md)
   * [echo](golang/golang_echo.md)
