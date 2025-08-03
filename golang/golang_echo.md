@@ -231,14 +231,6 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-type ZerologAdapter struct {
-	logger zerolog.Logger
-}
-
-func (z *ZerologAdapter) Write(p []byte) (n int, err error) {
-	z.logger.Info().Msg(string(p))
-	return len(p), nil
-}
 
 func main() {
 	writer := &lumberjack.Logger{
@@ -256,7 +248,9 @@ func main() {
 
 	ec := echo.New()
 
-	ec.Logger.SetOutput(&ZerologAdapter{logger: log.Logger})
+        ec.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+            Output: writer,
+        }))
 
 	ec.Use(middleware.Logger())
 	ec.Use(middleware.Recover())
