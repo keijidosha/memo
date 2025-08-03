@@ -40,6 +40,22 @@ Tunnelblick を起動させたくないアカウント配下の、次のファ�
 `hdiutil attach xxx.iso`  
 アンマウント  
 `hdiutil detach /Volumes/xxx`  
+* USBメモリ/SDカードを FAT32 でフォーマット
+  外付けドライブのデバイス名を確認
+  ```
+  diskutil list
+  ```
+  disk2 の場合、次のように表示される(external でサイズが 16GB から USBメモリと判別)。
+  ```
+  /dev/disk2 (external, physical):
+     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:     FDisk_partition_scheme                        *16.0 GB    disk2
+     1:                 DOS_FAT_32 NO NAME                 16.0 GB    disk2s1
+  ```
+  FAT32 でフォーマット
+  ```
+  sudo diskutil eraseDisk FAT32 SD64 MBRFormat /dev/disk2
+  ```
 * sudo で入力するパスワードのタイムアウト時間を変更  
 (例) 1時間に設定する場合  
 sudo visudo  
