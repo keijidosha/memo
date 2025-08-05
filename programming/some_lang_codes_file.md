@@ -133,9 +133,21 @@ func main() {
 ```python
 with open('read.txt', 'r') as f:
     for line in f:
-        print(line)
+        # 改行文字を取り除く
+        str = line.strip('\r\n')
+        print(str)
 ```
 読み込んだ 1行の行末に改行文字が付く
+
+標準入力から読み込む場合
+```python
+import sys
+
+for line in sys.stdin:
+    # 改行を除去
+    str = line.strip('\r\n')
+    print(str)
+```
 
 #### PHP
 ```php
