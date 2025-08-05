@@ -131,7 +131,7 @@ func main() {
 
 #### Python
 ```python
-with open('read.txt", 'r') as f:
+with open('read.txt', 'r') as f:
     for line in f:
         print(line)
 ```
