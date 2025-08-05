@@ -227,6 +227,22 @@ finally:
   print(str[:-3])  # Haw
   ```
 
+### 文字列置換
+
+```python
+text = 'hoge fuga hoge'
+replaced_text = text.replace('hoge', 'hello')  # 'hello fuga hello'
+```
+
+正規表現
+
+```python
+import re
+
+text = 'hoge123 fuga456'
+replaced_text = re.sub(r'\d+', '', text)  # 'hoge fuga'
+```
+
 ## 日付
 
 ### 書式
