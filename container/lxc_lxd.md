@@ -350,6 +350,11 @@ lxc network list-leases lxdbr0
     sudo iptables -t nat -A PREROUTING -p tcp -i eth1 --dport 8080 -j DNAT --to-destination 192.168.1.1:80
     ```
 
+* 起動中のコンテナをすべて停止する alias
+  ```
+  alias lxcstopall='lxc stop $(lxc list -f csv -c ns | grep RUNN | sed -e s/,RUNNING// | xargs)'
+  ```
+
 ### ネットワーク
 
 * 特定の IP アドレスに対して VPN ルーター経由でアクセスする  
