@@ -102,6 +102,14 @@ export PATH=$PATH:/usr/local/go/bin
 * ソースチェック  
 `go vet hello.go`
 
+## 実行
+
+* 使用する CPU コア数を指定して実行  
+  環境変数 GOMAXPROCS にコア数を設定  
+  ```bash
+  GOMAXPROCS ./hogego
+  ```
+
 ## 関数呼び出し
 * 名前付き戻り値
   ```golang
