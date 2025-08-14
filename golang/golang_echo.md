@@ -7,9 +7,13 @@
 
 ```bash
 mkdir myapp && cd myapp
+mkdir main
+vim main/hoge.go
+# hoge.go で github.com/labstack/echo/v4 を import
 go mod init myapp
-go get github.com/labstack/echo/v4
+# go get github.com/labstack/echo/v4
 go mod tidy
+go build main/hoge.go
 ```
 
 ## パラメーター取得
