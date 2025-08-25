@@ -1,43 +1,7 @@
-# コード比較 : ファイル
+- Table of Content  
+{:toc}
 
-Table of Contents
-=================
-* [読み込み](#読み込み)
-   * [全読み込み](#全読み込み)
-      * [PHP](#php)
-      * [Ruby](#ruby)
-      * [Java](#java)
-      * [Kotlin](#kotlin)
-      * [Haskell](#haskell)
-      * [Elixir](#elixir)
-      * [Go](#go)
-   * [行読み込み](#行読み込み)
-      * [PHP](#php-1)
-      * [Ruby](#ruby-1)
-      * [Java](#java-1)
-      * [Kotlin](#kotlin-1)
-      * [Elixir](#elixir-1)
-      * [Go](#go-1)
-   * [一定量(文字数/バイト)ずつ読み込み](#一定量文字数バイトずつ読み込み)
-      * [go](#go-2)
-   * [ファイル属性](#ファイル属性)
-      * [ファイルのタイムスタンプを取得して YYYY/MM/DD HH:MM:SS 形式で表示する](#ファイルのタイムスタンプを取得して-yyyymmdd-hhmmss-形式で表示する)
-         * [PHP](#php-2)
-         * [Ruby](#ruby-2)
-         * [Java](#java-2)
-         * [Kotlin](#kotlin-2)
-      * [今日の年、月、日のディレクトリが存在しない場合は作成して、スターバックスのロゴをダウンロード・保存。](#今日の年月日のディレクトリが存在しない場合は作成してスターバックスのロゴをダウンロード保存)
-         * [PHP](#php-3)
-            * [Ruby](#ruby-3)
-         * [Java](#java-3)
-            * [Kotlin](#kotlin-3)
-* [バイト読み込み](#バイト読み込み)
-   * [4バイト読み込んで、文字列、数値(LittleEndian, BigEndian)に変換](#4バイト読み込んで文字列数値littleendian-bigendianに変換)
-      * [Kotlin](#kotlin-4)
-      * [Go](#go-3)
-* [バイト出力](#バイト出力)
-   * [数値(LittleEndian, BigEndian)を 4バイトでファイルに出力](#数値littleendian-bigendianを-4バイトでファイルに出力)
-      * [Go](#go-4)
+# コード比較 : ファイル
 
 ## 読み込み
 
