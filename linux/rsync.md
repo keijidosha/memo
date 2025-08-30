@@ -1,5 +1,13 @@
 # rsync
 
+## Tips
+
+* rsync でファイルごとの進捗表示  
+  `--progress` を指定  
+  ```
+  rsync -a --progress source_file target_file
+  ```
+
 ## rsync で指定するパス
 * (正解) /var/log が /opt/log にコピーされます。  
 `rsync -auv /var/log/ /opt/log/`
