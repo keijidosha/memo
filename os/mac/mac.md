@@ -59,6 +59,11 @@ Tunnelblick を起動させたくないアカウント配下の、次のファ�
     BaseOS/			extra_files.json	isolinux/		RPM-GPG-KEY-oracle
     EFI/			GPL			media.repo
     ```
+    マウントの解除は
+    ```
+    umount /Users/hoge/mount/
+    hdiutil detach /dev/disk11
+    ```
 * USBメモリ/SDカードを FAT32 でフォーマット
   外付けドライブのデバイス名を確認
   ```
