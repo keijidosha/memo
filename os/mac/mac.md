@@ -40,6 +40,25 @@ Tunnelblick を起動させたくないアカウント配下の、次のファ�
 `hdiutil attach xxx.iso`  
 アンマウント  
 `hdiutil detach /Volumes/xxx`  
+  * ブート用の MBR が付いているハイブリッド ISO を hdutil でマウントしようとすると、「マウントできるファイルシステムがありません」というエラーメッセージが表示されます。  
+    その場合は nomount を指定して hdiutil を実行し、表示されたデバイスを mount_cd9660 でマウント。
+    ```
+    hdiutil attach -nomount OracleLinux-R9-U6-x86_64-dvd.iso
+    /dev/disk11         	FDisk_partition_scheme
+    /dev/disk11s2       	0xEF
+    ```
+    表示された /dev/disk11 を mount_cd9660 でマウント
+    ```
+    mkdir /Users/hoge/mount
+    mount_cd9660 /dev/disk11 /Users/hoge/mount/
+    ```
+    次のようにマウントした ISO イメージが見れるようになる。
+    ```
+    ls /Users/hoge/mount/
+    AppStream/		EULA			images/			OL9-RELNOTES9-6.zip
+    BaseOS/			extra_files.json	isolinux/		RPM-GPG-KEY-oracle
+    EFI/			GPL			media.repo
+    ```
 * USBメモリ/SDカードを FAT32 でフォーマット
   外付けドライブのデバイス名を確認
   ```
