@@ -218,6 +218,13 @@ gradle run
   * テストをスキップ  
     `gradle build -x test`
 
+## Tips
+
+* build.gradle に指定したライブラリから参照されている(依存している)ライブラリを一覧表示
+  ```
+  ./gradlew dependencies --configuration runtimeClasspath
+  ```
+
 ## トラブル対応
 
 * build ができない(IDLE 状態で止まる)  
