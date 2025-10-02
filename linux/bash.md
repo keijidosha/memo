@@ -19,8 +19,8 @@
   SS=hoge
   if [ $SS = "hoge" ] ; then echo "equal"    ; else echo "not equal"; fi
   if [ $SS != "fuga" ]; then echo "not equal"; else echo "equal"; fi
-  if [ -n $SS ]       ; then echo "not empty"; else "empty"; fi
-  if [ -z "" ]        ; then echo "empty"    ; else "not empty"; fi
+  if [ -n "$SS" ]     ; then echo "not empty"; else echo "empty"; fi
+  if [ -z "$SS" ]     ; then echo "empty"    ; else echo "not empty"; fi
   ```
 * ファイル
   ```
