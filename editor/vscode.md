@@ -144,6 +144,11 @@
 * JSON を書式化して表示  
   * command + k, m で書式の一覧を表示して JSON を選択。
   * 右クリックして「Format Document」を選択。
+* 開いているファイルを読み取り専用にする  
+  * Command + Shift + P で次のコマンドを入力  
+    ```
+    set active editor read-only in session
+    ```
 
 ## Plugins
 ### Bookmarks
