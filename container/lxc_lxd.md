@@ -736,6 +736,105 @@ eth0 に DHCP アドレスを割り当てるため、Oracle Linux 8.4 のコン�
   lxc launch oraclelinux8.10 ol810
   ```
 
+## Oracle Linux 9.6 のイメージを作成
+
+Ubuntu 24.04 ホストで実行
+```
+sudo mount -rt iso9660 /vagrant/OracleLinux-R9-U6-x86_64-dvd.iso /cdrom/
+```
+
+次のように docker で実行  
+```
+docker run -it --rm -v /vagrant:/vagrant -v /cdrom:/cdrom --name lxcbuild oraclelinux:9 /bin/bash
+```
+
+* tmp ディレクトリに yum 設定ファイルを作成  
+  cd /tmp  
+  vi ol96.conf
+  ```
+  [main]
+  keepcache=0
+  exactarch=1
+  obsoletes=1
+  gpgcheck=0
+  plugins=1
+
+  [ol9_baseos]
+  name=Oracle Linux 9 BaseOS local ($basearch)
+  baseurl=file:///cdrom/BaseOS/
+
+  [ol9_appstream]
+  name=Oracle Linux  Application Stream local ($basearch)
+  baseurl=file:///cdrom/AppStream/
+  ```
+* rootfs ディレクトリを作成  
+  ```
+  mkdir -p /tmp/ol96/rootfs
+  ```
+* base パッケージから Core をインストール。さらに dhclient もインストール。  
+  ```
+  yum -c /tmp/ol96.conf --disablerepo="*" --enablerepo="ol9_baseos,ol9_appstream" --installroot=/tmp/ol96/rootfs -y groupinstall Core
+  ```
+  ```
+  yum -c /tmp/ol96.conf --disablerepo="*" --enablerepo="ol9_baseos,ol9_appstream" --installroot=/tmp/ol96/rootfs -y install dhclient
+  ```
+* 後で Docker 側で tar 圧縮する時、tar コマンドが必要になるので Docker 環境にインストール(Oracle Linux 9.6 にはデフォルトで tar がイントールされているので省略しても大丈夫そう)  
+  ```
+  yum -c /tmp/ol96.conf --disablerepo="*" --enablerepo="ol9_baseos,ol9_appstream" -y install tar
+  ```
+* LXCイメージファイルの設定ファイルを作成  
+  (参考) Unix 時間の取得  
+  `date +%s`  
+  vi /tmp/ol96/metadata.yaml  
+  ```
+  {
+      "architecture": "x86_64",
+      "creation_date": 1761116774,
+      "properties": {
+          "architecture": "x86_64",
+          "description": "Oralce Linux 9.6(x86_64)",
+          "name": "oraclelinux-9.6-x86_64",
+          "os": "oraclelinux",
+          "release": "9.6",
+          "variant": "default"
+      }
+  }
+  ```
+* 設定ファイル編集  
+  `cd /tmp/ol96`  
+  `chroot rootfs/`  
+  ```
+  echo "export LANG=C" >> /root/.bashrc
+  ```
+  ```
+  echo "export LANG=C" >> /etc/locale.conf
+  ```
+  ⬇︎ 初期状態で存在するので rc.local のファイル作成はしなくても大丈夫そう  
+  `vi /etc/rc.local`  
+  ```
+  #!/bin/bash
+  
+  touch /var/lock/subsys/local
+  ```
+  `chmod 755 /etc/rc.d/rc.local`  
+  `exit`  
+* LXCイメージを圧縮してインポート  
+  Docker コンテナ内で実行  
+  ```
+  tar zcvf /vagrant/ol96.tgz metadata.yaml rootfs
+  ```
+  ホスト側で実行  
+  ```
+  lxc image import /vagrant/ol96.tgz --alias oraclelinux9.6
+  ```
+
+* 作成したイメージを使ってコンテナを作成  
+  ```
+  lxc launch oraclelinux9.6 ol96
+  ```
+
+
+
 ## トラブルシューティング
 
 ### ストレージプール(ここでは default プール)の拡張
