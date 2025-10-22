@@ -778,7 +778,7 @@ docker run -it --rm -v /vagrant:/vagrant -v /cdrom:/cdrom --name lxcbuild oracle
   ```
   yum -c /tmp/ol96.conf --disablerepo="*" --enablerepo="ol9_baseos,ol9_appstream" --installroot=/tmp/ol96/rootfs -y install dhclient
   ```
-* 後で Docker 側で tar 圧縮する時、tar コマンドが必要になるので Docker 環境にインストール(Oracle Linux 9.6 にはデフォルトで tar がイントールされているので省略しても大丈夫そう)  
+* 後で Docker 側で tar 圧縮する時、tar コマンドが必要になるので Docker 環境にインストール  
   ```
   yum -c /tmp/ol96.conf --disablerepo="*" --enablerepo="ol9_baseos,ol9_appstream" -y install tar
   ```
