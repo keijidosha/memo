@@ -92,7 +92,11 @@ sudo visudo
   ```
   grep -A2 "Device Name" ~/Library/Application\ Support/MobileSync/Backup/Info.plist | grep string
   ```  
-  Info.plist がバイナリファイルの場合は grep で検索できないので、Finder からプレビューで内容を表示して "Device Name" を探し確認する。
+  Info.plist がバイナリファイルの場合は grep で検索できないので、Finder からプレビューで内容を表示して "Device Name" を探し確認する。  
+  さらに機種名、iOS バージョンまで確認する場合
+  ```
+  defaults read ~/Library/Application\ Support/MobileSync/Backup/<フォルダ名>/Info.plist | grep -E "Device Name|Product Name|Product Type|Last Backup Date"
+  ```
 
 ## pmset
 
