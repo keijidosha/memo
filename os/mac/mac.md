@@ -88,7 +88,11 @@ sudo visudo
   ```
   sleep 3600 && pmset sleepnow
   ```
-
+* もう使わなくなった iPhone/iPad のバックアップファイルを Mac から削除するにあたり、バックアップフォルダがどの iOS デバイスのものかを確認する方法
+  ```
+  grep -A2 "Device Name" ~/Library/Application\ Support/MobileSync/Backup/Info.plist | grep string
+  ```  
+  Info.plist がバイナリファイルの場合は grep で検索できないので、Finder からプレビューで内容を表示して "Device Name" を探し確認する。
 
 ## pmset
 
