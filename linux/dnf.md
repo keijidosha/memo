@@ -29,6 +29,13 @@
 * モジュール削除  
   `dnf erase xxx`
 
+## リポジトリ
+
+* リポジトリ同期
+  ```
+  dnf [-c xxx.conf] reposync --repo=<repo_name> -p <download directory> --download-metadata
+  ```
+
 ## Tips
 
 * キャッシュクリア
