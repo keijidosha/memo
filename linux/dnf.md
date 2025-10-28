@@ -33,8 +33,9 @@
 
 * リポジトリ同期(ダウンロード)
   ```
-  dnf [-c xxx.conf] reposync --repo=<repo_name> -p <download directory> --download-metadata
+  dnf [-c xxx.conf] reposync --repo=<repo_name> -p <download directory> --download-metadata [--setopt=max_parallel_downloads=1]
   ```
+  * 1個ずつダウンロードする場合は「--setopt=max_parallel_downloads=1」を指定。
   * 途中で止めた場合、次回実行時にダウンロード済みのものはスキップしてくれる。
   * ダウンロード済みかどうかの判定にハッシュ値チェックをしているのか、RPM ファイルのサイズが大きいと、チェックにそれなりの時間がかかる。
   * 再実行して「No more mirrors to try - All mirrors were already tried without success」というメッセージが表示された場合は `sudo dnf clean all` を実行してみる。
