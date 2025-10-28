@@ -37,6 +37,7 @@
   ```
   * 途中で止めた場合、次回実行時にダウンロード済みのものはスキップしてくれる。
   * ダウンロード済みかどうかの判定にハッシュ値チェックをしているのか、RPM ファイルのサイズが大きいと、チェックにそれなりの時間がかかる。
+  * 再実行して「No more mirrors to try - All mirrors were already tried without success」というメッセージが表示された場合は `sudo dnf clean all` を実行してみる。
 
 ## Tips
 
