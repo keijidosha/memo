@@ -468,3 +468,13 @@ docker run -it --rm --net host --privileged nfs-server1
 * Docker で使われているストレージドライバーを確認する  
 docker info | grep "Storage Driver"
 
+## トラブルシューティング
+
+### podman desktop
+
+* podman desktop を起動すると、コンテナの一覧が表示されない。  
+  今回のケースでは、アンチウィルスが自動アップデートされた後に発生。  
+  次のコマンドを実行して podman machine を起動してみる。  
+  ```
+  podman machine start
+  ```
