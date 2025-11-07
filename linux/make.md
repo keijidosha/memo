@@ -17,11 +17,11 @@
  1: TARGE=hoge fuga
  2: 
  3: prepare: $(addprefix echo-,$(TARGE))
- 4: 	echo $+
+ 4: 	@echo $+
  5:
  6: echo-%:
- 7: 	echo $*
- 8: 	echo $@
+ 7: 	@echo $*
+ 8: 	@echo $@
 ```
 * 7行目でパターンマッチした hoge と fuga が表示される。  
 * 8行目でターゲット名の echo-hoge と echo-fuga が表示される。  
