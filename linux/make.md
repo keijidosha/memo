@@ -10,6 +10,22 @@
 | $+  | ターゲットの全ての依存関係の名前 |
 | %   | 任意の数の文字に一致するワイルドカード |
 
+(例)
+```
+ 1: TARGE=hoge fuga
+ 2: 
+ 3: prepare: $(addprefix echo-,$(TARGE))
+ 4: 	echo $+
+ 5:
+ 6: echo-%:
+ 7: 	echo $*
+ 8: 	echo $@
+```
+* 7行目でパターンマッチした hoge と fuga が表示される。  
+* 8行目でターゲット名の echo-hoge と echo-fuga が表示される。  
+* 4行目で依存関係にある「echo-hoge echo-fuga」が表示される。  
+
+
 ## コマンドラインオプション
 
 | オプション | 説明 |
