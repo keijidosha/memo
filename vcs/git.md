@@ -19,7 +19,11 @@
   git clone git@bitbucket.org:nextgen-rd/hoge.git -b develop
   ```
 * ブランチ作成  
-  `git checkout -b <ブランチ名>`
+  `git branch <ブランチ名>`
+* ブランチの切り替え  
+  `git checkout <ブランチ名>`
+* 現在のブランチの確認  
+  `git branch`
 * 新規ファイル追加  
   `git add .`
 * 修正中(未コミット)ソースの差分表示  
