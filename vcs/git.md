@@ -56,6 +56,11 @@
     `git tag <tag> -m 'comment'`
   * タグを PUSH  
     `git push origin <tag>`
+* タグを削除
+  * まずリモートのタグを削除  
+    `git push --delete origin tag <tag>`
+  * 次にローカルのタグを削除  
+    `git tag -d <tag>`
 * 修正中(未コミット)ソースの差分表示  
   `git diff -w`  
   -w: 空白を無視する
