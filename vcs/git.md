@@ -32,9 +32,15 @@
   * ファイルの編集状態を確認  
     `git status`  
   * 新規ファイル追加  
-    `git add .`
+    `git add .`  
+    または追加したいファイルを指定  
+    `git add hoge/fuga`  
+    * 追加する前に追加できるファイルを確認  
+      `git status`
   * コミット  
-    `git commit -m <message>`
+    `git commit -m <message>`  
+    * コミット後に追加したファイルが一覧からなくなっているか確認  
+      `git status`
     * コミットメッセージを複数行指定  
       ヒアドキュメントで指定
       ```
