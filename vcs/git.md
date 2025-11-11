@@ -22,10 +22,20 @@
   `git branch <ブランチ名>`
 * ブランチの切り替え  
   `git checkout <ブランチ名>`
+* ブランチを作成して切り替え  
+  `git checkout -v <ブランチ名>`
 * 現在のブランチの確認  
-  `git branch`
+  `git branch`  
+  リモートブランチも表示する場合は -a を指定  
+  `git -a branch`
+* ファイルの編集状態を確認  
+  `git status`  
 * 新規ファイル追加  
   `git add .`
+* コミット  
+  `git commit -m <message>`
+* プッシュ  
+  `git push origin HEAD`
 * 修正中(未コミット)ソースの差分表示  
   `git diff -w`  
   -w: 空白を無視する
@@ -37,9 +47,7 @@
   `git blame <ファイル名>`
 * 変更量表示  
   `git diff --stat <変更前タグ> <変更後タグ>`
-* コミット  
-  `git commit -m "message"`
-* プッシュ
+* プッシュ 〜 マージまで
   ```
   git push -u orign HEAD
   git checkout main
