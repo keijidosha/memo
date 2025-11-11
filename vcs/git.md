@@ -18,37 +18,44 @@
   ```
   git clone git@bitbucket.org:nextgen-rd/hoge.git -b develop
   ```
-* ブランチ作成  
-  `git branch <ブランチ名>`
-* ブランチの切り替え  
-  `git checkout <ブランチ名>`
-* ブランチを作成して切り替え  
-  `git checkout -v <ブランチ名>`
-* 現在のブランチの確認  
-  `git branch`  
-  リモートブランチも表示する場合は -a を指定  
-  `git -a branch`
-* ファイルの編集状態を確認  
-  `git status`  
-* 新規ファイル追加  
-  `git add .`
-* コミット  
-  `git commit -m <message>`
-  * コミットメッセージを複数行指定  
-    ヒアドキュメントで指定
-    ```
-    git commit -F- << EOM
-    > hoge
-    > fuga
-    > EOM
-    ```
-    vim などのエディタで入力
-    ```
-    git commit
-    ```
-    エディタが起動するのでメッセージを入力
-* プッシュ  
-  `git push origin HEAD`
+* ブランチ作成からコミット/プッシュ/タグ付けまでの流れ
+  * ブランチ作成  
+    `git branch <ブランチ名>`
+  * ブランチの切り替え  
+    `git checkout <ブランチ名>`
+  * ブランチを作成して切り替え  
+    `git checkout -b <ブランチ名>`
+  * 現在のブランチの確認  
+    `git branch`  
+    リモートブランチも表示する場合は -a を指定  
+    `git -a branch`
+  * ファイルの編集状態を確認  
+    `git status`  
+  * 新規ファイル追加  
+    `git add .`
+  * コミット  
+    `git commit -m <message>`
+    * コミットメッセージを複数行指定  
+      ヒアドキュメントで指定
+      ```
+      git commit -F- << EOM
+      > hoge
+      > fuga
+      > EOM
+      ```
+      vim などのエディタで入力
+      ```
+      git commit
+      ```
+      エディタが起動するのでメッセージを入力
+  * プッシュ  
+    `git push origin HEAD`
+  * タグ付け  
+    `git tag <tag>`  
+    コメント付きのタグをつける場合
+    `git tag <tag> -m 'comment'`
+  * タグを PUSH  
+    `git push origin <tag>`
 * 修正中(未コミット)ソースの差分表示  
   `git diff -w`  
   -w: 空白を無視する
