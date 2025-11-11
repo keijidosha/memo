@@ -34,6 +34,19 @@
   `git add .`
 * コミット  
   `git commit -m <message>`
+  * コミットメッセージを複数行指定  
+    ヒアドキュメントで指定
+    ```
+    git commit -F- << EOM
+    > hoge
+    > fuga
+    > EOM
+    ```
+    vim などのエディタで入力
+    ```
+    git commit
+    ```
+    エディタが起動するのでメッセージを入力
 * プッシュ  
   `git push origin HEAD`
 * 修正中(未コミット)ソースの差分表示  
