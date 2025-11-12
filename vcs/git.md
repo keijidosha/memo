@@ -37,6 +37,8 @@
     `git add hoge/fuga`  
     * 追加する前に追加できるファイルを確認  
       `git status`
+    * 追加する前に変更内容を確認  
+      `git diff`
   * コミット  
     `git commit -m <message>`  
     * コミット後に追加したファイルが一覧からなくなっているか確認  
