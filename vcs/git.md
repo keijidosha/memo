@@ -78,6 +78,8 @@
   `git diff <変更元タグ>..<変更先タグ>`
 * 差分表示  
   `git diff --cached -w`
+* ブランチ元を確認  
+  `git show-branch | grep '*' | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -1 | awk -F '[]~^[]' '{print $2}'`
 * blame(アノテーション)表示  
   `git blame <ファイル名>`
 * 変更量表示  
