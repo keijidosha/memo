@@ -29,13 +29,19 @@ RPM ファイルに含まれているファイルの一覧を表示する場合�
 または  
 `yum deplist <パッケージ名>`  
   * (例) bash が依存するパッケージを簡潔に表示  
-`rpm -q --requires bash | cut -d ' ' -f 1 | xargs rpm -q --whatprovides | sort | uniq`  
+    ```
+    rpm -q --requires bash | cut -d ' ' -f 1 | xargs rpm -q --whatprovides | sort | uniq
+    ```
   * ある RPM パッケージが依存するパッケージをファイルと対応付けて表示  
-(例) bash が依存するパッケージを表示  
-`rpm -q --requires bash | while read line; do echo -n "$line:  "; echo $line | cut -d ' ' -f 1 | xargs rpm -q --whatprovides; done`  
+    (例) bash が依存するパッケージを表示  
+    ```
+    rpm -q --requires bash | while read line; do echo -n "$line:  "; echo $line | cut -d ' ' -f 1 | xargs rpm -q --whatprovides; done
+    ```
 依存するファイルを提供するパッケージが 2個以上インストールされている場合、改行して(複数行に渡って)表示される。  
 * RPM が提供するファイルに依存しているパッケージを表示  
-`rpm -q --provides xxx | cut -d ' ' -f 1 | xargs rpm -q --whatrequires | sort | uniq`
+  ```
+  rpm -q --provides xxx | cut -d ' ' -f 1 | xargs rpm -q --whatrequires | sort | uniq
+  ```
 * 依存性を無視してインストール  
 `rpm -ivh --nodeps <RPMファイル名>`  
 * 強制上書きインストール(のテスト)  
@@ -51,8 +57,10 @@ RPM ファイルに含まれているファイルの一覧を表示する場合�
 * RPM に含まれるディレクトリ名を指定して取り出す  
 `rpm2cpio <RPMファイル名> | cpio -id ./tmp/*`
 * GPG KEY の一覧を表示  
-`rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'`  
-(出典) http://syaka-syaka.blogspot.com/2016/01/rpmgpg.html
+  ```
+ `rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
+  ```  
+  (出典) http://syaka-syaka.blogspot.com/2016/01/rpmgpg.html
 
 
 ## パッケージ作成
