@@ -107,6 +107,11 @@ CREATE TABLE hoge_202301 PARTITION OF hoge FOR VALUES FROM ('2023-01-01 00:00:00
 * !~: 正規表現に一致しない、大文字・小文字を区別
 * !~*: 正規表現に一致しない、大文字・小文字を区別しない
 
+* data ディレクトリ配下のファイル名に該当するテーブル/インデックス名を確認するための SQL サンプル  
+  ```
+  SELECT c.relfilenode, c.relname, ns.nspname AS schema, c.relkind FROM pg_class c JOIN pg_namespace ns ON c.relnamespace = ns.oid WHERE c.relkind='r' AND c.relname LIKE 't_%' AND c.relfilenode IN(12345,23456) ORDER BY c.relfilenode;
+  ```
+
 ## エクスポート・インポート
 
 ### シンプル・テキストベース
