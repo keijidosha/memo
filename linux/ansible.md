@@ -10,6 +10,12 @@
   * dry run  
     --check  
     ansible-playbook -i hosts site.yml `--check`
+* 変数の内容を表示
+  ```yaml
+  - name: echo hoge
+    debug:
+      msg: "{{ hoge }}"
+  ```
 * グループ作成
   ```yaml
   {% raw %}
