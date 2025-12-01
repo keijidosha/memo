@@ -538,6 +538,20 @@ vars_prompt はタスクと一緒に定義できない
     when: ansible_distribution == "xxx"
   {% endraw %}
   ```
+* 状況に応じて変数を定義し、その変数が true になっている場合だけ処理を実行(ここでは nginx をインストール)  
+  ```
+  - name: whether nginx is required?
+    set_fact:
+      install_nginx: true
+    when: deploy_web_app
+
+  - name: install nginx 1.26
+    dnf:
+      name: '@nginx:1.26'
+      state: present
+    when: install_nginx is defined and install_nginx
+  ```  
+  deploy_web_app が false の場合、install_nginx は未定義になるので、`is defined` で定期が済みかチェックした上で install_nginx が true かを判定。
 * OS ごとに分けて変数をファイルに定義  
   (例) CentOS、RHEL と Ubuntu でファイルを分ける場合  
   1. roles/<ロール名>/vars ディレクトリ配下に CentOS.yml, RedHat.yml, Ubuntu.yml を作成して変数を定義。  
