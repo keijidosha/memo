@@ -20,6 +20,10 @@ sip || rtp
   ```
   tshark -r input.pcap -Y "ip.addr==192.168.1.1 && tcp.port=8080" -w output.pcap
   ```
+  tcpdump を使う場合は
+  ```
+  tcpdump -r input.pcap "tcp and host 192.168.1.1 and port 8080" -w output.pcap
+  ```
 
 ## トラブルシューティング
 
