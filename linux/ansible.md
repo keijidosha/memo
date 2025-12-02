@@ -373,6 +373,38 @@
         line:   'xxx2=\1;'
     {% endraw %}
     ```  
+* ファイルの内容を行単位で置換
+  ```
+  - name: add [source ~/.nxs_env] to .bashrc
+    replace:
+      path: "{{ NEXTGEN_HOME }}/.bashrc"
+      regexp: |
+        hoge
+
+        fuge
+      replace: |
+        hoge
+
+        hai!
+
+        fuga
+      backup: true
+  ```
+  ```
+  hoge
+
+  fuga
+  ```
+  が
+  ```
+  hoge
+
+  hai!
+
+  fuga
+  ```
+  に置換される。
+
 * コマンドを実行(実行ユーザー、実行ディレクトリを指定して)。
   ```yaml
   {% raw %}
