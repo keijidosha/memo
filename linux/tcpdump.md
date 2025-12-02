@@ -17,6 +17,16 @@
 * すべてのネットワークインターフェースを対象にする  
 `-i any`
 
+* キャプチャファイルをフィルターして特定のパケットだけを別ファイルに抽出
+  ```
+  tcpdump -r input.pcap "tcp and host 192.168.1.1 and port 8080" -w output.pcap
+  ```
+  Wireshark に付属の tshark を使う場合は
+  ```
+  tshark -r input.pcap -Y "ip.addr==192.168.1.1 && tcp.port=8080" -w output.pcap
+  ```
+
+
 ## 応用
 
 * tcpdump で 5分間キャプチャして終了する
