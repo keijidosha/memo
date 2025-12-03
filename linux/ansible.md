@@ -734,3 +734,38 @@ vars_prompt はタスクと一緒に定義できない
   ansible-galaxy collection install <コレクション名>  
   (例)  
   `ansible-galaxy collection install community.general`  
+
+## ansible.utils.validate
+
+スキーマ定義を用意して変数をチェック。
+
+* schema.yml
+  ```
+  common_port_def: &portdef
+    type: integer
+    minimum: 1
+    maximum: 65535
+
+  required: [
+    server_ip,
+    server_port
+  ]
+
+  properties:
+    server_port: *portdef
+    ip_private_ash_data:
+      format: ipv4
+    server_name:
+      type: string
+      enum: [ "taro", "jiro" ]
+    s3_region:
+      type: string
+      pattern: "(us|ap|ca|eu|sa)-(west|east|north|south|central|northeast|southeast)-[0-9]"
+  ```
+* main.yml
+  ```
+  - name: check the variable
+    ansible.utils.validate:
+      data: "{{ vars }}"
+      criteria: "{{ lookup('file', 'schema.yml') | from_yaml }}"
+  ```
