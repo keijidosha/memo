@@ -29,7 +29,8 @@ sip || rtp
 * キャプチャファイルから、TCP リセットのパケットだけをフィルタして別ファイルに抽出
   ```
   tshark -r input.pcap -Y "tcp.flags.reset==1" -w output.pcap
-  ```
+  ```  
+  他には tcp.flags.syn, tcp.flags.ack など。
 * 時刻の範囲を指定してフィルタ  
   editcap を使用
   ```
