@@ -16,6 +16,8 @@ http
 * SIP と RTP のみ表示  
 sip || rtp
 
+## キャプチャしたファイルから条件にマッチするパケットを別ファイルに出力
+
 * キャプチャファイルをフィルターして特定のパケットだけを別ファイルに抽出
   ```
   tshark -r input.pcap -Y "ip.addr==192.168.1.1 && tcp.port=8080" -w output.pcap
@@ -27,6 +29,15 @@ sip || rtp
 * キャプチャファイルから、TCP リセットのパケットだけをフィルタして別ファイルに抽出
   ```
   tshark -r input.pcap -Y "tcp.flags.reset==1" -w output.pcap
+  ```
+* 時刻の範囲を指定してフィルタ  
+  editcap を使用
+  ```
+  editcap -A "2025-01-01 09:00:00" -B "2025-01-01 09:10:15" input.pcap output.pcap
+  ```
+  または tshark を使用
+  ```
+  tshark -r input.pcap -Y "frame.time >= \"2025-01-10 09:00:00\" && frame.time <= \"2025-01-01 09:10:15\"" -w output.pcap
   ```
 
 ## トラブルシューティング
