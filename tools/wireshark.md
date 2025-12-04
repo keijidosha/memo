@@ -24,6 +24,10 @@ sip || rtp
   ```
   tcpdump -r input.pcap "tcp and host 192.168.1.1 and port 8080" -w output.pcap
   ```
+* キャプチャファイルから、TCP リセットのパケットだけをフィルタして別ファイルに抽出
+  ```
+  tshark -r input.pcap -Y "tcp.flags.reset==1" -w output.pcap
+  ```
 
 ## トラブルシューティング
 
