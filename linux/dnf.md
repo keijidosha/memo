@@ -29,6 +29,24 @@
 * モジュール削除  
   `dnf erase xxx`
 
+## 履歴
+
+* dnf のインストール履歴を参照
+  ```
+  dnf history
+  ```
+* 履歴の内容を表示  
+  ansible で実行した dnf install は、履歴の一覧に内容が表示されないので、トランザクションID を指定して内容の確認が必要
+  ```
+  dnf history info <transactionid>
+  ```
+* dnf install をロールバック  
+  トランザクションID を指定して、インストールをなかったことにする。
+  ```
+  sudo dnf history undo <transactionid>
+  ```
+  途中の(最後のではなく)履歴をアンインストールできるかどうかは不明(要確認)。
+
 ## リポジトリ
 
 * リポジトリ同期(ダウンロード)
