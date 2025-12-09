@@ -62,6 +62,9 @@
     shell: localectl set-locale LANG=ja_JP.utf8
   {% endraw %}
   ```
+
+## ファイル
+
 * ファイルの存在をチェックして実行するか判断
   ```yaml
   {% raw %}
@@ -178,114 +181,6 @@
       - hoge
   {% endraw %}
   ```
-* RPMファイル群のパスをリスト化して dnf でインストール
-  ```yaml
-  {% raw %}
-  - name: find rpm files
-    find:
-      paths: /tmp/rpms
-      patterns: "*.rpm"
-    register: rpm_files
-  - name: create rpm file list
-    set_fact:
-      rpm_file_list: "{{ rpm_files.files | map(attribute='path') | list }}"
-  - name: install rpm files
-    dnf:
-      disablerepo: "\\*"
-      disable_gpg_check: true
-      name: "{{ rpm_file_list }}"
-      state: present
-  {% endraw %}
-  ```
-* RPM がインストールされているチェックして、インストールされてなかったらインストール
-  ```yaml
-  {% raw %}
-  - name: check hoge is installed?
-    dnf:
-      name: hoge
-      state: installed
-    check_mode: true
-    ignore_errors: true
-    register: check_hoge_installed
-  - name: install rpm files
-      dnf:
-        disablerepo: "\\*"
-        disable_gpg_check: true
-        name: hoge.rpm
-        state: present
-     when: check_hoge_installed.failed
-  {% endraw %}
-  ```  
-  対象の RPM がインストールされていない場合 dnf が 1 を返し、そのままではエラーで ansible が中断してしまうので、ignore_errors: true を設定。  
-  **ansible 2.9 で、上の方法では RPM インストールチェックがうまくいかないので、ファイルの存在チェックで判断した方が良さそう**  
-  ```yaml
-  {% raw %}
-  - name: check httpd is installed?
-    stat:
-      path: /usr/sbin/httpd
-    register: check_httpd_command
-  - name: install rpm files
-      dnf:
-        name: httpd
-        state: present
-     when: not check_httpd_command.stat.exists
-  {% endraw %}
-  ```  
-
-* サービスの有効化 + 開始
-  ```yaml
-  {% raw %}
-  - name: enable service hoge
-    systemd:
-      name: hoge.service
-      daemon_reload: yes
-      enabled: yes
-      state: started
-  {% endraw %}
-  ```  
-  (参考)  
-  [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)  
-  [[Ansible] service モジュールの基本的な使い方（サービスの起動・停止・自動起動の有効化など）](https://tekunabe.hatenablog.jp/entry/2019/02/24/ansible_service_intro)
-  * state の設定値  
-    * started
-    * stopped
-    * restarted  
-* 特定のポートがリスン状態になるまで待機(サービス起動直後など)  
-  ```yaml
-  {% raw %}
-  - name: wait port 80 is listening
-    wait_for:
-      port: 80
-      host: 127.0.0.1
-  {% endraw %}
-  ```  
-  ※host は、ansible 実行対象から見たホストになる模様。  
-  (例) ansible のターゲットホストが 192.168.1.1 で host に 127.0.0.1 を指定した場合は、192.168.1.1 自身の 80 ポートを待機。
-  (参考)  
-  [ansible.builtin.wait_for module – Waits for a condition before continuing](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/wait_for_module.html)
-* firewalld で https を通す
-  ```yaml
-  {% raw %}
-  - name: permit https to firewalld
-    firewalld:
-      service: https
-      state: enabled
-      permanent: true
-      immediate: true
-  {% endraw %}
-  ```  
-  [https://docs.ansible.com/ansible/latest/collections/ansible/posix/firewalld_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/posix/firewalld_module.html)
-* firewalld でポートを通す
-  ```yaml
-  {% raw %}
-  - name: permit port 8080 to firewalld
-    firewalld:
-      port: 8080/tcp
-      state: enabled
-      permanent: true
-      immediate: true
-  {% endraw %}
-  ```  
 * ファイルに文字列を書き込む  
   ```yaml
   {% raw %}
@@ -405,6 +300,131 @@
   ```
   に置換される。
 
+## dnf
+
+* RPMファイル群のパスをリスト化して dnf でインストール
+  ```yaml
+  {% raw %}
+  - name: find rpm files
+    find:
+      paths: /tmp/rpms
+      patterns: "*.rpm"
+    register: rpm_files
+  - name: create rpm file list
+    set_fact:
+      rpm_file_list: "{{ rpm_files.files | map(attribute='path') | list }}"
+  - name: install rpm files
+    dnf:
+      disablerepo: "\\*"
+      disable_gpg_check: true
+      name: "{{ rpm_file_list }}"
+      state: present
+  {% endraw %}
+  ```
+* RPM がインストールされているチェックして、インストールされてなかったらインストール
+  ```yaml
+  {% raw %}
+  - name: check hoge is installed?
+    dnf:
+      name: hoge
+      state: installed
+    check_mode: true
+    ignore_errors: true
+    register: check_hoge_installed
+  - name: install rpm files
+      dnf:
+        disablerepo: "\\*"
+        disable_gpg_check: true
+        name: hoge.rpm
+        state: present
+     when: check_hoge_installed.failed
+  {% endraw %}
+  ```  
+  対象の RPM がインストールされていない場合 dnf が 1 を返し、そのままではエラーで ansible が中断してしまうので、ignore_errors: true を設定。  
+  **ansible 2.9 で、上の方法では RPM インストールチェックがうまくいかないので、ファイルの存在チェックで判断した方が良さそう**  
+  ```yaml
+  {% raw %}
+  - name: check httpd is installed?
+    stat:
+      path: /usr/sbin/httpd
+    register: check_httpd_command
+  - name: install rpm files
+      dnf:
+        name: httpd
+        state: present
+     when: not check_httpd_command.stat.exists
+  {% endraw %}
+  ```  
+
+## systemctl
+
+* サービスの有効化 + 開始
+  ```yaml
+  {% raw %}
+  - name: enable service hoge
+    systemd:
+      name: hoge.service
+      daemon_reload: yes
+      enabled: yes
+      state: started
+  {% endraw %}
+  ```  
+  (参考)  
+  [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)  
+  [[Ansible] service モジュールの基本的な使い方（サービスの起動・停止・自動起動の有効化など）](https://tekunabe.hatenablog.jp/entry/2019/02/24/ansible_service_intro)
+  * state の設定値  
+    * started
+    * stopped
+    * restarted  
+* 特定のポートがリスン状態になるまで待機(サービス起動直後など)  
+  ```yaml
+  {% raw %}
+  - name: wait port 80 is listening
+    wait_for:
+      port: 80
+      host: 127.0.0.1
+  {% endraw %}
+  ```  
+  ※host は、ansible 実行対象から見たホストになる模様。  
+  (例) ansible のターゲットホストが 192.168.1.1 で host に 127.0.0.1 を指定した場合は、192.168.1.1 自身の 80 ポートを待機。
+  (参考)  
+  [ansible.builtin.wait_for module – Waits for a condition before continuing](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/wait_for_module.html)
+
+## firewalld
+
+* firewalld で https を通す
+  ```yaml
+  {% raw %}
+  - name: permit https to firewalld
+    firewalld:
+      service: https
+      state: enabled
+      permanent: true
+      immediate: true
+  {% endraw %}
+  ```  
+  [https://docs.ansible.com/ansible/latest/collections/ansible/posix/firewalld_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/posix/firewalld_module.html)
+* firewalld でポートを通す
+  ```yaml
+  {% raw %}
+  - name: permit port 8080 to firewalld
+    firewalld:
+      port: 8080/tcp
+      state: enabled
+      permanent: true
+      immediate: true
+  {% endraw %}
+  ```  
+
+## コマンド実行
+
+* コマンド実行
+  ```yaml
+  {% raw %}
+  - name: exec hoge.sh
+    command: /home/hoge/hoge.sh
+  {% endraw %}
+  ```
 * コマンドを実行(実行ユーザー、実行ディレクトリを指定して)。
   ```yaml
   {% raw %}
@@ -457,6 +477,9 @@
     ```  
     hoge を含む拡張子 txt のファイルのうち、ファイル名が数字で始まり、hoge.txt で終わるファイルと、fuga.txt で終わるファイルが存在するかどうかをチェック。  
     (他にも良い方法がありそうですがフィルタを使ったケースとして)
+
+## その他
+
 * タスク実行しても changed のカウントに含めない  
 (例) shell 実行すると、実際には変更が発生していなくても changed にカウントされる。  
 これをカウントされないようにするには changed_when: false を指定。  
@@ -726,7 +749,7 @@ vars_prompt はタスクと一緒に定義できない
     }
     ```
 
-## コレクシション
+## コレクション
 
 * インストール済みコレクションの一覧  
   ansible-galaxy collection list  
