@@ -29,6 +29,17 @@
 * モジュール削除  
   `dnf erase xxx`
 
+## インストール
+
+* xxx- で始まる yum リポジトリだけを有効にする
+  ```
+  dnf --disablerepo=* --enablerepo=xxx-* install hoge
+  ```
+* 弱い依存関係(weak dependencies)のパッケージをインストールしない
+  ```
+  dnf --setopt=install_weak_deps=False install hoge
+  ```
+
 ## 履歴
 
 * dnf のインストール履歴を参照
