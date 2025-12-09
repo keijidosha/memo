@@ -210,6 +210,11 @@
       path: /home/hoge/hoge.txt
       regexp: '正規表現'
       replace:   '置換文字列'
+      encoding: UTF-8
+      owner: hoge
+      group: hoge
+      mode: 0644
+      backup: true
   {% endraw %}
   ```  
   変換対象が複数の場合  
