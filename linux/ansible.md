@@ -273,6 +273,28 @@
         line:   'xxx2=\1;'
     {% endraw %}
     ```  
+* 置換後の文字列に変数を含めるとうまくいかない場合  
+  (例)  
+  max_connections = 100			# (change requires restart)  
+  となっている行の 100 を pgsql_max_connections の変数にセットした値に置換  
+  max_connections = 200			# (change requires restart)  
+  ```yaml
+  {% raw %}
+  - name: set variable
+    set_fact:
+      pgsql_max_connections: 200
+  - name: edit postgresql.conf
+    ansible.builtin.lineinfile:
+      path: /var/lib/pgsql/data/postgresql.conf
+      regexp: '^(max_connections *= *)\d+([^\d]*.*)$'
+      line: \g<1>{{ pgsql_max_connections }}\g<2>
+      backrefs: true
+      backup: true
+  {% endraw %}
+  ```  
+  `"\1{{ pgsql_max_connections }}\2"` のように、`\1` の直後に `{{` がくるとうまくいかないので  
+  `\1, \2` の代わりに `\g<1>, \g<2>` を使用
+
 * ファイルの内容を行単位で置換
   ```
   - name: add [source ~/.nxs_env] to .bashrc
