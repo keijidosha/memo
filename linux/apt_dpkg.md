@@ -40,3 +40,7 @@
   sudo apt install --dry-run ./<pkgname>.deb
   sudo apt install ./<pkgname>.deb
   ```
+* インストール済みのファイルがどのパッケージからインストールされたかを確認(`rpm -qf` に相当)
+  ```
+  dpkg -S /path/to/file
+  ```
