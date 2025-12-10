@@ -295,6 +295,14 @@
   `"\1{{ pgsql_max_connections }}\2"` のように、`\1` の直後に `{{` がくるとうまくいかないので  
   `\1, \2` の代わりに `\g<1>, \g<2>` を使用
 
+* lineinfile で regexp, insertafter, line を指定した場合  
+  * regexp で指定した行が見つかった場合  
+    regexp を line で置換
+  * regexp で指定した行が見つからず、insertafter で指定した行が見つかった場合  
+    insertafter の次の行に line を追加
+  * regexp で指定した行も、insertafter で指定した行も見つからない場合  
+    ファイルの末尾に line を追加    
+
 * ファイルの内容を行単位で置換
   ```
   - name: add [source ~/.nxs_env] to .bashrc
