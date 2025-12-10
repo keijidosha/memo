@@ -240,8 +240,11 @@
       path: /home/hoge/hoge.txt
       regexp: '正規表現'
       line:   '置換文字列'
+      backrefs: true
   {% endraw %}
   ```  
+  デフォルトでは regexp にマッチする行がない場合、lineinfile はファイルの末尾に line を追加する。  
+  backrefs: true を指定すると、regexp にマッチする行がない場合はファイルを更新しなくなる。  
   変換対象が複数の場合  
   ```yaml
   {% raw %}
