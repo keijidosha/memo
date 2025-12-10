@@ -634,6 +634,12 @@ vars_prompt はタスクと一緒に定義できない
     when: install_nginx is defined and install_nginx
   ```  
   deploy_web_app が false の場合、install_nginx は未定義になるので、`is defined` で定期が済みかチェックした上で install_nginx が true かを判定。
+* when で変数を文字列結合して比較  
+  when で {{ }} は使えないので () で囲って、~ で文字列結合
+  ```
+  - name: exec if differrent url
+    command: curl http://{{ ip }}/
+    when: url != ("http://" ~ ip ~ "/")
 * OS ごとに分けて変数をファイルに定義  
   (例) CentOS、RHEL と Ubuntu でファイルを分ける場合  
   1. roles/<ロール名>/vars ディレクトリ配下に CentOS.yml, RedHat.yml, Ubuntu.yml を作成して変数を定義。  
