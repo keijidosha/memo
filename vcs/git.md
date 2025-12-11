@@ -18,6 +18,11 @@
   ```
   git clone git@bitbucket.org:nextgen-rd/hoge.git -b develop
   ```
+* コミット時のメッセージを検索
+  ```
+  git log --all --grep="xxx"
+  ```
+  チェックアウト中のブランチだけを対象にする場合は、`--all` は不要。
 * ブランチ作成からコミット/プッシュ/タグ付けまでの流れ
   * ブランチ作成  
     `git branch <ブランチ名>`
