@@ -158,6 +158,7 @@
     * [curl](linux/curl.md)
     * [date](linux/date.md)
     * [diff](linux/diff.md)
+    * [echo](linux/echo.md)
     * [firewalld](linux/firewalld.md)
     * [find](linux/find.md)
     * [grep](linux/grep.md)
