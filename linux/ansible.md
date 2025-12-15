@@ -836,3 +836,26 @@ vars_prompt はタスクと一緒に定義できない
       data: "{{ vars }}"
       criteria: "{{ lookup('file', 'schema.yml') | from_yaml }}"
   ```
+
+## トラブルシューティング
+
+* VS Code で schema.yml を開くと大量の警告が表示される。  
+  ansible のスキーマは python3 の jsonschema とは異なる「純粋な JSON SChema?」ではなく?、有効なスキーマチェックができないので?、次の手順でスキーマチェックを無効にする。
+  1. schema.yml を ansible-schema.yml にリネーム。
+  2. /Users/xxx/.vscode/yaml-any.schema.json を次の内容で作成。
+  ```
+  {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true
+  }
+  ```  
+  3. /Users/xxx/Library/Application Support/Code/User/settings.json に次の内容を追加。
+  ```
+	"yaml.schemas": {
+		"file:///Users/xxx//.vscode/yaml-any.schema.json": [
+		  "**/ansible_schema.yml"
+		],
+		"file:///Users/xxx/.vscode/extensions/atlassian.atlascode-4.0.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+	},
+  ```
+
