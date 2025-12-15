@@ -329,6 +329,14 @@ Lepard 以前では使えない可能性あり
     `sudo tmutil disablelocal`
   * スナップショット機能を有効にする  
     `sudo tmutil enablelocal`
+* Time Machine でバックアップ対象となる差分を解析
+  ```
+  sudo tmutil compare / /Volumes/TimeMachine/Backups.backupdb/<Mac名>/Latest/Macintosh\ HD/
+  ```
+* どのプロセスがディスクにアクセスしているかを確認
+  ```
+  sudo fs_usage -w | grep /Volumes/<VolName>
+  ```
 
 ## plist
 
