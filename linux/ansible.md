@@ -7,9 +7,13 @@
 
 * コマンドライン・オプション  
   [https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
-  * dry run  
-    --check  
-    ansible-playbook -i hosts site.yml `--check`
+  * -C(--check): dry run, 変更はしない
+  * -D(--diff): 変更差分を表示, --check と組み合わせ可
+  * --step: ステップ実行, プロンプトが表示される
+  * --start-at-task="開始するタスク名": 指定したタスクから開始
+  * -l "host or group"(--limit): 指定したホストまたはグループだけを実行
+  * -t <tag_name>(--tags): 指定したタグだけを実行
+  * --skip-tags <tag_name>: 指定したタグを除外して実行
 * 変数の内容を表示
   ```yaml
   - name: echo hoge
