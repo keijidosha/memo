@@ -58,7 +58,7 @@ RPM ファイルに含まれているファイルの一覧を表示する場合�
 `rpm2cpio <RPMファイル名> | cpio -id ./tmp/*`
 * GPG KEY の一覧を表示  
   ```
- `rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
+  rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
   ```  
   (出典) http://syaka-syaka.blogspot.com/2016/01/rpmgpg.html
 
