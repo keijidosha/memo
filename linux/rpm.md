@@ -43,19 +43,34 @@ RPM ファイルに含まれているファイルの一覧を表示する場合�
   rpm -q --provides xxx | cut -d ' ' -f 1 | xargs rpm -q --whatrequires | sort | uniq
   ```
 * 依存性を無視してインストール  
-`rpm -ivh --nodeps <RPMファイル名>`  
+  ```
+  rpm -ivh --nodeps <RPMファイル名>
+  ```
 * 強制上書きインストール(のテスト)  
-`rpm -Uvh --force --test <RPMファイル名>`
-* パッケージの検索  
-`rpm -V <パッケージ名>`
+  ```
+  rpm -Uvh --force --test <RPMファイル名>
+  ```
+* パッケージの検索
+  ```
+  rpm -V <パッケージ名>
+  ```
 * RPM に含まれるファイルを展開する  
-`rpm2cpio <RPMファイル名> | cpio -id`
+  ```
+  rpm2cpio <RPMファイル名> | cpio -id
+  ```
 * RPM に含まれるファイルの一覧を表示する  
-`rpm2cpio <RPMファイル名> | cpio -t`
+  ```
+  rpm2cpio <RPMファイル名> | cpio -t
+  ```  
+  ファイルの詳細を表示する場合は cpio -tv
 * RPM に含まれるファイル名を指定して取り出す  
-`rpm2cpio <RPMファイル名> | cpio -id ./tmp/hoge.txt`
+  ```
+  rpm2cpio <RPMファイル名> | cpio -id ./tmp/hoge.txt
+  ```
 * RPM に含まれるディレクトリ名を指定して取り出す  
-`rpm2cpio <RPMファイル名> | cpio -id ./tmp/*`
+  ```
+  rpm2cpio <RPMファイル名> | cpio -id ./tmp/*
+  ```
 * GPG KEY の一覧を表示  
   ```
   rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
