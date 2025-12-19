@@ -222,6 +222,8 @@ lxc config device show <コンテナ名>
 lxc config get <コンテナ名> volatile.eth0.hwaddr
 * コンテナの NIC に MACアドレスを設定  
 lxc config set <コンテナ名> volatile.eth0.hwaddr 00:11:22:33:44:55
+* コンテナの NIC から MACアドレスを削除  
+lxc config unset <コンテナ名> volatile.eth0.hwaddr
 * コンテナからネットワークデバイスを削除  
 lxc config device remove <コンテナ名> eth0 nic name=eth0
 * ネットワークデバイスの DHCPアドレスリース一覧を表示  
