@@ -134,11 +134,25 @@ https://images.linuxcontainers.org/
 ## ホストディレクトリをコンテナにマウント
 
 * **ホストのディレクトリをコンテナにマウント**  
-`lxc config device add <コンテナ名> <デバイス名> disk source=<ホスト側マウント元ディレクトリ> path=<コンテナディレクトリ>`  
-(例)  
-`lxc config device add linuxcontainer vagrant disk source=/vagrant/ path=/vagrant/`
-* マウント解除する場合  
-  `lxc config device remove <コンテナ名> <デバイス名>`  
+  ```
+  lxc config device add <コンテナ名> <デバイス名> disk source=<ホスト側マウント元ディレクトリ> path=<コンテナディレクトリ>`
+  ```  
+  (例)
+  ``` 
+  lxc config device add linuxcontainer vagrant disk source=/vagrant/ path=/vagrant/
+  ```
+* マウント解除する場合
+  ```
+  lxc config device remove <コンテナ名> <デバイス名>
+  ```
+* マウントの一覧を表示
+  ```
+  lxc config device list <コンテナ名>
+  ```
+* マウントの一覧を詳細表示
+  ```
+  lxc config device show <コンテナ名>
+  ```
 
 ## コンテナのコピー  
 lxc 3.x  
