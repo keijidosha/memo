@@ -342,6 +342,18 @@
   ```
   に置換される。
 
+* ファイルを検索(find)
+  ```
+  - name: find
+    find:
+      paths: "/tmp"
+  	  patterns: "hoge_\\d+.txt"
+    	file_type: file
+    	depth: 1
+  	  use_regex: true
+    register: result_find
+  ```
+
 ## dnf
 
 * RPMファイル群のパスをリスト化して dnf でインストール
