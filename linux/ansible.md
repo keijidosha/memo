@@ -350,10 +350,10 @@
   - name: find
     find:
       paths: "/tmp"
-  	  patterns: "hoge_\\d+.txt"
-    	file_type: file
-    	depth: 1
-  	  use_regex: true
+      patterns: "hoge_\\d+.txt"
+      file_type: file
+      depth: 1
+      use_regex: true
     register: result_find
   {% endraw %}
   ```
