@@ -207,6 +207,12 @@ currval of sequence "xxx" is not yet defined in this session というエラー�
   * 30分前  
     `SELECT CURRENT_TIMESTAMP - time '00:30'`
 
+## 定数
+
+* システム日付: CURRENT_DATE
+* システム時刻: CURRENT_TIME
+* システム日時: CURRENT_TIMESTAMP
+
 ## ログ
 
 * 発行した SQL をログ出力する  
