@@ -329,6 +329,7 @@
       backup: true
   {% endraw %}
   ```
+  ⬇︎
   ```
   hoge
 
@@ -355,6 +356,10 @@
       depth: 1
       use_regex: true
     register: result_find
+  - name: result
+    debug:
+      msg: "matched count={{ result_find.matched }}, 1st matched path={{ result_find.files[0].path }}"
+    when: result_find.matched > 0
   {% endraw %}
   ```
 
