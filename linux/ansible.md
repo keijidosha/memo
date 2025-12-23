@@ -612,6 +612,15 @@ vars_prompt はタスクと一緒に定義できない
   シェルの実行結果が 0 であっても、エラー出力が空でない場合はエラーにする。  
   => register に指定した変数の内容が画面に出力される。
 
+* ansible の実行を途中で止めて Enter キーを待つ  
+  pause を使う。
+  ```
+  - name: breakpoint
+    pause:
+      prompt: "Continue with Enter key"
+  ```
+
+
 ## inventory
 
 ### ansible-inventory コマンド
