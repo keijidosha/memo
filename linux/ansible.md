@@ -311,7 +311,8 @@
     ファイルの末尾に line を追加    
 
 * ファイルの内容を行単位で置換
-  ```
+  ```yaml
+  {% raw %}
   - name: add [source ~/.nxs_env] to .bashrc
     replace:
       path: "{{ NEXTGEN_HOME }}/.bashrc"
@@ -326,6 +327,7 @@
 
         fuga
       backup: true
+  {% endraw %}
   ```
   ```
   hoge
@@ -343,7 +345,8 @@
   に置換される。
 
 * ファイルを検索(find)
-  ```
+  ```yaml
+  {% raw %}
   - name: find
     find:
       paths: "/tmp"
@@ -352,6 +355,7 @@
     	depth: 1
   	  use_regex: true
     register: result_find
+  {% endraw %}
   ```
 
 ## dnf
