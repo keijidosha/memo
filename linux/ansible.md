@@ -299,7 +299,7 @@
       backup: true
   {% endraw %}
   ```  
-  `"\1{{ pgsql_max_connections }}\2"` のように、`\1` の直後に `{{` がくるとうまくいかないので  
+  "\1{{ pgsql_max_connections }}\2" のように、`\1` の直後に {{ がくるとうまくいかないので  
   `\1, \2` の代わりに `\g<1>, \g<2>` を使用
 
 * lineinfile で regexp, insertafter, line を指定した場合  
