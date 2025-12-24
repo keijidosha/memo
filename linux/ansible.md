@@ -355,6 +355,7 @@
       file_type: file
       depth: 1
       use_regex: true
+      recurse: true
     register: result_find
   - name: result
     debug:
