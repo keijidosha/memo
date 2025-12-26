@@ -29,6 +29,16 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
 `aws s3 sync <ディレクトリ> s3://<バケット>/<パス>/`
 * 削除  
 `aws s3 rm s3://<バケット>/<パス>/<ファイル>`
+* aws cli がインストールされていない環境から S3 上に置いたファイルをダウンロード
+  * まず aws cli がインストールされた環境で一時的な S3 の URL を生成
+    ```
+    aws s3 presign s3://my-bucket/path/file --expires-in 300
+    ```
+    300秒間有効な URL を生成
+  * 生成された URL を aws cli がインストールされていない環境から curl でダウンロード
+    ```
+    curl -o <filename> <生成された一時URL>
+    ```
 
 ### EC2
 * インスタンスのリストを取得
