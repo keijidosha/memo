@@ -50,11 +50,18 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
     --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":10,"VolumeType":"gp3","DeleteOnTermination":true}}]' \
     --private-ip-address 192.168.1.1 \
     --associate-public-ip-address \
-    --network-interfaces 'NetworkInterfaceId=eni-xxx,DeviceIndex=0' \
+    --network-interfaces '[{"DeviceIndex":0,"NetworkInterfaceId":"eni-xxx"}]' \
     --profile=otp-mfa-acc
   ```  
   "VolumeSize":10: ボリュームサイズ 10GB  
-  otp-mfa-acc: 後述の認証で取得した情報をセットしたプロファイル名。インスタスン作成に必要な権限を持つアカウントを使って実行する場合は不要。
+  otp-mfa-acc: 後述の認証で取得した情報をセットしたプロファイル名。インスタスン作成に必要な権限を持つアカウントを使って実行する場合は不要。  
+  `--network-interfaces` を指定する場合は、次の項目は指定できない模様。  
+  => これらの情報が ENI に関連づけられているから?  
+  * --security-group-ids
+  * --subnet-id
+  * --associate-public-ip-address
+  * もしかしたら `--private-ip-address`
+  
 
 ### AMI
 * AMI を作成
