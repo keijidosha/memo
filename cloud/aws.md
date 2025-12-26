@@ -46,10 +46,11 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=hoge},{Key=id,Value=123}]" \
     "ResourceType=volume,Tags=[{Key=Name,Value=hoge},{Key=id,Value=123}]" \
     --credit-specification CpuCredits=standard \
-    --associate-public-ip-address \
-    --private-ip-address 192.168.1.1 \
     --ebs-optimized \
-    --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":10,"DeleteOnTermination":true}}]' \
+    --block-device-mappings '[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":10,"VolumeType":"gp3","DeleteOnTermination":true}}]' \
+    --private-ip-address 192.168.1.1 \
+    --associate-public-ip-address \
+    --network-interfaces 'NetworkInterfaceId=eni-xxx,DeviceIndex=0' \
     --profile=otp-mfa-acc
   ```  
   "VolumeSize":10: ボリュームサイズ 10GB  
