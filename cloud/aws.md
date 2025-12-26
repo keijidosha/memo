@@ -60,7 +60,7 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   * --security-group-ids
   * --subnet-id
   * --associate-public-ip-address
-  * もしかしたら `--private-ip-address`
+  * --private-ip-address
   
 
 ### AMI
