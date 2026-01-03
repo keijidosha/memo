@@ -168,6 +168,26 @@ Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響して�
     [kernel_task の Mac CPU の使用率が高い場合](https://support.apple.com/ja-jp/102172)  
     [MacBook Pro の動作が激重。「kernel_task」が暴走した場合の対処法。](https://robokumac.com/2019/06/07/macbook-pro-52/)  
 
+### macOS のインストーラーをダウンロード
+
+* ダウンロード可能な OS のバージョンを確認
+  ```
+  softwareupdate --list-full-installers
+  ```
+* OS のバージョンを指定してインストーラーをダウンロード
+  ```
+  softwareupdate --fetch-full-installer xx.xx.x
+  ```
+  (例)
+  ```
+  softwareupdate --fetch-full-installer 14.8
+  ```
+  /Applications にダウンロードされる。
+* ダウンロードしたインストーラーから、USBメモリに起動可能なインストーラを作成
+  ```
+  sudo /Applications/Install\ Sonoma.app/Contents/Resources/createinstallmedia --volume /Volumes/<USBname>
+  ```
+
 
 ## 起動
 
@@ -177,7 +197,7 @@ Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響して�
 `C`
 * Apple Hardware Test または Apple Diagnostics で起動  
 `D`
-* OS X 復元システムから起動  
+* OS X 復元システムから起動(リカバリーモード)  
 `Command + R`
 * Mac が復元システムも起動できなくなった場合に、Internet Recovery を実行し、マシンに最適な復元システムをインストール。  
 `Command + Option + R`
@@ -187,8 +207,6 @@ Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響して�
 `Command + V`
 * Verboseモードでセーフブート  
 `Command + Shift + V`
-* リカバリーモード  
-`Command + R`
 * 外部ディスクから起動  
 `Option`
 * シングルユーザモード  
