@@ -179,6 +179,8 @@ Safari 設定の「機能拡張」で「Evernote Web Clipper」が影響して�
 `D`
 * OS X 復元システムから起動  
 `Command + R`
+* Mac が復元システムも起動できなくなった場合に、Internet Recovery を実行し、マシンに最適な復元システムをインストール。  
+`Command + Option + R`
 * NVRAM をリセット  
 `Command + Option + P + R`
 * Verboseモード  
