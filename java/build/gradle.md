@@ -239,4 +239,25 @@ gradle run
 ESET をインストールしている場合は、ファイアウォール設定を対話型に変更して、Java から外部への接続を適切に許可する。
 * Gradle のキャッシュがおかしくなった  
 `./gradlew clean build --refresh-dependencies`
-
+* Gradle could not start your build. でビルドが実行できない  
+  次のメッセージが表示される
+  ```
+    FAILURE: Build failed with an exception.
+  
+  * What went wrong:
+  Gradle could not start your build.
+  > Cannot create service of type BuildSessionActionExecutor using method LauncherServices$ToolingBuildSessionScopeServices.createActionExecutor() as there is a problem with parameter #21 of type BuildLifecycleAwareVirtualFileSystem.
+              > Could not create service of type FileAccessTimeJournal using GradleUserHomeScopeServices.createFileAccessTimeJournal().
+                 > Timeout waiting to lock journal cache (/Users/xxx/.gradle/caches/journal-1). It is currently in use by another Gradle instance.
+                   Owner PID: 7328
+                   Our PID: 7822
+                   Owner Operation: 
+                   Our operation: 
+                   Lock file: /Users/xxx/.gradle/caches/journal-1/journal-1.lock
+  ```
+  別の gradle プロセスが動いていて、ロックを獲得できない? 模様  
+  Owner PID に表示されているプロセスID(7328)を指定してプロセスを kill。  
+  ```
+  kill 7328
+  ```
+  
