@@ -224,6 +224,14 @@ gradle run
   ```
   ./gradlew dependencies --configuration runtimeClasspath
   ```
+* gradle プロジェクトで使用している gradle のバージョンを上げる
+  ```
+  ./gradlew wrapper --gradle-version "8.14.3"
+  ```
+  最新に上げる場合は
+  ```
+  ./gradlew wrapper --gradle-version "latest"
+  ```
 
 ## トラブル対応
 
