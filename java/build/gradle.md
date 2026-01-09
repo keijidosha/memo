@@ -232,6 +232,11 @@ gradle run
   ```
   ./gradlew wrapper --gradle-version "latest"
   ```
+* gradle プロセスを常駐かさせない(ロックファイルの衝突防止)  
+  `--no-daemon` を指定
+  ```
+  ./gradlew build --no-daemon
+  ```
 
 ## トラブル対応
 
