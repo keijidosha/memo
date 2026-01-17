@@ -268,3 +268,31 @@ Mac で SSH 接続を許可するため、[システム環境設定] - [共有] 
   ```
   ssh が bitbucket に IPv6 で接続する様子は次のコマンドで確認。  
   `netstat -an | grep "\.22 "`
+
+### Windows
+
+* Windows 環境に git リポジトリを移行すると、スクリプト系のファイルでパーミッションの原因で差分表示ありと判断されてしまう。  
+  (例)
+  ```
+  $ git status
+   modified:   gradlew
+
+  $ git diff gradlew
+  old mode 100755
+  new mode 100644
+  ```
+  Windows には実行権限という概念がないため?  
+  (対策)  
+  PC 環境全体で、パーミッションの違いを無視するように設定
+  ```
+  git config --global core.fileMode false
+  ```
+  それでも解決しない場合は、該当リポジトリで個別に core.fileMode が true になってないか確認。
+  ```
+  git config --show-origin --get core.fileMode
+  ```
+  true と表示された場合はそのリポジトリ単位でもパーミッションを無視するように設定。
+  ```
+  git config core.fileMode false
+  ```
+  
