@@ -70,25 +70,25 @@
 
 ### テキスト編集系
 
-|動作|キー操作|
-|---|-------|
-|行頭まで削除|command + backspace|
-|行末まで削除|control + K|
-|行結合|control + shift + J|
-|下に行挿入|shift + enter|
-|上に行挿入|command + option + enter|
-|カーソル位置の単語を選択、さらに同じ単語を順次複数選択|control + G|
-|複数行カーソル|option + shift + マウスクリック<br>または<br>option 2回 + ↑↓|
-|ブロック選択|行内で shift + ←/→ で範囲選択<br>command + shift F8<br>shiftキーを押したまま ↑/↓ で範囲選択|
-|カーソル位置と一致する単語をすべて選択|option + command + G|
-|行複製|command + D|
-|行削除|command + delete|
-|行を上下に移動(インデント補正なし)|option + shift + ↑↓|
-|行を上下に移動(インデント補正付き)|command + shift + ↑↓|
-|メソッドを上下に移動|command + shift + ↑↓|
-|カーソル位置の単語を選択|control + G|
-|カーソル位置の単語と同じ単語を複数選択|control + G を複数回操作|
-|大文字・小文字切り替え|command + shift + U|
+|動作|Windows|Mac|
+|---|-------|---|
+|行頭まで削除|command + backspace||
+|行末まで削除|control + K||
+|行結合|control + shift + J||
+|下に行挿入|shift + enter||
+|上に行挿入|command + option + enter||
+|カーソル位置の単語を選択、さらに同じ単語を順次複数選択|control + G|Ctrl + w で単語選択, Alt + J で順次複数選択|
+|複数行カーソル|option + shift + マウスクリック<br>または<br>option 2回 + ↑↓||
+|ブロック選択|行内で shift + ←/→ で範囲選択<br>command + shift F8<br>shiftキーを押したまま ↑/↓ で範囲選択||
+|カーソル位置と一致する単語をすべて選択|option + command + G||
+|行複製|command + D||
+|行削除|command + delete||
+|行を上下に移動(インデント補正なし)|option + shift + ↑↓||
+|行を上下に移動(インデント補正付き)|command + shift + ↑↓||
+|メソッドを上下に移動|command + shift + ↑↓||
+|カーソル位置の単語を選択|control + G||
+|カーソル位置の単語と同じ単語を複数選択|control + G を複数回操作||
+|大文字・小文字切り替え|command + shift + U||
 
 (参考) [https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance](https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance)
 
