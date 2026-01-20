@@ -7,18 +7,18 @@
 
 ### 移動系
 
-|動作|キー操作|
-|---|-------|
-|指定した行番号にジャンプ|command + L|
-|対括弧にジャンプ|control + M|
-|コードブロックの開始位置にジャンプ|command + option + [|
-|コードブロックの終了位置にジャンプ|command + option + ]|
-|クラスやメソッド、変数の定義にジャンプ|command + B|
-|インターフェースメソッドの実装箇所にジャンプ|command + option + B|
-|次のメソッド/前のメソッドに移動|control + ↓ / control + ↑(他とかぶらないキーに設定変更して)|
-|最後の編集位置に移動|command + shift + backspace|
-|次のエラー箇所に移動|F2|
-|前のエラー箇所に移動|shift + F2|
+|動作|Windows|Mac|
+|---|-------|---|
+|指定した行番号にジャンプ|command + L|Ctrl + G|
+|対括弧にジャンプ|control + M||
+|コードブロックの開始位置にジャンプ|command + option + [||
+|コードブロックの終了位置にジャンプ|command + option + ]||
+|クラスやメソッド、変数の定義にジャンプ|command + B|Ctrl + B|
+|インターフェースメソッドの実装箇所にジャンプ|command + option + B||
+|次のメソッド/前のメソッドに移動|control + ↓ / control + ↑(他とかぶらないキーに設定変更して)||
+|最後の編集位置に移動|command + shift + backspace||
+|次のエラー箇所に移動|F2|F2|
+|前のエラー箇所に移動|shift + F2|shift + F2|
 
 #### カーソル移動
 
@@ -58,15 +58,15 @@
 
 ### コード編集系
 
-|動作|キー操作|
-|---|-------|
-|行コメント|command + /|
-|ブロックコメント|command + option + /|
-|入力しながら一致するメソッドやフィールドをリスト|command + option + O|
-|importを最適化|control + option + O|
-|自動インデント|control + option + I|
-|if, while, when などを入力して {} を自動追加|command + shift + Enter|
-|コードのフォーマット|command + option + L|
+|動作|Windows|Mac|
+|---|-------|---|
+|行コメント|command + /|Ctrl + /|
+|ブロックコメント|command + option + /||
+|入力しながら一致するメソッドやフィールドをリスト|command + option + O||
+|importを最適化|control + option + O||
+|自動インデント|control + option + I||
+|if, while, when などを入力して {} を自動追加|command + shift + Enter||
+|コードのフォーマット|command + option + L||
 
 ### テキスト編集系
 
@@ -91,6 +91,13 @@
 |大文字・小文字切り替え|command + shift + U|
 
 (参考) [https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance](https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance)
+
+### クラス/変数型
+
+|動作|Mac|WIndows|
+|---|---|---|
+|クラスの JavaDoc を表示|control + J|Ctrl + Q|
+|クラスの実装を表示||Ctrl + Shift + I|
 
 ### 検索系
 
