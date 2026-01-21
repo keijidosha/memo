@@ -10,7 +10,7 @@
 |動作|Windows|Mac|
 |---|-------|---|
 |指定した行番号にジャンプ|command + L|Ctrl + G|
-|対括弧にジャンプ|control + M||
+|対括弧にジャンプ|control + M|Ctrl + Shift + M|
 |コードブロックの開始位置にジャンプ|command + option + [||
 |コードブロックの終了位置にジャンプ|command + option + ]||
 |クラスやメソッド、変数の定義にジャンプ|command + B|Ctrl + B|
