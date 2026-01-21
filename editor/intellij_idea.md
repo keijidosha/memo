@@ -19,6 +19,9 @@
 |最後の編集位置に移動|command + shift + backspace||
 |次のエラー箇所に移動|F2|F2|
 |前のエラー箇所に移動|shift + F2|shift + F2|
+|次の位置に進む|command + [|Ctrl + Alt + → |
+|前の位置に戻る|command + [|Ctrl + Alt + ← |
+
 
 #### カーソル移動
 
@@ -42,12 +45,12 @@
 
 ### 表示系
 
-|動作|キー操作|
-|---|-------|
-|変数の型を表示(マウス操作)|commandキーを押しながらマウスポインターを変数の場所に合わせる|
-|変数の詳細を表示|command + shift キーを押しながらマウスポインターを変数の場所に合わせる|
-|メソッドや変数の定義を簡易表示|control + J または F1|
-|メソッドや変数の内容をダイアログ表示|command + Y|
+|動作|Mac|Windows|
+|---|-------|--|
+|変数の型を表示(マウス操作)|commandキーを押しながらマウスポインターを変数の場所に合わせる||
+|変数の詳細を表示|command + shift キーを押しながらマウスポインターを変数の場所に合わせる||
+|メソッドや変数の定義を簡易表示|control + J または F1|Ctrl + Q|
+|メソッドや変数の内容をダイアログ表示|command + Y|Ctrl + Shift + I|
 |メソッドの呼び出し箇所でパラメーターを表示|command + P|
 |ビルド結果の表示を隠す|shift + escape|
 |クラス階層を表示|control + H|
@@ -91,13 +94,6 @@
 |大文字・小文字切り替え|command + shift + U||
 
 (参考) [https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance](https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance)
-
-### クラス/変数型
-
-|動作|Mac|WIndows|
-|---|---|---|
-|クラスの JavaDoc を表示|control + J|Ctrl + Q|
-|クラスの実装を表示||Ctrl + Shift + I|
 
 ### 検索系
 
