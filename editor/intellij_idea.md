@@ -15,7 +15,7 @@
 |コードブロックの終了位置にジャンプ|command + option + ]||
 |クラスやメソッド、変数の定義にジャンプ|command + B|Ctrl + B|
 |インターフェースメソッドの実装箇所にジャンプ|command + option + B||
-|次のメソッド/前のメソッドに移動|control + ↓ / control + ↑(他とかぶらないキーに設定変更して)||
+|次のメソッド/前のメソッドに移動|control + ↓ / control + ↑(他とかぶらないキーに設定変更して)|Alt + ↓/Alt + ↑|
 |最後の編集位置に移動|command + shift + backspace||
 |次のエラー箇所に移動|F2|F2|
 |前のエラー箇所に移動|shift + F2|shift + F2|
