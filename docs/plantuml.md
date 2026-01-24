@@ -37,6 +37,13 @@
   `ClassHoge<<--ClassFuga: ReturnValue`
 * パラメータや戻り値でジェネリック(List<String>)を表現  
   `ClassFuga-->ClassHoge: List&lt;String&gt;`
+* 使い分け
+  * alt/else: if-then-else
+  * opt: alt と似ているが else がない
+  * par: parallel 並列/並行処理
+  * group: 処理をグループ化
+  * break: ?
+  * critical: ?
 * 特定条件の処理(条件分岐)  
 opt を使う
   ```
