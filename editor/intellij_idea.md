@@ -88,7 +88,7 @@
 |ブロック選択|行内で shift + ←/→ で範囲選択<br>command + shift F8<br>shiftキーを押したまま ↑/↓ で範囲選択||
 |カーソル位置と一致する単語をすべて選択|option + command + G||
 |行複製|command + D||
-|行削除|command + delete||
+|行削除|command + delete|Ctrl + Y|
 |行を上下に移動(インデント補正なし)|option + shift + ↑↓||
 |行を上下に移動(インデント補正付き)|command + shift + ↑↓||
 |メソッドを上下に移動|command + shift + ↑↓||
