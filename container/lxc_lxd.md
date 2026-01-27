@@ -179,6 +179,13 @@ rename はスナップショット名の変更にも使用可能
 `lxc file push -r <コンテナ名>/remotedir /localdir/`
 
 ## コンテナを別の LXD にコピー(エクスポート・インポート)
+
+単純に 1対 1で別マシン(または別環境)に移行するだけの場合は次のように export/import で OK。
+```
+lxc export hoge hoge.tar.gz
+lxc import hoge.tar.gz
+```
+
 ### エクスポート元
 1. スナップショットを作成  
 `lxc snapshot hoge`
