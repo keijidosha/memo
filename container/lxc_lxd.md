@@ -135,7 +135,7 @@ https://images.linuxcontainers.org/
 
 * **ホストのディレクトリをコンテナにマウント**  
   ```
-  lxc config device add <コンテナ名> <デバイス名> disk source=<ホスト側マウント元ディレクトリ> path=<コンテナディレクトリ>`
+  lxc config device add <コンテナ名> <デバイス名> disk source=<ホスト側マウント元ディレクトリ> path=<コンテナディレクトリ>
   ```  
   (例)
   ``` 
