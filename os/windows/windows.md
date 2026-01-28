@@ -1,5 +1,25 @@
 # Windows
 
+## robocopy
+
+* サブディレクトリまで含めて存在しないか更新されたファイルだけをコピー  
+  まず /L を指定して dry run して、表示された結果の Files の行の Extras が 0 になっていることを確認できたら(コピー先で削除対象のファイルがないことを確認してから)、/L をはずして本コピー
+  ```
+  robocopy d:\hoge\fuga c:\hoge\fuga /E /XO /L
+  ```
+* サブディレクトリまで含めて存在しないか更新されたファイルだけをコピーし、コピー元にないファイルはコピー先からも削除
+  ```
+  robocopy d:\hoge\fuga c:\hoge\fuga /E /XO /MIR /L
+  ```
+* /COPY パラメーターに指定可能な値  
+  デフォルト値は DAT
+  * D: Data（ファイル内容）
+  * A: Attributes（読み取り専用などの属性）
+  * T: Timestamps（作成/更新/アクセス日時）
+  * S: Security（ACL：アクセス権）
+  * O: Owner（所有者）
+  * U: aUdit（監査情報）
+
 ## ファイル検索
 
 * *.txt を検索
