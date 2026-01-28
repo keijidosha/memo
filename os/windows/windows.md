@@ -40,3 +40,26 @@
   hoge.exe > hoge_%now%.log
   ```
 
+## トラブルシューティング
+
+* Power Shell 7 で vim を開いて矩形選択するのに Ctrl + V を押すと、クリップボードの内容がペーストされてしまう。  
+  Ctrl + V のキーバインドを無効にて、Ctrl + Shift + V にペーストを割り当てる。  
+  settings.json を編集する場合は次のようにする。  
+  ```
+  "keybindings": 
+  [
+      {
+          "id": "Terminal.CopyToClipboard",
+          "keys": "ctrl+c"
+      },
+      {
+          "id": "Terminal.PasteFromClipboard",
+          "keys": "ctrl+shift+v"
+      },
+      {
+          その他の設定 ...
+          ...
+      }
+  ],
+  ```
+
