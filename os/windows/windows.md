@@ -23,8 +23,8 @@
 * robocopy でフォルダ差分比較
   robocopy で dry run して確認。
   ```
-  robocopy 9.6 src dest /E /FP /NDL /L
-  robocopy 9.6 dest src /E /FP /NDL /L
+  robocopy src dest /E /FP /NDL /L
+  robocopy dest src /E /FP /NDL /L
   ```
   双方向で比較して Copied が 0 であればほぼ差分なし(サイズ、タイムスタンプが同じで中身が違う場合は検出されない)  
   または /MIR を付けて確認
