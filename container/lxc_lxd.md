@@ -856,6 +856,12 @@ docker run -it --rm -v /vagrant:/vagrant -v /cdrom:/cdrom --name lxcbuild oracle
   lxc launch oraclelinux9.6 ol96
   ```
 
+* 作成したコンテナを起動後に udev を無効化
+  ```
+  sudo systemctl mask systemd-udevd.service
+  sudo systemctl mask systemd-udevd.socket
+  sudo systemctl mask systemd-udevd-control.socket
+  ```
 
 
 ## トラブルシューティング
