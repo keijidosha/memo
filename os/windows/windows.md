@@ -69,6 +69,7 @@
 |:-:|---|
 | Win + A | クイック設定(ネットワーク/Bluetooth/音量など) |
 | Win + B | タスクトレイ |
+| Win+ Ctrl + Shift + B | GPU リセット |
 | Win + C | Copilot |
 | Win + D | デスクトップ |
 | Win + E | エクスプローラー |
