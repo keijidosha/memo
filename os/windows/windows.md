@@ -124,6 +124,10 @@
   set now=%time2:~0,2%%time2:~3,2%%time2:~6,2%
   hoge.exe > hoge_%now%.log
   ```
+* tail の代わり
+  ```
+  Get-Content -Path logfile.log -wait -tail 0 -Encoding UTF8
+  ```
 
 ## トラブルシューティング
 
