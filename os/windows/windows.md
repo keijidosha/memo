@@ -20,6 +20,11 @@
   * O: Owner（所有者）
   * U: aUdit（監査情報）
 
+* 大量の小さなファイルのコピーで動作が不安定になる場合は /MT:1(同時 1スレッドで実行)を試してみる。
+  ```
+  robocopy d:\hoge\fuga c:\hoge\fuga /E /XO /MT:1 /L
+  ```
+
 * robocopy でフォルダ差分比較
   robocopy で dry run して確認。
   ```
