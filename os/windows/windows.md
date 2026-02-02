@@ -65,6 +65,38 @@
   Get-ChildItem -Recurse | Where-Object LastWriteTime -gt (Get-Date).AddDays(-7)
   ```
 
+## ファイル内を検索(grep)
+
+* findstr を使う
+  ```
+  findstr /i search_text c:\xxx\xxx.txt
+  ```
+  * /i: 大文字・小文字を区別しない
+  * /n: 行番号表示
+  * /r: 正規表現
+  * /s: サブディレクトリも検索
+    ```
+    findstr /i /s search_text *.log
+    ```
+* Select-String を使う
+  ```
+  sls find_text xxx.log
+  ```
+  * 正規表現
+    ```
+    sls -Pattern "^hoge" -Path xxx.log
+    ```
+  * 大文字・小文字を区別
+    ```
+    sls -CaseSensitive "hoge" -Path xxx.log
+    ```
+  * サブディレクトリも検索
+    ```
+    sls "hoge" *.log -Recurse
+    ```
+    
+
+
 ## Windows キーショートカット
 
 | キー | 動作 |
