@@ -864,6 +864,20 @@ docker run -it --rm -v /vagrant:/vagrant -v /cdrom:/cdrom --name lxcbuild oracle
   ```
 
 
+## alias
+
+* すべてのコンテナを停止する
+  ```
+  alias lxcstopall='lxc stop $(lxc list -f csv -c ns | grep RUNN | sed -e s/,RUNNING// | xargs)'
+  ```
+* コンテナを削除する前に確認のプロンプトを表示
+  ```
+  alias lxcdel='lxc delete -i'
+  ```
+
+
+
+
 ## トラブルシューティング
 
 ### ストレージプール(ここでは default プール)の拡張
