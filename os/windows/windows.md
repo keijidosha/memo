@@ -148,8 +148,13 @@
 * WSL2 の制限事項
   * ブリッジネットワークが使えない。基本 NAT のみ。
   * ZFS, btrfs が使えない。
+   * ZFS は Hyper-V でも安定しない可能性ありとの情報あり。btrfs は Hyper-V では OK。
   * firewalld が使えない。
 
+## Hyper-V
+
+* Hyper-V では WSL2 のような /mnt/c や VirtualBox のような共有フォルダは使えない。
+  SMB を使う。
 
 ## その他
 
