@@ -1029,9 +1029,9 @@ Ubuntu 20.04 あたりから /etc/network/if-up.d/ 配下のスクリプトが�
 
 * udevd を無効化する。
   ```
-  sudo systemctl disable systemd-udevd.service
-  sudo systemctl disable systemd-udevd-control.socket
-  sudo systemctl disable systemd-udevd-kernel.socket
+  sudo systemctl mask systemd-udevd.service
+  sudo systemctl mask systemd-udevd-control.socket
+  sudo systemctl mask systemd-udevd-kernel.socket
   ```
   LXC コンテナ側で udevd が動いていると次の問題が起こりうる。
   * 起動時に /sys を監視し続ける
