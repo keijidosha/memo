@@ -934,6 +934,7 @@ info:
   total space: 15.59GiB
 ```
 
+
 #### [LXC 3.0]
 
 ```
@@ -1022,6 +1023,22 @@ sudo nft list ruleset
 Ubuntu 20.04 あたりから /etc/network/if-up.d/ 配下のスクリプトが実行されなくなっている模様。  
 代わりに /etc/networkd-dispatcher/routable.d/ 配下にスクリプトファイルを置く。  
 (参考) [Ubuntu Server 20.04 で VXLAN を構成する](https://zenn.dev/microsoft/articles/ubuntu-2004-vxlan?redirected=1)
+
+
+### コンテナ側の Linux で /var/log/messages に udevadm のログが大量に出力される  
+
+* udevd を無効化する。
+  ```
+  sudo systemctl disable systemd-udevd.service
+  sudo systemctl disable systemd-udevd-control.socket
+  sudo systemctl disable systemd-udevd-kernel.socket
+  ```
+  LXC コンテナ側で udevd が動いていると次の問題が起こりうる。
+  * 起動時に /sys を監視し続ける
+  * 存在しないデバイスを探して待つ
+  * systemd-udevd が CPU を食う
+  * 起動が遅い／止まったように見える
+
 
 ### LXC 5.0 で CentOS7 のコンテナを実行すると「The image used by this instance requires a CGroupV1 host system」や「Failed to get D-Bus connection」といったエラーが発生する  
 
