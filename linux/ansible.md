@@ -3,6 +3,26 @@
 - Table of Content  
 {:toc}
 
+## Sandbox
+
+* お試しでタスクを書いてみて動かしてみる。  
+  main.yml
+  ```
+  - name: テスト実行用Playbook
+    hosts: localhost
+    connection: local
+    gather_facts: false
+  
+    tasks:
+      - name: Hello World
+        debug:
+          msg: "Hello World!"
+  ```
+  実行
+  ```
+  ansible-playbook main.yml
+  ```
+
 ## playbook
 
 * コマンドライン・オプション  
