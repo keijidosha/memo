@@ -22,6 +22,10 @@
   ```
   ansible-playbook main.yml
   ```
+  または
+  ```
+  ansible-playbook -i localhost, main.yml
+  ```
 
 ## playbook
 
