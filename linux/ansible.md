@@ -370,8 +370,26 @@
   
   fuga
   ```
-  に置換される。
+  に置換される。  
+  さらに正規表現を使って置換する例
+  ```yaml
+  {% raw %}
+  - name: add [source ~/.nxs_env] to .bashrc
+    replace:
+      path: "{{ NEXTGEN_HOME }}/.bashrc"
+      regexp: |
+        ^(hoge)$
 
+        ^((?!ha).*)$
+      replace: |
+        \1
+
+        hai!
+
+        \2
+      backup: true
+  {% endraw %}
+  ```
 * ファイルを検索(find)
   ```yaml
   {% raw %}
