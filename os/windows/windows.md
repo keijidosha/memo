@@ -118,7 +118,11 @@
 * ディレクトリ作成
   ```
   New-Item -ItemType Directory -Force -Path c:\tmp
-  `
+  ```
+  カンマで複数指定可能
+  ```
+  New-Item -ItemType Directory -Force -Path c:\tmp,c:\Users\hoge\tmp
+  ```
 
 ## Windows キーショートカット
 
