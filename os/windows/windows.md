@@ -65,6 +65,11 @@
   ```
   Get-ChildItem -Recurse | Where-Object LastWriteTime -gt (Get-Date).AddDays(-7)
   ```
+* 見つかったファイルを削除(例: .DS_Store)
+  ```
+  Get-ChildItem -Recurse -Force -Filter ".DS_Store" | Remove-Item -Force
+  ```
+  カレントディレクトリ以下から削除
 
 ## ファイル内を検索(grep)
 
