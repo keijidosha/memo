@@ -96,7 +96,16 @@
     sls "hoge" *.log -Recurse
     ```
     
+## その他コマンド
 
+### ファイル系
+
+* tail -f
+  ```
+  Get-Content -Path hoge.log -Encoding UTF8 -wait -tail 10
+  ```
+  * -wait: ファイルを閉じずに開き続け、新しい行が追記されるのをリアルタイムで待ち受けます。
+  * -tail: ファイルの最初からではなく、最後の 10 行だけを読み取ります。巨大なログファイルを開く際に非常に高速です。
 
 ## Windows キーショートカット
 
