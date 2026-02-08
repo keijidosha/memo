@@ -65,11 +65,15 @@
   ```
   Get-ChildItem -Recurse | Where-Object LastWriteTime -gt (Get-Date).AddDays(-7)
   ```
-* 見つかったファイルを削除(例: .DS_Store)
+* 見つかったファイルを削除: find . -name .DS_Store -delete を PowerShell で(例: .DS_Store)
   ```
   Get-ChildItem -Recurse -Force -Filter ".DS_Store" | Remove-Item -Force
   ```
   カレントディレクトリ以下から削除
+  * 直接削除ではなく、ごみ箱に入れる(ワンライナー版)
+    ```
+    Add-Type -AssemblyName Microsoft.VisualBasic; Get-ChildItem -Recurse -Force -Filter ".DS_Store" | ForEach-Object { [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($_.FullName,'OnlyErrorDialogs','SendToRecycleBin') }
+    ```
 
 ## ファイル内を検索(grep)
 
