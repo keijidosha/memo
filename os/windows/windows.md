@@ -128,15 +128,16 @@
 
 * ハードリンク
   ```
-  mklink /H linkname src
+  New-Item -ItemType HardLink -Path link.txt -Target original.txt
   ```
 * シンボリックリンク
   ```
-  mklink linkname src
+  New-Item -ItemType SymbolicLink -Path link.txt -Target original.txt
+  New-Item -ItemType SymbolicLink -Path linkdir -Target originaldir
   ```
 * ジャンクション(ディレクトリのみ)
   ```
-  mklink /J linkdir targetdir
+  New-Item -ItemType Junction -Path linkdir -Target originaldir
   ```
 
 
