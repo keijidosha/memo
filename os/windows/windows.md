@@ -124,6 +124,22 @@
   New-Item -ItemType Directory -Force -Path c:\tmp,c:\Users\hoge\tmp
   ```
 
+#### リンク
+
+* ハードリンク
+  ```
+  mklink /H linkname src
+  ```
+* シンボリックリンク
+  ```
+  mklink linkname src
+  ```
+* ジャンクション(ディレクトリのみ)
+  ```
+  mklink /J linkdir targetdir
+  ```
+
+
 ## Windows キーショートカット
 
 | キー | 動作 |
