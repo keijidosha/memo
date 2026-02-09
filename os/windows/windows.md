@@ -199,6 +199,7 @@
 * Hyper-V では WSL2 のような /mnt/c や VirtualBox のような共有フォルダは使えない。
   SMB を使う。
 
+
 ## その他
 
 * batファイルで日付をファイル名にして出力する
@@ -241,4 +242,17 @@
       }
   ],
   ```
+  この設定によりクリップボードツールからペーストすると、クリップボードツールから疑似入力された Ctrl + V が効かなくなる。  
+  Ditto の場合はレジストリ設定により、Shift + Insert を送信することでそのままペーストできるようになる。
+  ```
+  Windows Registry Editor Version 5.00
 
+  [HKEY_CURRENT_USER\Software\Ditto\PasteStrings]
+  "gvim.exe"="\"{PLUS}gP"
+  "pwsh.exe"="+{INS}"
+  "ssh.exe"="+{INS}"
+  "OpenConsole.exe"="+{INS}"
+  "conhost.exe"="+{INS}"
+  "WindowsTerminal.exe"="+{INS}
+  ```
+  どのコマンドが実行されているかは、Windows Poershell を 1つだけ起動して(Powershell がいくつも開いていると、タスクマネージャーでどれかわからなくなるため)、タスクマネージャーでそれらしきプロセスを右クリックし、「ファイルの場所を開く」で確認。
