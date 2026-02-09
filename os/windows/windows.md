@@ -216,6 +216,8 @@
   ```
   Get-Content -Path logfile.log -wait -tail 0 -Encoding UTF8
   ```
+* 継続行  
+  Unix系では「\」(バックスラッシュだが、Windows(PowerShell)では「`」(バッククォート)
 
 ## トラブルシューティング
 
