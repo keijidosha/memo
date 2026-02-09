@@ -255,4 +255,5 @@
   "conhost.exe"="+{INS}"
   "WindowsTerminal.exe"="+{INS}
   ```
-  どのコマンドが実行されているかは、Windows Poershell を 1つだけ起動して(Powershell がいくつも開いていると、タスクマネージャーでどれかわからなくなるため)、タスクマネージャーでそれらしきプロセスを右クリックし、「ファイルの場所を開く」で確認。
+  どのコマンドが実行されているかは、Windows Poershell を 1つだけ起動して(Powershell がいくつも開いていると、タスクマネージャーでどれかわからなくなるため)、タスクマネージャーでそれらしきプロセスを右クリックし、「ファイルの場所を開く」で確認。  
+  (参考) https://github.com/sabrogden/Ditto/wiki/Custom-Key-Strokes
