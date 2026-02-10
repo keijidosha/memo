@@ -130,6 +130,8 @@
   ```
   New-Item -ItemType HardLink -Path link.txt -Target original.txt
   ```
+  * -Target: リンク元
+  * -Path: リンク先
 * シンボリックリンク
   ```
   New-Item -ItemType SymbolicLink -Path link.txt -Target original.txt
