@@ -615,6 +615,16 @@
   ```  
   ansible-playbook -t hoge とパラメーター指定した場合だけ実行される。  
   (参考) [[Ansible] 通常時は実行せず、タグが指定されたときのみタスクを実行する](https://tekunabe.hatenablog.jp/entry/2020/06/27/ansible_tags_never)
+* どのタグが指定されても、またはタグが指定されなくても実行されるタスク  
+  tags に always を指定。  
+  ```yaml
+  {% raw %}
+  - hosts: hoge_host
+    roles:
+      - hoge_role
+    tags: always
+  {% endraw %}
+  ```  
 * 変数を条件分岐で設定する
   ```yaml
   {% raw %}
@@ -939,4 +949,18 @@ vars_prompt はタスクと一緒に定義できない
 	},
   ```
 
+* 処理の最初に次の警告メッセージが表示される。
+  ```
+  [WARNING]: Ansible is being run in a world writable directory (/tmp/xxx), ignoring it as an ansible.cfg source. For more information see
+  https://docs.ansible.com/ansible/devel/reference_appendices/config.html#cfg-in-world-writable-dir
+  ```
+  表示されているディレクトリ(例: /tmp/xxx)にすべてのユーザーに対して書き込み権限がある(World Writable)場合に表示される。  
+  ホストのディレクトリを共有しているなどで書き込み権限が付いてきてしまう場合は、次のように環境変数をセットする。
+  ```
+  export ANSIBLE_CONFIG=./ansible.cfg
+  ```
+  または
+  ```
+  export ANSIBLE_CONFIG=/tmp/xxx/ansible.cfg
+  ```
 
