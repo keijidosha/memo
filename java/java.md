@@ -32,3 +32,11 @@ Java7 では 64MB, Java8 では 256MB がデフォルト?
   ```
   192.168.1.1 hoge
   ```
+
+### Windows
+
+* Windows 環境でビルドすると、ソースコードが MS932 として認識されビルドエラーになる。  
+  環境変数で UTF-8 を設定。
+  ```
+  $env:JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
+  ```
