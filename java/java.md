@@ -40,3 +40,10 @@ Java7 では 64MB, Java8 では 256MB がデフォルト?
   ```
   $env:JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
   ```
+* JAVA_HOME 設定例
+  ```
+  $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-8.0.472.8-hotspot"
+  ```
+  ```
+  $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-21.0.9.10-hotspot\"
+  ```
