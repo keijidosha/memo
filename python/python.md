@@ -293,6 +293,15 @@ date = datetime.datetime.strptime('20240132', '%Y%m%d')
 ```
 => 「remains: 2」は、最後の 2が変換できなかった、という意味。
 
+### 日時計算
+
+* 現在時刻に 30秒加算
+  ```python
+  from datetime import datetime, timedelta
+  
+  past_30secs = datetime.now() + timedelta(seconds=30)
+  ```
+
 ## 計算
 
 * 割り算の整数部分だけを取得  
