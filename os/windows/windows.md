@@ -211,6 +211,18 @@
 * Hyper-V では WSL2 のような /mnt/c や VirtualBox のような共有フォルダは使えない。
   SMB を使う。
 
+## DNS
+
+nslookup の代わりに Resolve-DnsName を使用  
+(例) DNS サーバー 192.168.1.1 を使って www.example.com の IP を確認  
+* nslookup
+  ```
+  nslookup www.example.com 192.168.1.1
+  ```
+* Resolve-DnsName
+  ```
+  Resolve-DnsName www.example.com -Server 192.168.1.1 -Type A
+  ```
 
 ## その他
 
