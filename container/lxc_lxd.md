@@ -441,6 +441,11 @@ lxc network list-leases lxdbr0
   ```
   sudo chmod 755 /etc/rc.d/rc.local
 
+* 各コンテナに割り当てられた MAC アドレスを一覧表示
+  ```
+  lxc list -f csv -c n | while read cn; do echo -n "$cn: "; lxc config show $cn | grep hwaddr; done
+  ```
+
 ## CentOS 7.5 のイメージを作成
 
 今回は root で実行
