@@ -160,6 +160,11 @@
     ```
     sls "hoge" *.log -Recurse
     ```
+
+## Google スプレッドシート
+
+* 行挿入: Ctrl + Alt + Shift + ;
+* 行削除: Ctrl + Alt + -
     
 ## その他コマンド
 
