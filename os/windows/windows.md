@@ -1,5 +1,51 @@
 # Windows
 
+
+## Windows キーショートカット
+
+| キー | 動作 |
+|:-:|---|
+| Win + A | クイック設定(ネットワーク/Bluetooth/音量など) |
+| Win + B | タスクトレイ |
+| Win+ Ctrl + Shift + B | GPU リセット |
+| Win + C | Copilot |
+| Win + D | デスクトップ |
+| Win + E | エクスプローラー |
+| Win + F | フィードバックHUB |
+| Win + G | キャプチャ/音声/パフォーマンス |
+| Win + H | 音声認識サービス |
+| Win + I | 設定 |
+| Win + J | リコール(プレビュー) |
+| Win + K | キャスト |
+| Win + L | ロック |
+| Win + M | 最小化 |
+| Win + Shift + M | 最小化したウィンドウの最大化 |
+| Win + N | 通知 |
+| Win + O | なし |
+| Win + P | 画面(マルチディスプレイ?) |
+| Win + Q | Click Todo ? |
+| Win + R | ファイル名を指定して実行 |
+| Win + S | 最近実行したもの ? |
+| Win + T | タスクバー |
+| Win + U | アクセシビリティ設定 |
+| Win + V | クリップボード |
+| Win + W | ニュース ? |
+| Win + X | 管理メニュー ? |
+| Win + Y | なし |
+| Win + Z | なし |
+| Win + 1～9 | タスクトレイのアプリを前面に表示 |
+| Win + ;(+) | 拡大鏡 |
+| Win + : | 絵文字 |
+| Win + , | デスクフトップを一時的に表示 |
+| Win + . | 絵文字 |
+| Win + F1 | Windows ヘルプ ? |
+| Win + Ctrl + D  | 新しい仮想デスクトップ |
+| Win + Ctrl + F4 | 現在の仮想デスクトップを閉じる |
+| Win + Home | 他のウィンドウを最小化 |
+| Win + PrintScreen | デスクトップのスクリーンショット |
+| Win + Pause | システム設定 |
+
+
 ## robocopy
 
 * パラメーター
@@ -151,51 +197,6 @@
   ```
   New-Item -ItemType Junction -Path linkdir -Target originaldir
   ```
-
-
-## Windows キーショートカット
-
-| キー | 動作 |
-|:-:|---|
-| Win + A | クイック設定(ネットワーク/Bluetooth/音量など) |
-| Win + B | タスクトレイ |
-| Win+ Ctrl + Shift + B | GPU リセット |
-| Win + C | Copilot |
-| Win + D | デスクトップ |
-| Win + E | エクスプローラー |
-| Win + F | フィードバックHUB |
-| Win + G | キャプチャ/音声/パフォーマンス |
-| Win + H | 音声認識サービス |
-| Win + I | 設定 |
-| Win + J | リコール(プレビュー) |
-| Win + K | キャスト |
-| Win + L | ロック |
-| Win + M | 最小化 |
-| Win + Shift + M | 最小化したウィンドウの最大化 |
-| Win + N | 通知 |
-| Win + O | なし |
-| Win + P | 画面(マルチディスプレイ?) |
-| Win + Q | Click Todo ? |
-| Win + R | ファイル名を指定して実行 |
-| Win + S | 最近実行したもの ? |
-| Win + T | タスクバー |
-| Win + U | アクセシビリティ設定 |
-| Win + V | クリップボード |
-| Win + W | ニュース ? |
-| Win + X | 管理メニュー ? |
-| Win + Y | なし |
-| Win + Z | なし |
-| Win + 1～9 | タスクトレイのアプリを前面に表示 |
-| Win + ;(+) | 拡大鏡 |
-| Win + : | 絵文字 |
-| Win + , | デスクフトップを一時的に表示 |
-| Win + . | 絵文字 |
-| Win + F1 | Windows ヘルプ ? |
-| Win + Ctrl + D  | 新しい仮想デスクトップ |
-| Win + Ctrl + F4 | 現在の仮想デスクトップを閉じる |
-| Win + Home | 他のウィンドウを最小化 |
-| Win + PrintScreen | デスクトップのスクリーンショット |
-| Win + Pause | システム設定 |
 
 
 ## WSL2
