@@ -94,7 +94,7 @@
 |メソッドを上下に移動|command + shift + ↑↓||
 |カーソル位置の単語を選択|control + G|Ctrl + W|
 |カーソル位置の単語と同じ単語を複数選択|control + G を複数回操作|Alt + J|
-|大文字・小文字切り替え|command + shift + U||
+|大文字・小文字切り替え|command + shift + U|Ctrl + Shift + U|
 
 (参考) [https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance](https://pleiades.io/help/idea/reference-keymap-mac-default.html#coding_assistance)
 
