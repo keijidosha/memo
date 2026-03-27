@@ -19,8 +19,8 @@
 |最後の編集位置に移動|command + shift + backspace||
 |次のエラー箇所に移動|F2|F2|
 |前のエラー箇所に移動|shift + F2|shift + F2|
-|次の位置に進む|command + [|Ctrl + Alt + → |
-|前の位置に戻る|command + [|Ctrl + Alt + ← |
+|次の位置に進む|command + [|Ctrl + Alt + → <br>Alt + → に変更|
+|前の位置に戻る|command + [|Ctrl + Alt + ← <br>ALt + ← に変更|
 
 
 #### カーソル移動
