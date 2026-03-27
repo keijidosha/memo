@@ -106,3 +106,15 @@ https://visualvm.github.io/download.html
 
 (参考) [Java8のHotSpotVMからPermanent領域が消えた理由とその影響](http://equj65.net/tech/java8hotspot/)
 
+
+## GC
+
+* Paralle GC に使われるスレッド数を確認
+  ```
+  java -XX:+PrintFlagsFinal -version | grep -E "ParallelGCThreads|ConcGCThreads"
+  ```
+* プロセスで有効になっている Parall GC スレッド数を確認
+  ```
+  jinfo -flag ParallelGCThreads <PID>
+  ```
+
