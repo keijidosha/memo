@@ -84,7 +84,7 @@
 |下に行挿入|shift + enter||
 |上に行挿入|command + option + enter||
 |カーソル位置の単語を選択、さらに同じ単語を順次複数選択|control + G|Ctrl + w で単語選択, Alt + J で順次複数選択|
-|複数行カーソル|option + shift + マウスクリック<br>または<br>option 2回 + ↑↓||
+|複数行カーソル|option + shift + マウスクリック<br>または<br>option 2回 + ↑↓|Alt + Shift + マウスクリック<br>または<br>Ctrl 2回 + ↑↓|
 |ブロック選択|行内で shift + ←/→ で範囲選択<br>command + shift F8<br>shiftキーを押したまま ↑/↓ で範囲選択||
 |カーソル位置と一致する単語をすべて選択|option + command + G||
 |行複製|command + D||
