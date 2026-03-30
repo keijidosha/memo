@@ -80,7 +80,7 @@
 |---|-------|---|
 |行頭まで削除|command + backspace||
 |行末まで削除|control + K||
-|行結合|control + shift + J||
+|行結合|control + shift + J|Ctrl + Shift + J|
 |下に行挿入|shift + enter||
 |上に行挿入|command + option + enter||
 |カーソル位置の単語を選択、さらに同じ単語を順次複数選択|control + G|Ctrl + w で単語選択, Alt + J で順次複数選択|
