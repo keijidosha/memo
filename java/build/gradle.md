@@ -13,6 +13,13 @@
     }
   }
   ```
+* Java の警告出力を有効化
+  ```
+  tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation"
+  }
+  ```
+
 ### Fat JAR 作成  
 Gradle 7.2 で確認  
 * createjfatJar タスクを追加して Fat JAR をビルド  
