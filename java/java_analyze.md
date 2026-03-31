@@ -117,4 +117,19 @@ https://visualvm.github.io/download.html
   ```
   jinfo -flag ParallelGCThreads <PID>
   ```
-
+* Compressed OOPs が、ヒープサイズ何 GB までなら有効になっているかの確認  
+  GB 単位指定の場合は 31GB まで
+  ```
+  java -Xmx31g -XX:+PrintFlagsFinal -version | grep UseCompressedOops
+  ```
+  MB 単位指定の場合は 32256MB まで
+  ```
+  java -Xmx32256m -XX:+PrintFlagsFinal -version | grep UseCompressedOops
+  ```
+  結果
+  ```
+       bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+  openjdk version "21.0.9" 2025-10-21 LTS
+  OpenJDK Runtime Environment Temurin-21.0.9+10 (build 21.0.9+10-LTS)
+  OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sharing)
+  ```
