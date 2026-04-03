@@ -33,3 +33,9 @@ p: 属性を維持する(スーパーユーザーのデフォルト)
 `tar ztf /tmp/new.tar.gz | sed 's/^\(..*\)$/\/\1/' | sed -e '/\/$/d' | tar -zcv -T - -f /tmp/old.tar.gz`  
 tf で表示されたパスの先頭に / を追加する  
 tf で表示されたパスの最後が / で終わっている(つまりディレクトリ)場合は、最後の / を削除  
+
+* tar 内で圧縮されたファイルのオーナー・グループを設定する  
+  owner, group は名称、ID ともに OS に存在しなくても OK
+  ```
+  tar zcvf hoge.tar.gz --owner=hoge:1000 --group=hoge:1000 hoge/
+  ```
