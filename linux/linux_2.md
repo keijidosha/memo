@@ -10,7 +10,11 @@
 1. git clone https://github.com/wolfcw/libfaketime.git
 1. cd libfaketime/src
 1. make install
-1. echo -e '/usr/local/lib/faketime/libfaketime.so.1' > /etc/ld.so.preload
+1. echo -e '/usr/local/lib/faketime/libfaketime.so.1' > /etc/ld.so.preload  
+   ※RHEL9 系では、上記のファイルを作ると起動しなくなる場合があるので、サービスファイルの [Service] セクションに次の行を追記
+   ```
+   Environment="LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so.1"
+   ```
 1. export DONT_FAKE_MONOTONIC=1
 1. export FAKETIME_CACHE_DURATION=1
 1. export DONT_FAKE_MONOTONIC=1  
