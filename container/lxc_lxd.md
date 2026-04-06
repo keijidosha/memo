@@ -1123,6 +1123,15 @@ vagrant plugin install vagrant-vbguest
 (参考) stackoverflow: [vagrant up: Got different reports about installed GuestAdditions version](https://stackoverflow.com/questions/43733108/vagrant-up-got-different-reports-about-installed-guestadditions-version)
 
 
+### コンテナが起動しなくなった場合に、直接コンテナ内のファイルを編集して問題のあるファイルを取り除く、または編集する
+
+次のディレクトリにコンテナ内のファイルがあるので、ホスト側で操作。
+
+```
+/var/snap/lxd/common/lxd/storage-pools/default/containers/<コンテナ名>
+```
+
+
 ## よく使うパターン
 
 ```
