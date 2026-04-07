@@ -265,6 +265,10 @@ lxc network list-leases lxdbr0
     ```
     PEERDNS=no
     ```
+* コンテナに NIC を 2枚割り当てたいので lxdbr1 を作成
+  ```
+  lxc network create lxdbr1
+  ```
 
 ## Tips
 
