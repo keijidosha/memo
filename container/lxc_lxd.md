@@ -1128,7 +1128,7 @@ vagrant plugin install vagrant-vbguest
 次のディレクトリにコンテナ内のファイルがあるので、ホスト側で操作。
 
 ```
-/var/snap/lxd/common/lxd/storage-pools/default/containers/<コンテナ名>
+/var/snap/lxd/common/lxd/storage-pools/default/containers/<コンテナ名>/rootfs/
 ```
 
 
