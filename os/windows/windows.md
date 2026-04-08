@@ -105,7 +105,7 @@
     ```
   * サブディレクトリも検索
     ```
-    sls "hoge" *.log -Recurse
+    Get-ChildItem -Recurse -Filter "*.txt" | Select-String "hoge"
     ```
 
 
