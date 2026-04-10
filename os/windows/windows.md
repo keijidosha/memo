@@ -108,6 +108,12 @@
     Get-ChildItem -Recurse -Filter "*.txt" | Select-String "hoge"
     ```
 
+## コマンド検索(which)
+
+* Get-Command
+  ```
+  Get-Command hoge
+  ```
 
 ## robocopy
 
@@ -161,11 +167,6 @@
   ```
   robocopy 9.6 src dest /E /FP /NDL /MIR /L
   ```
-
-## Google スプレッドシート
-
-* 行挿入: Ctrl + Alt + Shift + ;
-* 行削除: Ctrl + Alt + -
     
 ## その他コマンド
 
@@ -301,3 +302,9 @@ nslookup の代わりに Resolve-DnsName を使用
   -s: System 属性をはずす  
   -h: Hidden 属性をはずす  
   (バックアップ対象からも desktop.ini をはずしておく)
+
+
+## Google スプレッドシート
+
+* 行挿入: Ctrl + Alt + Shift + ;
+* 行削除: Ctrl + Alt + -
