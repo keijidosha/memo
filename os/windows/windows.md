@@ -146,16 +146,14 @@
   New-Item -ItemType Junction -Path linkdir -Target originaldir
   ```
 
-#### コマンド検索(which)
-
-* Get-Command
-  ```
-  Get-Command <command>
-  ```
 
 #### その他
 
 
+* コマンド検索(which)
+  ```
+  Get-Command <command>
+  ```
 * 定期的にコマンド実行して監視(watch)
   ```
   while ($true) { date; <command>; Start-Sleep 300 }
