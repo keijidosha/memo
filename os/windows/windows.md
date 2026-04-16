@@ -160,6 +160,14 @@
   ```
   while ($true) { date; <command>; Start-Sleep 300 }
   ```
+* 実行時間を計測(time)
+  ```
+  Measure-Command { <command> | Out-Host }
+  ```
+  実行結果をファイルに保存したい場合は
+  ```
+  Measure-Command { <command> | Tee-Object output.txt }
+  ```
 
 
 ## robocopy
