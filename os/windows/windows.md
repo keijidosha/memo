@@ -108,12 +108,59 @@
     Get-ChildItem -Recurse -Filter "*.txt" | Select-String "hoge"
     ```
 
-## コマンド検索(which)
+    
+## その他コマンド
+
+### ファイル系
+
+* tail -f
+  ```
+  Get-Content -Path hoge.log -Encoding UTF8 -wait -tail 10
+  ```
+  * -wait: ファイルを閉じずに開き続け、新しい行が追記されるのをリアルタイムで待ち受けます。
+  * -tail: ファイルの最初からではなく、最後の 10 行だけを読み取ります。巨大なログファイルを開く際に非常に高速です。
+* ディレクトリ作成
+  ```
+  New-Item -ItemType Directory -Force -Path c:\tmp
+  ```
+  カンマで複数指定可能
+  ```
+  New-Item -ItemType Directory -Force -Path c:\tmp,c:\Users\hoge\tmp
+  ```
+
+#### リンク
+
+* ハードリンク
+  ```
+  New-Item -ItemType HardLink -Path link.txt -Target original.txt
+  ```
+  * -Target: リンク元
+  * -Path: リンク先
+* シンボリックリンク
+  ```
+  New-Item -ItemType SymbolicLink -Path link.txt -Target original.txt
+  New-Item -ItemType SymbolicLink -Path linkdir -Target originaldir
+  ```
+* ジャンクション(ディレクトリのみ)
+  ```
+  New-Item -ItemType Junction -Path linkdir -Target originaldir
+  ```
+
+#### コマンド検索(which)
 
 * Get-Command
   ```
   Get-Command hoge
   ```
+
+#### その他
+
+
+* 定期コマンド実行して監視(watch)
+  ```
+  while ($true) { date; <command>; Start-Sleep 300 }
+  ```
+
 
 ## robocopy
 
@@ -167,44 +214,6 @@
   ```
   robocopy 9.6 src dest /E /FP /NDL /MIR /L
   ```
-    
-## その他コマンド
-
-### ファイル系
-
-* tail -f
-  ```
-  Get-Content -Path hoge.log -Encoding UTF8 -wait -tail 10
-  ```
-  * -wait: ファイルを閉じずに開き続け、新しい行が追記されるのをリアルタイムで待ち受けます。
-  * -tail: ファイルの最初からではなく、最後の 10 行だけを読み取ります。巨大なログファイルを開く際に非常に高速です。
-* ディレクトリ作成
-  ```
-  New-Item -ItemType Directory -Force -Path c:\tmp
-  ```
-  カンマで複数指定可能
-  ```
-  New-Item -ItemType Directory -Force -Path c:\tmp,c:\Users\hoge\tmp
-  ```
-
-#### リンク
-
-* ハードリンク
-  ```
-  New-Item -ItemType HardLink -Path link.txt -Target original.txt
-  ```
-  * -Target: リンク元
-  * -Path: リンク先
-* シンボリックリンク
-  ```
-  New-Item -ItemType SymbolicLink -Path link.txt -Target original.txt
-  New-Item -ItemType SymbolicLink -Path linkdir -Target originaldir
-  ```
-* ジャンクション(ディレクトリのみ)
-  ```
-  New-Item -ItemType Junction -Path linkdir -Target originaldir
-  ```
-
 
 ## WSL2
 
