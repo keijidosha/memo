@@ -150,13 +150,13 @@
 
 * Get-Command
   ```
-  Get-Command hoge
+  Get-Command <command>
   ```
 
 #### その他
 
 
-* 定期コマンド実行して監視(watch)
+* 定期的にコマンド実行して監視(watch)
   ```
   while ($true) { date; <command>; Start-Sleep 300 }
   ```
