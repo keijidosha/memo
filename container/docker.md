@@ -19,6 +19,11 @@ docker images -a \\*:latest
 docker images -q
 * イメージの中身を確認する  
 docker images [option] <イメージ名>[:タグ名]
+* 使用中のイメージの一覧
+  ```
+  docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}"
+  ```
+  `docker iamges` を実行して、ここに出てこなかったイメージは使われていない。
 * イメージを削除する  
 docker rmi <イメージ名|イメージID>  
 * コンテナから参照されていないメイージをすべて削除  
