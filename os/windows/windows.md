@@ -131,6 +131,17 @@
   ```
   New-Item -ItemType Directory -Force -Path c:\tmp,c:\Users\hoge\tmp
   ```
+* ディレクトリ配下を削除
+  ```
+  Remove-Item -Path <directory> -Recurse -Force
+  ```
+  * ディレクトリが存在する場合だけ削除
+    ```
+    if (Test-Path <directory> -PathType Container) {
+        Remove-Item -Path <directory> -Recurse -Force
+    }
+    ```
+
 
 #### リンク
 
