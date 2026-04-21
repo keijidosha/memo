@@ -119,6 +119,10 @@
   ```
   * -wait: ファイルを閉じずに開き続け、新しい行が追記されるのをリアルタイムで待ち受けます。
   * -tail: ファイルの最初からではなく、最後の 10 行だけを読み取ります。巨大なログファイルを開く際に非常に高速です。
+  * 標準入力から受け取った結果の最後 10行を表示する場合
+    ```
+    Get-Content -Path hoge.log -Encoding UTF8 | Select-Object -Last 10
+    ```
 * ディレクトリ作成
   ```
   New-Item -ItemType Directory -Force -Path c:\tmp
