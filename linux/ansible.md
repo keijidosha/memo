@@ -759,6 +759,18 @@ vars_prompt はタスクと一緒に定義できない
        include_vars: "{{ ansible_distribution }}.yml"
      {% endraw %}
      ```
+* 定義している変数の一覧を表示  
+  playbook の最後に次の内容を追記して
+  ```
+  - name: 最終的な変数の状態をダンプ
+    debug:
+      var: hostvars[inventory_hostname]
+  ```
+  dry run などして実行
+  ```
+  ansible-playbook -i hosts.yml site.yml --diff --check
+  ```
+  
 * Ansible Facts 変数の確認
   ```
   ansible <ホスト名> -m setup
