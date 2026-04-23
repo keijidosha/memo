@@ -107,6 +107,10 @@
     ```
     Get-ChildItem -Recurse -Filter "*.txt" | Select-String "hoge"
     ```
+  * grep -v 相当のアンマッチは -NotMatch パラメーターを指定
+    ```
+    sls unmatch_text xxx.log -NotMatch
+    ```
 
     
 ## その他コマンド
