@@ -151,8 +151,9 @@
   ```
   または
   ```
-  gc a,b,c,d | sc e
+  gc a,b,c,d | Set-Content e
   ```
+  (sc は sc.exe(サービスコントローラー)を拾ってしまうので、Get-Alias sc で Set-Content の別名がセットされていなければ Set-Content を使用)
   * バイナリ形式の場合 -AsByteStream を指定
     ```
     Get-Content a,b,c,d -AsByteStream | Set-Content e -AsByteStream
