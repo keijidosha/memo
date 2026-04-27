@@ -145,7 +145,18 @@
         Remove-Item -Path <directory> -Recurse -Force
     }
     ```
-
+* ファイル結合(cat a b c > d)
+  ```
+  Get-Content a,b,c,d | Set-Content e
+  ```
+  または
+  ```
+  gc a,b,c,d | sc e
+  ```
+  * バイナリ形式の場合 -AsByteStream を指定
+    ```
+    Get-Content a,b,c,d -AsByteStream | Set-Content e -AsByteStream
+    ```
 
 #### リンク
 
