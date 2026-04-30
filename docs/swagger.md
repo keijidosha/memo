@@ -5,7 +5,7 @@
 
 ### swagger editor を Docker で起動  
   ```
-  docker run --name swagger -d -it --rm -p 8080:8080 swaggerapi/swagger-editor
+  docker run --name swagger -d -it --rm -p 8080:80 swaggerapi/swagger-editor
   ```
 ### Docker で swagger の yaml ファイルを HTML に変換。  
   1. Docker 定義用ディレクトリ作成  
