@@ -266,6 +266,13 @@
   SMB を使う。
 * 仮想マシンコンソールからキーボードキャプチャを解除  
   Ctrl + Alt + ←(左矢印)
+* スリープすると、Hyper-V のゲスト OS の時刻がずれる  
+  /etc/chrony.conf に次の設定を追加
+  ```
+  makestep 1 -1
+  refclock PHC /dev/ptp0 poll 3 trust
+  ```
+  sudo systemctl restart chronyd
 
 ## DNS
 
