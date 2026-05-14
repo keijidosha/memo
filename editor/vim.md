@@ -478,8 +478,13 @@ colorscheme <スキーマファイル名>
 ## Windows用 Kaoriya版 vim
 
 * 画面のテーマ  
-`colorscheme koehler`  
-ホームディレクトリの _gvimrc に記述
+  `colorscheme koehler`  
+  ホームディレクトリの _gvimrc に記述
+* Ctrl + Insert で選択範囲をクリップボードにコピーするための設定  
+  .gvimrc に次の行を追記
+  ```
+  vnoremap <C-Insert> "+y
+  ```
 
 ## トラブルシューティング
 
