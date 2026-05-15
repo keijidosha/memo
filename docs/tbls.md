@@ -1,5 +1,16 @@
 # tbls
 
+# インストール
+
+* Windows
+  ```
+  go install github.com/k1LoW/tbls@latest
+  ```
+* Mac
+  ```
+  brew install tbls
+  ```
+
 ## 準備
 
 .tbls.yml を作成  
