@@ -5,11 +5,17 @@
 
 ## サブスクリプション管理
 * サブスクリプションの一覧を表示  
-  `subscription-manager list`
+  ```
+  subscription-manager list
+  ```
 * サブスクリプション管理にログイン  
-  `subscription-manager register --username='hoge' --password='fuga'`
+  ```
+  subscription-manager register --username='hoge' --password='fuga'
+  ```
 * サブスクリプション管理からログアウト  
-  `subscription-manager unregister`
+  ```
+  subscription-manager unregister
+  ```
 * サブスクリプトション管理からログアウト(unregister)せずに OS を削除してしまった場合
   1. [Red Hat Subscription Management](https://access.redhat.com/management) にログイン。  
      または直接 [System Inventory](https://console.redhat.com/insights/inventory?page=1&per_page=50#SIDs=&tags=) にログイン。
@@ -19,15 +25,23 @@
 
 2024.10.01 現在、SCAにより、サブスクリプションをアタッチしなくても register 時に自動的にサブスクリプション(yumリポジトリ)へのアクセスが可能になるため、以下の attach/remove は不要になり、register/unregister だけでよくなった模様。
 * 利用可能なサブスクリプションの一覧を表示  
-`subscription-manager list --available`  
+  ```
+  subscription-manager list --available
+  ```
 サブスクリプションの一覧は次の URL からでも可能。  
 https://access.redhat.com/management/subscriptions
 * 利用可能なサブスクリプションのプール ID だけを表示  
-`subscription-manager list --available --pool-only`
+  ```
+  subscription-manager list --available --pool-only
+  ```
 * サブスクリプションを登録  
-`subscription-manager attach --pool <poolid>`
+  ```
+  subscription-manager attach --pool <poolid>
+  ```
 * サブスクリプションを解除  
-`subscription-manager remove --all`
+  ```
+  subscription-manager remove --all
+  ```
 
 ### サブスクリプションが切れてしまった場合
 
