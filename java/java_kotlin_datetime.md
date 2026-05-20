@@ -1,3 +1,6 @@
+- Table of Content  
+{:toc}
+
 # Java・Kotlin: 日付・時刻
 
 * 現在日付・時刻を取得する  
