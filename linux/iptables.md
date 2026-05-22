@@ -65,25 +65,53 @@ sudo vi /etc/modprobe.d/iptables.conf
 
 * read timeout を再現  
   syn/ack を通過させ、その後のサーバーからのレスポンスをブロックすることで read timeout を再現するフィルタ  
-  例は localhost 内の通信で確認  
-  ```
-  # SYN/ACKパケットを許可
-  sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
-  # 確立された、ポート 80 からの(通常はレスポンス)パケットをドロップ
-  sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
-  ```
-  設定を確認  
-  ```
-  sudo iptables -L -v
-  ```
-  設定を削除  
-  ```
-  # すべてを削除
-  sudo iptables -F OUTPUT
-  # または個別に削除
-  sudo iptables -D OUTPUT -p tcp --sport 80 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
-  sudo iptables -D OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
-  ```
+  * localhost 内の通信で確認する例  
+    ```
+    # SYN/ACKパケットを許可
+    sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
+    # 確立された、ポート 80 からの(通常はレスポンス)パケットをドロップ
+    sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
+    ```
+    設定を確認  
+    ```
+    sudo iptables -L -v
+    ```
+    設定を削除  
+    ```
+    # すべてを削除
+    sudo iptables -F OUTPUT
+    # または個別に削除
+    sudo iptables -D OUTPUT -p tcp --sport 80 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
+    sudo iptables -D OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
+    ```
+  * 別ホストとの接続で確認する例
+    ```
+    # SYN/ACKパケットを許可
+    sudo iptables -A INPUT -p tcp -s 192.168.1.1 --sport 80 -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
+    # 確立された、ポート 80 からの(通常はレスポンス)パケットをドロップ
+    sudo iptables -A INPUT -p tcp -s 192.168.1.1 --sport 80 -m state --state ESTABLISHED -j DROP
+    ```
+    設定を確認  
+    ```
+    sudo iptables -L -v
+    ```
+    設定を削除  
+    ```
+    # すべてを削除
+    sudo iptables -F INPUT
+    # または個別に削除
+    sudo iptables -D INPUT -p tcp -s 192.168.1.1 --sport 80 -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
+    sudo iptables -D INPUT -p tcp -s 192.168.1.1 --sport 80 -m state --state ESTABLISHED -j DROP
+    ```
+    または INPUT chain に追加されたルールの番号を確認して
+    ```
+    sudo iptables -L INPUT --line-numbers -n
+    ```
+    INPUT chain の番号を指定して削除
+    ```
+    sudo iptables -D INPUT <Number>
+    ```
+    
   
 
 
