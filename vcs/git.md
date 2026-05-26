@@ -101,6 +101,25 @@
   git push origin HEAD
   ```
 
+## タグ
+
+* clone したソースに対して、特定のタグに切り替え
+  ```
+  # 最新のタグを取得
+  git fetch --tags
+  # 「rejected」といったエラーか出る場合
+  git fetch --tags -f
+  # タグを指定して切り替え
+  git checkout v1.1
+  # または
+  git switch --detach v1.1
+  ```
+* 現在どのタグにいるかを確認
+  ```
+  git describe --tags
+  ```
+  
+
 ## コミット情報取得
 
 Go ビルド時にバージョン情報を埋め込む場合などに使用。
