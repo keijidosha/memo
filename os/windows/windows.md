@@ -324,6 +324,18 @@ nslookup の代わりに Resolve-DnsName を使用
   robocopy 9.6 src dest /E /FP /NDL /MIR /L
   ```
 
+## ディスク・ドライブ
+
+* RefS で初期化(PowerShell)
+  ドライブの一覧を表示して目的のドライブレターを確認
+  ```
+  Get-Volume
+  ```
+  ReFS で初期化
+  ```
+  Format-Volume -DriveLetter X -FileSystem ReFS -NewFileSystemLabel "XXX-ReFS" -Full -Force
+  ```
+
 ## トラブルシューティング
 
 * Power Shell 7 で vim を開いて矩形選択するのに Ctrl + V を押すと、クリップボードの内容がペーストされてしまう。  
