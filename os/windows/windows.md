@@ -269,6 +269,18 @@ nslookup の代わりに Resolve-DnsName を使用
   ```
 * 継続行  
   Unix系では「\」(バックスラッシュだが、Windows(PowerShell)では「`」(バッククォート)
+* ドライブの情報を確認
+  ```
+  Get-Volume -DriveLetter X
+  ```
+  * ドライブのクラスターサイズを確認
+  ```
+  (Get-Volume -DriveLetter X).AllocationUnitSize
+  ```
+  * ドライブのクラスターサイズを指定してフォーマット
+  ```
+  Format-Volume -DriveLetter X -FileSystem NTFS -AllocationUnitSize 65536 -NewFileSystemLabel "Label" -Force
+  ```
 
 
 ## robocopy
