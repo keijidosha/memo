@@ -111,7 +111,10 @@ sudo vi /etc/modprobe.d/iptables.conf
     ```
     sudo iptables -D INPUT <Number>
     ```
-    
+  * 設定したフィルターにマッチしたパケットの数を表示
+    ```
+    sudo iptables -nvL INPUT
+    ```
   
 
 
