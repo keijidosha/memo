@@ -3,6 +3,11 @@
 
 ## Tips
 
+* ホスト名を設定
+  ```
+  sudo hostnamectl set-hostname <host名>
+  ```
+
 ### システム日時を偽装する(プログラムテスト用などに)(CentOS向け)
 #### 環境構築
 
