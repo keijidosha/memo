@@ -312,6 +312,49 @@ docker-machine rm <マシン名>
 1. sudo usermod -aG docker $USER  
 => 再ログイン後に反映
 
+### Oracle Linux 9
+* もし古いバージョンがインストールされた場合にいったん削除
+   ```
+   sudo dnf remove -y docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine podman runc
+   ```
+* 必要なツールのインストール
+   ```
+   sudo dnf install -y dnf-utils
+   ```
+* Docker公式リポジトリの追加
+   ```
+   sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   ```
+* 追加したリポジトリから Docker Engine をインストール
+   ```
+   sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   ```
+   OS 起動時に自動的に Docker サービスが起動するように設定
+   ```
+   sudo systemctl enable --now docker
+   ```
+   OS 再起動して Docker サービスの状態を確認
+   ```
+   sudo systemctl status docker
+   ```
+   ユーザーから Docker を操作できるよう docker グループに追加
+   ```
+   sudo usermod -aG docker $USER
+   ```
+   即時反映
+   ```
+   newgrp docker
+   ```
+   動作確認用 Docker イメージを使ってコンテナを起動して確認(コンテナ起動後すぐ終了)
+   ```
+   docker run hello-world
+   ```
+   エラーが出ていないことを確認したらコンテナを削除
+   ```
+   docker rm hello-world
+   ```
+
+
 ### CentOS
 1. sudo yum remove docker docker-common docker-selinux docker-engine
 1. sudo yum install -y yum-utils device-mapper-persistent-data lvm2
