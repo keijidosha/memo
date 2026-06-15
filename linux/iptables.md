@@ -72,6 +72,11 @@ sudo vi /etc/modprobe.d/iptables.conf
     # 確立された、ポート 80 からの(通常はレスポンス)パケットをドロップ
     sudo iptables -A OUTPUT -p tcp --sport 80 -o lo -m state --state ESTABLISHED -j DROP
     ```
+    ポートを範囲で指定する場合は : で区切って指定。
+    ```
+    sudo iptables -A OUTPUT -p tcp --sport 8000:8999 -o lo -m tcp --tcp-flags SYN,ACK SYN,ACK -j ACCEPT
+    sudo iptables -A OUTPUT -p tcp --sport 8000:8999 -o lo -m state --state ESTABLISHED -j DROP
+    ```
     設定を確認  
     ```
     sudo iptables -L -v
