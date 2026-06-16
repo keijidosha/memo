@@ -206,6 +206,18 @@
    * ZFS は Hyper-V でも安定しない可能性ありとの情報あり。btrfs は Hyper-V では OK。
   * firewalld が使えない。
 
+### WSL2 Tips
+
+* WSL2 に Ubuntu 26.04 をインストールすると「wsl: Failed to start the systemd user session for 'ubuntu'. See journalctl for more details.」というメッセージが表示される。  
+  AppArmor を無効にすると解消する。
+  ```
+  sudo systemctl disable --now apparmor
+  ```
+  その前に WSL2 を更新していおいてもよさそう(これで解消する訳ではないが一応)。
+  ```
+  wsl --update
+  ```
+
 ## Hyper-V
 
 * Hyper-V では WSL2 のような /mnt/c や VirtualBox のような共有フォルダは使えない。
