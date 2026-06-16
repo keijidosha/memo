@@ -213,7 +213,8 @@
   ```
   sudo systemctl disable --now apparmor
   ```
-  その前に WSL2 を更新していおいてもよさそう(これで解消する訳ではないが一応)。
+  その前に WSL2 を更新していおいてもよさそう(これで解消する訳ではないが一応)。  
+  (管理者権限の PowerShell で実行)
   ```
   wsl --update
   ```
