@@ -182,6 +182,7 @@
     * [snmp](linux/snmp.md)
     * [SoX](linux/sox.md)
     * [SSH, SCP](linux/ssh_scp.md)
+    * [systemd](linux/systemd.md)
     * [sudo](linux/sudo.md)
     * [tar](linux/tar.md)
     * [tc](linux/tc.md)
