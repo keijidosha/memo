@@ -208,6 +208,26 @@
   * ZFS, btrfs が使えない。
    * ZFS は Hyper-V でも安定しない可能性ありとの情報あり。btrfs は Hyper-V では OK。
   * firewalld が使えない。
+* Ubuntu 24.04 を更新イメージから WSL2 にインストール
+  * https://releases.ubuntu.com/24.04/ の WSL Image から ubuntu-24.04.4-wsl-amd64.wsl をダウンロード。
+  * WSL イメージからインストール。
+    ```
+    wsl --install --from-file C:\Downloads\ubuntu-24.04.4-wsl-amd64.wsl --name Ubuntu-24.04
+    ```
+  * 作成された ext4.vhdx を別のドライブに移す場合
+    * まず WSL2 を停止。
+      ```
+      wsl --shutdown
+      ```
+    * 管理者の Power Shell で次のコマンドを実行して移動。
+      ```
+      wsl --manage Ubuntu-24.04 --move U:\ReFS\WSL\Ubuntu-24.04
+      ```
+      移動先のフォルダはあらかじめ作成しておく。
+  * Power Shell にプロファイル新規登録する場合のコマンドライン
+    ```
+    wsl.exe -d Ubuntu-24.04
+    ```
 
 ### WSL2 Tips
 
