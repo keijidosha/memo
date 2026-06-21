@@ -274,6 +274,60 @@ lxc network list-leases lxdbr0
   lxc network create lxdbr1
   ```
 
+## ストレージプール
+
+* 既存の default ストレージプールを削除して作り直す  
+  (例) dir で作成していたストレージプールを btrfs で作り直す  
+  すべてのコンテナを停止  
+  ```
+  lxc stop --all
+  ```
+  すべてのコンテナを削除
+  ```
+  lxc rm container-name
+  ```
+  profile から default との紐づけを解除
+  ```
+  lxc profile device remove default root
+  ```
+  ストレージプールにイメージやボリュームが残っていないか確認
+  ```
+  lxc storage volume list default
+  ```
+  残っている場合は削除  
+  ボリュームの場合
+  ```
+  lxc storage volume delete default custom/volume-name
+  ```
+  イメージの場合
+  ```
+  lxc image rm image-name
+  ```
+  default ストレージプールを削除
+  ```
+  lxc storage delete default
+  ```
+  default ストレージプールを btrfs で作成
+  ```
+  lxc storage create default btrfs
+  ```
+  サイズを指定する場合は
+  ```
+  lxc storage create default btrfs size=60GiB
+  ```
+  作成したストレージプールを profile に紐づけ
+  ```
+  lxc profile device add default root disk path=/ pool=default
+  ```
+  作成したストレージプールの情報を確認
+  ```
+  lxc storage info default
+  ```
+  ストレージプールを拡張する場合は
+  ```
+  lxc storage set default size=128GiB
+  ```
+
 ## Tips
 
 * `lxc exec <コンテナ名> bash` で接続した時に読み込まれる設定  
