@@ -501,6 +501,54 @@ docker run -it --rm --net host --privileged nfs-server1
     docker start redmine-sqlite
     ```
     ※db, files のバックアップからのコピーはコンテナ作成前にしておいてもよさそう。
+  * バックアップスクリプト  
+    sudo vi /usr/local/bin/backup-redmine-db.sh
+    ```
+    #!/bin/bash
+    set -e
+    
+    SRC="/home/hoge/docker/redmine-sqlite/db/redmine.db"
+    DST_DIR="/mnt/c/Users/hoge/Documents/docker/redmine-sqlite"
+    
+    # DB が存在しない場合は何もしない
+    [ -f "$SRC" ] || exit 0
+    
+    mkdir -p "$DST_DIR"
+    
+    # 曜日取得（mon, tue, wed...）
+    DAY=$(date +%a | tr '[:upper:]' '[:lower:]')
+    
+    cp -p "$SRC" "$DST_DIR/redmine-${DAY}.db"
+    ```
+    sudo chmod 755 /usr/local/bin/backup-redmine-db.sh
+  * バックアップスクリプトを定期実行  
+    sudo vi /etc/systemd/system/backup-redmine-db.service
+    ```
+    [Unit]
+    Description=Daily Backup Redmine SQLite DB
+    
+    [Service]
+    Type=oneshot
+    ExecStart=/usr/local/bin/backup-redmine-db.sh
+    ```
+    sudo vi /etc/systemd/system/backup-redmine-db.timer
+    ```
+    [Unit]
+    Description=Run Redmine DB backup daily
+    
+    [Timer]
+    OnCalendar=*-*-* 04:00:00
+    Persistent=true
+    
+    [Install]
+    WantedBy=timers.target
+    ```
+    タイマーサービスを有効化
+    ```
+    sudo systemctl daemon-reload
+    sudo systemctl enable backup-redmine-db.timer
+    sudo systemctl start backup-redmine-db.timer
+    ```
 * Redmine 用ディレクトリ作成  
   ```
   mkdir redmine-sql
