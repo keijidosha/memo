@@ -64,6 +64,10 @@ docker history <イメージ名>
         }
     ],
     ```
+  * コンテナ作成時にマウント指定したパスだけを詳細表示
+    ```
+    docker inspect --format '{{json .Mounts}}' container-name | json_pp
+    ```
 * ポート転送をしてバックグラウンドで起動する  
 (例) Apache HTTPD をバックグラウンドで起動し、ホスト上で 8080 に到着したパケットを転送する  
 `docker run -p 8080:80 -d httpd`  
