@@ -918,6 +918,12 @@ sudo zpool set autoexpand=off default
 
 ##### btrfs
 
+Ubuntu 24.04(LXD 5.x)
+```
+lxc storage set default size=128GiB
+```
+
+LXD 3
 ```
 # btrfs の使用状況を確認
 $ lxc storage info default
