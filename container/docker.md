@@ -467,6 +467,36 @@ docker run -it --rm --net host --privileged nfs-server1
 
 ## Docker Desktop で Redmine + SQLite
 
+* 2026.06.21 最新状況メモ: Ubuntu 24.04 環境に Redmine + SQLite を Docker で作成
+  * Docker コンテナからマウントするディレクトリを作成
+    ```
+    mkdir -p ~/docker/redmine-sqlite
+    ```
+  * 作成したディレクトリに移動
+    ```
+    cd ~/docker/redmine-sqlite
+    ```
+  * 作成したディレクトリをマウントするように Redmine + SQLite のコンテナを作成
+    ```
+    docker run --name redmine-sqlite -p3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files -v$PWD/themes:/usr/src/redmine/themes -v$PWD/plugins:/usr/src/redmine/plugins redmine:6.1.2-alpine
+    ```
+  * バックアップしておいた DB ファイルを作成したディレクトリ配下にコピー(要 root 権限)
+    ```
+    sudo cp -pi ~/backup/redmine.db ~/docker/redmine-sqlite/db/redmine.db
+    ```
+  * files 配下をバックアップからコピー(要 root 権限)
+    ```
+    sudo cp -pir ~/backup/files/* ~/docker/redmine-sqlite/files/
+    ```
+  * マウントしたディレクトリ・ファイルをコンテナ内の Redmine プロセスの実行ユーザーの ID に合わせる(Redmine=999)
+    ```
+    sudo chown -R 999:999 ~/docker/redmine-sqlite/*
+    ```
+  * Redmine のコンテナを起動
+    ```
+    docker start redmine-sqlite
+    ```
+    ※db, files のバックアップからのコピーはコンテナ作成前にしておいてもよさそう。
 * Redmine 用ディレクトリ作成  
   ```
   mkdir redmine-sql
