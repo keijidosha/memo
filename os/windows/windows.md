@@ -206,8 +206,10 @@
 * WSL2 の制限事項
   * ブリッジネットワークが使えない。基本 NAT のみ。
   * ZFS, btrfs が使えない。
-   * ZFS は Hyper-V でも安定しない可能性ありとの情報あり。btrfs は Hyper-V では OK。
+    * btrfs は `wsl --update` で解消。ZFS は引き続き使えない。
+    * ZFS は Hyper-V でも安定しない可能性ありとの情報あり。btrfs は Hyper-V では OK。
   * firewalld が使えない。
+    * `wsl --update` で解消。
 * Ubuntu 24.04 を更新イメージから WSL2 にインストール
   * https://releases.ubuntu.com/24.04/ の WSL Image から ubuntu-24.04.4-wsl-amd64.wsl をダウンロード。
   * WSL イメージからインストール。
