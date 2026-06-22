@@ -1199,6 +1199,34 @@ vagrant plugin install vagrant-vbguest
 /var/snap/lxd/common/lxd/storage-pools/default/containers/<コンテナ名>/rootfs/
 ```
 
+### WSL2 + Ubuntu 環境で wsl --update すると、lxc list で permission denied
+
+次のケース
+* WSL2 + Ubuntu 環境で LXC を使っている
+* wsl --update した後で lxc list すると、次のエラーメッセージが表示される。
+  ```
+  Error: LXD unix socket "/var/snap/lxd/common/lxd/unix.socket" not accessible: permission denied
+  ```
+
+対処
+* unix.socket の権限を確認
+  ```
+  sudo ls -l /var/snap/lxd/common/lxd/unix.socket
+  ```
+  結果
+  ```
+  srw-rw---- 1 root root 0 Jun 23 08:46 /var/snap/lxd/common/lxd/unix.socket
+  ```
+  ユーザー・グループとも所有者が root になっている。
+* グループを lxd に変更
+  ```
+  sudo chgrp lxd /var/snap/lxd/common/lxd/unix.socket
+  ```
+* 実行ユーザーを lxd グループに所属させる(すでに実行済みの場合不要かも)
+  ```
+  sudo gpasswd -a $USER lxd
+  ```
+
 
 ## よく使うパターン
 
