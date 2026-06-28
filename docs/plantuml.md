@@ -225,6 +225,18 @@ skinparam sequence {
 java -jar plantuml.jar -h
 ```
 
+## Windows
+
+* Windows 環境で plantuml を簡単に起動するための設定。  
+  C:\Users\username\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 に次の内容を追記
+  ```
+  function plantuml {
+      java -jar "C:\Users\okumura\Documents\java\plantuml\plantuml-1.2023.12.jar" -tsvg -gui
+  }
+  ```
+  PowerShell から `plantuml` をたたくと plantuml が GUI で起動。
+
+
 ## トラブルシューティング
 
 * サイズの大きな画像(PNG)を出力しようとすると、途中で切れてしまう。  
