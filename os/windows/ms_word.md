@@ -1,3 +1,6 @@
+- Table of Content  
+  {:toc}
+
 # Word
 
 ## 図形
