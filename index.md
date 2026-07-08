@@ -107,6 +107,7 @@
     * [Mac に MariaDB をインストール](db/mysql/install_mariadb_on_mac.md)
   * [Oracle](db/oracle/oracle.md)
   * [PostgreSQL](db/postgresql.md)
+* [認証](auth/auth.md)
 * internet
   * SSL
     * [Let's Encrypt](internet/ssl/lets_encrypt.md)
