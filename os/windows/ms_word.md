@@ -1,5 +1,5 @@
 - Table of Content  
-  {:toc}
+{:toc}
 
 # Word
 
