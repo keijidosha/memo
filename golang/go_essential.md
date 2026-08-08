@@ -47,11 +47,15 @@ export PATH=$PATH:/usr/local/go/bin
 * コンパイル  
 `go build hello.go`
   * Linux 64bit用にコンパイル  
-    `GOOS=linux GOARCH=amd64 go build hello.go`
+    `GOOS=linux GOARCH=amd64 go build hello.go`  
+    Windows Power Shell 実行する場合  
+    `$env:GOOS="linux"; $env:GOARCH="amd64"; go build hello.go`
   * Windows 32bit用にコンパイル  
-    `GOOS=windows GOARCH=386 go build hello.go`
+    `GOOS=windows GOARCH=386 go build hello.go`  
+    `$env:GOOS="windows"; $env:GOARCH="386"; go build hello.go`
   * MacOS 64bit用にコンパイル  
-    `GOOS= darwin GOARCH=amd64 go build hello.go`
+    `GOOS=darwin GOARCH=amd64 go build hello.go`  
+    `$env:GOOS="darwin"; $env:GOARCH="amd64"; go build hello.go`
   * CGO を有効にしてコンパイル
     * Linux 64bit用
       1. インストール  
