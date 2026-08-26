@@ -57,6 +57,10 @@
   sudo dnf history undo <transactionid>
   ```
   途中の(最後のではなく)履歴をアンインストールできるかどうかは不明(要確認)。
+* RPM がインストールされた時の履歴を確認
+  ```
+  sudo dnf history list <RPM名>
+  ```
 
 ## リポジトリ
 
