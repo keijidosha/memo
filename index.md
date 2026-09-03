@@ -167,6 +167,7 @@
     * [iptables](linux/iptables.md)
     * [journalctl](linux/journalctl.md)
     * [ln(リンク)](linux/ln.md)
+    * [logrotate](linux/logrotate.md)
     * [lsコマンド](linux/ls.md)
     * [lsof](linux/lsof.md)
     * [LVM](linux/lvm.md)
