@@ -288,12 +288,24 @@ Internal Fixed(内部ネットワーク)を作成し、Linux の eth1 に割り�
   |ペインを閉じる|Ctrl + Shift + W|
   |ペイン間でフォーカス移動|Alt + 矢印|
   |ペインのサイズ変更|Alt + Shift + 矢印|
-  
-    
 
 * タブを開くときのショートカットの ctrl + Shift + (1|2|3...)  の順序を変更  
   [設定] を開き、サイドバーの一番下にある「JSONファイルを開く」をクリック。  
   エディタで JSON ファイルが開くので、profiles - list 配下のタブ項目の順序を入れ替える。  
+
+* PowerShell を Ctrl + D で抜けれるようにする。
+  * プロファイルを開く
+    ```
+    notepad $PROFILE
+    ```
+  * 次の設定を追記して保存
+    ```
+    Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('exit')
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+    }
+    ```
 
 ## DNS
 
