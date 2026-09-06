@@ -206,7 +206,7 @@
   * [Windows](os/windows/windows.md)
     * Microsoft Office
       * [Word](os/windows/ms_word.md)
-      * [Double Commander](os/windows/doublecommander.md)
+    * [Double Commander](os/windows/doublecommander.md)
 * mobile
   * iOS
     * [ユニバーサルスタティックライブラリ](ios/universal_library.md)
