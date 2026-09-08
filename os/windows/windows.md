@@ -408,6 +408,10 @@ nslookup の代わりに Resolve-DnsName を使用
   ```
   Format-Volume -DriveLetter X -FileSystem NTFS -AllocationUnitSize 65536 -NewFileSystemLabel "Label" -Force
   ```
+* ドライブのフォーマット情報を確認
+  ```
+  fsutil fsinfo ntfsinfo x:
+  ```
 * RefS で初期化(PowerShell)
   ドライブの一覧を表示して目的のドライブレターを確認
   ```
