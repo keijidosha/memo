@@ -161,6 +161,10 @@
     ```
     Get-Content a,b,c,d -AsByteStream | Set-Content e -AsByteStream
     ```
+* ディレクトリ配下の使用量(ファイルサイズの合計)(du)
+  ```
+  Get-ChildItem -Recurse -File | Measure-Object -Property Length -Sum
+  ```
 
 #### リンク
 
