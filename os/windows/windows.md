@@ -169,7 +169,10 @@
   ```
   while ($true) { (Get-ChildItem "C:\Doc" -Recurse -File).Count; Start-Sleep -Seconds 180 }
   ```
-
+* 指定したドライブの情報(クラスタサイズなど)を表示
+  ```
+  fsutil fsinfo ntfsinfo D:
+  ```
 
 #### リンク
 
