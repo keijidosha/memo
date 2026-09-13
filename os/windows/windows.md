@@ -165,6 +165,11 @@
   ```
   Get-ChildItem -Recurse -File | Measure-Object -Property Length -Sum
   ```
+* 指定したフォルダ配下にあるファイルの数を 3分間隔で表示
+  ```
+  while ($true) { (Get-ChildItem "C:\Doc" -Recurse -File).Count; Start-Sleep -Seconds 180 }
+  ```
+
 
 #### リンク
 
