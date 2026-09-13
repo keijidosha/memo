@@ -193,7 +193,7 @@
   ```
 
 
-#### その他
+### その他
 
 
 * コマンド検索(which)
@@ -212,6 +212,19 @@
   ```
   Measure-Command { <command> | Tee-Object output.txt }
   ```
+* PowerShell から音を鳴らす
+  ```
+  (New-Object System.Media.SoundPlayer "C:\xxx\hoge.wav").Play()
+  ```
+* トースターを表示
+  ```
+  New-BurntToastNotification -Text "Title", "Message"
+  ```
+  事前に BurntToast のインストールが必要
+  ```
+  Install-Module -Name BurntToast -Scope CurrentUser -Force
+  ```
+  
 
 ## WSL2
 
