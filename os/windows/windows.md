@@ -214,7 +214,11 @@
   ```
 * PowerShell から音を鳴らす
   ```
-  (New-Object System.Media.SoundPlayer "C:\xxx\hoge.wav").Play()
+  (New-Object System.Media.SoundPlayer "xxx.wav").Play()
+  ```
+  (例)
+  ```
+  (New-Object System.Media.SoundPlayer "C:\Windows\Media\Alarm01.wav").Play()
   ```
 * トースターを表示
   ```
