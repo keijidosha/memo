@@ -46,10 +46,18 @@ export PATH=$PATH:/usr/local/go/bin
   ```
 * コンパイル  
 `go build hello.go`
-  * Linux 64bit用にコンパイル  
-    `GOOS=linux GOARCH=amd64 go build hello.go`  
-    Windows Power Shell 実行する場合  
-    `$env:GOOS="linux"; $env:GOARCH="amd64"; go build hello.go`
+  * Linux 64bit用にコンパイル
+    ```
+    GOOS=linux GOARCH=amd64 go build hello.go
+    ```
+    Windows Power Shell で実行する場合  
+    ```
+    $env:GOOS="linux"; $env:GOARCH="amd64"; go build hello.go
+    ```
+    Windows Power Shell 実行した後、環境変数を残さない  
+    ```
+    & { $env:GOOS="linux"; $env:GOARCH="amd64"; go build hello.go }
+    ```
   * Windows 32bit用にコンパイル  
     `GOOS=windows GOARCH=386 go build hello.go`  
     `$env:GOOS="windows"; $env:GOARCH="386"; go build hello.go`
