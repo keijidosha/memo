@@ -103,6 +103,17 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
 
 ### 認証
 
+* アクセスキーなしで一時的な認証を使って CLI を使う。
+  1. ブラウザーで AWS コンソールにログイン
+  1. 次のコマンドを実行
+     ```
+     aws login --profile hoge
+     ```
+     ※初回実行時は、リージョンを聞かれる。
+  1. ブラウザーのタブが開くので、ログイン済みセッションを選択
+  1. ~/.aws/config と ~/.aws/credentials のプロファイル hoge に情報が書き込まれる。
+  1. 以降、ブラウザーのタブを閉じるまで? aws cli のパラメーターに `--profile hoge` を指定することでコマンドを実行できる。
+
 * MFA(2段階)認証しているアカウントで CLI を使う
   1. AWS CLI の設定ファイルにプロファイルを追加して MFA 認証が必要なアカウント情報を記述  
      ~/.aws/credentials  
