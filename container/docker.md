@@ -469,9 +469,9 @@ docker run -it --rm --net host --privileged nfs-server1
 
 (参考) [Dockerコンテナ同士のNFSのサーバ・クライアント疎通サンプル](http://otiai10.hatenablog.com/entry/2018/03/22/175016)
 
-## Docker Desktop で Redmine + SQLite
+## Docker で Redmine + SQLite
 
-* 2026.06.21 最新状況メモ: Ubuntu 24.04 環境に Redmine + SQLite を Docker で作成
+* 2026.10.11 最新状況メモ: WSL2 + Ubuntu 26.04 環境に Redmine + SQLite を Docker で作成
   * Docker コンテナからマウントするディレクトリを作成
     ```
     mkdir -p ~/docker/redmine-sqlite
@@ -482,7 +482,7 @@ docker run -it --rm --net host --privileged nfs-server1
     ```
   * 作成したディレクトリをマウントするように Redmine + SQLite のコンテナを作成
     ```
-    docker run --name redmine-sqlite -p3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files -v$PWD/themes:/usr/src/redmine/themes -v$PWD/plugins:/usr/src/redmine/plugins redmine:6.1.2-alpine
+    docker run --name redmine-sqlite -p3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files -v$PWD/themes:/usr/src/redmine/themes -v$PWD/plugins:/usr/src/redmine/plugins redmine:7.0.2-alpine
     ```
   * バックアップしておいた DB ファイルを作成したディレクトリ配下にコピー(要 root 権限)
     ```
@@ -549,26 +549,27 @@ docker run -it --rm --net host --privileged nfs-server1
     sudo systemctl enable backup-redmine-db.timer
     sudo systemctl start backup-redmine-db.timer
     ```
-* Redmine 用ディレクトリ作成  
-  ```
-  mkdir redmine-sql
-  cd redmine-sql
-  ```
-* DBファイル保存用ディレクトリ作成  
-`mkdir db`
-* 添付ファイル保存用ディレクトリ作成  
-`mkdir files`
-* コンテナ作成  
-  podman
-  ```
-  podman run --name redmine-sqlite -p3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:6.0.4-alpine
-  ```
-  docker
-  ```
-  docker run --name redmine-sqlite -p3030:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:4.2.10-alpine
-  ```
-* 自動起動設定  
-`docker update --restart=always redmine-sqlite`
+* Mac で podman や Docker Desktop で Redmine
+  * Redmine 用ディレクトリ作成  
+    ```
+    mkdir redmine-sql
+    cd redmine-sql
+    ```
+  * DBファイル保存用ディレクトリ作成  
+  `mkdir db`
+  * 添付ファイル保存用ディレクトリ作成  
+  `mkdir files`
+  * コンテナ作成  
+    podman
+    ```
+    podman run --name redmine-sqlite -p3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:6.0.4-alpine
+    ```
+    docker
+    ```
+    docker run --name redmine-sqlite -p3030:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files redmine:4.2.10-alpine
+    ```
+  * 自動起動設定  
+    `docker update --restart=always redmine-sqlite`
 
 ## 各OSのコンテナ起動
 * CentOS 7.5  
