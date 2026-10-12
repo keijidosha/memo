@@ -156,6 +156,7 @@
     * [bc](linux/bc.md)
     * [chrony](linux/chrony.md)
     * [conntrack](linux/conntrack.md)
+    * [cp](linux/cp.md)
     * [cron](linux/cron.md)
     * [curl](linux/curl.md)
     * [date](linux/date.md)
