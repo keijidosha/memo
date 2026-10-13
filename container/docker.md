@@ -308,7 +308,26 @@ docker-machine rm <マシン名>
 
 ※Vagrant/VirtualBox 環境で upgrade すると、addtional tools が使えなくなってネットワークや共有フォルダで問題が出る可能性があるので、簡単なテストをして確認しておいた方がよさそう。  
 まずは upgrade した環境で小さなコンテナを立ててネットワーク接続を確認するなど(例: curl https://www.xxxx.co.jp/。
+(新)
+1. パッケージの更新
+   ```
+   sudo apt update && sudo apt upgrade -y
+   ```
+1. Docker 公式の自動インストールスクリプトを実行
+   ```
+   curl -fsSL https://get.docker.com | sh
+   ```
+1. 一般ユーザーで sudo なしで docker を使えるように設定
+   ```
+   sudo usermod -aG docker $USER
+   ```
+1. バージョンの確認（Engine と Compose の両方を確認）
+   ```
+   docker --version
+   docker compose version
+   ```
 
+(旧)
 1. sudo apt update
 1. sudo apt upgrade
 1. sudo apt install docker.io
