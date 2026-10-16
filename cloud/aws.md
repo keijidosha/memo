@@ -47,7 +47,11 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   ```
 * インスタンス名だけを表示
   ```
-  aws ec2 describe-instances --region us-east-1 --profile hoge --query 'Reservations[].Instances[].Tags[?Key==`Name`].Value | []' --output text
+  aws ec2 describe-instances --region us-east-1 --profile hoge --query 'Reservations[].Instances[].Tags[?Key==`Name`].Value | []' --output text | tr '\t' '\n'
+  ```
+* AMI の ID と名前を一覧表示
+  ```
+  aws ec2 describe-images --region us-east-1 --profile hoge --owners self --query 'Images[].[ImageId, Name]' --output text | tr '\t' ','
   ```
 * インスタンスを作成
   ```
