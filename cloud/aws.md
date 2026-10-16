@@ -43,7 +43,11 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
 ### EC2
 * インスタンスのリストを取得
   ```
-  aws ec2 describe-instances --profile=taro --region us-east-1
+  aws ec2 describe-instances --profile=hoge --region us-east-1
+  ```
+* インスタンス名だけを表示
+  ```
+  aws ec2 describe-instances --region us-east-1 --profile hoge --query 'Reservations[].Instances[].Tags[?Key==`Name`].Value | []' --output text
   ```
 * インスタンスを作成
   ```
