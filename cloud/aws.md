@@ -53,6 +53,10 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   ```
   aws ec2 describe-images --region us-east-1 --profile hoge --owners self --query 'Images[].[ImageId, Name]' --output text | tr '\t' ','
   ```
+  * タグも表示する場合
+    ```
+    aws ec2 describe-images --region us-east-1 --profile hoge --owners self --query 'Images[].[ImageId, Name, Tags[?Key==`owner`].Value | [0]]' --output text | tr '\t' ','
+    ```
 * インスタンスを作成
   ```
   aws ec2 run-instances --dry-run --region us-east-1 \
