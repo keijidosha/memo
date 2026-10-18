@@ -7,6 +7,7 @@
 
 |コマンド|説明|
 |---|---|
+| /effort | 思考の負荷さを設定 |
 | /permission | パーミッション設定 |
 | /memory | CLAUDE.md を編集 |
 | /help | ヘルプ |
@@ -16,5 +17,5 @@
 | /init | CLAUDE.md を初期化 |
 | /rewind | チェックポイントに戻る |
 | /terminal-setup | Shift + Enter を設定 |
-
+| ultrathink | このキーワードをプロンプトに含めることで、1回だけ深く考える |
 
