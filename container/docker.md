@@ -503,6 +503,10 @@ docker run -it --rm --net host --privileged nfs-server1
     ```
     docker run --name redmine-sqlite -p3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files -v$PWD/themes:/usr/src/redmine/themes -v$PWD/plugins:/usr/src/redmine/plugins redmine:7.0.2-alpine
     ```
+    WSL2 環境の Docker の場合は、-p に 127.0.0.1 を指定しても OK。
+    ```
+    docker run --name redmine-sqlite -p 127.0.0.1:3032:3000 -v$PWD/db:/usr/src/redmine/sqlite -v$PWD/files:/usr/src/redmine/files -v$PWD/themes:/usr/src/redmine/themes -v$PWD/plugins:/usr/src/redmine/plugins redmine:7.0.2-alpine
+    ```
   * バックアップしておいた DB ファイルを作成したディレクトリ配下にコピー(要 root 権限)
     ```
     sudo cp -pi ~/backup/redmine.db ~/docker/redmine-sqlite/db/redmine.db
