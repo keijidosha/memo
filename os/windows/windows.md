@@ -459,6 +459,17 @@ nslookup の代わりに Resolve-DnsName を使用
   Format-Volume -DriveLetter X -FileSystem ReFS -NewFileSystemLabel "XXX-ReFS" -Full -Force
   ```
 
+### BitLocker
+
+* 外付けドライブ接続時の自動ロック解除を有効にする。
+  ```
+  Enable-BitLockerAutoUnlock -MountPoint "X:"
+  ```
+* 外付けドライブ接続時の自動ロック解除を無効にする。
+  ```
+  Disable-BitLockerAutoUnlock -MountPoint "X:"
+  ```
+
 ## トラブルシューティング
 
 * Power Shell 7 で vim を開いて矩形選択するのに Ctrl + V を押すと、クリップボードの内容がペーストされてしまう。  
