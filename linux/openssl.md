@@ -21,6 +21,10 @@
   openssl crl -inform der -in xxx.der -text
   openssl crl -in xxx.pem -text
   ```
+* WEB サイトなどで使用している証明書を表示
+  ```
+  openssl s_client -connect <Domain>:443 -servername <Domain> -showcerts < /dev/null 2> /dev/null | grep -E "s:|i:"
+  ```
 
 ## Tips
 
