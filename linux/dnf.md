@@ -82,3 +82,21 @@
   ```
 * dnf install を実行すると yes/no を聞いてこないままインストールまで実行されてしまう。  
   /etc/dnf/dnf.conf で「assumeyes=True」になっていないか確認する。
+
+## CVE(脆弱性対策)
+
+(例) cve-2026-109618(PHP2shell) の場合
+* RHEL のサイトで対応状況を確認  
+  https://access.redhat.com/security/cve/cve-2026-109618
+* dnf で更新状況を確認
+  ```
+  sudo dnf updateinfo list --cve CVE-2026-109618
+  ```
+* dnf で更新モジュールを確認
+  ```
+  sudo dnf check-update 'php*'
+  ```
+* dnf で更新モジュールを適用
+  ```
+  sudo dnf update "php-*"
+  ```
