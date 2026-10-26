@@ -100,3 +100,7 @@
   ```
   sudo dnf update "php-*"
   ```
+* CVE 番号を指定して更新モジュールを確認
+  ```
+  sudo dnf update --cve CVE-2026-109618 --assumeno
+  ```
