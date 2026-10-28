@@ -173,6 +173,12 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   ```
   aws sts get-caller-identity
   ```
+* ゾーン名とゾーンID の対応を表示  
+  AWS アカウントによって、ゾーン名が異なるゾーンID に紐づいていることがあるため、どのゾーン名を使うとどのゾーンID に割り当てられるかを確認。  
+  VPC ピアリングで同じゾーンID 間に揃えることで、通信料を発生させないようにする場合に確認。
+  ```
+  aws ec2 describe-availability-zones --query "AvailabilityZones[].[ZoneName, ZoneId]" --output table --region <region>
+  ```
 
 ## EBS
 * EBS パーティション拡張
