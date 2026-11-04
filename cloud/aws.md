@@ -94,9 +94,9 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   ```
   aws ec2 create-image --profile=taro --instance-id i-1234567890abcdefg --name "hoge" --tag-specifications 'ResourceType=image,Tags=[{Key=Name,Value=hoge},{Key=env,Value=prod}]' 'ResourceType=snapshot,Tags=[{Key=Name,Value=hoge},{Key=env,Value=prod}]'
   ```
-* hoge で始まる AMI の一覧
+* 名前に hoge を含む AMI の一覧
   ```
-  aws ec2 describe-images --owner-ids self --filters 'Name=tag:Name,Values=hoge*' --profile taro --region us-east-1
+  aws ec2 describe-images --owners self --query 'Images[*].[ImageId, Name]' --filters 'Name=tag:Name,Values=*hoge*' --output text  --region us-east-1 --profile taro
   ```
 * AMI を別アカウントに共有
   ```
