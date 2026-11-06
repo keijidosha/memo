@@ -117,8 +117,10 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
     # 画面に整形出力
     $results | Format-Table -AutoSize
     ```
-  * タブ区切り
+  * タブ区切り  
+    PowerShell の画面に表示するとタブがスペースに変換されるため、出力内容をクリップボードに流し込む。
     ```
+    & {
     "Name`tInstanceType`tPrivateIP`tPublicIP`tAllocationId(EIP)`tKeyName`tVolDeleteOnTerm`tEniDeleteOnTerm"; `
     aws ec2 describe-instances `
       --region us-xxx-1 `
@@ -135,6 +137,7 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
           NetworkInterfaces[0].Attachment.DeleteOnTermination
       ]" `
       --output text
+    } | Set-Clipboard
     ```
   * タブ区切り(日本語判別あり)
     ```
@@ -189,7 +192,6 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
     # クリップボードにも自動コピー（そのままスプレッドシートに Ctrl+V 可能）
     $tsvData | Set-Clipboard
     Write-Host "`n[情報] クリップボードにコピーしました。スプレッドシートにそのまま貼り付け（Ctrl + V）できます。" -ForegroundColor Green
-
     ```
 * AMI の ID と名前を一覧表示
   ```
