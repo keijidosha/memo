@@ -121,7 +121,7 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
     PowerShell の画面に表示するとタブがスペースに変換されるため、出力内容をクリップボードに流し込む。
     ```
     & {
-    "Name`tInstanceType`tPrivateIP`tPublicIP`tAllocationId(EIP)`tKeyName`tVolDeleteOnTerm`tEniDeleteOnTerm"; `
+    "Name`tInstanceType`tPrivateIP`tPublicIP`tAllocationId`tKeyName`tVolDeleteOnTerm`tEniDeleteOnTerm"; `
     aws ec2 describe-instances `
       --region us-xxx-1 `
       --profile hoge `
