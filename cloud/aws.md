@@ -53,6 +53,144 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   ```
   aws ec2 describe-instances --query "Reservations[].Instances[].{Name: Tags[?Key=='Name']|[0].Value, PrivateIP: PrivateIpAddress, InstanceId: InstanceId, State: State.Name}" --output table
   ```
+* インスタンス名、インスタンスタイプ、プライベートIP、EIP、キーペア、ボリュームと ENI の終了時削除有効・無効を一覧表示
+  * テーブル表示
+    ```
+    aws ec2 describe-instances `
+      --region us-xxx-1 `
+      --profile hoge `
+      --no-cli-pager `
+      --query "Reservations[].Instances[].[
+          Tags[?Key=='Name'].Value | [0],
+          InstanceType,
+          PrivateIpAddress,
+          NetworkInterfaces[0].Association.PublicIp,
+          NetworkInterfaces[0].Association.AllocationId,
+          KeyName,
+          BlockDeviceMappings[0].Ebs.DeleteOnTermination,
+          NetworkInterfaces[0].Attachment.DeleteOnTermination
+      ]" `
+      --output table
+    ```
+  * 一覧表示
+    ```
+    $REGION  = "us-xxx-1"
+    $PROFILE = "hoge"
+    
+    $instances = aws ec2 describe-instances `
+      --region $REGION `
+      --profile $PROFILE `
+      | ConvertFrom-Json
+    
+    $results = foreach ($res in $instances.Reservations) {
+        foreach ($inst in $res.Instances) {
+            $name = ($inst.Tags | Where-Object { $_.Key -eq 'Name' }).Value
+            if (-not $name) { $name = "(No Name)" }
+    
+            # プライマリ ENI の Association 情報を取得
+            $assoc = $inst.NetworkInterfaces[0].Association
+            $publicIp = $assoc.PublicIp
+    
+            # IP タイプの判別ロジック
+            $ipType = "None"
+            if ($publicIp) {
+                if ($assoc.AllocationId) {
+                    $ipType = "Elastic IP (固定)"
+                } else {
+                    $ipType = "Dynamic IP (動的)"
+                }
+            }
+    
+            [PSCustomObject]@{
+                "Name"               = $name
+                "InstanceType"       = $inst.InstanceType
+                "PrivateIP"          = $inst.PrivateIpAddress
+                "PublicIP"           = if ($publicIp) { $publicIp } else { "-" }
+                "IPType"             = $ipType
+                "KeyName"            = if ($inst.KeyName) { $inst.KeyName } else { "(None)" }
+                "VolDeleteOnTerm"    = $inst.BlockDeviceMappings[0].Ebs.DeleteOnTermination
+                "EniDeleteOnTerm"    = $inst.NetworkInterfaces[0].Attachment.DeleteOnTermination
+            }
+        }
+    }
+    
+    # 画面に整形出力
+    $results | Format-Table -AutoSize
+    ```
+  * タブ区切り
+    ```
+    "Name`tInstanceType`tPrivateIP`tPublicIP`tAllocationId(EIP)`tKeyName`tVolDeleteOnTerm`tEniDeleteOnTerm"; `
+    aws ec2 describe-instances `
+      --region us-xxx-1 `
+      --profile hoge `
+      --no-cli-pager `
+      --query "Reservations[].Instances[].[
+          Tags[?Key=='Name'].Value | [0],
+          InstanceType,
+          PrivateIpAddress,
+          NetworkInterfaces[0].Association.PublicIp,
+          NetworkInterfaces[0].Association.AllocationId,
+          KeyName,
+          BlockDeviceMappings[0].Ebs.DeleteOnTermination,
+          NetworkInterfaces[0].Attachment.DeleteOnTermination
+      ]" `
+      --output text
+    ```
+  * タブ区切り(日本語判別あり)
+    ```
+    $REGION  = "us-xxx-1"
+    $PROFILE = "hoge"
+    
+    $instances = aws ec2 describe-instances `
+      --region $REGION `
+      --profile $PROFILE `
+      --no-cli-pager `
+      | ConvertFrom-Json
+    
+    $rows = [System.Collections.Generic.List[string]]::new()
+    
+    # ヘッダー行
+    $rows.Add("Name`tInstanceType`tPrivateIP`tPublicIP`tIPType`tKeyName`tVolDeleteOnTerm`tEniDeleteOnTerm")
+    
+    foreach ($res in $instances.Reservations) {
+        foreach ($inst in $res.Instances) {
+            $name = ($inst.Tags | Where-Object { $_.Key -eq 'Name' }).Value
+            if (-not $name) { $name = "(No Name)" }
+    
+            $assoc = $inst.NetworkInterfaces[0].Association
+            $publicIp = $assoc.PublicIp
+    
+            $ipType = "なし"
+            if ($publicIp) {
+                if ($assoc.AllocationId) {
+                    $ipType = "Elastic IP (固定)"
+                } else {
+                    $ipType = "Dynamic IP (動的)"
+                }
+            }
+    
+            $line = "$name`t" +
+                    "$($inst.InstanceType)`t" +
+                    "$($inst.PrivateIpAddress)`t" +
+                    "$(if ($publicIp) { $publicIp } else { '-' })`t" +
+                    "$ipType`t" +
+                    "$(if ($inst.KeyName) { $inst.KeyName } else { '(None)' })`t" +
+                    "$($inst.BlockDeviceMappings[0].Ebs.DeleteOnTermination)`t" +
+                    "$($inst.NetworkInterfaces[0].Attachment.DeleteOnTermination)"
+    
+            $rows.Add($line)
+        }
+    }
+    
+    # 画面にタブ区切りで出力
+    $tsvData = $rows -join "`r`n"
+    $tsvData
+    
+    # クリップボードにも自動コピー（そのままスプレッドシートに Ctrl+V 可能）
+    $tsvData | Set-Clipboard
+    Write-Host "`n[情報] クリップボードにコピーしました。スプレッドシートにそのまま貼り付け（Ctrl + V）できます。" -ForegroundColor Green
+
+    ```
 * AMI の ID と名前を一覧表示
   ```
   aws ec2 describe-images --region us-east-1 --profile hoge --owners self --query 'Images[].[ImageId, Name]' --output text | tr '\t' ','
