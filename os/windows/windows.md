@@ -80,6 +80,23 @@
     ```
     Add-Type -AssemblyName Microsoft.VisualBasic; Get-ChildItem -Recurse -Force -Filter ".DS_Store" | ForEach-Object { [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($_.FullName,'OnlyErrorDialogs','SendToRecycleBin') }
     ```
+* 見つかったファイルを移動  
+  `find . -name "*.png" -exec mv ~/tmp \;` を Power Shell で。
+  ```
+  Get-ChildItem -Filter "*.png" -Recurse | ForEach-Object { Move-Item $_.FullName "$HOME/tmp" }
+  ```
+  Get-ChildItem を短縮
+  ```
+  gci -r "*.png" | ForEach-Object { Move-Item $_.FullName "$HOME/tmp" }
+  ```
+  ForEach-Object も短縮
+  ```
+  gci -r "*.png" | % { Move-Item $_ "$HOME/tmp" }
+  ```
+  Move-Item も短縮
+  ```
+  gci -r "*.png" | % { mv $_ "$HOME/tmp" }
+  ```
 
 ## ファイル内を検索(grep)
 
