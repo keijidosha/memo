@@ -281,7 +281,102 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   * --subnet-id
   * --associate-public-ip-address
   * --private-ip-address
-  
+
+* EC2インスタンスの終了保護を解除、アタッチされているボリュームと ENI の終了時削除を有効化
+  ```
+  # 設定パラメータ
+  $INSTANCE_IDS = @(
+      "i-1234567890abcdefg"
+      "i-2345678901bcdefgh"
+  )
+  $REGION  = "ap-northeast-1"
+  $AWS_PROFILE = "hoge"
+
+  Write-Host "処理対象インスタンス数: $($INSTANCE_IDS.Count)" -ForegroundColor Magenta
+  Write-Host "==========================================" -ForegroundColor Magenta
+
+  foreach ($instanceId in $INSTANCE_IDS) {
+      Write-Host "`n>>> 処理開始: $instanceId" -ForegroundColor Cyan
+
+      try {
+          # 1. インスタンスの現在の詳細情報（デバイス名、ENI アタッチメント等）を取得
+          $instanceData = aws ec2 describe-instances `
+              --instance-ids $instanceId `
+              --region $REGION `
+              --profile $AWS_PROFILE `
+              | ConvertFrom-Json
+
+          $instance = $instanceData.Reservations[0].Instances[0]
+          $nameTag  = ($instance.Tags | Where-Object { $_.Key -eq 'Name' }).Value
+          Write-Host "    Name: $(if ($nameTag) { $nameTag } else { '(No Name)' })" -ForegroundColor Gray
+
+          # ----------------------------------------------------
+          # 2. 終了保護の解除 (DisableApiTermination -> False)
+          # ----------------------------------------------------
+          Write-Host "    1. 終了保護を解除中..." -NoNewline
+          aws ec2 modify-instance-attribute `
+              --instance-id $instanceId `
+              --no-disable-api-termination `
+              --region $REGION `
+              --profile $AWS_PROFILE
+          Write-Host " [完了]" -ForegroundColor Green
+
+          # ----------------------------------------------------
+          # 3. アタッチされているすべてのボリュームを DeleteOnTermination=true に設定
+          # ----------------------------------------------------
+          $blockDevices = $instance.BlockDeviceMappings
+          if ($blockDevices.Count -gt 0) {
+              Write-Host "    2. EBS ボリューム設定更新中 ($($blockDevices.Count) 個)..."
+              foreach ($dev in $blockDevices) {
+                  $devName = $dev.DeviceName
+                  $volId   = $dev.Ebs.VolumeId
+
+                  aws ec2 modify-instance-attribute `
+                      --instance-id $instanceId `
+                      --block-device-mappings "[{`"DeviceName`": `"$devName`", `"Ebs`": {`"DeleteOnTermination`": true}}]" `
+                      --region $REGION `
+                      --profile $AWS_PROFILE
+                  Write-Host "       -> ボリューム $volId ($devName) : DeleteOnTermination=True" -ForegroundColor Gray
+              }
+              Write-Host "       EBS 設定 [完了]" -ForegroundColor Green
+          } else {
+              Write-Host "    2. アタッチされた EBS ボリュームなし" -ForegroundColor Gray
+          }
+
+          # ----------------------------------------------------
+          # 4. アタッチされているすべての ENI を DeleteOnTermination=true に設定
+          # ----------------------------------------------------
+          $networkInterfaces = $instance.NetworkInterfaces
+          if ($networkInterfaces.Count -gt 0) {
+              Write-Host "    3. ENI 設定更新中 ($($networkInterfaces.Count) 個)..."
+              foreach ($eni in $networkInterfaces) {
+                  $attachmentId = $eni.Attachment.AttachmentId
+                  $eniId        = $eni.NetworkInterfaceId
+                  $deviceIndex  = $eni.Attachment.DeviceIndex
+
+                  aws ec2 modify-network-interface-attribute `
+                      --attachment "AttachmentId=$attachmentId,DeleteOnTermination=true" `
+                      --network-interface-id $eniId `
+                      --region $REGION `
+                      --profile $AWS_PROFILE
+                  Write-Host "       -> ENI $eniId (eth$deviceIndex) : DeleteOnTermination=True" -ForegroundColor Gray
+              }
+              Write-Host "       ENI 設定 [完了]" -ForegroundColor Green
+          } else {
+              Write-Host "    3. アタッチされた ENI なし" -ForegroundColor Gray
+          }
+
+          Write-Host ">>> 正常終了: $instanceId" -ForegroundColor Green
+
+      } catch {
+          Write-Host "`n[エラー] インスタンス $instanceId の処理中に失敗しました: $_" -ForegroundColor Red
+          Write-Host "次のインスタンスの処理を継続します..." -ForegroundColor Yellow
+      }
+  }
+
+  Write-Host "`n==========================================" -ForegroundColor Magenta
+  Write-Host "すべてのインスタンスの処理が終了しました。" -ForegroundColor Magenta
+  ```
 
 ### AMI
 * AMI を作成
