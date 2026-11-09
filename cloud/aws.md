@@ -21,7 +21,7 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
 
 ## CLI
 ### S3
-* 一覧  
+* ファイル・フォルダの一覧  
 `aws s3 ls s3://<バケット>/<パス>/`
 * アップロード  
 `aws s3 cp <ファイル> s3://<バケット>/<パス>/`
@@ -38,6 +38,14 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
   * 生成された URL を aws cli がインストールされていない環境から curl でダウンロード
     ```
     curl -o <filename> <生成された一時URL>
+    ```
+* AWS アカウントで所有する S3 バケットの一覧を表示
+  ```
+  aws s3 ls
+  ```
+  * テーブル形式で表示
+    ```
+    aws s3api list-buckets --query "Buckets[].{Name:Name, CreationDate:CreationDate}" --output table
     ```
 
 ### EC2
