@@ -92,7 +92,10 @@ RPM ファイルに含まれているファイルの一覧を表示する場合�
   rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
   ```  
   (出典) http://syaka-syaka.blogspot.com/2016/01/rpmgpg.html
-
+* RPM ファイルの修正履歴を表示
+  ```
+  rpm -qp --changelog xxx.rpm
+  ```
 
 ## パッケージ作成
 
