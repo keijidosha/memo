@@ -47,6 +47,52 @@ https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/managing-users.html �
     ```
     aws s3api list-buckets --query "Buckets[].{Name:Name, CreationDate:CreationDate}" --output table
     ```
+  * リージョン付きで一覧化してタブ区切りでクリップボードにコピー
+    ```
+    $AWS_PROFILE = "hoge" # 使用する AWS CLI プロファイル名（不要な場合は空文字 ""）
+    # または環境変数に設定
+    $env:AWS_PROFILE = "hoge"
+
+    Write-Host "S3 バケットおよびリージョン情報を取得中..." -ForegroundColor Cyan
+
+    # 1. バケット名一覧を安全に配列として取得
+    $bucketNames = aws s3api list-buckets `
+      --profile $AWS_PROFILE `
+      --query "Buckets[].Name" `
+      --output json `
+      | ConvertFrom-Json
+
+    $rows = [System.Collections.Generic.List[string]]::new()
+
+    # ヘッダー行を追加
+    $rows.Add("BucketName`tRegion")
+
+    # 2. 各バケットのリージョンを判定して行を追加
+    foreach ($bucket in $bucketNames) {
+        # リージョン制約を取得
+        $region = (aws s3api get-bucket-location `
+          --bucket $bucket `
+          --profile $AWS_PROFILE `
+          --query "LocationConstraint" `
+          --output text)
+    
+        # API 仕様上の補正 (us-east-1 は None または null が返る)
+        if ($region -eq "None" -or [string]::IsNullOrWhiteSpace($region)) {
+            $region = "us-east-1"
+        }
+
+        $rows.Add("$bucket`t$region")
+    }
+
+    # 3. TSV 形式に結合してクリップボードに格納
+    $tsvOutput = $rows -join "`r`n"
+    $tsvOutput | Set-Clipboard
+
+    # 画面確認用出力
+    Write-Host ""
+    $tsvOutput
+    Write-Host "`n[完了] クリップボードにタブ区切りでコピーしました。スプレッドシートでそのまま貼り付け（Ctrl + V）できます。" -ForegroundColor Green
+    ```
 
 ### EC2
 * インスタンスのリストを取得
