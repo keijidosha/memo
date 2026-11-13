@@ -100,7 +100,8 @@
 
 ## ファイル内を検索(grep)
 
-* findstr を使う
+* findstr を使う  
+  ※findstr の出力結果に日本語が含まれている場合、PowerShell 環境では文字化けするため、その場合は後述の Get-ChildItem + Select-String を使用。
   ```
   findstr /i search_text c:\xxx\xxx.txt
   ```
@@ -127,6 +128,15 @@
     ```
     Get-ChildItem -Recurse -Filter "*.txt" | Select-String "hoge"
     ```
+    ↑の省略形
+    ```
+    gci -r -Filter "*.txt" | sls "hoge"
+    ```  
+    または
+    ```
+    gci -r . "*.txt" | sls "hoge"
+    ```  
+    ↑Get-ChildItem は、1番目の引数を -Path、2番目の引数を -Filter として受け取るため、カレントディレクトリ（.）を明示して書く。
   * grep -v 相当のアンマッチは -NotMatch パラメーターを指定
     ```
     sls unmatch_text xxx.log -NotMatch
