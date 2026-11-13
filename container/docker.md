@@ -119,6 +119,20 @@ docker logs <コンテナ名>
     => イメージ名、タグ名は保存されない  
   * コンテナを export  
     docker export [option] (コンテナ名|コンテナID)  
+* Docker サービス起動時に指定したコンテナを起動する。
+  * 新規にコンテナを作成して自動起動する場合
+    ```
+    docker run -d --restart unless-stopped --name <containername> <ImangeName>
+    ```
+  * 既存のコンテナを自動起動する場合
+    ```
+    docker update --restart unless-stopped <containername>
+    ```
+  * 確認
+    ```
+    docker inspect <containername> | grep -A 5 "RestartPolicy"
+    ```  
+    `"Name": "unless-stopped"` と表示されれば OK
 
 ### マウント・ボリューム
 
