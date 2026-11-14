@@ -1,4 +1,4 @@
-# This is my memo.
+# memo.
 
 * [Java](java/java.md)
   * [文字列](java/java_string.md)
