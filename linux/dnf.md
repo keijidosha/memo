@@ -88,6 +88,8 @@
 (例) cve-2026-109618(PHP2shell) の場合
 * RHEL のサイトで対応状況を確認  
   https://access.redhat.com/security/cve/cve-2026-109618
+* Oralce Linux の場合  
+  https://linux.oracle.com/cve/CVE-2026-109618.html
 * dnf で更新状況を確認
   ```
   sudo dnf updateinfo list --cve CVE-2026-109618
@@ -103,4 +105,13 @@
 * CVE 番号を指定して更新モジュールを確認
   ```
   sudo dnf update --cve CVE-2026-109618 --assumeno
+  ```
+* ★RHSA/ELSA 番号を指定して更新モジュールを確認(これが一番必要最小限の RPM を確認できそう)  
+  RHEL の場合
+  ```
+  sudo dnf update --advisory=RHSA-2026:90495 --setopt=install_weak_deps=False
+  ```
+  Oracle Linux の場合
+  ```
+  sudo dnf update --advisory=ELSA-2026-90495 --setopt=install_weak_deps=False
   ```
