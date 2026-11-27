@@ -128,6 +128,13 @@ eval `ssh-agent`
 ssh-add <秘密鍵のパス>
 ```
 
+## Windows 環境
+
+* WinSCP がインストールされている環境で、putty なしで OpenSSH 用秘密鍵を ppk に変換する。
+  1. サイトマネージャー(ログイン)のダイアログで [ツール] をクリックして [PuTTYgen を実行] を選択。
+  1. [Load] をクリックして、OpenSSH 用秘密鍵を読み込む。
+  1. [Save private key] をクリックして、ppk 形式で保存。
+
 ## トラブルシューティング
 
 ### Too many authentication failures でログインできない
