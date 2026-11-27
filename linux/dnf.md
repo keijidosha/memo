@@ -39,6 +39,10 @@
   ```
   dnf --setopt=install_weak_deps=False install hoge
   ```
+* ローカルにある RPM ファイルを dnf でインストール
+  ```
+  sudo dnf install --disablerepo=* ./xxx.rpm
+  ```
 
 ## 履歴
 
